@@ -1,3 +1,5 @@
+// Understanding React-Router
+
 import React from 'react';
 import {render} from 'react-dom';
 import { Router, Route, Link, hashHistory, IndexRoute  } from 'react-router'
@@ -21,7 +23,6 @@ class App extends React.Component {
     )
   }
 }
-
 
 render((
    <Router  history = {hashHistory}>
