@@ -10,7 +10,7 @@ class App extends React.Component {
     return (
       <div>
         <ul>
-        <li><Link to='/home'>Home</Link></li>
+          <li><Link to='/home'>Home</Link></li>
           <li><Link to='/about'>About</Link></li>
           <li><Link to='/contact'>Contact</Link></li>
         
@@ -21,8 +21,6 @@ class App extends React.Component {
     )
   }
 }
-
-// export default App;
 
 
 render((
@@ -35,16 +33,14 @@ render((
       </Route>
    </Router>
   
-), document.getElementById('app'))
-
-//render(<App/>, document.getElementById('app'));
+), document.getElementById('app'));
 
 
 
 
 
 
-
+/* Understanding Components
 
 // import React from 'react';
 // import {render} from 'react-dom';
@@ -80,4 +76,4 @@ render((
 //   }
 // }
 
-// render(<App/>, document.getElementById('app'));
+// render(<App/>, document.getElementById('app')); */
