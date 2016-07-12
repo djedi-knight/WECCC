@@ -1,15 +1,22 @@
 import React, { Component, PropTypes } from 'react'
 
-class AddTodo extends Component {
+export default class AddTodo extends Component {
+   constructor(props) {
+    super(props);
+    this.handleClick = this.onLike.bind(this);
+   }
+
+
+
    render() {
       return (
          <div>
             <input type = 'text' ref = 'input' />
-				
-            <button onClick = {(e) ⇒ this.handleClick(e)}>
+            
+            <button onClick = {(e) => this.handleClick(e)}>
                Add
             </button>
-				
+            
          </div>
       )
    }
@@ -21,5 +28,4 @@ class AddTodo extends Component {
       node.value = ''
    }
 }
-
 export default AddTodo;

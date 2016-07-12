@@ -1,22 +1,31 @@
-import React from 'react';
-import { render } from 'react-dom';
-import { createStore } from 'redux';
-import { Provider } from 'react-redux';
-import About from './About.jsx';
-import todoApp from './reducers/reducers';
+import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { addTodo } from './actions/actions'
 
-class main extends React.Component{
+import AddTodo from './components/AddTodo.jsx'
+import TodoList from './components/TodoList.jsx'
 
-	let store = createStore(todoApp)
-
-	// let rootElement = document.getElementById('about')
-
-}
-render(
-
-   <Provider store = {store}>
-      <About />
-   </Provider>,
+class main extends Component {
+   render() {
+      const { dispatch, visibleTodos } = this.props
 	
-   // rootElement
-);
+      return (
+         <div>
+			
+            <AddTodo
+               onAddClick = {text => dispatch(addTodo(text))} />
+				
+            <TodoList todos = {visibleTodos}/>
+			
+         </div>
+      )
+   }
+}
+
+function select(state) {
+   return {
+      visibleTodos: state.todos
+   }
+}
+
+export default connect(select)(main)

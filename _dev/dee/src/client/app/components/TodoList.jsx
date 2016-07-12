@@ -1,14 +1,17 @@
 import React, { Component, PropTypes } from 'react'
 import Todo from './Todo.jsx'
 
-export default class TodoList extends Component {
+class TodoList extends Component {
+	constructor(props) {
+    super(props);
+  	}
    render() {
       return (
          <ul>
-            {this.props.todos.map(todo ⇒ <Todo key = {todo.id} {...todo}  />)}
+            {this.props.todos.map(todo => <Todo key = {todo.id} {...todo}  />)}
          </ul>
       )
    }
 }
 
-export default class TodoList
+export default TodoList;
