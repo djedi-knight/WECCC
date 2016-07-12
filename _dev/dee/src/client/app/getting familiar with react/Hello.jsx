@@ -12,7 +12,3 @@ class Hello extends React.Component{
 }
 
 export default Hello;
-
-
-
-// ReactDOM.render(<HelloMessage name="Dee" />, mountNode);
