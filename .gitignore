@@ -36,6 +36,11 @@
 ehthumbs.db
 Thumbs.db
 
+# Production code #
+###################
+
+build
+
 # NodeJS files #
 ################
 node_modules
