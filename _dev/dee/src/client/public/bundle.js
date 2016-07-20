@@ -23348,8 +23348,7 @@
 	         return _react2.default.createElement(
 	            'div',
 	            null,
-	            _react2.default.createElement(_AddTodo2.default, {
-	               onAddClick: function onAddClick(text) {
+	            _react2.default.createElement(_AddTodo2.default, { onAddClick: function onAddClick(text) {
 	                  return dispatch((0, _actions.addTodo)(text));
 	               } }),
 	            _react2.default.createElement(_TodoList2.default, { todos: visibleTodos })
