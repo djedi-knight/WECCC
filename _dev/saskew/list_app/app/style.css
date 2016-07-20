@@ -1,0 +1,23 @@
+.primary {
+  background: 'green';
+}
+
+.warning {
+  background: 'yellow';
+}
+
+.button {
+  padding: 1em;
+}
+
+.primaryButton {
+  composes: primary button;
+}
+
+@media (max-width: 200px) {
+  .primaryButton {
+    composes: primary button;
+
+    width: 100%;
+  }
+}
