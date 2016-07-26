@@ -49,3 +49,7 @@ node_modules
 ##########################
 bundle.js
 bundle.js.map
+
+# Custom CSS bundle files #
+##########################
+bundle.css

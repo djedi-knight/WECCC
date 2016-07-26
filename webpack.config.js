@@ -1,4 +1,7 @@
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: [
@@ -6,26 +9,43 @@ module.exports = {
     'webpack/hot/only-dev-server',
     './src/index.jsx'
   ],
-  module: {
-    loaders: [{
-      test: /\.jsx?$/,
-      exclude: /node_modules/,
-      loader: 'react-hot!babel'
-    }]
-  },
-  resolve: {
-    extensions: ['', '.js', '.jsx']
-  },
   output: {
-    path: __dirname + '/dist',
+    path: path.resolve(__dirname, './dist'),
     publicPath: '/',
     filename: 'bundle.js'
+  },
+  module: {
+    loaders: [
+      {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'react-hot!babel'
+      }, {
+        test: /(\.scss|\.css)$/,
+        loader: ExtractTextPlugin.extract('style',
+          'css?sourceMap&modules&importLoaders=1'
+          + '&localIdentName=[name]__[local]___[hash:base64:5]!postcss!sass')
+      }
+    ]
+  },
+  postcss: [autoprefixer],
+  sassLoader: {
+    data: '@import "theme/_config.scss";',
+    includePaths: [path.resolve(__dirname, './src')]
+  },
+  resolve: {
+    extensions: ['', '.scss', '.js', '.jsx'],
+    modulesDirectories: [
+      'node_modules',
+      path.resolve(__dirname, './node_modules')
+    ]
   },
   devServer: {
     contentBase: './dist',
     hot: true
   },
   plugins: [
+    new ExtractTextPlugin('bundle.css', { allChunks: true }),
     new webpack.HotModuleReplacementPlugin()
   ]
 };
