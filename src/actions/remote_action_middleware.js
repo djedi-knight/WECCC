@@ -1,3 +1,3 @@
-export default store => next => action => {
-  return next(action);
+export default function store() {
+  return next => action => next(action);
 }

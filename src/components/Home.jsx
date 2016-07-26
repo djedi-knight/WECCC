@@ -1,11 +1,11 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import * as actionCreators from '../actions/action_creators';
 
 export const Home = React.createClass({
   mixins: [PureRenderMixin],
-  render: function() {
+  render() {
     return (
       <div className="home">
         Homepage Stub
@@ -17,6 +17,7 @@ export const Home = React.createClass({
 function mapStateToProps(state) {
   return {
     test: 'Works!',
+    state
   };
 }
 

@@ -1,7 +1,10 @@
 import React from 'react';
 
 export default React.createClass({
-  render: function() {
+  propTypes: {
+    children: React.PropTypes.element.isRequired
+  },
+  render() {
     return this.props.children;
   }
 });
