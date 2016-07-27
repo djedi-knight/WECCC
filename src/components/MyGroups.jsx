@@ -2,16 +2,16 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
 import * as actionCreators from '../actions/action_creators';
-import { Button } from 'react-toolbox/lib/button';
-import LayoutTest from './Layout/LayoutTest.jsx';
+import ListBox from './ListBox';
+import MyGoupsNavigation from './MyGroupsNavigation';
 
-export const Home = React.createClass({
+export const MyGroups = React.createClass({
   mixins: [PureRenderMixin],
   render() {
     return (
-      <div className="home">
-        <LayoutTest />
-        <Button label="Hello World!" accent raised />
+      <div className="MyGroups">
+        <ListBox />
+        <MyGoupsNavigation />
       </div>
     );
   }
@@ -24,7 +24,7 @@ function mapStateToProps(state) {
   };
 }
 
-export const HomeContainer = connect(
+export const MyGroupsContainer = connect(
   mapStateToProps,
   actionCreators
-)(Home);
+)(MyGroups);
