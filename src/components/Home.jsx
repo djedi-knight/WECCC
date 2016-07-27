@@ -3,13 +3,15 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
 import * as actionCreators from '../actions/action_creators';
 import { Button } from 'react-toolbox/lib/button';
+import LayoutTest from './Layout/LayoutTest.jsx';
 
 export const Home = React.createClass({
   mixins: [PureRenderMixin],
   render() {
     return (
       <div className="home">
-        <Button label="Hello World!" primary />
+        <LayoutTest />
+        <Button label="Hello World!" accent raised />         
       </div>
     );
   }
