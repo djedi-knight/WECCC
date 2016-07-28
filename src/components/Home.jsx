@@ -11,7 +11,7 @@ export const Home = React.createClass({
     return (
       <div className="home">
         <LayoutTest />
-        <Button label="Hello World!" accent raised />         
+        <Button label="Hello World!" accent raised />
       </div>
     );
   }
