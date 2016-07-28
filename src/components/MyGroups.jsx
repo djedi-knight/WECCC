@@ -3,13 +3,11 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
 import * as actionCreators from '../actions/action_creators';
 import ListBox from './ListBox';
-import MyGroupsNavigation from './MyGroupsNavigation';
 import MyGroupDropDown from './MyGroupDropDown';
 import CareNeedsGroupTabBar from './CareNeedsGroupTabBar';
-import MyGroupsHealthOutcome from './MyGroupsHealthOutcome';
 import All from './All';
 import MyGroupsAreaOfFocus from './MyGroupsAreaOfFocus';
-import HospitaliationsAndSafetyEvents from './HospitaliationsAndSafetyEvents'
+import HospitaliationsAndSafetyEvents from './HospitaliationsAndSafetyEvents';
 import AvgActiveReAdmin from './AvgActiveReAdmin';
 import AlertSummary from './AlertSummary';
 import AlertSummaryAndSideBar from './AlertSummaryAndSideBar';
@@ -19,7 +17,6 @@ export const MyGroups = React.createClass({
   render() {
     return (
       <div className="MyGroups">
-        <MyGroupsNavigation />
         <MyGroupDropDown />
         <CareNeedsGroupTabBar />
         <All />
@@ -29,7 +26,7 @@ export const MyGroups = React.createClass({
         <AlertSummary />
         <AlertSummaryAndSideBar />
         <ListBox />
-        </div>
+      </div>
     );
   }
 });

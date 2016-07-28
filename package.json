@@ -59,7 +59,6 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
-    "classnames": "^2.2.5",
     "immutable": "^3.8.1",
     "react": "^15.2.1",
     "react-addons-pure-render-mixin": "^15.2.1",
