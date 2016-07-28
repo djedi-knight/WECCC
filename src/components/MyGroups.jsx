@@ -4,6 +4,15 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../actions/action_creators';
 import ListBox from './ListBox';
 import MyGroupsNavigation from './MyGroupsNavigation';
+import MyGroupDropDown from './MyGroupDropDown';
+import CareNeedsGroupTabBar from './CareNeedsGroupTabBar';
+import MyGroupsHealthOutcome from './MyGroupsHealthOutcome';
+import All from './All';
+import MyGroupsAreaOfFocus from './MyGroupsAreaOfFocus';
+import HospitaliationsAndSafetyEvents from './HospitaliationsAndSafetyEvents'
+import AvgActiveReAdmin from './AvgActiveReAdmin';
+import AlertSummary from './AlertSummary';
+import AlertSummaryAndSideBar from './AlertSummaryAndSideBar';
 
 export const MyGroups = React.createClass({
   mixins: [PureRenderMixin],
@@ -11,8 +20,16 @@ export const MyGroups = React.createClass({
     return (
       <div className="MyGroups">
         <MyGroupsNavigation />
+        <MyGroupDropDown />
+        <CareNeedsGroupTabBar />
+        <All />
+        <MyGroupsAreaOfFocus />
+        <HospitaliationsAndSafetyEvents />
+        <AvgActiveReAdmin />
+        <AlertSummary />
+        <AlertSummaryAndSideBar />
         <ListBox />
-      </div>
+        </div>
     );
   }
 });
