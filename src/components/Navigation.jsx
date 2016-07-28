@@ -15,7 +15,7 @@ export default React.createClass({
       <div className="Navigation">
       <Navigation type='horizontal' actions={actions} />
       <Navigation type='vertical'>
-      <Link href='http://' label='Inbox' icon='inbox' />
+      <Link href='http://' label='O' icon='inbox' />
       <Link href='http://' active label='Profile' icon='person' />
     </Navigation>
       </div>

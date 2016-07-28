@@ -5,19 +5,20 @@ import Link from 'react-toolbox/lib/link';
 import { themr } from 'react-css-themr';
 import theme from './NavigationTheme';
 
+
+const actions = [
+  { label: 'Focus', raised: true, icon: 'Area of'},
+  { label: 'Consider', raised: true, accent: true, icon: 'Things to'}
+];
+
 export default React.createClass({
   mixins: [PureRenderMixin],
   render() {
     return (
       <div className="MyGroupsNavigation">
-      <Navigation type='horizontal'>
-      <Link href='http://' active label='Outcome Reports' />
-      <Link href='http://' active label='About' />
-      <Link href='http://' active label='Contact' />
-      <Link href='http://' active label='My Community' />
-      <Link href='http://' active label='My Groups' />
-      <Link href='http://' active label = 'SIGN OUT' />
-      </Navigation>
+         <Navigation type='horizontal' actions={actions} />
+    <Navigation type='horizontal'>
+    </Navigation>
       </div>
     );
   }
