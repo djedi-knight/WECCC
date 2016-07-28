@@ -1,7 +1,7 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { CardMedia } from 'react-toolbox/lib/card';
-import style from './style';
+import style from '../../theme/style';
 
 let className = style.headerimage;
 
@@ -10,7 +10,7 @@ export default React.createClass({
   render() {
     return (
       <div className={className}>
-        <h1 style={{ paddingTop: 10, paddingRright: 10, paddingLeft: 10 }}>
+        <h1>
           Improving Value by Exploring Data
         </h1>
         <CardMedia aspectRatio="wide" image="https://placeimg.com/800/450/nature" />
