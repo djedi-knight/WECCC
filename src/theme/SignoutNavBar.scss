@@ -1,30 +1,22 @@
-$darknavy: #14688D;
-$white: #fff;
-
-
-
 .appBar {
-  background-color: $darknavy;
-
-
-  > svg {
-    width: 3.4rem;
-    height: 3.4rem;
+		
+	background-color: #14688D;
+	width: 100%;
+    height: 3.6rem;
     margin-right: 1rem;
-    fill: $white;
-  }
+    font-size: 20px;
+
 }
 
 ul {
     list-style-type: none;
   	overflow: hidden;
-    background-color: $darknavy;
+   
 }
 
 li {
     float: left;
-    margin-right: 0;
-}
+    }
 
 li a {
     display: block;
@@ -35,4 +27,5 @@ li a {
     text-decoration: none;
 }
 
-h4 {padding-right: 160px;}
+
+
