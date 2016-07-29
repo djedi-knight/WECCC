@@ -2,9 +2,7 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
 import * as actionCreators from '../actions/action_creators';
-import { Button } from 'react-toolbox/lib/button';
-import SignoutNavBar from './NavBar/SignoutNavBar.jsx';
-import LoginNavBar from './NavBar/LoginNavBar.jsx';
+import NavBar from './NavBar/NavBar.jsx';
 import LoginForm from './Form/LoginForm.jsx';
 
 
@@ -13,12 +11,8 @@ export const Home = React.createClass({
   render() {
     return (
       <div className="home">
-
-        <SignoutNavBar />
-     
-        
+        <NavBar />
         <LoginForm />
-         
       </div>
     );
   }
