@@ -3,13 +3,10 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import Navigation from 'react-toolbox/lib/navigation';
 import Link from 'react-toolbox/lib/link';
 import { themr } from 'react-css-themr';
-import theme from './NavigationTheme';
-
 
 const actions = [
-  { label: 'Category', raised: true},
-  { label: 'Outcome', raised: true},
-  { label: 'Notes', raised: true}
+  { label: 'Focus', raised: true, icon: 'Area of'},
+  { label: 'Consider', raised: true, accent: true, icon: 'Things to'}
 ];
 
 export default React.createClass({

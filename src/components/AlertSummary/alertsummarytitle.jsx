@@ -3,11 +3,11 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import Navigation from 'react-toolbox/lib/navigation';
 import Link from 'react-toolbox/lib/link';
 import { themr } from 'react-css-themr';
-import theme from './NavigationTheme';
-
-
+import AlertSummarySection from './AlertSummarySection';
 const actions = [
-  { label: '!', raised: true, accent:true, icon: 'Alert Summary'},
+  { label: 'Category', raised: true},
+  { label: 'Outcome', raised: true},
+  { label: 'Notes', raised: true}
 ];
 
 export default React.createClass({
@@ -18,6 +18,7 @@ export default React.createClass({
          <Navigation type='horizontal' actions={actions} />
     <Navigation type='horizontal'>
     </Navigation>
+      <AlertSummarySection />
       </div>
     );
   }

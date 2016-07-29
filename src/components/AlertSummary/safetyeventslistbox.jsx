@@ -13,7 +13,7 @@ export default React.createClass({
   mixins: [PureRenderMixin],
   render() {
     return (
-      <div className="MyGroupsHealthOutcome">
+      <div className="RespondingToNeedListBox">
       <Card style={{width: '150px'}}>
     <CardTitle
       avatar="https://placeimg.com/80/80/animals"

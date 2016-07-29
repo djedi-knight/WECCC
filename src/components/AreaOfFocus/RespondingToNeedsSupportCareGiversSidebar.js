@@ -2,8 +2,9 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import Chip from 'react-toolbox/lib/chip';
 import Avatar from 'react-toolbox/lib/avatar';
-import MyGroupsHealthOutcome from './MyGroupsHealthOutcome';
-import ShowLess from './ShowLess';
+import HospitalizationsScoreBox from './HospitalizationsScoreBox';
+import SafetyEventsListBox from './SafetyEventsListBox';
+import ThingsToConsiderSideBar from './ThingsToConsiderSideBar';
 
 export default React.createClass({
   mixins: [PureRenderMixin],
@@ -11,15 +12,14 @@ export default React.createClass({
     return (
      <div className ="CareNeedsGroupTabBar">
     <Chip>
-     <small><MyGroupsHealthOutcome/></small>
+     <small><HospitalizationsScoreBox/></small>
     </Chip>
       <Chip>
-     <small><MyGroupsHealthOutcome/></small>
+     <small><SafetyEventsListBox/></small>
     </Chip>
-      <Chip>
-     <small><MyGroupsHealthOutcome/></small>
+    <Chip>
+     <small><ThingsToConsiderSideBar/></small>
     </Chip>
-    <ShowLess />
   </div>
     );
   }
