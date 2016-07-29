@@ -2,23 +2,24 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import Chip from 'react-toolbox/lib/chip';
 import Avatar from 'react-toolbox/lib/avatar';
-import MyGroupsHealthOutcome from './MyGroupsHealthOutcome';
+import PatientExperienceScoreBox from './PatientExperienceScoreBox';
+
 export default React.createClass({
   mixins: [PureRenderMixin],
   render() {
     return (
-     <div className ="CareNeedsGroupTabBar">
+     <div className ="PatientExperienceScoreBox">
     <Chip>
-     <small><MyGroupsHealthOutcome/></small>
+     <small><PatientExperienceScoreBox/></small>
     </Chip>
       <Chip>
-     <small><MyGroupsHealthOutcome/></small>
+     <small><PatientExperienceScoreBox/></small>
     </Chip>
       <Chip>
-     <small><MyGroupsHealthOutcome/></small>
+     <small><PatientExperienceScoreBox/></small>
     </Chip>
       <Chip>
-     <small><MyGroupsHealthOutcome/></small>
+     <small><PatientExperienceScoreBox/></small>
     </Chip>
   </div>
     );

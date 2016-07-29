@@ -1,11 +1,7 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import Dropdown from 'react-toolbox/lib/dropdown';
-import { connect } from 'react-redux';
-import * as actionCreators from '../actions/action_creators';
-import { Button } from 'react-toolbox/lib/button';
 import Navigation from 'react-toolbox/lib/navigation';
-import Link from 'react-toolbox/lib/link';
 
 const countries = [
   { value: 'EN-gb', label: 'Patient Experience Score Box' },
@@ -13,13 +9,19 @@ const countries = [
   { value: 'TH-th', label: 'Hours of Care Score Box' },
   { value: 'EN-en', label: 'Self-Reliance Score Box'}
 ];
+const values = [
+  { value: 'EN-gb', label: 'My Groups ' },
+  { value: 'ES-es', label: 'Sort by timeframe: '},
+];
 
 export default React.createClass({
   mixins: [PureRenderMixin],
   render() {
     return (
       <div className="MyGroupsDropDown">
-
+      <Navigation type='horizontal' actions={values} />
+      <Navigation type='horizontal'>
+      </Navigation>
       <Dropdown
         label = {'Sort by timeframe:'}
         auto
@@ -39,5 +41,3 @@ function mapStateToProps(state) {
     state
   };
 }
-
-
