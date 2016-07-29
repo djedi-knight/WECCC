@@ -7,7 +7,7 @@ class LoginForm extends React.Component{
 			this.state = {
 				name: {fname: ""}
 			};
-	
+
 
 	this.onFnameChange = this.onFnameChange.bind(this);
 	this.onClickSave = this.onClickSave.bind(this);
@@ -27,8 +27,8 @@ onClickSave() {
 
 	render() {
 		return(
-			<div>
-				
+			<div style={{ 'margin-top': '150px' }}>
+
 				<h2> Login Form</h2>
 				<input type= "text" onChange={this.onFnameChange} value={this.state.name.fname}/>
 
