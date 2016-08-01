@@ -9,7 +9,7 @@ export const Home = React.createClass({
   render() {
     return (
       <div className="home">
-      <Button label="Hello World!" primary />
+        <Button label="Hello World!" primary />
       </div>
     );
   }
