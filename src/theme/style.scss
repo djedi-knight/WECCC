@@ -1,0 +1,27 @@
+.layouttest{
+	color: #110B31;
+	display: block;
+	width: 50%;
+	margin: auto;
+	padding: 10px;
+}
+.sharedgoals {
+	border: 1px solid #CCCCCC;	
+	float : left;
+	display:inline-block;
+	margin: 5px;
+}
+.table{	
+    border-collapse: collapse;
+    width: 100%;    
+}
+
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.headerimage {  
+  padding: 10px;
+}
