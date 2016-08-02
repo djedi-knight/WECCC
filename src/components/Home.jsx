@@ -2,7 +2,6 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
 import * as actionCreators from '../actions/action_creators';
-import { Button } from 'react-toolbox/lib/button';
 import LayoutTest from './Layout/LayoutTest.jsx';
 
 export const Home = React.createClass({
@@ -11,7 +10,6 @@ export const Home = React.createClass({
     return (
       <div className="home">
         <LayoutTest />
-        <Button label="Hello World!" accent raised />
       </div>
     );
   }
