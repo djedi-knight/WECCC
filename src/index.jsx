@@ -7,7 +7,7 @@ import reducer from './reducers/reducer';
 import remoteActionMiddleware from './actions/remote_action_middleware';
 import App from './components/App';
 import { HomeContainer } from './components/Home';
-import { MyCommunityContainer } from './components/MyCommunity'
+import { MyGroupsContainer } from './actions/MyGroups';
 // setup React-Redux store
 const createStoreWithMiddleware = applyMiddleware(
   remoteActionMiddleware
@@ -17,8 +17,8 @@ const store = createStoreWithMiddleware(reducer);
 // setup React-Router routes
 const routes = (
   <Route component={App}>
-    <Route path="/test" component={HomeContainer} />
-    <Route path="/" component={MyCommunityContainer} />
+    <Route path="/" component={HomeContainer} />
+    <Route path="/my-groups" component={MyGroupsContainer} />
   </Route>
 );
 
