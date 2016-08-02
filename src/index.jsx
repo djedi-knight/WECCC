@@ -8,7 +8,6 @@ import remoteActionMiddleware from './actions/remote_action_middleware';
 import App from './components/App';
 import { HomeContainer } from './components/Home';
 import { MyGroupsContainer } from './components/MyGroups/MyGroups';
-require('./theme/style.css');
 
 // setup React-Redux store
 const createStoreWithMiddleware = applyMiddleware(
