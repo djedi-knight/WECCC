@@ -4,21 +4,27 @@ import Navigation from 'react-toolbox/lib/navigation';
 import Link from 'react-toolbox/lib/link';
 
 const actions = [
-  { label: 'Alarm', raised: true, icon: 'access_alarm'},
-  { label: 'Location', raised: true, accent: true, icon: 'room'}
+  { label: '', raised: false, icon: 'Ok I Understand: '},
+  { label: '', raised: true, accent:true, icon: 'Go To Groups Dashboard'}
 ];
 
 export default React.createClass({
   mixins: [PureRenderMixin],
   render() {
     return (
-      <div className="Navigation">
+      <div className="GroupsDashboardLink">
       <Navigation type='horizontal' actions={actions} />
       <Navigation type='vertical'>
-      <Link href='http://' label='O' icon='inbox' />
-      <Link href='http://' active label='Profile' icon='person' />
     </Navigation>
       </div>
     );
   }
 });
+
+
+function mapStateToProps(state) {
+  return {
+       test: 'Works!',
+    state
+  };
+}
