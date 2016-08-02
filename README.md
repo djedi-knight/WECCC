@@ -19,13 +19,17 @@ npm run start
 
 Run the development server
 
-> Note: This is a cool way to add comments to the documentation!
+### Tools
+
+- [Redux DevTools](https://github.com/gaearon/redux-devtools)
+
+> Follow the instructions to setup the Chrome extension
 
 ## Testing
 
 There are a few ways the code can currently be tested:
 
-## Unit testing
+### Unit Testing
 
 ```Shell
 npm run test
