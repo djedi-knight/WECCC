@@ -23,7 +23,8 @@ export default React.createClass({
           professionals to explore and to understand the outcomes of their
           efforts on the population they serve.
         </p></i>
-        
+        <h3>What you do has an impact on the ecosystem of care</h3>
+        <img src ="https://s31.postimg.org/hla3xitq3/imageedit.jpg" style ={{width:'600px', height:'150px'}} />
        <br/>
       </div>
 		);

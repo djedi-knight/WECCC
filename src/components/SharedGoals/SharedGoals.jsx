@@ -2,7 +2,6 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import ProgressBar from 'react-toolbox/lib/progress_bar';
 import style from '../../theme/style';
-import chip from './chip.jsx';
 
 
 let className = style.table;
@@ -14,8 +13,7 @@ export default React.createClass({
   render () {
     return (
       <div style= {{padding:10}} >
-        <ProgressBar mode='determinate' value={this.state.progress} /> 
-        <chip />       
+        <ProgressBar mode='determinate' value={this.state.progress} />             
         <b style = {{fontSize: 20}}>Shared Goals</b>
         <br/>
         <p>By putting the data into your hands, you can affect the ecosystem of care and help achieve the shared goals of the system.</p>
