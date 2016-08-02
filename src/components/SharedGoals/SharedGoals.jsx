@@ -5,7 +5,7 @@ import style from '../../theme/style';
 import chip from './chip.jsx';
 
 
-let className = style.sharedgoals;
+let className = style.table;
 export default React.createClass({
   mixins: [PureRenderMixin],
   getInitialState () {
@@ -18,20 +18,20 @@ export default React.createClass({
         <chip />       
         <b style = {{fontSize: 20}}>Shared Goals</b>
         <br/>
+        <p>By putting the data into your hands, you can affect the ecosystem of care and help achieve the shared goals of the system.</p>
 
         <section>
-                
-          <div className={className}>          
-            OPTIMIZE RESOURCES  
-          </div>
-          <div className={className}>
-            IMPROVE EXPERIENCES
-          </div>
-          <div className={className}>
-            IMPROVE HEALTH  OUTCOMES       
-          </div>
+        <table className={{className}}>
+        <tbody>
+          <tr style = {{padding: 8}}>
+            <th>OPTIMIZE RESOURCES</th>
+            <th>IMPROVE EXPERIENCES</th> 
+            <th>IMPROVE HEALTH OUTCOMES</th>
+          </tr>
+          </tbody>         
+        </table>
         </section>
-        <br style ={{clear: 'both'}}/>
+        <br />
 
         <p ><small> <a href ="#">Read more about the shared goals</a></small>   </p> 
         <br/>  

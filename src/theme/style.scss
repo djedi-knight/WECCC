@@ -10,10 +10,11 @@
 	float : left;
 	display:inline-block;
 	margin: 5px;
-	
-
 }
-
+.table{	
+    border-collapse: collapse;
+    width: 100%;    
+}
 .headerimage {  
   padding: 10px;
 }
