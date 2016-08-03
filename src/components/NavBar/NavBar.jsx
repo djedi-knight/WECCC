@@ -1,9 +1,9 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { AppBar } from 'react-toolbox';
-import { theme } from './NavBar.scss';
-import LoginButton from '../LoginButton/LoginButton.jsx';
-import LogoutButton from '../LogoutButton/LogoutButton.jsx';
+import { theme } from './NavBar';
+import LoginButton from '../LoginButton/LoginButton';
+import LogoutButton from '../LogoutButton/LogoutButton';
 
 export default React.createClass({
   mixins: [PureRenderMixin],

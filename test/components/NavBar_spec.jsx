@@ -4,16 +4,17 @@ import {
   renderIntoDocument,
   scryRenderedDOMComponentsWithClass
 } from 'react-addons-test-utils';
+import {List} from 'immutable';
 import {expect} from 'chai';
-import {MyGroups} from '../../src/componentsMyGroups/MyGroups';
+import NavBar from '../../src/components/NavBar/NavBar'
 
-describe('MyGroups', () => {
+describe('Home', () => {
 
   it('renders the page', () => {
     const component = renderIntoDocument(
-      <MyGroups />
+      <NavBar />
     );
-    const content = scryRenderedDOMComponentsWithClass(component, 'MyGroups');
+    const content = scryRenderedDOMComponentsWithClass(component, 'home');
 
     expect(content[0].textContent).to.equal('Homepage Stub');
   });

@@ -6,7 +6,7 @@ import { Provider } from 'react-redux';
 import reducer from './reducers/reducer';
 import remoteActionMiddleware from './actions/remote_action_middleware';
 import App from './components/App';
-import { HomeContainer } from './components/Home';
+import { HomeContainer } from './components/Home/Home';
 import { MyGroupsContainer } from './components/MyGroups/MyGroups';
 
 // setup React-Redux store
