@@ -7,6 +7,8 @@ import CareNeedsGroupTabBar from '../CareNeedsGroupTabBar/CareNeedsGroupTabBar';
 import HealthOutcomesSection from '../HealthOutcomesSection/HealthOutcomesSection';
 import AreasOfFocusSection from '../AreasOfFocusSection/AreasOfFocusSection';
 import AlertSummarySection from '../AlertSummarySection/AlertSummarySection';
+import ScoreBoxComponent from '../ScoreBoxComponent/ScoreBoxComponent';
+import DialogBox from '../DialogBox/DialogBox.jsx';
 
 export const MyGroups = React.createClass({
   mixins: [PureRenderMixin],
@@ -18,7 +20,10 @@ export const MyGroups = React.createClass({
         <HealthOutcomesSection />
         <AreasOfFocusSection />
         <AlertSummarySection />
+        <ScoreBoxComponent />
+        <DialogBox />
       </div>
+
     );
   }
 });
