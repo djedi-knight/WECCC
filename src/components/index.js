@@ -5,3 +5,5 @@ export CareNeedsGroup from './CareNeedsGroup/CareNeedsGroup';
 export HealthOutcomes from './HealthOutcomes/HealthOutcomes';
 export ScoreBoxComponent from './ScoreBoxComponent/ScoreBoxComponent';
 export DialogBox from './DialogBox/DialogBox';
+export PracticeMode from './PracticeMode/PracticeMode';
+
