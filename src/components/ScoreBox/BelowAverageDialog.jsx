@@ -15,16 +15,10 @@ export default React.createClass({
     this.setState({active: !this.state.active})
   },
 
-  actions: [
-    { label: "Cancel"},
-    { label: "Save" },
-  ],
-
-
   render () {
     return (
       <div>
-      <Button label='Information' onMouseMove={this.handleToggle} />
+      <Button label='Information' onMouseOver={this.handleToggle} />
         <Dialog
           actions={this.actions}
           active={this.state.active}
@@ -32,6 +26,8 @@ export default React.createClass({
           onOverlayClick={this.handleToggle}
           title='I'
         >
+           <Button label ='Submit' onClick={this.handleToggle} />
+           <Button label ='Cancel' onClick={this.handleToggle} />
           <p>Your patient score box is below the average</p>
         </Dialog>
       </div>
