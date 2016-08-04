@@ -8,7 +8,7 @@ export default React.createClass({
   render() {
     return (
       <div className="MyGroupsTab">
-        <Tabs index="1" onChange="null"l>
+        <Tabs>
           <Tab label="Light:40%"><small>Primary content</small></Tab>
           <Tab label="Moderate:30%"><small>Secondary content</small></Tab>
           <Tab label="Complex:20%" disabled><small>Disabled content</small></Tab>
