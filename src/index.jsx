@@ -8,7 +8,7 @@ import remoteActionMiddleware from './actions/remote_action_middleware';
 import App from './components/App';
 import { HomeContainer } from './components/Home/Home';
 import { MyGroupsContainer } from './components/MyGroups/MyGroups';
-import { MyCommunityContainer } from './components/MyCommunity';
+import { MyCommunityContainer } from './components/MyCommunity/MyCommunity';
 
 // setup React-Redux store
 const createStoreWithMiddleware = applyMiddleware(
