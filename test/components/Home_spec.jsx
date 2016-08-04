@@ -6,7 +6,7 @@ import {
 } from 'react-addons-test-utils';
 import {List} from 'immutable';
 import {expect} from 'chai';
-import {Home} from '../../src/components/Home'
+import {Home} from '../../src/components/Home/Home'
 
 describe('Home', () => {
 

@@ -1,21 +1,17 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { AppBar, Layout, Panel } from 'react-toolbox';
+import { Layout, Panel } from 'react-toolbox';
 import HeaderImage from '../HeaderImage/HeaderImage.jsx';
 import DataSources from '../DataSources/DataSources.jsx';
-import SharedGoals from '../SharedGoals/SharedGoals.jsx'
-import style from '../../theme/style';
-
-
-let className = style.layouttest;
+import SharedGoals from '../SharedGoals/SharedGoals.jsx';
+import theme from '../../theme/default';
 
 export default React.createClass({
   mixins: [PureRenderMixin],
   render() {
     return (
-      <Layout className={className}>
+      <Layout className={theme.layoutTest}>
         <Panel>
-          <AppBar fixed flat >Outcome Reports</AppBar>
           <br /><br /><br /><br />
           <div>
             <HeaderImage />

@@ -1,8 +1,8 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
-import * as actionCreators from '../actions/action_creators';
-import LayoutTest from './Layout/LayoutTest.jsx';
+import * as actionCreators from '../../actions/action_creators';
+import LayoutTest from '../Layout/LayoutTest';
 
 export const Home = React.createClass({
   mixins: [PureRenderMixin],
