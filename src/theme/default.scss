@@ -31,24 +31,23 @@
   padding: 10px;
 }
 
-// common
+// NavBar
 
-ul {
-    list-style-type: none;
-  	overflow: hidden;
-
+.navBar ul {
+  list-style-type: none;
+  overflow: hidden;
 }
 
-li {
-    float: left;
-    margin-right: 0;
+.navBar li {
+  float: left;
+  margin-right: 0;
 }
 
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding-left:  20px;
-    padding-right: 60px;
-    text-decoration: none;
+.navBar li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding-left: 20px;
+  padding-right: 60px;
+  text-decoration: none;
 }

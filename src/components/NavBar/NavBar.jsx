@@ -3,6 +3,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { AppBar } from 'react-toolbox';
 import LoginButton from '../LoginButton/LoginButton';
 import LogoutButton from '../LogoutButton/LogoutButton';
+import theme from '../../theme/default';
 
 export default React.createClass({
   mixins: [PureRenderMixin],
@@ -41,7 +42,7 @@ export default React.createClass({
     let content = this.getContent();
 
     return (
-      <div className="NavBar">
+      <div className={theme.navBar}>
         <AppBar fixed flat >
           <h4><a href="#/">Outcome Reports</a></h4>
           {content}
