@@ -3,7 +3,6 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
 import * as actionCreators from '../actions/action_creators';
 import LayoutTest from './Layout/LayoutTest.jsx';
-import PracticeMode from './PracticeMode/PracticeMode';
 
 export const Home = React.createClass({
   mixins: [PureRenderMixin],
@@ -11,7 +10,6 @@ export const Home = React.createClass({
     return (
       <div className="home">
         <LayoutTest />
-        <PracticeMode />
       </div>
     );
   }

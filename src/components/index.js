@@ -6,4 +6,6 @@ export HealthOutcomes from './HealthOutcomes/HealthOutcomes';
 export ScoreBoxComponent from './ScoreBoxComponent/ScoreBoxComponent';
 export DialogBox from './DialogBox/DialogBox';
 export PracticeMode from './PracticeMode/PracticeMode';
+export ScoreBoxDialog from './ScoreBoxDialog/ScoreBoxDialog';
+export ScoreBox from './ScoreBox/ScoreBox';
 
