@@ -10,7 +10,7 @@
     "build:dev": "webpack",
     "start:dev": "webpack-dev-server --hot",
     "build:prod": "better-npm-run build",
-    "test": "mocha --compilers js:babel-core/register --require ./test/test_helper.js \"test/**/*@(.js|.jsx)\"",
+    "test": "mocha --compilers js:babel-core/register --require node_modules/ignore-styles --require ./test/test_helper.js \"test/**/*@(.js|.jsx)\"",
     "test:watch": "npm run test -- --watch --watch-extensions jsx"
   },
   "betterScripts": {
@@ -55,6 +55,7 @@
     "eslint-plugin-jsx-a11y": "^2.0.1",
     "eslint-plugin-react": "^5.2.2",
     "extract-text-webpack-plugin": "^1.0.1",
+    "ignore-styles": "^4.0.0",
     "jsdom": "^9.4.1",
     "mocha": "^2.5.3",
     "node-sass": "^3.8.0",
