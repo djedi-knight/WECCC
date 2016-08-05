@@ -7,7 +7,6 @@ import CareNeedsGroupTabBar from '../CareNeedsGroupTabBar/CareNeedsGroupTabBar';
 import HealthOutcomesSection from '../HealthOutcomesSection/HealthOutcomesSection';
 import AreasOfFocusSection from '../AreasOfFocusSection/AreasOfFocusSection';
 import AlertSummarySection from '../AlertSummarySection/AlertSummarySection';
-import ConsiderSideBar from '../SideBar/ConsiderSideBar.jsx';
 
 export const MyGroups = React.createClass({
   mixins: [PureRenderMixin],
@@ -19,7 +18,6 @@ export const MyGroups = React.createClass({
         <HealthOutcomesSection />
         <AreasOfFocusSection />
         <AlertSummarySection />
-      
       </div>
     );
   }
