@@ -8,8 +8,8 @@ mixins: [PureRenderMixin],
     return (
   <div>
  <nav>
-    <Link active href="/#/components/link" label="Peer Comparison" icon='Person' />
-    <Link href="/#/components/link" label="Change Over Time" icon='Graph' />
+    <Link active href="/#/components/link" label="Peer Comparison"/>
+    <Link href="/#/components/link" label="Change Over Time"/>
         <Link href="/#/components/link" label="Show Detail"/>
   </nav>
   </div>

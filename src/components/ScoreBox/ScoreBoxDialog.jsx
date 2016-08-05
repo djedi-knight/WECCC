@@ -22,8 +22,8 @@ export default React.createClass({
       <Button label ='4/10' raised accent ripple onClick={this.handleToggle} />
        <Card style={{width: '50px'}, {height: '50px'}}>
     <CardTitle
-      title="Patient Experience"
-      avatar ="https://s31.postimg.org/ihdkqz7ez/Information.png"
+      title="(label/define)"
+      avatar ="https://s31.postimg.org/z4cjsponf/warn.png"
     />
   </Card>
         <Dialog
