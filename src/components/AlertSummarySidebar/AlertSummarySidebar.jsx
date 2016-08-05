@@ -1,20 +1,25 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { Card, CardText } from 'react-toolbox/lib/card';
+import Button from 'react-toolbox/lib/button';
 
 export default React.createClass({
   mixins: [PureRenderMixin],
   render() {
     return (
-      <div className="AreasOfFocusSidebar" >
-        <Card style={{ width: '320px', background:'#EBE8E8',border: '1px solid gray', float: 'right'}}>
-          <h3 style={{ hight: '50px', background:'#4980c7', margin:'0px', padding:"10px"}}>THINGS TO CONSIDER</h3>
+      <div className="AlartSummarySidebar" >
+        <Card style={{ width: '320px',border: '5px solid #EBE8E8'}}>
+          <h3 style={{ background:'gray', margin:'0px', padding:"25px"}}>     </h3>
           <CardText>
-            <div>
-              <label><input type="checkbox" />Does my organizationhave the conections and communciations it needs to engage others?</label><br/><hr/>
-              <label><input type="checkbox" />Is the distribution and outcomes of patients condistent with ourt organizational/HR strategies and in-house expertise?</label><br/><hr/>
-              <label><input type="checkbox" />Does my organization have the staff-wide training programs it needs to ensure we add value?</label><br/><hr/>
+            <div >
+                <p style={{ border: 'left 6px solid red;'}}> This summary provides an overview of key areas of improvement.
+                 Explore the information in these sections to discover other potential opportunities for success.
+                </p>
+                <hr/>
+                <Button style={{ padding:"2.5px" , background:'#ABA7A7'}} label="DOWNLOAD OVERVIEW" />
+
             </div>
+
           </CardText>
         </Card>
       </div>
