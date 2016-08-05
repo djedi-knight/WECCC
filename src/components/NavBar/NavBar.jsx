@@ -6,6 +6,7 @@ import LogoutButton from '../LogoutButton/LogoutButton';
 
 export default React.createClass({
   mixins: [PureRenderMixin],
+
   getInitialState() {
     return { isLoggedIn: false };
   },
