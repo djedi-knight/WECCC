@@ -4,3 +4,9 @@ export function setState(state) {
     state
   };
 }
+
+export function login() {
+  return {
+    type: 'LOGIN'
+  };
+}
