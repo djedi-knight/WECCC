@@ -11,7 +11,7 @@ export default React.createClass({
 
         <Card style={{ width: '74%',height:'500px' ,border: '2px solid gray', float:'left'}}>
           <CardText> 
-              <p> Alert Summart Table will go here</p> 
+              <p> Alert Summary Table will go here</p> 
           </CardText>
         </Card>
         
@@ -24,7 +24,7 @@ export default React.createClass({
                  Explore the information in these sections to discover other potential opportunities for success.
                 </p>
                 <hr/>
-                <Button style={{ padding:"2.5px" , background:'#ABA7A7'}} label="DOWNLOAD OVERVIEW" />
+                <Button style={{ padding:"2.5px" , background:'#ABA7A7'}} label="DOWNLOAD OVERVIEW" href="#/about" />
 
             </div>
 
