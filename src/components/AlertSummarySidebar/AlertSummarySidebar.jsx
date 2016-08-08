@@ -7,12 +7,20 @@ export default React.createClass({
   mixins: [PureRenderMixin],
   render() {
     return (
-      <div className="AlartSummarySidebar" >
-        <Card style={{ width: '320px',border: '5px solid #EBE8E8'}}>
-          <h3 style={{ background:'gray', margin:'0px', padding:"25px"}}>     </h3>
+      <div className="AlartSummarySidebar">
+
+        <Card style={{ width: '74%',height:'500px' ,border: '2px solid gray', float:'left'}}>
+          <CardText> 
+              <p> Alert Summart Table will go here</p> 
+          </CardText>
+        </Card>
+        
+
+        <Card style={{ width: '25%',height:'500px', border: '1px solid #EBE8E8', float: 'left'}}>
+          <span style={{ background:'gray', margin:'0px', padding:"25px"}}/> 
           <CardText>
-            <div >
-                <p style={{ border: 'left 6px solid red;'}}> This summary provides an overview of key areas of improvement.
+            <div> 
+                <p >This summary provides an overview of key areas of improvement.
                  Explore the information in these sections to discover other potential opportunities for success.
                 </p>
                 <hr/>

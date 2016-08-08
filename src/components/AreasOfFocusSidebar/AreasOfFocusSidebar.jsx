@@ -7,8 +7,17 @@ export default React.createClass({
   render() {
     return (
       <div className="AreasOfFocusSidebar" >
-        <Card style={{ width: '320px', background:'#EBE8E8',border: '1px solid gray', float: 'right'}}>
-          <h3 style={{ hight: '50px', background:'#4980c7', margin:'0px', padding:"10px"}}>THINGS TO CONSIDER</h3>
+
+
+        <Card style={{ width: '74%', height:"500px", border: '2px solid gray', float:'left'}}>
+          <CardText> 
+              <p> Areas of Focus Section will go here</p> 
+          </CardText>
+        </Card>
+
+
+        <Card style={{ width: '25%',height:"500px", background:'#EBE8E8',border: '1px solid gray', float: 'left'}}>
+          <h3 style={{ background:'#4980c7', margin:'0px', padding:"12px"}}>THINGS TO CONSIDER</h3>
           <CardText>
             <div>
               <label><input type="checkbox" />Does my organizationhave the conections and communciations it needs to engage others?</label><br/><hr/>
