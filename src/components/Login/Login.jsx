@@ -2,10 +2,9 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { Button } from 'react-toolbox';
 
-let LoginForm = React.createClass({
-  login() {
-    alert('you are logged in!');
-    return;
+export const LoginForm = React.createClass({
+  propTypes: {
+    login: React.PropTypes.func
   },
   render() {
     return (
@@ -13,13 +12,13 @@ let LoginForm = React.createClass({
         <p> Login to access your personal dashboard </p>
         <input type="email" id="email" placeholder="E-Mail" />
         <input type="password" id="password" placeholder="Password" />
-        <Button id="send" label="Save" onClick={this.login} />
+        <Button id="send" label="Done" onClick={this.props.login} />
       </div>
     );
   }
 });
 
-let SingupForm = React.createClass({
+export const SingupForm = React.createClass({
   signup() {
     alert('you are signed up!');
     return;
@@ -32,7 +31,7 @@ let SingupForm = React.createClass({
         <input type="text" id="last" placeholder="Last Name" />
         <input type="email" id="email" placeholder="E-Mail" />
         <input type="password" id="password" placeholder="Password" />
-        <Button id="send" label="Save " onClick={this.signup} />
+        <Button id="send" label="Done " onClick={this.signup} />
       </div>
     );
   }
@@ -41,19 +40,22 @@ let SingupForm = React.createClass({
 export default React.createClass({
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { login: true, signup: false };
+    return {
+      showLoginForm: true,
+      showSignupForm: false
+    };
   },
   showForm(formType) {
-    let login = false;
-    let signup = false;
+    let showLoginForm = false;
+    let showSignupForm = false;
 
     if (formType === 'signup') {
-      signup = true;
+      showLoginForm = true;
     } else {
-      login = true;
+      showSignupForm = true;
     }
 
-    return this.setState({ login, signup });
+    return this.setState({ showLoginForm, showSignupForm });
   },
   render() {
     const forgotUsernameLink = (<a href="#/forgotUsername">username</a>);
@@ -63,8 +65,8 @@ export default React.createClass({
       <div className="login">
         <Button id="signupButton" label="Sign Up" onClick={this.showForm.bind((this), 'signup')} />
         <Button id="loginButton" label="Login" onClick={this.showForm.bind((this), 'login')} />
-        {this.state.signup ? <SingupForm /> : null}
-        {this.state.login ? <LoginForm /> : null}
+        {this.state.showLoginForm ? <SingupForm /> : null}
+        {this.state.showSignupForm ? <LoginForm /> : null}
         <p>Forgot {forgotUsernameLink} or {forgotPasswordLink} ?</p>
       </div>
     );

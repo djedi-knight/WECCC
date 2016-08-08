@@ -4,7 +4,7 @@ import reducer from '../reducers/reducer';
 import remoteActionMiddleware from '../actions/remote_action_middleware';
 
 const initialState = fromJS({
-  loggedIn: false
+  isLoggedIn: false
 });
 
 export default function makeStore() {
