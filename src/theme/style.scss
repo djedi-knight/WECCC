@@ -1,0 +1,75 @@
+.layouttest{
+	color: #110B31;
+	display: block;
+	width: 50%;
+	margin: auto;
+	padding: 10px;
+}
+.sharedgoals {
+	border: 1px solid #CCCCCC;	
+	float : left;
+	display:inline-block;
+	margin: 5px;
+}
+table.table1{	
+    border-collapse: collapse;
+    width: 100%;    
+}
+
+table.table1 td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+.headerimage {  
+  padding: 10px;
+}
+.areaoffocus{
+	background-color: #E8F8F5;
+	border: 3px;
+	color: #110B31;
+}
+.areaoffocusbar{
+	background-color: #145687;
+	height: 50px;
+	font-size: 24px;
+}
+ 
+table.table2{
+ 	border-collapse: collapse;
+    width: 35%;
+    margin: 30px;
+
+ }
+
+table.table2 tr:nth-child(odd){
+	
+   background-color: #FFF;
+}
+table.table2 td, th{     
+    border: 1px solid #dddddd;
+    padding: 5px;
+    text-align: left;
+}
+
+AlertSummaryTable{
+	border-collapse: collapse;
+    width: 35%;
+    margin: 30px;
+
+    tr:nth-child(odd){	
+   		background-color: #FFF;
+	}
+
+	tr:nth-child(even){	
+   		background-color: #F00;
+	}
+
+	td, th{     
+	    border: 1px solid #dddddd;
+	    padding: 5px;
+	    text-align: left;
+    }
+
+}

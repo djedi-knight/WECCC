@@ -52,3 +52,24 @@ li a {
     padding-right: 60px;
     text-decoration: none;
 }
+
+.AlertTable{
+  border: solid 1px #CCC;
+  border-collapse: collapse;
+  border-style: outset #CCC;
+  tr:nth-child(even) {
+    background-color: #FFF;
+  }
+   tr:nth-child(odd) {
+    background-color: #E8F8F5;
+  }
+  th{
+    background-color: #FFF;
+    border: solid 1px #CCC;
+    border-style: outset #CCC;
+  }
+  td{
+    border: solid 1px #CCC;
+    border-style: outset #CCC;
+  }
+}
