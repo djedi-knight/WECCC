@@ -2,6 +2,7 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import Table from 'react-toolbox/lib/table';
 import FontIcon from 'react-toolbox/lib/font_icon';
+import { Card, CardText } from 'react-toolbox/lib/card';
 import theme from '../../theme/default';
 
 const AlertModel = {
@@ -28,9 +29,13 @@ export default React.createClass({
   },
   render() {
     return (
-      <div style={{ width: '60%', margin: 'auto' }}>
-        <Table className={theme.AlertTable} selectable={false} model={AlertModel} source={this.state.source} />
-      </div>
+        <Card style={{ width: '74%', height: '550px', border: '2px solid gray', float: 'left', background:'#E5E0E0' }}>
+          <span style={{ background: '#4980c7', margin: '0px', padding: '9px', color: '#fff'}} > <FontIcon value="report" /> Alert Summary </span>
+          <CardText>
+              <Table className={theme.AlertTable} selectable={false} model={AlertModel} source={this.state.source} />
+          </CardText>
+        </Card>
+      
     );
   }
 });
