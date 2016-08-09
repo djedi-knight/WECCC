@@ -1,12 +1,12 @@
 import React from 'react';
 import { renderIntoDocument } from 'react-addons-test-utils';
 import { expect } from 'chai';
-import { Home } from '../../src/components/Home/Home';
+import { MyGroups } from '../../src/components/MyGroups/MyGroups';
 
-describe('Home', () => {
+describe('MyGroups', () => {
   it('renders the component successfully', () => {
     renderIntoDocument(
-      <Home />
+      <MyGroups />
     );
     expect(true);
   });

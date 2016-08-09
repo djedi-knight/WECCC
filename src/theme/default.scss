@@ -1,0 +1,102 @@
+// LoginButton
+
+.loginButton {
+  float: right;
+}
+
+// LogoutButton
+
+.logoutButton {
+  float: right;
+}
+
+// Home
+
+.homeLayout {
+  color: #110b31;
+  display: block;
+  width: 50%;
+  margin: auto;
+  padding: 10px;
+}
+
+// SharedGoals
+
+.sharedGoalsTable {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+// HeaderImage
+
+.headerImage {
+  padding: 10px;
+}
+
+// AlertTable
+
+.AlertTable {
+  border: solid 1px #ccc;
+  border-collapse: collapse;
+  border-style: outset #ccc;
+
+  tr:nth-child(even) {
+    background-color: #fff;
+  }
+
+  tr:nth-child(odd) {
+    background-color: #e8f8f5;
+  }
+
+  th {
+    background-color: #fff;
+    border: solid 1px #ccc;
+    border-style: outset #ccc;
+  }
+
+  td {
+    border: solid 1px #ccc;
+    border-style: outset #ccc;
+  }
+}
+
+// NavBar
+
+.navBar {
+  ul {
+    list-style-type: none;
+    overflow: hidden;
+  }
+
+  li {
+    float: left;
+    margin-right: 0;
+
+    a {
+      display: block;
+      color: white;
+      text-align: center;
+      padding-left: 20px;
+      padding-right: 60px;
+      text-decoration: none;
+    }
+  }
+}
+
+// ScoreBox
+
+.ScoreBox {
+  p {
+    text-align: left;
+    margin: 1px;
+  }
+
+  h1 {
+    text-align: right;
+    color: #000;
+    font-size: 24px;
+    font-style: italic;
+    margin: 5px;
+    white-space: nowrap;
+  }
+}

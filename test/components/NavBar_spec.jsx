@@ -1,12 +1,12 @@
 import React from 'react';
 import { renderIntoDocument } from 'react-addons-test-utils';
 import { expect } from 'chai';
-import { Home } from '../../src/components/Home/Home';
+import NavBar from '../../src/components/NavBar/NavBar';
 
-describe('Home', () => {
+describe('NavBar', () => {
   it('renders the component successfully', () => {
     renderIntoDocument(
-      <Home />
+      <NavBar />
     );
     expect(true);
   });
