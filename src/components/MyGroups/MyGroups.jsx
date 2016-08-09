@@ -17,7 +17,6 @@ export const MyGroups = React.createClass({
         <CareNeedsGroupTabBar />
         <HealthOutcomesSection />
         <AreasOfFocusSection />
-        <br/>
         <AlertSummarySection />
       </div>
     );

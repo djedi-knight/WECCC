@@ -3,9 +3,6 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../actions/action_creators';
 import LayoutTest from '../Layout/LayoutTest';
-import AlertSummarySection from '../AlertSummarySection/AlertSummarySection.jsx'
-import AlertSummaryTable from '../AlertSummarySection/AlertSummaryTable.jsx';
-
 
 export const Home = React.createClass({
   mixins: [PureRenderMixin],

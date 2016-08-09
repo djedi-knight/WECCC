@@ -31,6 +31,33 @@
   padding: 10px;
 }
 
+// AlertTable
+
+.AlertTable {
+  border: solid 1px #ccc;
+  border-collapse: collapse;
+  border-style: outset #ccc;
+
+  tr:nth-child(even) {
+    background-color: #fff;
+  }
+
+  tr:nth-child(odd) {
+    background-color: #e8f8f5;
+  }
+
+  th {
+    background-color: #fff;
+    border: solid 1px #ccc;
+    border-style: outset #ccc;
+  }
+
+  td {
+    border: solid 1px #ccc;
+    border-style: outset #ccc;
+  }
+}
+
 // common
 
 ul {
@@ -51,25 +78,4 @@ li a {
     padding-left:  20px;
     padding-right: 60px;
     text-decoration: none;
-}
-
-.AlertTable{
-  border: solid 1px #CCC;
-  border-collapse: collapse;
-  border-style: outset #CCC;
-  tr:nth-child(even) {
-    background-color: #FFF;
-  }
-   tr:nth-child(odd) {
-    background-color: #E8F8F5;
-  }
-  th{
-    background-color: #FFF;
-    border: solid 1px #CCC;
-    border-style: outset #CCC;
-  }
-  td{
-    border: solid 1px #CCC;
-    border-style: outset #CCC;
-  }
 }
