@@ -6,14 +6,14 @@
 	padding: 10px;
 }
 .sharedgoals {
-	border: 1px solid #CCCCCC;	
+	border: 1px solid #CCCCCC;
 	float : left;
 	display:inline-block;
 	margin: 5px;
 }
-.table{	
+.table{
     border-collapse: collapse;
-    width: 100%;    
+    width: 100%;
 }
 
 td, th {
@@ -22,6 +22,60 @@ td, th {
     padding: 8px;
 }
 
-.headerimage {  
+.headerimage {
   padding: 10px;
+}
+
+p {
+  text-align :left;
+  margin: 1px;
+}
+.caption {
+    text-align :left;
+}
+
+h10 {
+  text-align :right;
+  color:#ffcc00;
+  font-size: 40px;
+  margin: 5px;
+  white-space: nowrap;
+  animation: ripple 1s;
+}
+
+
+h2 {
+  text-align :right;
+  color:#000000;
+  font-size: 24px;
+  font-style: italic;
+  margin: 5px;
+  white-space: nowrap;
+}
+
+p2 {
+  text-align :right;
+  color:#000000;
+  margin: 1px;
+  font-size: 24px;
+  word-spacing: 150px;
+}
+p3 {
+  text-align :right;
+  color:#000000;
+  margin: 1px;
+  font-size: 24px;
+  word-spacing: 140px;
+}
+
+p1 {
+  text-align :right;
+  color:#000000;
+  margin: 1px;
+  font-size: 24px;
+  word-spacing: 5px;
+}
+
+.FontIcon {
+  align: right;
 }
