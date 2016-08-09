@@ -29,13 +29,14 @@ export default React.createClass({
   },
   render() {
     return (
-        <Card style={{ width: '74%', height: '550px', border: '2px solid gray', float: 'left', background:'#E5E0E0' }}>
-          <span style={{ background: '#4980c7', margin: '0px', padding: '9px', color: '#fff'}} > <FontIcon value="report" /> Alert Summary </span>
-          <CardText>
-              <Table className={theme.AlertTable} selectable={false} model={AlertModel} source={this.state.source} />
-          </CardText>
-        </Card>
-      
+      <Card style={{ width: '74%', height: '550px', border: '2px solid gray', float: 'left', background: '#E5E0E0' }}>
+        <span style={{ background: '#4980c7', margin: '0px', padding: '9px', color: '#fff' }} >
+          <FontIcon value="warning" />Alert Summary
+        </span>
+        <CardText>
+          <Table className={theme.AlertTable} selectable={false} model={AlertModel} source={this.state.source} />
+        </CardText>
+      </Card>
     );
   }
 });

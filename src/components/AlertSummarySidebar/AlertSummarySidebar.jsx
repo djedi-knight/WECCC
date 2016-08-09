@@ -10,7 +10,7 @@ export default React.createClass({
     return (
       <div className="AlartSummarySidebar">
         <Card style={{ width: '25%', height: '550px', border: '1px solid #EBE8E8', float: 'left' }}>
-          <span style={{ background: 'gray', margin: '0px', padding: '25px'}} />
+          <span style={{ background: 'gray', margin: '0px', padding: '25px' }} />
           <CardText>
             <div>
               <p >This summary provides an overview of key areas of improvement.
