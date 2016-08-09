@@ -3,12 +3,12 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../actions/action_creators';
 import { AppBar, Button, Dialog } from 'react-toolbox';
-import Login from '../Login/Login';
+import LoginView from '../LoginView/LoginView';
 import theme from '../../theme/default';
 
 export const LoginButton = React.createClass({
   propTypes: {
-    login: React.PropTypes.func
+    login: React.PropTypes.func.isRequired
   },
   getInitialState() {
     return { active: false };
@@ -22,13 +22,9 @@ export const LoginButton = React.createClass({
         <div className={theme.loginButton}>
           <Button inverse label="Login" onClick={this.toggleActiveState} />
         </div>
-        <Dialog
-          active={this.state.active}
-          onEscKeyDown={this.toggleActiveState}
-          onOverlayClick={this.toggleActiveState}
-        >
+        <Dialog active={this.state.active} onEscKeyDown={this.toggleActiveState} onOverlayClick={this.toggleActiveState}>
           <Button label="Close" onClick={this.toggleActiveState} />
-          <Login login={this.props.login} />
+          <LoginView login={this.props.login} />
         </Dialog>
       </div>
     );
@@ -36,20 +32,23 @@ export const LoginButton = React.createClass({
 });
 
 export const LogoutButton = React.createClass({
+  propTypes: {
+    logout: React.PropTypes.func.isRequired
+  },
   render() {
     return (
       <div className={theme.logoutButton}>
-        <Button label="Sign Out" onClick={this.handleToggle} />
+        <Button inverse label="Logout" onClick={() => this.props.logout()} />
       </div>
     );
   }
 });
 
-
 export const NavBar = React.createClass({
   propTypes: {
-    isLoggedIn: React.PropTypes.bool,
-    login: React.PropTypes.func
+    isLoggedIn: React.PropTypes.bool.isRequired,
+    login: React.PropTypes.func.isRequired,
+    logout: React.PropTypes.func.isRequired
   },
   mixins: [PureRenderMixin],
   getContent() {
@@ -63,7 +62,7 @@ export const NavBar = React.createClass({
             <li><a href="#/my-community">MY COMMUNITY</a></li>
             <li><a href="#/my-groups">MY GROUPS</a></li>
           </ul>
-          <LogoutButton />
+          <LogoutButton logout={this.props.logout} />
         </div>
       );
     }

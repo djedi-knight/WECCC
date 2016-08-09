@@ -3,7 +3,11 @@ function setState(state, newState) {
 }
 
 function login(state) {
-  return state.set('loggedIn', true);
+  return state.set('isLoggedIn', true);
+}
+
+function logout(state) {
+  return state.set('isLoggedIn', false);
 }
 
 export default function (state, action) {
@@ -12,6 +16,8 @@ export default function (state, action) {
       return setState(state, action.state);
     case 'LOGIN':
       return login(state);
+    case 'LOGOUT':
+      return logout(state);
     default:
       return state;
   }

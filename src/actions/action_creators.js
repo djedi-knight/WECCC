@@ -10,3 +10,9 @@ export function login() {
     type: 'LOGIN'
   };
 }
+
+export function logout() {
+  return {
+    type: 'LOGOUT'
+  };
+}
