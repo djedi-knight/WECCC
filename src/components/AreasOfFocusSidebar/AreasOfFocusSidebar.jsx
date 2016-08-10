@@ -1,6 +1,7 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { Card, CardText } from 'react-toolbox/lib/card';
+import ListBox from '../ListBox/ListBox';
 
 export default React.createClass({
   mixins: [PureRenderMixin],
@@ -9,7 +10,7 @@ export default React.createClass({
       <div className="AreasOfFocusSidebar" >
         <Card style={{ width: '74%', height: '500px', border: '2px solid gray', float: 'left' }}>
           <CardText>
-            <p> Areas of Focus Section will go here</p>
+            <ListBox />
           </CardText>
         </Card>
         <Card style={{ width: '25%', height: '500px', background: '#EBE8E8', border: '1px solid gray', float: 'left' }}>
