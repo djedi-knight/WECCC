@@ -1,3 +1,5 @@
+import { Map } from 'immutable';
+
 function setState(state, newState) {
   return state.merge(newState);
 }
@@ -10,7 +12,7 @@ function logout(state) {
   return state.set('isLoggedIn', false);
 }
 
-export default function (state, action) {
+export default function (state = new Map(), action) {
   switch (action.type) {
     case 'SET_STATE':
       return setState(state, action.state);
