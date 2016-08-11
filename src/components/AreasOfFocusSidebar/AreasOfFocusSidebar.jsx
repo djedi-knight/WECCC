@@ -1,11 +1,14 @@
 import React from 'react';
-import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { Card, CardText } from 'react-toolbox/lib/card';
+import { Card, CardText } from 'react-toolbox';
 import ListBox from '../ListBox/ListBox';
+import data from '../../../test/data/AreasOfFocusSidebar.json';
 
 export default React.createClass({
-  mixins: [PureRenderMixin],
+  getInitialState() {
+    return { data };
+  },
   render() {
+    console.log(this.state.data.items);
     return (
       <div className="AreasOfFocusSidebar" >
         <Card style={{ width: '74%', height: '500px', border: '2px solid gray', float: 'left' }}>
@@ -16,11 +19,9 @@ export default React.createClass({
         <Card style={{ width: '25%', height: '500px', background: '#EBE8E8', border: '1px solid gray', float: 'left' }}>
           <h3 style={{ background: '#4980c7', margin: '0px', padding: '12px' }}>THINGS TO CONSIDER</h3>
           <CardText>
-            <div>
-              <label><input type="checkbox" />Does my organizationhave the conections and communciations it needs to engage others?</label><br /><hr />
-              <label><input type="checkbox" />Is the distribution and outcomes of patients condistent with ourt organizational/HR strategies and in-house expertise?</label><br /><hr />
-              <label><input type="checkbox" />Does my organization have the staff-wide training programs it needs to ensure we add value?</label><br /><hr />
-            </div>
+            {this.state.data.items.map(item =>
+              <div><label><input type="checkbox" />{item}</label><br /><hr /></div>
+            )}
           </CardText>
         </Card>
       </div>
