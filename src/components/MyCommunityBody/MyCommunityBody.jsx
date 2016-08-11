@@ -2,6 +2,8 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import Navigation from 'react-toolbox/lib/navigation';
 import Link from 'react-toolbox/lib/link';
+import ListBoxModalView from '../ListBoxModalView/ListBoxModalView.jsx';
+
 
 export default React.createClass({
   mixins: [PureRenderMixin],
@@ -13,6 +15,10 @@ export default React.createClass({
     <Link href="/#/components/link" label="Groups of Patients." icon='Here is the' />
     <Link href="/#/components/link" label="with these comprehensive tools" icon='That will be explored' />
   </nav>
+  <br/>
+{/* <ListBoxModalView/>*/}
+  
+  <br/>
       </div>
     );
   }
