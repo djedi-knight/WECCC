@@ -4,6 +4,7 @@ import Dropdown from 'react-toolbox/lib/dropdown';
 import Navigation from 'react-toolbox/lib/navigation';
 import {Button,IconButton,FontIcon} from 'react-toolbox/lib/button';
 import Dialog from 'react-toolbox/lib/dialog';
+import theme from '../../theme/default';
 import MyGroupsPopoversection from '../MyGroupsPopoversection/MyGroupsPopoversection.jsx';
 
 
@@ -28,29 +29,10 @@ export default React.createClass({
   render() {
     return (
 
-      <div className="MyGroupsHeader" style={{  background:'#E7F6ED', margin:'100px 0 0 0'}}>
-          <div className="MyGroupsLogo">
+      <div className="MyGroupsHeader" style={{  background:'#E7F6ED', height:'90px',margin:'80px 0 0 0'}}>
 
-            <h2 style={{ width:'80%', padding:'0 2%', displya:'inline'}}> MY Groups 
-              <span style={{margin: '0'}}> 
-                  <IconButton icon='info' onMouseOver={this.toggleActiveState} />
-              </span>
-            </h2>
-
-            <Dialog active={this.state.active} 
-                    onEscKeyDown={this.toggleActiveState} 
-                    onOverlayClick={this.toggleActiveState}
-                    onMouseOut={this.toggleActiveState} 
-                  
-            >
-              <MyGroupsPopoversection />
-
-            </Dialog>
-
-          </div>    
-
-          <div className="SortingSelector"  style={{ float: 'right', width: '20%'}}> 
-             <Dropdown
+          <div className={theme.SortingSelector} > 
+             <Dropdown className={theme.dropdown}
               label={'Sort by timeframe:'}
               auto
               onChange={this.handleChange}
@@ -59,6 +41,24 @@ export default React.createClass({
               template={this.customItem}
             />
           </div>
+
+          <div className="MyGroupsLogo">
+
+            <h2 style={{ width:'80%', padding:'2%', displya:'inline'}}> MY Groups 
+              <span style={{margin: '0'}}> 
+                  <IconButton icon='info' onMouseOver={this.toggleActiveState} />
+              </span>
+            </h2>
+
+            <Dialog active={this.state.active} 
+                    onEscKeyDown={this.toggleActiveState} 
+                    onOverlayClick={this.toggleActiveState}     
+            >
+              <MyGroupsPopoversection />
+
+            </Dialog>
+
+          </div>              
 
       </div>
     );
