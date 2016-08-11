@@ -40,6 +40,7 @@ export default React.createClass({
             <Dialog active={this.state.active} 
                     onEscKeyDown={this.toggleActiveState} 
                     onOverlayClick={this.toggleActiveState}
+                    onMouseOut={this.toggleActiveState} 
                   
             >
               <MyGroupsPopoversection />
