@@ -2,7 +2,6 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import Navigation from 'react-toolbox/lib/navigation';
 import Link from 'react-toolbox/lib/link';
-import ListBoxModalView from '../ListBoxModalView/ListBoxModalView.jsx';
 
 
 export default React.createClass({
@@ -16,7 +15,6 @@ export default React.createClass({
     <Link href="/#/components/link" label="with these comprehensive tools" icon='That will be explored' />
   </nav>
   <br/>
-{/* <ListBoxModalView/>*/}
   
   <br/>
       </div>

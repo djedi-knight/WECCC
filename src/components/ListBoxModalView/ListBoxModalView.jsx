@@ -23,22 +23,26 @@ export default React.createClass({
 
   render() {
     return (
-      	<div style={{border: '1px solid gray', margin: 'auto', width:'50%',height:'610px' }}>   
-	      <h3 style={{ background: '#110b31',color:'#FFF', margin: '0px', padding: '12px' }}>Safety Events: Adverse Drug Effects<FontIcon style={{ float:'right'}}value="close" /></h3><br/>
-
-	      	<div style={{border: '1px solid gray', margin: '12px', width:'65%', float:'left' }}>
+    	<div>
+      	<div style={{ width:'100%' }}>      	  
+	      <h3 style={{ background: '#110b31',color:'#FFF', margin: '0px', padding: '12px' }}>Safety Events: Adverse Drug Effects
+	      	<FontIcon style={{ float:'right'}}value="close" />
+	      </h3>
+	      <br/>
+		</div> {/* Header*/}
+	      	<div style={{border: '1px solid gray', margin: '12px', width:'70%', float:'left' }}> {/* first container*/}
 		      	<div style={{ border:'1px solid gray', borderStyle: 'hidden hidden solid hidden' }}>
 		      		<h3 style={{ background: '#F2F7FA', color:'#110b31',margin: '0px', padding: '12px' }}>Change Over Time 
 		      			<FontIcon style={{ float:'right'}}value="trending_up" />
 		      		</h3>
-		      	</div>
+		      	</div>{/* Graph title*/}
 	      		<img style={{width: '200px', height:'150px', padding:'12px'}} 
-	      		src="https://s31.postimg.org/hla3xitq3/imageedit.jpg"/>
+	      		src="https://s31.postimg.org/hla3xitq3/imageedit.jpg"/> {/* image*/}
 		      	<div style={{ border:'1px solid gray', borderStyle: 'solid hidden solid hidden' }}>
 		      		<h3 style={{ background: '#F2F7FA', color:'#110b31',margin: '0px', padding: '12px' }}>Peer Comparison 
 		      			<FontIcon style={{ float:'right'}}value="person" />
 		      		</h3>
-		      	</div>
+		      	</div>{/* Peer Comparison*/}
 		      		
 		      	<p className={theme.CheckBox}>
 		      		<Checkbox   checked={this.state.check1}label="- - High Risk" onChange={this.handleChange.bind(this, 'check1')} />
@@ -55,7 +59,7 @@ export default React.createClass({
 	           	</div>
 		    </div>
 
-      		<div style={{border: '1px solid gray', margin: '10px', width:'27%', float:'left', height:'508px', background:'#FADEDE'  }}>
+      		<div style={{border: '1px solid gray', margin: '10px', width:'21%', float:'left', height:'508px', background:'#FADEDE'  }}>
  	     		<div style={{background: '#F00', margin: '0px'}}> 
  	     			<FontIcon style={{color: '#FFF', padding:'5px'}}value="warning" />
  	     		</div>     		
