@@ -5,8 +5,8 @@ import * as actionCreators from '../../actions/action_creators';
 import MyGroupsHeader from '../MyGroupsHeader/MyGroupsHeader';
 import CareNeedsGroupTabBar from '../CareNeedsGroupTabBar/CareNeedsGroupTabBar';
 import HealthOutcomesSection from '../HealthOutcomesSection/HealthOutcomesSection';
+import AreasOfFocusSection from '../AreasOfFocusSection/AreasOfFocusSection';
 import AlertSummarySection from '../AlertSummarySection/AlertSummarySection';
-import ScoreRiskPopOver from '../ScoreRiskPopOver/ScoreRiskPopOver';
 
 export const MyGroups = React.createClass({
   mixins: [PureRenderMixin],
@@ -16,8 +16,8 @@ export const MyGroups = React.createClass({
         <MyGroupsHeader />
         <CareNeedsGroupTabBar />
         <HealthOutcomesSection />
+        <AreasOfFocusSection />
         <AlertSummarySection />
-        <ScoreRiskPopOver />
       </div>
     );
   }
