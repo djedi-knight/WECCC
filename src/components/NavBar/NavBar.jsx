@@ -10,6 +10,7 @@ export const LoginButton = React.createClass({
   propTypes: {
     login: React.PropTypes.func.isRequired
   },
+  mixins: [PureRenderMixin],
   getInitialState() {
     return { active: false };
   },
@@ -18,7 +19,7 @@ export const LoginButton = React.createClass({
   },
   render() {
     return (
-      <div>
+      <div className="NavBar">
         <div className={theme.loginButton}>
           <Button inverse label="Login" onClick={this.toggleActiveState} />
         </div>
@@ -35,6 +36,7 @@ export const LogoutButton = React.createClass({
   propTypes: {
     logout: React.PropTypes.func.isRequired
   },
+  mixins: [PureRenderMixin],
   render() {
     return (
       <div className={theme.logoutButton}>
@@ -55,7 +57,7 @@ export const NavBar = React.createClass({
     if (this.props.isLoggedIn) {
       // return logged in content
       return (
-        <div>
+        <div className="NavItems">
           <ul>
             <li><a href="#/about">ABOUT</a></li>
             <li><a href="#/contact">CONTACT</a></li>
@@ -69,7 +71,7 @@ export const NavBar = React.createClass({
 
     // return logged out content
     return (
-      <div>
+      <div className="NavItems">
         <ul>
           <li><a href="#/about">ABOUT</a> </li>
           <li><a href="#/contact">CONTACT</a> </li>

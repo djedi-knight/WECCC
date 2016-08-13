@@ -1,15 +1,13 @@
-import {List, Map, fromJS} from 'immutable';
-import {expect} from 'chai';
-
+import { Map, fromJS } from 'immutable';
+import { expect } from 'chai';
 import reducer from '../../src/reducers/reducer';
 
 describe('reducer', () => {
-
   it('handles SET_STATE', () => {
-    const initialState = Map();
+    const initialState = new Map();
     const action = {
       type: 'SET_STATE',
-      state: Map({
+      state: new Map({
         test: 'Works!'
       })
     };
@@ -21,7 +19,7 @@ describe('reducer', () => {
   });
 
   it('handles SET_STATE with plain JS payload', () => {
-    const initialState = Map();
+    const initialState = new Map();
     const action = {
       type: 'SET_STATE',
       state: {
@@ -48,5 +46,4 @@ describe('reducer', () => {
       test: 'Works!'
     }));
   });
-
 });
