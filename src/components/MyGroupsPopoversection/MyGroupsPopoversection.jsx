@@ -48,4 +48,8 @@ export default React.createClass({
         </Card>
     );
   }
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> f753b0a2335b687da00cba0bb89a576ff1d2b2b0

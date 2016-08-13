@@ -5,10 +5,15 @@ import Navigation from 'react-toolbox/lib/navigation';
 import {Button,IconButton,FontIcon} from 'react-toolbox/lib/button';
 import Dialog from 'react-toolbox/lib/dialog';
 import theme from '../../theme/default';
+<<<<<<< HEAD
 import Tooltip from 'react-toolbox/lib/tooltip';
 import MyGroupsPopoversection from '../MyGroupsPopoversection/MyGroupsPopoversection.jsx';
 
 let TooltipButton = Tooltip(IconButton);
+=======
+import MyGroupsPopoversection from '../MyGroupsPopoversection/MyGroupsPopoversection.jsx';
+
+>>>>>>> f753b0a2335b687da00cba0bb89a576ff1d2b2b0
 
 const countries = [
   { value: 'EN-gb', label: 'Patient Experience Score Box' },
@@ -24,11 +29,21 @@ export default React.createClass({
     return { active: false };
 },
 
+<<<<<<< HEAD
   
   render() {
     return (
 
       // DropdownList Selector
+=======
+  toggleActiveState() {
+    this.setState({ active: !this.state.active });
+  },
+
+  render() {
+    return (
+
+>>>>>>> f753b0a2335b687da00cba0bb89a576ff1d2b2b0
       <div className="MyGroupsHeader" style={{  background:'#E7F6ED', height:'90px',margin:'80px 0 0 0'}}>
 
           <div className={theme.SortingSelector} > 
@@ -42,16 +57,33 @@ export default React.createClass({
             />
           </div>
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> f753b0a2335b687da00cba0bb89a576ff1d2b2b0
           <div className="MyGroupsLogo">
 
             <h2 style={{ width:'80%', padding:'2%', displya:'inline'}}> MY Groups 
               <span style={{margin: '0'}}> 
+<<<<<<< HEAD
                       <TooltipButton icon='info'  tooltip='{{ <MyGroupsPopoversection />}}'  tooltipPosition='right' />
               </span>
             </h2>
 
   
+=======
+                  <IconButton icon='info' onMouseOver={this.toggleActiveState} />
+              </span>
+            </h2>
+
+            <Dialog active={this.state.active} 
+                    onEscKeyDown={this.toggleActiveState} 
+                    onOverlayClick={this.toggleActiveState}     
+            >
+              <MyGroupsPopoversection />
+
+            </Dialog>
+>>>>>>> f753b0a2335b687da00cba0bb89a576ff1d2b2b0
 
           </div>              
 
@@ -59,3 +91,6 @@ export default React.createClass({
     );
   }
 });
+
+
+
