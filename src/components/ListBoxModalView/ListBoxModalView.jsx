@@ -23,43 +23,45 @@ export default React.createClass({
 
   render() {
     return (
-    	<div>
-      	<div style={{ width:'100%' }}>      	  
-	      <h3 style={{ background: '#110b31',color:'#FFF', margin: '0px', padding: '12px' }}>Safety Events: Adverse Drug Effects
-	      	<FontIcon style={{ float:'right'}}value="close" />
-	      </h3>
-	      <br/>
-		</div> {/* Header*/}
-	      	<div style={{border: '1px solid gray', margin: '12px', width:'70%', float:'left' }}> {/* first container*/}
-		      	<div style={{ border:'1px solid gray', borderStyle: 'hidden hidden solid hidden' }}>
+    	<div style={{ width:'100%' }}>
+	      	<div>      	  
+		      <h3 style={{ background: '#110b31',color:'#FFF', margin: '0px', padding: '12px' }}>Safety Events: Adverse Drug Effects
+		      	<FontIcon style={{ float:'right'}}value="close" />
+		      </h3>
+		      <br/>
+			</div> {/* Header*/}
+	      	<div style={{border: '1px solid gray', width:'70%', float:'left' }}> {/* first container*/}
+		      	<div style={{ border:'1px solid gray', borderStyle: 'hidden hidden solid hidden' }}> {/* Graph title*/}
 		      		<h3 style={{ background: '#F2F7FA', color:'#110b31',margin: '0px', padding: '12px' }}>Change Over Time 
 		      			<FontIcon style={{ float:'right'}}value="trending_up" />
 		      		</h3>
-		      	</div>{/* Graph title*/}
-	      		<img style={{width: '200px', height:'150px', padding:'12px'}} 
-	      		src="https://s31.postimg.org/hla3xitq3/imageedit.jpg"/> {/* image*/}
+		      	</div>{/* End Graph title*/}
+	      		<img style={{width: '200px', height:'150px', padding:'12px'}} src="https://s31.postimg.org/hla3xitq3/imageedit.jpg"/> {/* End image*/}
+
 		      	<div style={{ border:'1px solid gray', borderStyle: 'solid hidden solid hidden' }}>
 		      		<h3 style={{ background: '#F2F7FA', color:'#110b31',margin: '0px', padding: '12px' }}>Peer Comparison 
 		      			<FontIcon style={{ float:'right'}}value="person" />
 		      		</h3>
 		      	</div>{/* Peer Comparison*/}
-		      		
-		      	<p className={theme.CheckBox}>
-		      		<Checkbox   checked={this.state.check1}label="- - High Risk" onChange={this.handleChange.bind(this, 'check1')} />
-		      	</p>
-		        <p>
-		        	<Checkbox style={{ height:'2px', width:'2px', fontSize: '10px'}} checked={this.state.check2} label="- - Medium risk" onChange={this.handleChange.bind(this, 'check2')} />
-		        </p>
-	           	<p> 
-	           		<Checkbox style={{ height:'10px', width:'5px'}} checked={this.state.check3} label="- - Low Risk" onChange={this.handleChange.bind(this, 'check3')} />
-	           	</p>  
+		      	<div>
+			      	<p>
+			      		<Checkbox   checked={this.state.check1}label="- - High Risk" onChange={this.handleChange.bind(this, 'check1')} />
+			      	</p>
+			        <p>
+			        	<Checkbox style={{ height:'2px', width:'2px', fontSize: '10px'}} checked={this.state.check2} label="- - Medium risk" onChange={this.handleChange.bind(this, 'check2')} />
+			        </p>
+		           	<p> 
+		           		<Checkbox style={{ height:'10px', width:'5px'}} checked={this.state.check3} label="- - Low Risk" onChange={this.handleChange.bind(this, 'check3')} />
+		           	</p>
+		      	</div>	
+		      	  
 
 	           	<div style={{ border:'1px solid gray', borderStyle: 'solid hidden hidden hidden' }}>
 	           		<p style={{ background: '#F2F7FA', color:'#110b31',margin: '0px', padding: '12px' }}>{dummyText}</p>
 	           	</div>
 		    </div>
 
-      		<div style={{border: '1px solid gray', margin: '10px', width:'21%', float:'left', height:'508px', background:'#FADEDE'  }}>
+      		<div style={{border: '1px solid gray',  width:'27%', float:'right', height:'508px', background:'#FADEDE'  }}> {/* Second container*/}
  	     		<div style={{background: '#F00', margin: '0px'}}> 
  	     			<FontIcon style={{color: '#FFF', padding:'5px'}}value="warning" />
  	     		</div>     		
