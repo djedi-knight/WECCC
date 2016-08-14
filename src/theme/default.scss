@@ -86,8 +86,7 @@
 // ScoreBox
 
 .ScoreBox {
-
-p {
+  p {
     text-align: left;
     margin: 1px;
   }
@@ -101,7 +100,6 @@ p {
     white-space: nowrap;
   }
 }
-<<<<<<< HEAD
 
 // ListBox
 
@@ -126,12 +124,28 @@ p {
     border: solid 1px #ccc;
   }
 }
-=======
-  
 
->>>>>>> f753b0a2335b687da00cba0bb89a576ff1d2b2b0
 
-//MyGroupHeader
+
+// MyGroupsPopoversection
+
+.Overview {
+
+  p {
+    color: #000;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: right;
+    }
+
+  h1 {
+    text-align: right;
+    color: #000;
+    font-size: 16px;
+    margin: 2px;
+    padding-top: 10px;
+  } 
+}
 
 .HeaderSection {
 
@@ -154,42 +168,17 @@ p {
 }
 
 
-.Overview {
 
-  p {
-    color: #000;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: right;
-    }
-
-  h1 {
-    text-align: right;
-    color: #000;
-    font-size: 16px;
-    margin: 2px;
-    padding-top: 10px;
-  }
- 
-}
-
+//MyGroupsHeader
 
 .SortingSelector {
   float: right;
-  width: 20%;
-
+  width: 30%;
 }   
 
-
 .dropdown.label {
-
 
 color: #000;  
 font-size: 24px;
 
-<<<<<<< HEAD
 }
-=======
-}
-
->>>>>>> f753b0a2335b687da00cba0bb89a576ff1d2b2b0
