@@ -3,10 +3,10 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import Dropdown from 'react-toolbox/lib/dropdown';
 import {Button,IconButton,FontIcon} from 'react-toolbox/lib/button';
 import theme from '../../theme/default';
-import Tooltip from 'react-toolbox/lib/tooltip';
+//import Tooltip from 'react-toolbox/lib/tooltip';
+import MyGroupsPopoversection from '../MyGroupsPopoversection/MyGroupsPopoversection.jsx'
 
 
-let TooltipButton = Tooltip(IconButton);
 
 
 const countries = [
@@ -42,7 +42,9 @@ export default React.createClass({
 
             <h2 style={{ width:'80%', padding:'2%', displya:'inline'}}> MY Groups 
               <span style={{margin: '0'}}> 
-                      <TooltipButton icon='info'  tooltip='{{ <MyGroupsPopoversection />}}'  tooltipPosition='right' />
+                      <IconButton className={theme.tooltip} primary icon='info'  >    
+                          <span className={theme.tooltiptext} >  <MyGroupsPopoversection /> </span>
+                      </IconButton>
               </span>
             </h2>
 
