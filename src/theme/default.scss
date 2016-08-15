@@ -209,10 +209,10 @@ p {
 .tooltip .tooltiptext::after {
     content: "";
     position: absolute;
-    top: 5%;
+    top: 3%;
     right: 100%;
     margin-top: -5px;
-    border: 15px solid; 
+    border: 27px solid; 
     border-color: transparent #004C99 transparent transparent;
 }
 
