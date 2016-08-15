@@ -42,12 +42,11 @@ export default React.createClass({
 		      		</h3>
 		      	</div>{/* Peer Comparison*/}
 		      	
-			      		<Checkbox checked={this.state.check1}label="- - High Risk" onChange={this.handleChange.bind(this, 'check1')} />
-			      	
-			       
-			        	<Checkbox checked={this.state.check2} label="- - Medium risk" onChange={this.handleChange.bind(this, 'check2')} />
-			         
-		           		<Checkbox checked={this.state.check3} label="- - Low Risk" onChange={this.handleChange.bind(this, 'check3')} />
+	      		<Checkbox checked={this.state.check1}label="- - High Risk" onChange={this.handleChange.bind(this, 'check1')} />	      	
+	       
+	        	<Checkbox checked={this.state.check2} label="- - Medium risk" onChange={this.handleChange.bind(this, 'check2')} />
+	         
+           		<Checkbox checked={this.state.check3} label="- - Low Risk" onChange={this.handleChange.bind(this, 'check3')} />
 		        
 		      	  
 
