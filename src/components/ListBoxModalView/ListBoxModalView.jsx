@@ -4,6 +4,7 @@ import { Card, CardText, CardTitle } from 'react-toolbox/lib/card';
 import FontIcon from 'react-toolbox/lib/font_icon';
 import AppBar from 'react-toolbox/lib/app_bar';
 import Checkbox from 'react-toolbox/lib/checkbox';
+import {Button} from 'react-toolbox/lib/button';
 import theme from '../../theme/default';
 
 
@@ -13,12 +14,17 @@ export default React.createClass({
   mixins: [PureRenderMixin],
    getInitialState() {
    		var field={check1: false, check2: false,  check3: false };
+   		var state={active: false};
 
-    return { field };
+    return { field, state };
   },   
 
   handleChange (field, value) {
    	this.setState({field, [field]: value});
+  },
+
+  closeDialog(){
+  	 this.setState({active: !this.state.active});
   },
 
   render() {
@@ -26,7 +32,8 @@ export default React.createClass({
     	<div style={{ width:'100%' }}>
 	      	<div>      	  
 		      <h3 style={{ background: '#110b31',color:'#FFF', margin: '0px', padding: '12px' }}>Safety Events: Adverse Drug Effects
-		      	<FontIcon style={{ float:'right'}}value="close" />
+		      	<Button  style={{ float:'right', color:'#FFF'}} label='X' onClick={this.closeDialog}/>
+		      	<FontIcon style={{ float:'right'}} value="close" onClick={this.closeDialog} />
 		      </h3>
 		      <br/>
 			</div> {/* Header*/}
@@ -43,15 +50,15 @@ export default React.createClass({
 		      			<FontIcon style={{ float:'right'}}value="person" />
 		      		</h3>
 		      	</div>{/* Peer Comparison*/}
-		      	<div>
+		      	<div className={theme.CheckBox}>
 			      	<p>
-			      		<Checkbox   checked={this.state.check1}label="- - High Risk" onChange={this.handleChange.bind(this, 'check1')} />
+			      		<Checkbox checked={this.state.check1}label="- - High Risk" onChange={this.handleChange.bind(this, 'check1')} />
 			      	</p>
 			        <p>
-			        	<Checkbox style={{ height:'2px', width:'2px', fontSize: '10px'}} checked={this.state.check2} label="- - Medium risk" onChange={this.handleChange.bind(this, 'check2')} />
+			        	<Checkbox checked={this.state.check2} label="- - Medium risk" onChange={this.handleChange.bind(this, 'check2')} />
 			        </p>
 		           	<p> 
-		           		<Checkbox style={{ height:'10px', width:'5px'}} checked={this.state.check3} label="- - Low Risk" onChange={this.handleChange.bind(this, 'check3')} />
+		           		<Checkbox checked={this.state.check3} label="- - Low Risk" onChange={this.handleChange.bind(this, 'check3')} />
 		           	</p>
 		      	</div>	
 		      	  

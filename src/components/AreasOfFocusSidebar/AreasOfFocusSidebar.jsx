@@ -6,12 +6,11 @@ import Dialog from 'react-toolbox/lib/dialog';
 import ListBoxModalView from '../ListBoxModalView/ListBoxModalView.jsx';
 import theme from '../../theme/default';
 import AppBar from 'react-toolbox/lib/app_bar';
-import FontIcon from 'react-toolbox/lib/font_icon';
 
 
 export default React.createClass({
   mixins: [PureRenderMixin],
-getInitialState() {
+  getInitialState() {
     return { active: false};
   },   
 
@@ -26,7 +25,7 @@ getInitialState() {
           <CardText>
             <p> Areas of Focus Section will go here<br/>
                  <Button label='List Box Modal View' onClick={this.handleToggle} />
-                  <Dialog className={theme.DialogModal}
+                  <Dialog 
                     actions={this.actions}
                     active={this.state.active}
                     onEscKeyDown={this.handleToggle}
