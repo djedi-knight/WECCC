@@ -125,98 +125,89 @@
   }
 }
 
+// MyGroupsPopover
 
+.MyGroupsPopover {
+  height: 420px;
+  background-color: #ebe8e8;
+  border: 1px solid gray;
+  color: #fff;
 
-// MyGroupsPopoversection
-
-.HeaderSection {
-
-    height: 420px; 
-    background-color: #EBE8E8; 
-    border: 1px solid gray; 
-    color:#fff;
-
-h3 {
-    background: #004C99; 
-    margin: 0px; 
-    font-size: 16px; 
+  h3 {
+    background: #004c99;
+    margin: 0;
+    font-size: 16px;
   }
 
-p {
-   text-align: left;
-   padding: 0 5px;
-   height: 25px; 
-   color: #000; 
-   margin: 2px; 
-   font-size:16px;
-
-  }  
+  p {
+    text-align: left;
+    padding: 0 5px;
+    height: 25px;
+    color: #000;
+    margin: 2px;
+    font-size: 16px;
+  }
 }
 
 .Overview {
-
   p {
     color: #000;
     font-size: 24px;
     font-weight: bold;
     text-align: right;
-    }
+  }
 
   h1 {
     text-align: right;
     color: #000;
     font-size: 16px;
-    margin: 0px;
-    padding-top: 0px;
-  } 
+    margin: 0;
+    padding-top: 0;
+  }
 }
-
-
 
 //MyGroupsHeader
 
 .SortingSelector {
   float: right;
   width: 30%;
-}   
+}
 
 .dropdown.label {
-
-  color: #000;  
+  color: #000;
   font-size: 24px;
-
 }
 
-.tooltip {
-    position: relative;
-    display: inline-block; 
-}
-
-
-.tooltip .tooltiptext {
-    visibility: hidden;    
-    color: #fff;
-    width: 600px;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
+.MyGroupsLogo {
+  .tooltip {
     position: absolute;
-    z-index: 1;
-    top: -5px;
-    left: 110%;
-}
+    display: inline-block;
 
-.tooltip .tooltiptext::after {
-    content: "";
-    position: absolute;
-    top: 5%;
-    right: 100%;
-    margin-top: -5px;
-    border: 15px solid; 
-    border-color: transparent #004C99 transparent transparent;
-}
+    .tooltipBody {
+      visibility: hidden;
+      color: #fff;
+      width: 600px;
+      text-align: center;
+      border-radius: 6px;
+      padding: 5px 0;
+      position: absolute;
+      z-index: 1;
+      top: -5px;
+      left: 110%;
+    }
 
-.tooltip:hover .tooltiptext {
+    .tooltipBody::after {
+      content: "";
+      position: absolute;
+      top: 3%;
+      right: 100%;
+      margin-top: -5px;
+      border: 27px solid;
+      border-color: transparent #004c99;
+    }
+  }
+
+  .tooltip:hover .tooltipBody {
     visibility: visible;
+  }
 }
-
