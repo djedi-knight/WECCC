@@ -18,7 +18,12 @@ export default React.createClass({
     this.setState({active: !this.state.active});
   },
 
+  
+
   render() {
+    const actions = [
+    { label: "OK", onClick: this.handleToggle }
+  ];
     return (
       <div className="AreasOfFocusSidebar" >
         <Card style={{ width: '74%', height: '500px', border: '2px solid gray', float: 'left' }}>
