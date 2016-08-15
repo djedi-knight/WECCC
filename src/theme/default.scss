@@ -129,6 +129,30 @@
 
 // MyGroupsPopoversection
 
+.HeaderSection {
+
+    height: 420px; 
+    background-color: #EBE8E8; 
+    border: 1px solid gray; 
+    color:#fff;
+
+h3 {
+    background: #004C99; 
+    margin: 0px; 
+    font-size: 16px; 
+  }
+
+p {
+   text-align: left;
+   padding: 0 5px;
+   height: 25px; 
+   color: #000; 
+   margin: 2px; 
+   font-size:16px;
+
+  }  
+}
+
 .Overview {
 
   p {
@@ -142,29 +166,9 @@
     text-align: right;
     color: #000;
     font-size: 16px;
-    margin: 2px;
-    padding-top: 10px;
+    margin: 0px;
+    padding-top: 0px;
   } 
-}
-
-.HeaderSection {
-
-    height: 400px; 
-    background-color: #EBE8E8; 
-    border: 1px solid gray; 
-    color:#fff;
-
-h3 {
-    background: #004C99; 
-    margin: 0px; 
-    padding: 12px; 
-  }
-
-p {
-   height: 13px; 
-   color: #000; 
-   margin: 5px; 
-  }  
 }
 
 
@@ -178,24 +182,21 @@ p {
 
 .dropdown.label {
 
-color: #000;  
-font-size: 24px;
+  color: #000;  
+  font-size: 24px;
 
 }
 
 .tooltip {
-
     position: relative;
-    display: inline-block;
-   
+    display: inline-block; 
 }
 
-.tooltip .tooltiptext {
-    visibility: hidden;
-    padding: 10px;
 
-    
+.tooltip .tooltiptext {
+    visibility: hidden;    
     color: #fff;
+    width: 600px;
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
