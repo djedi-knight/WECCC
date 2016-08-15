@@ -125,66 +125,9 @@
   }
 }
 
-// MyGroupsHeader
-
-.SortingSelector {
-  float: right;
-  width: 20%;
-}
-
 //MyGroupHeader
 
-.HeaderSection {
-
-    height: 400px; 
-    background-color: #EBE8E8; 
-    border: 1px solid gray; 
-    color:#fff;
-
-h3 {
-    background: #004C99; 
-    margin: 0px; 
-    padding: 12px; 
-  }
-
-p {
-   height: 13px; 
-   color: #000; 
-   margin: 5px; 
-  }  
-}
-
-
-.Overview {
-
-  p {
-    color: #000;
-    font-size: 24px;
-    font-weight: bold;
-    text-align: right;
-    }
-
-  h1 {
-    text-align: right;
-    color: #000;
-    font-size: 16px;
-    margin: 2px;
-    padding-top: 10px;
-  }
- 
-}
-
-
 .SortingSelector {
   float: right;
   width: 20%;
-
-}   
-
-
-.dropdown.label {
-
-color: #000;  
-font-size: 24px;
-
 }
