@@ -1,9 +1,11 @@
 import React from 'react';
+import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { Card, CardText } from 'react-toolbox';
 import ListBox from '../ListBox/ListBox';
 import data from '../../../test/data/AreasOfFocusSidebar.json';
 
 export default React.createClass({
+  mixins: [PureRenderMixin],
   getInitialState() {
     return { data };
   },
