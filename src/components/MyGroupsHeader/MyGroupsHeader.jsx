@@ -1,9 +1,9 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { Dropdown, Tooltip, IconButton } from 'react-toolbox';
+import ReactTooltip from 'react-tooltip';
+import { Dropdown, IconButton } from 'react-toolbox';
+import MyGroupsPopover from '../MyGroupsPopover/MyGroupsPopover';
 import theme from '../../theme/default';
-
-let TooltipButton = new Tooltip(IconButton);
 
 const data = [
   { value: 'EN-gb', label: 'Patient Experience Score Box' },
@@ -31,11 +31,14 @@ export default React.createClass({
             template={this.customItem}
           />
         </div>
-        <div className="MyGroupsLogo">
-          <h2 style={{ width: '80%', padding: '2%' }}>
+        <div className={theme.MyGroupsLogo}>
+          <h2>
             My Groups
-            <span style={{ margin: '0' }}>
-              <TooltipButton icon="info" tooltip="MyGroupsPopover" tooltipPosition="right" />
+            <span>
+              <a data-tip data-for="info"><IconButton primary icon="info" /></a>
+              <ReactTooltip className={theme.tooltip} id="info" place="right" type="light" effect="float" offset={{ bottom: 100 }}>
+                <span><MyGroupsPopover /></span>
+              </ReactTooltip>
             </span>
           </h2>
         </div>

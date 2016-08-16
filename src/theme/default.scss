@@ -125,9 +125,62 @@
   }
 }
 
-//MyGroupHeader
+// MyGroupsPopover
+
+.MyGroupsPopover {
+  height: 420px;
+  background-color: #ebe8e8;
+  border: 1px solid gray;
+  color: #fff;
+
+  h3 {
+    background: #004c99;
+    margin: 0;
+    font-size: 16px;
+  }
+
+  p {
+    text-align: left;
+    padding: 0 5px;
+    height: 25px;
+    color: #000;
+    margin: 2px;
+    font-size: 16px;
+  }
+}
+
+.Overview {
+  p {
+    color: #000;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: right;
+  }
+
+  h1 {
+    text-align: right;
+    color: #000;
+    font-size: 16px;
+    margin: 0;
+    padding-top: 0;
+  }
+}
+
+//MyGroupsHeader
 
 .SortingSelector {
   float: right;
-  width: 20%;
+  width: 30%;
+}
+
+.dropdown.label {
+  color: #000;
+  font-size: 24px;
+}
+
+.MyGroupsLogo {
+  h2 {
+    width: 80%;
+    padding: 2%;
+  }
 }
