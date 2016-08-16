@@ -3,7 +3,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import Dropdown from 'react-toolbox/lib/dropdown';
 import {Button,IconButton,FontIcon} from 'react-toolbox/lib/button';
 import theme from '../../theme/default';
-//import Tooltip from 'react-toolbox/lib/tooltip';
+import ReactTooltip from 'react-tooltip'
 import MyGroupsPopover from '../MyGroupsPopover/MyGroupsPopover.jsx'
 
 
@@ -39,15 +39,19 @@ export default React.createClass({
 
 
           <div className="MyGroupsLogo">
-
-            <h2 style={{ width:'80%', padding:'2%', displya:'inline'}}> MY Groups 
-              <span style={{margin: '0'}}> 
-                      <IconButton className={theme.tooltip} primary icon='info'  >    
-                          <span className={theme.tooltiptext} >  <MyGroupsPopover /> </span>
-                      </IconButton>
-              </span>
-            </h2>
-
+              <h2 style={{ width:'80%', padding:'2%', displya:'inline'}}> MY Groups 
+                <span > 
+                    <a data-tip data-for='info'> 
+                      
+                            <IconButton primary icon='info' /> 
+                       
+                    </a> 
+                          
+                    <ReactTooltip className={theme.tooltip} id='info' place="bottom" type="light" effect="float">
+                        <span> <MyGroupsPopover /></span>
+                    </ReactTooltip>
+                  </span>
+              </h2>
           </div>              
 
       </div>
