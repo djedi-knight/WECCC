@@ -1,7 +1,9 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { Card, CardTitle, CardText, CardActions, FontIcon, Link, Tooltip } from 'react-toolbox';
+import { Card, CardTitle, CardText, CardActions, FontIcon, Link, Tooltip ,IconButton} from 'react-toolbox';
 import theme from '../../theme/default';
+import ListBoxModalView from '../ListBoxModalView/ListBoxModalView'
+import ReactTooltip from 'react-tooltip';
 
 const TooltipIcon = new Tooltip(FontIcon);
 
@@ -20,8 +22,11 @@ export default React.createClass({
             <CardTitle
               theme={theme}
               avatar={
-                <div>
-                  <h1><TooltipIcon style={{ color: '#FF0000' }} value="warning" tooltip="score popup" /></h1>
+                <div>           
+                    <a data-tip data-for='risk'> <IconButton icon="warning" style={{ color: '#FF0000' }}/> </a>
+                    <ReactTooltip style={{width: '500px'}} id='risk' type="light" place="right" effect="solid">
+                      <ListBoxModalView /> 
+                    </ReactTooltip>
                 </div>
               }
               title="3/15"
