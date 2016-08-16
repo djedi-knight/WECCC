@@ -1,7 +1,9 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { Card, CardTitle, CardText, CardActions, FontIcon, Link } from 'react-toolbox';
+import { Card, CardTitle, CardText, CardActions, FontIcon, Link, Tooltip } from 'react-toolbox';
 import theme from '../../theme/default';
+
+const TooltipIcon = new Tooltip(FontIcon);
 
 export default React.createClass({
   mixins: [PureRenderMixin],
@@ -17,7 +19,11 @@ export default React.createClass({
           <div className={theme.score}>
             <CardTitle
               theme={theme}
-              avatar={<FontIcon value="warning" />}
+              avatar={
+                <div>
+                  <h1><TooltipIcon style={{ color: '#FF0000' }} value="warning" tooltip="score popup" /></h1>
+                </div>
+              }
               title="3/15"
               subtitle="(label/define?)"
             />
