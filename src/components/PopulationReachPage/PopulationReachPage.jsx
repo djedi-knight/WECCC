@@ -1,6 +1,7 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { Tab, Tabs } from 'react-toolbox';
+import PopulationReachSubgroup from '../PopulationReachSubgroup/PopulationReachSubgroup'
 
 
 export default React.createClass({
@@ -19,10 +20,10 @@ handleTabChange (index){
       <div className="PopulationTab">
           <Tabs index={this.state.index} onChange={this.handleTabChange}>
 
-          <Tab label="28,000 Population"><small>Eligible</small></Tab>
-          <Tab label="6,000 Eligible"><small>Eligible</small></Tab>
-          <Tab label="1,500 Target" ><small>Target</small></Tab>
-          <Tab label="0 Registered"><small>Registered</small></Tab>
+          <Tab label="28,000 Population"> <PopulationReachSubgroup />  </Tab>
+          <Tab label="6,000 Eligible"> </Tab>
+          <Tab label="1,500 Target">  </Tab>
+          <Tab label="0 Registered"> <PopulationReachSubgroup /> </Tab>
    
         </Tabs>
       </div>
