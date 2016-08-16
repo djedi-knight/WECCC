@@ -5,6 +5,33 @@ import Table from 'react-toolbox/lib/table';
 import theme from '../../theme/default';
 import Tooltip from 'react-toolbox/lib/tooltip';
 import Link from 'react-toolbox/lib/link';
+import Dialog from 'react-toolbox/lib/dialog';
+
+
+export const Modal = React.createClass({  
+  getInitialState() {
+    return { active: false};
+  },   
+
+  handleToggle () {
+    this.setState({active: !this.state.active});
+  },
+  render(){
+    return(
+      <div>
+        <Dialog 
+          actions={this.actions}
+          active={this.state.active}
+          onEscKeyDown={this.handleToggle}
+          onOverlayClick={this.handleToggle}
+          >
+          <ListBoxModalView/>
+        </Dialog>
+      </div>
+    );
+  }
+
+});
 
 const TooltipLink = new Tooltip(Link);
 const title = 'RESPONDING TO NEED';
@@ -16,7 +43,9 @@ const ListModel = {
 const list = [
   { title: <div>{title} <TooltipLink style={{ float: 'right' }} icon="info_outline" tooltip="info popup" /><br />{subtitle}</div> },
   { title: '1. Falls' },
-  { title: <div>2. Social Isolation <a href="#" style={{ float: 'right' }}>Show details</a></div> },
+  { title: <div>2. Social Isolation 
+              <a href="#" style={{ float: 'right' }}>Show details</a>              
+            </div> },
   { title: <div>3. Depression <FontIcon style={{ color: '#FF0000' }} value="warning" /><a href="#" style={{ float: 'right' }}>Show details</a></div> },
   { title: <small><a href="#"><FontIcon value="person" /> Show peer comparison</a></small> }
 ];
@@ -25,6 +54,7 @@ const list = [
 
 export default React.createClass({
   mixins: [PureRenderMixin],
+
   getInitialState() {
     return { source: list };
   },
