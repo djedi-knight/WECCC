@@ -1,42 +1,15 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { Card, CardText } from 'react-toolbox/lib/card';
-import {Button, IconButton} from 'react-toolbox/lib/button';
-import Dialog from 'react-toolbox/lib/dialog';
-import ListBoxModalView from '../ListBoxModalView/ListBoxModalView.jsx';
-import theme from '../../theme/default';
-import AppBar from 'react-toolbox/lib/app_bar';
-
+import { Card, CardText } from 'react-toolbox';
 
 export default React.createClass({
   mixins: [PureRenderMixin],
-  getInitialState() {
-    return { active: false};
-  },   
-
-  handleToggle () {
-    this.setState({active: !this.state.active});
-  },
-
-  
-
   render() {
-    const actions = [{ label: "OK", onClick: this.handleToggle }];
     return (
       <div className="AreasOfFocusSidebar" >
         <Card style={{ width: '74%', height: '500px', border: '2px solid gray', float: 'left' }}>
           <CardText>
-            <p> Areas of Focus Section will go here<br/>
-                 <Button label='List Box Modal View' onClick={this.handleToggle} />
-                  <Dialog 
-                    actions={this.actions}
-                    active={this.state.active}
-                    onEscKeyDown={this.handleToggle}
-                    onOverlayClick={this.handleToggle}
-                    >
-                    <ListBoxModalView/>
-                  </Dialog>
-        </p>
+            <p> Areas of Focus Section will go here </p>
           </CardText>
         </Card>
         <Card style={{ width: '25%', height: '500px', background: '#EBE8E8', border: '1px solid gray', float: 'left' }}>
