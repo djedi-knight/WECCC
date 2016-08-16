@@ -72,8 +72,6 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
-    "eslint": "^2.13.1",
-    "eslint-plugin-jsx-a11y": "^1.2.0",
     "immutable": "^3.8.1",
     "react": "^15.2.1",
     "react-addons-pure-render-mixin": "^15.2.1",
@@ -82,6 +80,7 @@
     "react-redux": "^4.4.5",
     "react-router": "^2.0.0",
     "react-toolbox": "^1.0.3",
+    "react-tooltip": "^3.1.5",
     "redux": "^3.5.2"
   }
 }
