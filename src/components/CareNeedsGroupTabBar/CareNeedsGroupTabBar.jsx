@@ -1,6 +1,7 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { Tab, Tabs } from 'react-toolbox';
+import CareNeedsGroupPopover from '../CareNeedsGroupPopover/CareNeedsGroupPopover.jsx';
 
 
 export default React.createClass({
@@ -15,6 +16,7 @@ export default React.createClass({
           <Tab label="Fourth" hidden><small>Fourth content hidden</small></Tab>
           <Tab label="EOL:10%"><small>Fifth content</small></Tab>
         </Tabs>
+        <CareNeedsGroupPopover/>
       </div>
     );
   }
