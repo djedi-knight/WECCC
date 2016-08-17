@@ -1,10 +1,9 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { Card, CardTitle, CardText, CardActions, FontIcon, Link, Tooltip ,IconButton} from 'react-toolbox';
-import theme from '../../theme/default';
 import ReactTooltip from 'react-tooltip';
+import { Card, CardTitle, CardText, CardActions, FontIcon, Link, IconButton } from 'react-toolbox';
 import ScoreRiskPopover from '../ScoreRiskPopover/ScoreRiskPopover';
-
+import theme from '../../theme/default';
 
 export default React.createClass({
   mixins: [PureRenderMixin],
@@ -19,13 +18,14 @@ export default React.createClass({
           />
           <div className={theme.score}>
             <CardTitle
-             
               avatar={
-                <div>           
-                    <a data-tip data-for='risk'> <IconButton icon="warning" style={{ color: '#FF0000' }}/> </a>
-                    <ReactTooltip id='risk' type="light" place="right" effect="float">
-                      <ScoreRiskPopover /> 
-                    </ReactTooltip>
+                <div>
+                  <a data-tip data-for="risk">
+                    <IconButton icon="warning" style={{ color: '#FF0000' }} />
+                  </a>
+                  <ReactTooltip id="risk" type="light" place="right" effect="float">
+                    <ScoreRiskPopover />
+                  </ReactTooltip>
                 </div>
               }
               title="3/15"
