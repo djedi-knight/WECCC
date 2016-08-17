@@ -19,7 +19,7 @@ export default React.createClass({
                       <div className={theme.score} >           
                           <a data-tip data-for='risk'> <IconButton icon="warning" style={{ color: '#FF0000' }}/> </a>
                               <ReactTooltip id='risk' type="light" place="right" effect="float">
-                                  <span> ScoreRiskPopover </span>
+                                  <span> Need to import ScoreRiskPopover component </span>
                               </ReactTooltip>
                                   3/15
                       </div> 

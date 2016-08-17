@@ -17,6 +17,11 @@ handleTabChange (index){
 
   render() {
     return (
+      <div>
+         <h2 style={{ background: '#E7F6ED', padding: '10px', margin: '80px 0 0 0' }}> 
+        Community Outcomes
+      </h2>
+      
       <div className="PopulationTab">
           <Tabs index={this.state.index} onChange={this.handleTabChange}>
 
@@ -27,6 +32,7 @@ handleTabChange (index){
    
         </Tabs>
       </div>
+    </div>
     );
   }
 });

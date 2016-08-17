@@ -9,7 +9,7 @@ import ScoreBox from '../ScoreBox/ScoreBox'
 export default React.createClass({
   render() {
     return (
-    	<div>
+      <div>
         <Card className={theme.priority} >
             
                 <p > Priority Subgroup </p>
@@ -44,4 +44,3 @@ export default React.createClass({
     );
   }
 });
-
