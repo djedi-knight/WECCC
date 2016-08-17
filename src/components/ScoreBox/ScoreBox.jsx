@@ -1,43 +1,44 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { Card, CardTitle, CardText, CardActions, FontIcon, Link, Tooltip } from 'react-toolbox';
+import { Card, CardTitle, CardText, CardActions, FontIcon, Link, Tooltip ,IconButton} from 'react-toolbox';
 import theme from '../../theme/default';
+import ReactTooltip from 'react-tooltip';
+//import ScoreRiskPopover from '../ScoreRiskPopover/ScoreRiskPopover';
 
-const TooltipIcon = new Tooltip(FontIcon);
 
 export default React.createClass({
   mixins: [PureRenderMixin],
   render() {
     return (
       <div className={theme.ScoreBox}>
-        <Card theme={theme} raised>
-          <CardTitle
-            theme={theme}
-            avatar={<FontIcon value="info" />}
-            title="Patient Experience"
-          />
-          <div className={theme.score}>
-            <CardTitle
-              theme={theme}
-              avatar={
-                <div>
-                  <h1><TooltipIcon style={{ color: '#FF0000' }} value="warning" tooltip="score popup" /></h1>
-                </div>
-              }
-              title="3/15"
-              subtitle="(label/define?)"
-            />
-          </div>
+        
+        <Card theme={theme} >
+          <CardText>
+              <FontIcon value="info" style={{ float:'right', color: 'gray'}}/>
+                  <h3>Patient Experience</h3>         
+                      <div className={theme.score} >           
+                          <a data-tip data-for='risk'> <IconButton icon="warning" style={{ color: '#FF0000' }}/> </a>
+                              <ReactTooltip id='risk' type="light" place="right" effect="float">
+                                  <span> ScoreRiskPopover </span>
+                              </ReactTooltip>
+                                  3/15
+                      </div> 
+                      (label/define?)<hr/>
+          </CardText>
+          
           <CardText>
             <FontIcon value="person" />
             Peer Comparison
             5 / 10
           </CardText>
+
           <CardText>
-            <FontIcon value="open_in_browser" />
+            <FontIcon value="trending_up" />
             Change Over Time
             <FontIcon value="arrow_upward" />
+            <hr/>
           </CardText>
+
           <CardActions>
             <Link href="#" label="Show Detail" />
           </CardActions>

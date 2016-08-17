@@ -86,19 +86,19 @@
 // ScoreBox
 
 .ScoreBox {
+  
+ width: 310px;
+
   .card {
-    width: 300px;
+    width: auto;
+    height: auto;
+    margin: 5px;
   }
 
-  .cardTitle {
-    width: 300px;
+  .score{
+    font-size: 40px;
   }
 
-  .score {
-    .cardTitle {
-      width: 300px;
-    }
-  }
 }
 
 // ListBox
@@ -128,7 +128,8 @@
 // MyGroupsPopover
 
 .MyGroupsPopover {
-  height: 420px;
+  width: 150%;
+  height: 300px; 
   background-color: #ebe8e8;
   border: 1px solid gray;
   color: #fff;
@@ -184,3 +185,49 @@
     padding: 2%;
   }
 }
+
+
+//PopulationReachSubGroup
+
+.priority{
+
+  width: 52%;
+    p { 
+          background-color: #4980c7; 
+          margin: 0px; 
+          padding: 12px;
+        }
+    span {
+       float:right;   
+     } 
+}
+
+.dependency{
+width: 102%;
+    p { 
+        background-color: #4980c7; 
+        margin: 0px; 
+        padding: 12px;
+      }
+
+    span {
+         float:right;   
+    } 
+}
+
+.registed{
+    p { 
+        background-color: #4980c7; 
+        margin: 0px; 
+        padding: 12px;
+      }
+    span {
+     float:right;   
+   } 
+}
+
+
+
+
+
+
