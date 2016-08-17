@@ -2,10 +2,9 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { Card, CardTitle, CardText, CardActions, FontIcon, Link, Tooltip ,IconButton} from 'react-toolbox';
 import theme from '../../theme/default';
-import ListBoxModalView from '../ListBoxModalView/ListBoxModalView'
 import ReactTooltip from 'react-tooltip';
+import ScoreRiskPopover from '../ScoreRiskPopover/ScoreRiskPopover';
 
-const TooltipIcon = new Tooltip(FontIcon);
 
 export default React.createClass({
   mixins: [PureRenderMixin],
@@ -20,12 +19,12 @@ export default React.createClass({
           />
           <div className={theme.score}>
             <CardTitle
-              theme={theme}
+             
               avatar={
                 <div>           
                     <a data-tip data-for='risk'> <IconButton icon="warning" style={{ color: '#FF0000' }}/> </a>
-                    <ReactTooltip style={{width: '500px'}} id='risk' type="light" place="right" effect="solid">
-                      <ListBoxModalView /> 
+                    <ReactTooltip id='risk' type="light" place="right" effect="float">
+                      <ScoreRiskPopover /> 
                     </ReactTooltip>
                 </div>
               }
