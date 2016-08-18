@@ -12,27 +12,27 @@ export const PopulationReachSubgroups = React.createClass({
     return (
       <div className={theme.PopulationReachSubgroups}>
         <Card className={theme.prioritySection}>
-          <p> Priority Subgroup </p>
+          <div className={theme.title}> Priority Subgroup </div>
           <div>
-            <span ><ScoreBox /></span>
-            <span ><ScoreBox /></span>
+            <div className={theme.contents}><ScoreBox /></div>
+            <div className={theme.contents}><ScoreBox /></div>
           </div>
         </Card>
         <Card className={theme.dependencySection}>
-          <p> Dependency Level </p>
+          <div className={theme.title}> Dependency Level </div>
           <div>
-            <span><ScoreBox /></span>
-            <span><ScoreBox /></span>
-            <span><ScoreBox /></span>
-            <span><ScoreBox /></span>
+            <div className={theme.contents}><ScoreBox /></div>
+            <div className={theme.contents}><ScoreBox /></div>
+            <div className={theme.contents}><ScoreBox /></div>
+            <div className={theme.contents}><ScoreBox /></div>
           </div>
         </Card>
         <Card className={theme.registedSection}>
-          <p> Registed to </p>
+          <div className={theme.title}> Registed to </div>
           <div>
-            <span><ScoreBox /></span>
-            <span><ScoreBox /></span>
-            <span><ScoreBox /></span>
+            <div className={theme.contents}><ScoreBox /></div>
+            <div className={theme.contents}><ScoreBox /></div>
+            <div className={theme.contents}><ScoreBox /></div>
           </div>
         </Card>
       </div>

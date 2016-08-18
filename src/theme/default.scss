@@ -203,13 +203,13 @@
   .prioritySection {
     width: 52%;
 
-    p {
+    .title {
       background-color: #4980c7;
-      margin: 0;
       padding: 12px;
+      margin: 0;
     }
 
-    span {
+    .contents {
       float: right;
     }
   }
@@ -217,26 +217,48 @@
   .dependencySection {
     width: 102%;
 
-    p {
+    .title {
       background-color: #4980c7;
-      margin: 0;
       padding: 12px;
+      margin: 0;
     }
 
-    span {
+    .contents {
       float: right;
     }
   }
 
   .registedSection {
-    p {
+    .title {
       background-color: #4980c7;
-      margin: 0;
       padding: 12px;
+      margin: 0;
     }
 
-    span {
+    .contents {
       float: right;
     }
+  }
+}
+
+// ScoreRiskPopover
+
+.ScoreRiskPopover {
+  border: 1px solid gray;
+  background: #fadede;
+
+  .title {
+    background: #f00 !important;
+    padding: 0 !important;
+    margin: 0;
+
+    .fontIcon {
+      color: #fff;
+      padding: 5px;
+    }
+  }
+
+  .body {
+    padding: 2px;
   }
 }
