@@ -5,6 +5,7 @@ import CareNeedsGroupPopover from '../CareNeedsGroupPopover/CareNeedsGroupPopove
 import ReactTooltip from 'react-tooltip';
 
 var lab = <a data-tip data-for='global'> Light: 40% </a>;
+
 export default React.createClass({
   mixins: [PureRenderMixin],
   render() {
@@ -19,11 +20,9 @@ export default React.createClass({
           <Tab label="EOL:10%"><small>Fifth content</small></Tab>
         </Tabs>
 
-        <ReactTooltip id='global' aria-haspopup='true' type="light">
-         <CareNeedsGroupPopover/>
-        </ReactTooltip>
-
-        <CareNeedsGroupPopover/>
+        <ReactTooltip id='global' aria-haspopup='true' place="right" >
+         <CareNeedsGroupPopover /> 
+        </ReactTooltip>        
       </div>
     );
   }
