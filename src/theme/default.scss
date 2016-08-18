@@ -86,18 +86,16 @@
 // ScoreBox
 
 .ScoreBox {
-  .card {
-    width: 300px;
-  }
+  width: 310px;
 
-  .cardTitle {
-    width: 300px;
+  .card {
+    width: auto;
+    height: auto;
+    margin: 5px;
   }
 
   .score {
-    .cardTitle {
-      width: 300px;
-    }
+    font-size: 40px;
   }
 }
 
@@ -128,7 +126,8 @@
 // MyGroupsPopover
 
 .MyGroupsPopover {
-  height: 420px;
+  width: 150%;
+  height: 300px;
   background-color: #ebe8e8;
   border: 1px solid gray;
   color: #fff;
@@ -182,5 +181,62 @@
   h2 {
     width: 80%;
     padding: 2%;
+  }
+}
+
+//PopulationReach
+
+.PopulationReach {
+  .PopulationReachHeader {
+    background: #e7f6ed;
+    height: 90px;
+    margin: 80px 0 0;
+  }
+
+  h2 {
+    width: 80%;
+    padding: 2%;
+  }
+}
+
+.PopulationReachSubgroups {
+  .prioritySection {
+    width: 52%;
+
+    p {
+      background-color: #4980c7;
+      margin: 0;
+      padding: 12px;
+    }
+
+    span {
+      float: right;
+    }
+  }
+
+  .dependencySection {
+    width: 102%;
+
+    p {
+      background-color: #4980c7;
+      margin: 0;
+      padding: 12px;
+    }
+
+    span {
+      float: right;
+    }
+  }
+
+  .registedSection {
+    p {
+      background-color: #4980c7;
+      margin: 0;
+      padding: 12px;
+    }
+
+    span {
+      float: right;
+    }
   }
 }

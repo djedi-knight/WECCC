@@ -10,7 +10,6 @@ export default React.createClass({
     return { data };
   },
   render() {
-    console.log(this.state.data.items);
     return (
       <div className="AreasOfFocusSidebar" >
         <Card style={{ width: '74%', height: '500px', border: '2px solid gray', float: 'left' }}>
@@ -21,8 +20,8 @@ export default React.createClass({
         <Card style={{ width: '25%', height: '500px', background: '#EBE8E8', border: '1px solid gray', float: 'left' }}>
           <h3 style={{ background: '#4980c7', margin: '0px', padding: '12px' }}>THINGS TO CONSIDER</h3>
           <CardText>
-            {this.state.data.items.map(item =>
-              <div><label><input type="checkbox" />{item}</label><br /><hr /></div>
+            {this.state.data.items.map((item, i) =>
+              <div key={i}><label><input type="checkbox" />{item}</label><br /><hr /></div>
             )}
           </CardText>
         </Card>
