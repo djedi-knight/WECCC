@@ -81,7 +81,6 @@
     "react-router": "^2.0.0",
     "react-toolbox": "^1.0.3",
     "react-tooltip": "^3.1.5",
-    "redux": "^3.5.2",
-    "victory": "^0.10.4"
+    "redux": "^3.5.2"
   }
 }
