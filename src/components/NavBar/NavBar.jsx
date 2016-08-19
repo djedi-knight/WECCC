@@ -63,6 +63,7 @@ export const NavBar = React.createClass({
             <li><a href="#/contact">CONTACT</a></li>
             <li><a href="#/my-community">MY COMMUNITY</a></li>
             <li><a href="#/my-groups">MY GROUPS</a></li>
+            <li><a href="#/vital-signs">VITAL SIGNS</a></li>
           </ul>
           <LogoutButton logout={this.props.logout} />
         </div>
