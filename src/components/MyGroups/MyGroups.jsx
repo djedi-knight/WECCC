@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../actions/action_creators';
 import MyGroupsHeader from '../MyGroupsHeader/MyGroupsHeader';
 import CareNeedsGroupTabBar from '../CareNeedsGroupTabBar/CareNeedsGroupTabBar';
-import HealthOutcomesSection from '../HealthOutcomesSection/HealthOutcomesSection';
+import HealthOutcomesSection from '../HealthOutcomesSection';
 import AreasOfFocusSection from '../AreasOfFocusSection';
 import AlertSummarySection from '../AlertSummarySection';
 
@@ -16,8 +16,8 @@ export const MyGroups = React.createClass({
 {/*
         <MyGroupsHeader />
         <CareNeedsGroupTabBar />
-        <HealthOutcomesSection />
 */}
+        <HealthOutcomesSection />
         <AreasOfFocusSection />
         <AlertSummarySection />
       </div>
