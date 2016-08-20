@@ -2,7 +2,7 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../actions/action_creators';
-import MyGroupsHeader from '../MyGroupsHeader/MyGroupsHeader';
+import MyGroupsHeader from '../MyGroupsHeader';
 import CareNeedsGroupTabBar from '../CareNeedsGroupTabBar';
 import HealthOutcomesSection from '../HealthOutcomesSection';
 import AreasOfFocusSection from '../AreasOfFocusSection';
@@ -13,9 +13,7 @@ export const MyGroups = React.createClass({
   render() {
     return (
       <div className="MyGroups">
-{/*
         <MyGroupsHeader />
-*/}
         <CareNeedsGroupTabBar />
         <HealthOutcomesSection />
         <AreasOfFocusSection />
