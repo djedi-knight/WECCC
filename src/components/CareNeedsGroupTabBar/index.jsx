@@ -3,6 +3,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { Tab, Tabs } from 'react-toolbox';
 import ReactTooltip from 'react-tooltip';
 import CareNeedsGroupPopover from '../CareNeedsGroupPopover/CareNeedsGroupPopover';
+import style from './style';
 
 const contentLabel = (
   <a data-tip data-for="global"> Light: 40% </a>
@@ -10,15 +11,20 @@ const contentLabel = (
 
 export default React.createClass({
   mixins: [PureRenderMixin],
+  getInitialState() {
+    return { index: 0 };
+  },
+  handleTabChange(index) {
+    this.setState({ index });
+  },
   render() {
     return (
-      <div className="MyGroupsTab">
-        <Tabs>
-          <Tab label={contentLabel}><small>Primary content</small></Tab>
-          <Tab label="Moderate:30%"><small>Secondary content</small></Tab>
-          <Tab label="Complex:20%" disabled><small>Disabled content</small></Tab>
-          <Tab label="Fourth" hidden><small>Fourth content hidden</small></Tab>
-          <Tab label="EOL:10%"><small>Fifth content</small></Tab>
+      <div className={style.careNeedsGroupTabBar}>
+        <Tabs index={this.state.index} onChange={this.handleTabChange}>
+          <Tab label={contentLabel} />
+          <Tab label="Moderate:30%" />
+          <Tab label="Complex:20%" />
+          <Tab label="EOL:10%" />
         </Tabs>
         <ReactTooltip id="global" aria-haspopup="true" place="right" offset={{ bottom: 100, right: 100 }}>
           <CareNeedsGroupPopover />
