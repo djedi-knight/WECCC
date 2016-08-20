@@ -1,26 +1,28 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
+import { FontIcon } from 'react-toolbox';
 import { Row, Col } from 'react-flexbox-grid';
-import AreasOfFocusBody from '../AreasOfFocusBody/AreasOfFocusBody';
-import AreasOfFocusSidebar from '../AreasOfFocusSidebar/AreasOfFocusSidebar';
+import AlertSummarySidebar from '../AlertSummarySidebar';
+import AlertSummaryTable from '../AlertSummaryTable';
 import style from './style';
 
 export default React.createClass({
   mixins: [PureRenderMixin],
   render() {
     return (
-      <div className={style.areasOfFocusSection}>
+      <div className={style.alertSummarySection}>
         <Row className={style.header}>
+          <FontIcon value="warning" />
           <div className={style.title}>
-            Areas of Focus
+            Alert Summary
           </div>
         </Row>
         <Row>
           <Col xs={9}>
-            <AreasOfFocusBody />
+            <AlertSummaryTable />
           </Col>
           <Col xs={3}>
-            <AreasOfFocusSidebar />
+            <AlertSummarySidebar />
           </Col>
         </Row>
       </div>
