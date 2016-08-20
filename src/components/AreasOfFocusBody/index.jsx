@@ -1,6 +1,6 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import ListBox from '../ListBox/ListBox';
+import ListBox from '../ListBox';
 import style from './style';
 
 export default React.createClass({

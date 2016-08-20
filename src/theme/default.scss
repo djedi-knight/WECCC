@@ -33,33 +33,6 @@
   padding: 10px;
 }
 
-// AlertTable
-
-.AlertTable {
-  border: solid 1px #ccc;
-  border-collapse: collapse;
-  border-style: outset #ccc;
-
-  tr:nth-child(even) {
-    background-color: #fff;
-  }
-
-  tr:nth-child(odd) {
-    background-color: #e8f8f5;
-  }
-
-  th {
-    background-color: #fff;
-    border: solid 1px #ccc;
-    border-style: outset #ccc;
-  }
-
-  td {
-    border: solid 1px #ccc;
-    border-style: outset #ccc;
-  }
-}
-
 // NavBar
 
 .navBar {
@@ -98,30 +71,6 @@
 
   .score {
     font-size: 40px;
-  }
-}
-
-// ListBox
-
-.ListBox {
-  border: solid 1px #ccc;
-  border-collapse: collapse;
-
-  tr:nth-child(odd) {
-    background-color: #fff;
-  }
-
-  tr:nth-child(even) {
-    background-color: #e8f8f5;
-  }
-
-  th {
-    background-color: #fff;
-    border: solid 1px #ccc;
-  }
-
-  td {
-    border: solid 1px #ccc;
   }
 }
 

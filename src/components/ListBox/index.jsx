@@ -2,7 +2,7 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { FontIcon, Table, Tooltip, Link, Dialog, Button } from 'react-toolbox';
 import ListBoxModalView from '../ListBoxModalView/ListBoxModalView';
-import theme from '../../theme/default';
+import style from './style';
 
 const TooltipLink = new Tooltip(Link);
 const title = 'RESPONDING TO NEED';
@@ -29,9 +29,9 @@ export default React.createClass({
   },
   render() {
     return (
-      <div style={{ width: '50%', margin: '5px' }} >
+      <div className={style.listBox}>
         <Table
-          className={theme.ListBox}
+          theme={style}
           selectable={false}
           heading={false}
           model={ListModel}
