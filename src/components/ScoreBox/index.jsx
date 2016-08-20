@@ -3,18 +3,18 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import ReactTooltip from 'react-tooltip';
 import { Card, CardText, CardActions, FontIcon, Link, IconButton } from 'react-toolbox';
 import ScoreRiskPopover from '../ScoreRiskPopover/ScoreRiskPopover';
-import theme from '../../theme/default';
+import style from './style';
 
 export default React.createClass({
   mixins: [PureRenderMixin],
   render() {
     return (
-      <div className={theme.ScoreBox}>
-        <Card theme={theme}>
+      <div className={style.scoreBox}>
+        <Card theme={style}>
           <CardText>
-            <FontIcon value="info" style={{ float: 'right', color: 'gray' }} />
+            <FontIcon className={style.infoIcon} value="info" />
             <h3>Patient Experience</h3>
-            <div className={theme.score}>
+            <div className={style.score}>
               <a data-tip data-for="risk">
                 <IconButton icon="warning" style={{ color: '#FF0000' }} />
               </a>

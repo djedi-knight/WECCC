@@ -3,7 +3,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../actions/action_creators';
 import { Tab, Tabs, Card } from 'react-toolbox';
-import ScoreBox from '../ScoreBox/ScoreBox';
+import ScoreBox from '../ScoreBox';
 import theme from '../../theme/default';
 
 export const PopulationReachSubgroups = React.createClass({
