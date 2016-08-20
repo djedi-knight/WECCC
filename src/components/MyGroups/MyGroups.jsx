@@ -13,10 +13,12 @@ export const MyGroups = React.createClass({
   render() {
     return (
       <div className="MyGroups">
+{/*
         <MyGroupsHeader />
         <CareNeedsGroupTabBar />
         <HealthOutcomesSection />
         <AreasOfFocusSection />
+*/}
         <AlertSummarySection />
       </div>
     );

@@ -1,9 +1,7 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import Table from 'react-toolbox/lib/table';
-import FontIcon from 'react-toolbox/lib/font_icon';
-import { Card, CardText } from 'react-toolbox/lib/card';
-import theme from '../../theme/default';
+import { FontIcon, Table } from 'react-toolbox';
+import style from './style';
 
 const AlertModel = {
   CATEGORY: { type: String },
@@ -11,7 +9,7 @@ const AlertModel = {
   NOTES: { type: String }
 };
 
-const alert = [
+const data = [
   { CATEGORY: <b>Health Outcomes</b>, OUTCOME: '', NOTES: '' },
   { CATEGORY: <a href="#">Patient Experience</a>, OUTCOME: '2/10', NOTES: <div><FontIcon value="person" />  Less than peers</div> },
   { CATEGORY: <b>Areas of Focus</b>, OUTCOME: '', NOTES: '' },
@@ -25,18 +23,13 @@ const alert = [
 export default React.createClass({
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { source: alert };
+    return { source: data };
   },
   render() {
     return (
-      <Card style={{ width: '74%', height: '550px', border: '2px solid gray', float: 'left', background: '#E5E0E0' }}>
-        <span style={{ background: '#4980c7', margin: '0px', padding: '9px', color: '#fff' }} >
-          <FontIcon value="warning" />Alert Summary
-        </span>
-        <CardText>
-          <Table className={theme.AlertTable} selectable={false} model={AlertModel} source={this.state.source} />
-        </CardText>
-      </Card>
+      <div className={style.alertSummaryTable}>
+        <Table theme={style} selectable={false} model={AlertModel} source={this.state.source} />
+      </div>
     );
   }
 });
