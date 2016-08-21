@@ -3,7 +3,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../actions/action_creators';
 import { AppBar, Button, Dialog } from 'react-toolbox';
-import LoginView from '../LoginView/LoginView';
+import LoginModalView from '../LoginModalView';
 import theme from '../../theme/default';
 
 export const LoginButton = React.createClass({
@@ -25,7 +25,7 @@ export const LoginButton = React.createClass({
         </div>
         <Dialog active={this.state.active} onEscKeyDown={this.toggleActiveState} onOverlayClick={this.toggleActiveState}>
           <Button label="Close" onClick={this.toggleActiveState} />
-          <LoginView login={this.props.login} />
+          <LoginModalView login={this.props.login} />
         </Dialog>
       </div>
     );
