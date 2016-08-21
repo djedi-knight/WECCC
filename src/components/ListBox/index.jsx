@@ -1,7 +1,7 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { FontIcon, Table, Tooltip, Link, Dialog, Button } from 'react-toolbox';
-import ListBoxModalView from '../ListBoxModalView/ListBoxModalView';
+import ListBoxModalView from '../ListBoxModalView';
 import style from './style';
 
 const TooltipLink = new Tooltip(Link);

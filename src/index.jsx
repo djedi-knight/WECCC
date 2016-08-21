@@ -6,7 +6,7 @@ import makeStore from './store/store';
 import App from './components/App';
 import { HomeContainer } from './components/Home/Home';
 import { MyGroupsContainer } from './components/MyGroups/MyGroups';
-import { MyCommunityContainer } from './components/MyCommunity/MyCommunity';
+import { MyCommunityContainer } from './components/MyCommunity';
 import { PopulationReachContainer } from './components/PopulationReach/PopulationReach';
 
 // Setup store

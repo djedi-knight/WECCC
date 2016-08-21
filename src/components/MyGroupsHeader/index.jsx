@@ -19,7 +19,6 @@ export default React.createClass({
   },
   render() {
     return (
-      // DropdownList Selector
       <div className={style.myGroupsHeader}>
         <Dropdown
           theme={style}
