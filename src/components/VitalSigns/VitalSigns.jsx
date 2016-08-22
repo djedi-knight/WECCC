@@ -6,6 +6,7 @@ import * as actionCreators from '../../actions/action_creators';
 import { RadioGroup, RadioButton } from 'react-toolbox/lib/radio';
 import { Layout, Panel } from 'react-toolbox';
 import FontIcon from 'react-toolbox/lib/font_icon';
+import AppBar from 'react-toolbox/lib/app_bar';
 
 
 export const VitalSigns = React.createClass({
@@ -21,9 +22,11 @@ export const VitalSigns = React.createClass({
   render() {
     return (
       <div className="VitalSigns">
-        <br /><br /><br /><br /> <br /><br />                   
-        <div style={{width: '50%', border: '1px solid', margin: 'auto'}} >
-          <h2 style={{textAlign:'center', margin: 'auto', background:'#110b31', color:'#FFF'}}>Community Well-Being (General Population)</h2>
+        <br /><br /><br /><br /> <br /><br /> 
+                          
+        <div style={{ border: '1px solid'}} >
+          <AppBar><h1>Community Well-Being (General Population)</h1></AppBar>
+          
           <br/>
           <div style={{ margin: '15px'}}>
             <RadioGroup name='comic' value={this.state.value} onChange={this.handleChange}>
