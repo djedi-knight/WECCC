@@ -7,7 +7,7 @@ import App from './components/App';
 import { HomeContainer } from './components/Home';
 import { MyGroupsContainer } from './components/MyGroups/MyGroups';
 import { MyCommunityContainer } from './components/MyCommunity';
-import { PopulationReachContainer } from './components/PopulationReach/PopulationReach';
+import { PopulationReachContainer } from './components/PopulationReach';
 
 // Setup store
 const store = makeStore();
