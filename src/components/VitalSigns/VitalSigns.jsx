@@ -23,7 +23,7 @@ export const VitalSigns = React.createClass({
       <div className="VitalSigns">
         <br /><br /><br /><br /> <br /><br />                   
         <div style={{width: '50%', border: '1px solid', margin: 'auto'}} >
-          <h2 style={{textAlign:'center', margin: 'auto'}}>Community Well-Being (General Population)</h2>
+          <h2 style={{textAlign:'center', margin: 'auto', background:'#110b31', color:'#FFF'}}>Community Well-Being (General Population)</h2>
           <br/>
           <div style={{ margin: '15px'}}>
             <RadioGroup name='comic' value={this.state.value} onChange={this.handleChange}>
