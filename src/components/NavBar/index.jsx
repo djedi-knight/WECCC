@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../actions/action_creators';
 import { AppBar, Button, Dialog } from 'react-toolbox';
 import LoginModalView from '../LoginModalView';
-import theme from '../../theme/default';
+import style from './style';
 
 export const LoginButton = React.createClass({
   propTypes: {
@@ -19,10 +19,8 @@ export const LoginButton = React.createClass({
   },
   render() {
     return (
-      <div className="NavBar">
-        <div className={theme.loginButton}>
-          <Button inverse label="Login" onClick={this.toggleActiveState} />
-        </div>
+      <div className={style.loginButton}>
+        <Button inverse label="Login" onClick={this.toggleActiveState} />
         <Dialog active={this.state.active} onEscKeyDown={this.toggleActiveState} onOverlayClick={this.toggleActiveState}>
           <Button label="Close" onClick={this.toggleActiveState} />
           <LoginModalView login={this.props.login} />
@@ -39,7 +37,7 @@ export const LogoutButton = React.createClass({
   mixins: [PureRenderMixin],
   render() {
     return (
-      <div className={theme.logoutButton}>
+      <div className={style.logoutButton}>
         <Button inverse label="Logout" onClick={() => this.props.logout()} />
       </div>
     );
@@ -57,7 +55,7 @@ export const NavBar = React.createClass({
     if (this.props.isLoggedIn) {
       // return logged in content
       return (
-        <div className="NavItems">
+        <div className={style.navItems}>
           <ul>
             <li><a href="#/about">ABOUT</a></li>
             <li><a href="#/contact">CONTACT</a></li>
@@ -71,7 +69,7 @@ export const NavBar = React.createClass({
 
     // return logged out content
     return (
-      <div className="NavItems">
+      <div className={style.navItems}>
         <ul>
           <li><a href="#/about">ABOUT</a> </li>
           <li><a href="#/contact">CONTACT</a> </li>
@@ -85,7 +83,7 @@ export const NavBar = React.createClass({
     let content = this.getContent();
 
     return (
-      <div className={theme.navBar}>
+      <div className={style.navBar}>
         <AppBar fixed flat >
           <h4><a href="#/">Outcome Reports</a></h4>
           {content}

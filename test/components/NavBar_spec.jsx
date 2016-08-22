@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
-import { NavBar } from '../../src/components/NavBar/NavBar';
+import { NavBar } from '../../src/components/NavBar';
 
 describe('NavBar', () => {
   it('renders the component successfully', () => {

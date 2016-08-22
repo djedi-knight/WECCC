@@ -1,9 +1,9 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { Tab, Tabs } from 'react-toolbox';
-import { Row, Col } from 'react-flexbox-grid';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../actions/action_creators';
+import { Tab, Tabs } from 'react-toolbox';
+import { Row, Col } from 'react-flexbox-grid';
 import ScoreBox from '../ScoreBox';
 import style from './style';
 

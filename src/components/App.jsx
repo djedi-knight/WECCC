@@ -1,6 +1,6 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { NavBarContainer } from './NavBar/NavBar';
+import { NavBarContainer } from './NavBar';
 
 export default React.createClass({
   propTypes: {
