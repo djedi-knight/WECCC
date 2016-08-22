@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 import makeStore from './store/store';
 import App from './components/App';
 import { HomeContainer } from './components/Home';
-import { MyGroupsContainer } from './components/MyGroups/MyGroups';
+import { MyGroupsContainer } from './components/MyGroups';
 import { MyCommunityContainer } from './components/MyCommunity';
 import { PopulationReachContainer } from './components/PopulationReach';
 

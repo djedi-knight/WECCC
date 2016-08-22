@@ -2,7 +2,7 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import ReactTooltip from 'react-tooltip';
 import { Dropdown, IconButton } from 'react-toolbox';
-import MyGroupsPopover from '../MyGroupsPopover/MyGroupsPopover';
+import MyGroupsPopover from '../MyGroupsPopover';
 import style from './style';
 
 const data = [

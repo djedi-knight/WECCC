@@ -1,16 +1,16 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { Card, FontIcon } from 'react-toolbox';
-import theme from '../../theme/default';
+import style from './style';
 
 export default React.createClass({
   mixins: [PureRenderMixin],
   render() {
     return (
-      <Card className={theme.MyGroupsPopover} >
+      <Card className={style.myGroupsPopover} >
         <h3>OVERVIEWS</h3>
         <p> At my agency I manage: </p>
-        <div className={theme.Overview}>
+        <div className={style.overview}>
           <Card style={{ width: 'auto', height: '80%', border: '2px solid gray', margin: '10px', float: 'left' }}>
             <h1> PROVIDERS </h1>
             <p> 30 </p>
@@ -29,7 +29,7 @@ export default React.createClass({
           PEER COMPARISON
         </h3>
         <p> Your 4 peer agencies manage: </p>
-        <div className={theme.Overview}>
+        <div className={style.overview}>
           <Card style={{ width: 'auto', height: '80%', border: '2px solid gray', margin: '10px ', float: 'left' }}>
             <h1> PROVIDERS </h1>
             <p> 205 </p>
