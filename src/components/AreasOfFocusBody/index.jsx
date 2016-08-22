@@ -1,17 +1,14 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { NavBarContainer } from './NavBar';
+import ListBox from '../ListBox';
+import style from './style';
 
 export default React.createClass({
-  propTypes: {
-    children: React.PropTypes.element.isRequired
-  },
   mixins: [PureRenderMixin],
   render() {
     return (
-      <div>
-        <NavBarContainer />
-        {this.props.children}
+      <div className={style.AreasOfFocusBody} >
+        <ListBox />
       </div>
     );
   }

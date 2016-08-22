@@ -1,0 +1,22 @@
+.myGroupsHeader {
+  background: #e7f6ed;
+  height: 90px;
+  margin: 80px 0 0;
+
+  .dropdown {
+    float: right;
+    width: 30%;
+
+    .label {
+      color: #000;
+      font-size: 24px;
+    }
+  }
+
+  .title {
+    h2 {
+      width: 80%;
+      padding: 2%;
+    }
+  }
+}

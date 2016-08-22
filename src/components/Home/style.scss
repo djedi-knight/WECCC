@@ -1,0 +1,28 @@
+.home {
+  color: #110b31;
+  display: block;
+  width: 50%;
+  padding: 10px;
+  margin: auto;
+
+  .header {
+    padding: 10px;
+  }
+
+  .sharedGoalsSection {
+    padding: 10px;
+
+    .table {
+      border-collapse: collapse;
+      width: 100%;
+
+      tr {
+        padding: 8px;
+      }
+    }
+  }
+
+  .dataSroucesSection {
+    padding: 10px;
+  }
+}

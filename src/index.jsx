@@ -4,10 +4,10 @@ import { Router, Route, hashHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import makeStore from './store/store';
 import App from './components/App';
-import { HomeContainer } from './components/Home/Home';
-import { MyGroupsContainer } from './components/MyGroups/MyGroups';
-import { MyCommunityContainer } from './components/MyCommunity/MyCommunity';
-import { PopulationReachContainer } from './components/PopulationReach/PopulationReach';
+import { HomeContainer } from './components/Home';
+import { MyGroupsContainer } from './components/MyGroups';
+import { MyCommunityContainer } from './components/MyCommunity';
+import { PopulationReachContainer } from './components/PopulationReach';
 
 // Setup store
 const store = makeStore();
