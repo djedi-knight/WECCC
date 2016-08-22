@@ -1,0 +1,32 @@
+.scoreBox {
+  padding: 5px;
+
+  .card {
+    font-size: 14px;
+
+    .score {
+      font-size: 30px;
+    }
+  }
+}
+.healthOutcomesSection {
+  border: 2px solid #ebe8e8;
+  margin-bottom: 15px;
+
+  .header {
+    background: #4980c7;
+    color: #fff;
+    padding: 20px;
+    margin: 0;
+
+    .title {
+      font-size: 23px;
+    }
+  }
+
+  .body {
+    background: #e5e0e0;
+    padding: 15px;
+    margin: 0;
+  }
+}

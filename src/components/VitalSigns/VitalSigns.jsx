@@ -4,9 +4,13 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../actions/action_creators';
 
 import { RadioGroup, RadioButton } from 'react-toolbox/lib/radio';
-import { Layout, Panel } from 'react-toolbox';
 import FontIcon from 'react-toolbox/lib/font_icon';
 import AppBar from 'react-toolbox/lib/app_bar';
+import ScoreBox from '../ScoreBox/ScoreBox.jsx';
+import style from './style';
+
+import { Card, CardText, CardActions, Link, IconButton } from 'react-toolbox';
+
 
 
 export const VitalSigns = React.createClass({
@@ -22,12 +26,9 @@ export const VitalSigns = React.createClass({
   render() {
     return (
       <div className="VitalSigns">
-        <br /><br /><br /><br /> <br /><br /> 
-                          
+        <br /><br /><br /><br /> <br /><br />                           
         <div style={{ border: '1px solid'}} >
-          <AppBar><h1>Community Well-Being (General Population)</h1></AppBar>
-          
-          <br/>
+          <AppBar><h1>Community Well-Being (General Population)</h1></AppBar>        
           <div style={{ margin: '15px'}}>
             <RadioGroup name='comic' value={this.state.value} onChange={this.handleChange}>
               <RadioButton label='Vital Signs' value='vitalsigns'/>
@@ -35,50 +36,87 @@ export const VitalSigns = React.createClass({
               <RadioButton label='Neighbourhoods' value='neighbourhoods'/>
             </RadioGroup>
           </div>
+
           <div style={{textAlign:'center', width:'100%'}} >
-            <div style={{margin:'1px', width:'19%', textAlign:'centre', border: '1px solid gray', display:'inline-block' }} >
-              <h3>Environment</h3>
-              <h2>B+</h2>
+            <div style={{margin:'1px', width:'19%', textAlign:'centre', display:'inline-block' }} >
+              <Card theme={style}>
+                <CardText>
+                  <h3>Environment</h3>
+                  <h2> B+</h2>
+                </CardText>              
+              </Card>
             </div>
-            <div style={{margin:'1px', width:'19%', textAlign:'centre', border: '1px solid gray', display:'inline-block' }} >
-              <h3>Safety</h3>
-              <h2>D</h2>
+            <div style={{margin:'1px', width:'19%', textAlign:'centre', display:'inline-block' }} >
+              <Card theme={style}>
+                <CardText>
+                  <h3>Safety</h3>
+                  <h2> B+</h2>
+                </CardText>              
+              </Card>
             </div>
-            <div style={{margin:'1px', width:'19%', textAlign:'centre', border: '1px solid gray', display:'inline-block' }} >
-              <h3>Arts + Culture</h3>
-              <h2>B</h2>
+            <div style={{margin:'1px', width:'19%', textAlign:'centre', display:'inline-block' }} >
+              <Card theme={style}>
+                <CardText>
+                  <h3>Arts & Culture</h3>
+                  <h2> B+</h2>
+                </CardText>              
+              </Card>
             </div>
-            <div style={{margin:'1px', width:'19%', textAlign:'centre', border: '1px solid gray', display:'inline-block' }} >
-              <h3>Transportation</h3>
-              <h2>C-</h2>
+            <div style={{margin:'1px', width:'19%', textAlign:'centre',  display:'inline-block' }} >
+              <Card theme={style}>
+                <CardText>
+                  <h3>Transportation</h3>
+                  <h2> B+</h2>
+                </CardText>              
+              </Card>
             </div>
-            <div style={{margin:'1px', width:'19%', textAlign:'centre', border: '1px solid gray', display:'inline-block' }} >
-              <h3>Food Density</h3>
-              <h2>B+</h2>
+            <div style={{margin:'1px', width:'19%', textAlign:'centre',  display:'inline-block' }} >
+              <Card theme={style}>
+                <CardText>
+                  <h3>Food Security</h3>
+                  <h2> B+</h2>
+                </CardText>              
+              </Card>
             </div>
           </div>
+          <br/>
           <hr/>
-          <h2 style={{textAlign:'left', margin: '15px'}}>Top Priorities</h2>
+          <h2 style={{textAlign:'left', margin: '20px'}}>Top Priorities</h2>
           <div style={{textAlign:'center', width:'100%'}}>
-            <div style={{margin:'10px', width:'30%', textAlign:'centre', border: '1px solid gray', display:'inline-block' }} >
-              <h3>Water Quality</h3>
-              <h2>45%</h2>
-              <hr/>
-              <FontIcon value='trending_up' />
+            <div style={{margin:'20px', width:'20%', textAlign:'centre',  display:'inline-block' }} >
+              <Card theme={style}>
+                <CardText>
+                  <h3>Water Quality</h3>
+                  <h2>45%</h2>
+                  <hr/>
+                  <FontIcon value='trending_up' />
+                </CardText>              
+              </Card>
+
             </div>
-             <div style={{margin:'10px', width:'30%', textAlign:'centre', border: '1px solid gray', display:'inline-block' }} >
-              <h3>Air Quality</h3>
-              <h2>12%</h2>
-              <hr/>
-              <FontIcon value='trending_down' />
+             <div style={{margin:'20px', width:'20%', textAlign:'centre', display:'inline-block' }} >
+              <Card theme={style}>
+                <CardText>
+                  <h3>Air Quality</h3>
+                  <h2>12%</h2>
+                  <hr/>
+                  <FontIcon value='trending_down' />
+                </CardText>              
+              </Card>
+
             </div>
-            <div style={{margin:'10px', width:'30%', textAlign:'centre', border: '1px solid gray', display:'inline-block' }} >
-              <h3>Habitats</h3>
-              <h2>35%</h2>
-              <hr/>
-              <FontIcon value='trending_up' />
+            <div style={{margin:'20px', width:'20%', textAlign:'centre', display:'inline-block' }} >
+              <Card theme={style}>
+                <CardText>
+                  <h3>Habitats</h3>
+                  <h2>35%</h2>
+                  <hr/>
+                  <FontIcon value='trending_up' />
+                </CardText>              
+              </Card>
             </div>
           </div>
+          <br/>
         </div>
       </div>
     );
