@@ -2,7 +2,7 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { Tab, Tabs } from 'react-toolbox';
 import ReactTooltip from 'react-tooltip';
-import CareNeedsGroupPopover from '../CareNeedsGroupPopover/CareNeedsGroupPopover';
+import CareNeedsGroupPopover from '../CareNeedsGroupPopover';
 import style from './style';
 
 const contentLabel = (
