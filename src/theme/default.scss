@@ -133,25 +133,3 @@
     }
   }
 }
-
-// ScoreRiskPopover
-
-.ScoreRiskPopover {
-  border: 1px solid gray;
-  background: #fadede;
-
-  .title {
-    background: #f00 !important;
-    padding: 0 !important;
-    margin: 0;
-
-    .fontIcon {
-      color: #fff;
-      padding: 5px;
-    }
-  }
-
-  .body {
-    padding: 2px;
-  }
-}

@@ -2,7 +2,7 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import ReactTooltip from 'react-tooltip';
 import { Card, CardText, CardActions, FontIcon, Link, IconButton } from 'react-toolbox';
-import ScoreRiskPopover from '../ScoreRiskPopover/ScoreRiskPopover';
+import ScoreRiskPopover from '../ScoreRiskPopover';
 import style from './style';
 
 export default React.createClass({

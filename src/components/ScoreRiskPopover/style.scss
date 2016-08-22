@@ -1,0 +1,19 @@
+.scoreRiskPopover {
+  border: 1px solid gray;
+  background: #fadede;
+
+  .title {
+    background: #f00;
+    padding: 0;
+    margin: 0;
+
+    .icon {
+      color: #fff;
+      padding: 5px;
+    }
+  }
+
+  .body {
+    padding: 2px;
+  }
+}
