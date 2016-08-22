@@ -19,7 +19,7 @@ describe('NavBar', () => {
     const logout = () => {};
 
     const result = shallow(<NavBar isLoggedIn={isLoggedIn} login={login} logout={logout} />);
-    expect(result.find('.NavItems li')).to.have.length(2);
+    expect(result.find('li')).to.have.length(2);
   });
 
   it('renders the Logged In state correctly', () => {
@@ -28,6 +28,6 @@ describe('NavBar', () => {
     const logout = () => {};
 
     const result = shallow(<NavBar isLoggedIn={isLoggedIn} login={login} logout={logout} />);
-    expect(result.find('.NavItems li')).to.have.length(4);
+    expect(result.find('li')).to.have.length(4);
   });
 });
