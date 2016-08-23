@@ -7,7 +7,6 @@ import CareNeedsGroupTabBar from '../CareNeedsGroupTabBar/CareNeedsGroupTabBar';
 import HealthOutcomesSection from '../HealthOutcomesSection/HealthOutcomesSection';
 import AreasOfFocusSection from '../AreasOfFocusSection/AreasOfFocusSection';
 import AlertSummarySection from '../AlertSummarySection/AlertSummarySection';
-//import VitalSignsPage from '../VitalSignsPage/VitalSignsPage.jsx';
 
 export const MyGroups = React.createClass({
   mixins: [PureRenderMixin],
@@ -16,7 +15,6 @@ export const MyGroups = React.createClass({
       <div className="MyGroups">
         <MyGroupsHeader />
         <CareNeedsGroupTabBar />
-        {/*<VitalSignsPage />*/}
         <HealthOutcomesSection />
         <AreasOfFocusSection />
         <AlertSummarySection />
