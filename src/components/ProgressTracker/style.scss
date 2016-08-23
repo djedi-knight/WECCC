@@ -1,29 +1,44 @@
-.ProgressTracker {
-  
 
-  .table {
-     border: 1px solid black;
-     text-align: center;
-  
+.progressTracker {
+  .progressTrackerHeader {
+      background: #e7f6ed;
+      height: 60px;
+      margin: 80px 0px 10px 0px;
 
-    tr:nth-child(even) {
-      background-color: #fff;
-     
-    }
+      h2 {
+        width: 80%;
+        padding: 1%;
+      }
 
-    tr:nth-child(odd) {
-      background-color: #e8f8f5;
-    }
+}
 
-    th {
-      background-color: #fff;
-      border: solid 1px #ccc;
+  .progressTrackerTable {
+    
+    .table {
+       border: 1px solid black;
+       text-align: center;
+    
 
-    }
+      tr:nth-child(even) {
+        background-color: #fff;
+       
+      }
 
-    td {
-      border: solid 1px #ccc;
+      tr:nth-child(odd) {
+        background-color: #e8f8f5;
+      }
 
+      th {
+        background-color: #fff;
+        border: solid 1px #ccc;
+
+      }
+
+      td {
+        border: solid 1px #ccc;
+
+      }
     }
   }
 }
+

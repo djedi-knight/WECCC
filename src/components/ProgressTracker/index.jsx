@@ -16,7 +16,7 @@ const ProgressTrackerTable = {
 
 const data = [
   { INDICATOR: <b>Income </b>, GOAL: '5%', BASELINE: 'A', CHANGE: '-2%', TREND: <FontIcon value="trending_down"/>, COLOURCODE: <div style={{color:'red'}}><FontIcon value="warning" /> </div> },
-  { INDICATOR: <a href="#">Age</a>, GOAL: '21%', BASELINE: 'A',TREND: <FontIcon value="trending_up"/>, COLOURCODE: <div style={{color:'#CBCB1B'}}><FontIcon value="star" /> </div>  },
+  { INDICATOR: <a href="#">Age</a>, GOAL: '21%', BASELINE: 'A',CHANGE: '1%',TREND: <FontIcon value="trending_up"/>, COLOURCODE: <div style={{color:'#CBCB1B'}}><FontIcon value="star" /> </div>  },
   { INDICATOR: <b>Education</b> , GOAL: '--', BASELINE: '--',TREND: <FontIcon value="trending_up"/>, COLOURCODE: <div style={{color:'green'}}><FontIcon value="check" /> </div> },
   { INDICATOR: <b>Air Pollution</b> , GOAL: '--', BASELINE: '--', COLOURCODE: <div style={{color:'blue'}}><FontIcon value="lens" /> </div> },
   { INDICATOR: <b>Climate</b> , GOAL: '--', BASELINE: '--'},
@@ -31,9 +31,15 @@ export const ProgressTracker = React.createClass({
   },
   render() {
     return (
-      <div className={style.ProgressTracker}>
-        <Table theme={style} selectable={false} model={ProgressTrackerTable} source={this.state.source} />
-      </div>
+
+        <div className={style.progressTracker}>  
+          <div className={style.progressTrackerHeader}>
+              <h2>Progress Tracker </h2>
+          </div>
+          <div className={style.progressTrackerTable}>
+            <Table theme={style} selectable={false} model={ProgressTrackerTable} source={this.state.source} />
+          </div>
+        </div>
     );
   }
 });
