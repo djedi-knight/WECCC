@@ -6,10 +6,7 @@ import * as actionCreators from '../../actions/action_creators';
 import { RadioGroup, RadioButton } from 'react-toolbox/lib/radio';
 import FontIcon from 'react-toolbox/lib/font_icon';
 import AppBar from 'react-toolbox/lib/app_bar';
-import ScoreBox from '../ScoreBox/ScoreBox.jsx';
-import style from './style';
-
-import { Card, CardText, CardActions, Link, IconButton } from 'react-toolbox';
+import { Card, CardText} from 'react-toolbox';
 
 
 
@@ -39,7 +36,7 @@ export const VitalSigns = React.createClass({
 
           <div style={{textAlign:'center', width:'100%'}} >
             <div style={{margin:'1px', width:'19%', textAlign:'centre', display:'inline-block' }} >
-              <Card theme={style}>
+              <Card>
                 <CardText>
                   <h3>Environment</h3>
                   <h2> B+</h2>
@@ -47,7 +44,7 @@ export const VitalSigns = React.createClass({
               </Card>
             </div>
             <div style={{margin:'1px', width:'19%', textAlign:'centre', display:'inline-block' }} >
-              <Card theme={style}>
+              <Card>
                 <CardText>
                   <h3>Safety</h3>
                   <h2> B+</h2>
@@ -55,7 +52,7 @@ export const VitalSigns = React.createClass({
               </Card>
             </div>
             <div style={{margin:'1px', width:'19%', textAlign:'centre', display:'inline-block' }} >
-              <Card theme={style}>
+              <Card>
                 <CardText>
                   <h3>Arts & Culture</h3>
                   <h2> B+</h2>
@@ -63,7 +60,7 @@ export const VitalSigns = React.createClass({
               </Card>
             </div>
             <div style={{margin:'1px', width:'19%', textAlign:'centre',  display:'inline-block' }} >
-              <Card theme={style}>
+              <Card>
                 <CardText>
                   <h3>Transportation</h3>
                   <h2> B+</h2>
@@ -71,7 +68,7 @@ export const VitalSigns = React.createClass({
               </Card>
             </div>
             <div style={{margin:'1px', width:'19%', textAlign:'centre',  display:'inline-block' }} >
-              <Card theme={style}>
+              <Card>
                 <CardText>
                   <h3>Food Security</h3>
                   <h2> B+</h2>
@@ -84,7 +81,7 @@ export const VitalSigns = React.createClass({
           <h2 style={{textAlign:'left', margin: '20px'}}>Top Priorities</h2>
           <div style={{textAlign:'center', width:'100%'}}>
             <div style={{margin:'20px', width:'20%', textAlign:'centre',  display:'inline-block' }} >
-              <Card theme={style}>
+              <Card>
                 <CardText>
                   <h3>Water Quality</h3>
                   <h2>45%</h2>
@@ -95,7 +92,7 @@ export const VitalSigns = React.createClass({
 
             </div>
              <div style={{margin:'20px', width:'20%', textAlign:'centre', display:'inline-block' }} >
-              <Card theme={style}>
+              <Card>
                 <CardText>
                   <h3>Air Quality</h3>
                   <h2>12%</h2>
@@ -106,7 +103,7 @@ export const VitalSigns = React.createClass({
 
             </div>
             <div style={{margin:'20px', width:'20%', textAlign:'centre', display:'inline-block' }} >
-              <Card theme={style}>
+              <Card>
                 <CardText>
                   <h3>Habitats</h3>
                   <h2>35%</h2>
