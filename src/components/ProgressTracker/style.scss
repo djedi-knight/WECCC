@@ -1,0 +1,29 @@
+.ProgressTracker {
+  
+
+  .table {
+     border: 1px solid black;
+     text-align: center;
+  
+
+    tr:nth-child(even) {
+      background-color: #fff;
+     
+    }
+
+    tr:nth-child(odd) {
+      background-color: #e8f8f5;
+    }
+
+    th {
+      background-color: #fff;
+      border: solid 1px #ccc;
+
+    }
+
+    td {
+      border: solid 1px #ccc;
+
+    }
+  }
+}
