@@ -2,14 +2,15 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { FontIcon, Table } from 'react-toolbox';
 import style from './style';
+import data from './data.json';
 
 const AlertModel = {
   CATEGORY: { type: String },
   OUTCOME: { type: String },
-  NOTES: { type: String }
+  NOTES: { type: String },
 };
 
-const data = [
+const templet = [
   { CATEGORY: <b>Health Outcomes</b>, OUTCOME: '', NOTES: '' },
   { CATEGORY: <a href="#">Patient Experience</a>, OUTCOME: '2/10', NOTES: <div><FontIcon value="person" />  Less than peers</div> },
   { CATEGORY: <b>Areas of Focus</b>, OUTCOME: '', NOTES: '' },
@@ -20,15 +21,16 @@ const data = [
   { CATEGORY: <div style={{ float: 'right' }}><a href="#">DIVERT Scale</a></div>, OUTCOME: '--', NOTES: <div><FontIcon value="person" /> Higher than peers</div> }
 ];
 
+
 export default React.createClass({
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { source: data };
+    return { data }
   },
   render() {
     return (
       <div className={style.alertSummaryTable}>
-        <Table theme={style} selectable={false} model={AlertModel} source={this.state.source} />
+        <Table theme={style} selectable={false} model={AlertModel} source={this.state.data.tableData} />
       </div>
     );
   }
