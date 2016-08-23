@@ -1,0 +1,10 @@
+[
+  { "label" : "Slice1", "value" : 50.0 },
+  { "label" : "Slice2", "value" : 50.0},
+  { "label" : "Slice3", "value" : 60.0 },
+  { "label" : "Slice4", "value" : 30.0 },
+  { "label" : "Slice5", "value" : 15.0 },
+  { "label" : "Slice6", "value" : 65.0 },
+  { "label" : "Slice7", "value" : 55.0 },
+  { "label" : "Slice8", "value" : 20.0 }
+]

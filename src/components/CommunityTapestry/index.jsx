@@ -3,20 +3,12 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../actions/action_creators';
 
-//import AppBar from 'react-toolbox/lib/app_bar';
-import { AppBar } from 'react-toolbox';
+import AppBar from 'react-toolbox/lib/app_bar';
+import { Card, CardText} from 'react-toolbox';
 import { PieChart } from 'react-d3';
+import FontIcon from 'react-toolbox/lib/font_icon';
+import data from './pieData.json';
 
-const pieData = [
-  { label: 'Slice1', value: 50.0 },
-  { label: 'Slice2', value: 35.0 },
-  { label: 'Slice3', value: 60.0 },
-  { label: 'Slice4', value: 30.0 },
-  { label: 'Slice5', value: 15.0 },
-  { label: 'Slice6', value: 65.0 },
-  { label: 'Slice7', value: 55.0 },
-  { label: 'Slice8', value: 20.0 }
-];
 
 export const CommunityTapestry = React.createClass({
   mixins: [PureRenderMixin],
@@ -26,12 +18,35 @@ export const CommunityTapestry = React.createClass({
         <AppBar><h1>Your Community Pattern</h1></AppBar>
         <div style={{textAlign: 'center', margin:'40px' }}>
           <PieChart
-            data={pieData}
+            data={data}
             width={400}
             height={400}
             radius={200}
           />
         </div>
+        <div style={{margin:'20px', float:'centre'}} >
+
+        <div style={{margin:'20px', width:'20%', textAlign:'centre', display:'inline-block' }} >
+              <Card>
+                <CardText>
+                  <h3>S.R.O.I</h3>
+                  <h2>15</h2>
+                  <hr/>
+                  <FontIcon value='trending_down' />
+                </CardText>              
+              </Card>
+            </div>
+            <div style={{margin:'20px', width:'20%', textAlign:'centre', display:'inline-block' }} >
+              <Card>
+                <CardText>
+                  <h3>E.R.O.I</h3>
+                  <h2>27</h2>
+                  <hr/>
+                  <FontIcon value='trending_up' />
+                </CardText>              
+              </Card>
+            </div>
+            </div>
 
       </div>
     );
