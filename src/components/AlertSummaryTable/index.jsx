@@ -6,10 +6,12 @@ import data from './data.json';
 
 const AlertModel = {
   CATEGORY: { type: String },
-  OUTCOME: { type: Number },
+  SUBCATEGORY: {type: String},
+  OUTCOME: { type: String },
   NOTES: { type: String },
 };
 
+//unused code
 const templet = [
   { CATEGORY: <b>Health Outcomes</b>, OUTCOME: '', NOTES: '' },
   { CATEGORY: <a href="#">Patient Experience</a>, OUTCOME: '2/10', NOTES: <div><FontIcon value="person" />  Less than peers</div> },

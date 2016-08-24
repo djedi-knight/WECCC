@@ -1,14 +1,19 @@
 {
  "tableData": [
-  { "CATEGORY": "Health Outcomes", "OUTCOME": "--", "NOTES": " " },
-  { "CATEGORY": "Patient Experience", "OUTCOME": "2/10", "NOTES": "Less than peers" },
-  { "CATEGORY": "Areas of Focus", "OUTCOME": " ", "NOTES": " " },
-  { "CATEGORY": "Safety Events", "OUTCOME": "--", "NOTES": " " },
-  { "CATEGORY": "Adverse Drug Effects", "OUTCOME": "--", "NOTES": "High Risk Group" },
-  { "CATEGORY": "Readmissions", "OUTCOME": "37", "NOTES": "Trending up" },
-  { "CATEGORY": "DIVERT Scale", "OUTCOME": "--", "NOTES": "Higher than peers" }
-  ] 
+
+  	{ "CATEGORY": "Health Outcomes"},
+  		{ "SUBCATEGORY": "Patient Experience", "OUTCOME": "2/10", "NOTES": "Less than peers" },
+
+	{ "CATEGORY": "Areas of Focus", "OUTCOME": " ", "NOTES": " " },
+		{ "SUBCATEGORY": "Safety Events", "OUTCOME": "--", "NOTES": " " },
+		{ "SUBCATEGORY": "Readmissions", "OUTCOME": "37", "NOTES": "Trending up" }
+ ] 
  
 }
+
+
+
+  
+
 
 
