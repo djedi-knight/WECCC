@@ -10,6 +10,7 @@ const AlertModel = {
   NOTES: { type: String },
 };
 
+//unused code
 const templet = [
   { CATEGORY: <b>Health Outcomes</b>, OUTCOME: '', NOTES: '' },
   { CATEGORY: <a href="#">Patient Experience</a>, OUTCOME: '2/10', NOTES: <div><FontIcon value="person" />  Less than peers</div> },

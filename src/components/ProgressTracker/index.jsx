@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../actions/action_creators';
 import { FontIcon, Table } from 'react-toolbox';
 import style from './style';
+//import data from './data.json';
 
 const ProgressTrackerTable = {
   INDICATOR: { type: String },
@@ -27,7 +28,7 @@ const data = [
 export const ProgressTracker = React.createClass({
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { source: data };
+    return { data };
   },
   render() {
     return (
@@ -37,7 +38,7 @@ export const ProgressTracker = React.createClass({
               <h2>Progress Tracker </h2>
           </div>
           <div className={style.progressTrackerTable}>
-            <Table theme={style} selectable={false} model={ProgressTrackerTable} source={this.state.source} />
+            <Table theme={style} selectable={false} model={ProgressTrackerTable} source={this.state.data} />
           </div>
         </div>
     );
