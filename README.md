@@ -2,6 +2,12 @@
 
 Data reporting and aggregation application for WECCC/ Hospice
 
+## Installation
+
+The following need to be installed:
+
+- [NodeJS](https://nodejs.org/en/)
+
 ## Initialization
 
 ```Shell
