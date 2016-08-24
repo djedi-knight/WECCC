@@ -1,9 +1,9 @@
 {
  "tableData": [
-  { "INDICATOR": "Income" , "GOAL": "5%", "BASELINE": "A", "CHANGE": "-2%", "TREND": "<FontIcon value='trending_down'/>", "COLOURCODE": "<div style={{color:'red'}}><FontIcon value='warning' /> </div>" },
-  { "INDICATOR": "Age", "GOAL": "21%", "BASELINE": "A","CHANGE": "1%","TREND": "<FontIcon value='trending_up'/>", "COLOURCODE": "<div style={{color:'#CBCB1B'}}><FontIcon value='star' /> </div> " },
-  { "INDICATOR": "Education" , "GOAL": "--", "BASELINE": "--","TREND": "<FontIcon value='trending_up'/>", "COLOURCODE": "<div style={{color:'green'}}><FontIcon value='check' /> </div>" },
-  { "INDICATOR": "Air Pollution" , "GOAL": "--", "BASELINE": "--", "COLOURCODE": "<div style={{color:'blue'}}><FontIcon value='lens' /> </div>" },
+  { "INDICATOR": "Income" , "GOAL": "5%", "BASELINE": "A", "CHANGE": "-2%"},
+  { "INDICATOR": "Age", "GOAL": "21%", "BASELINE": "A","CHANGE": "1%"},
+  { "INDICATOR": "Education" , "GOAL": "--", "BASELINE": "--"},
+  { "INDICATOR": "Air Pollution" , "GOAL": "--", "BASELINE": "--" },
   { "INDICATOR": "Climate" , "GOAL": "--", "BASELINE": "--"},
   { "INDICATOR": "Life Expectancy" , "GOAL": "--", "BASELINE": "--"}
   ] 
