@@ -4,6 +4,7 @@ import { Checkbox, FontIcon } from 'react-toolbox';
 import { Row, Col } from 'react-flexbox-grid';
 import style from './style';
 import { VictoryChart, VictoryAxis, VictoryTheme, VictoryLine } from 'victory/dist/victory';
+import data from './highRisk.json';
 
 const lowRisk = [
   {x: 0, y: 150},
@@ -115,7 +116,7 @@ export default React.createClass({
             </Row>
           </Col>
           <Col className={style.sidebar} xs={3}>
-            <div style={{ border: '1px solid gray', width: '27%', float: 'right', height: '508px', background: '#FADEDE' }}>
+            <div style={{ border: '1px solid gray', width: '100%', float: 'right', height: '508px', background: '#FADEDE' }}>
               <div style={{ background: '#F00', margin: '0px' }}>
                 <FontIcon style={{ color: '#FFF', padding: '5px' }} value="warning" />
               </div>
