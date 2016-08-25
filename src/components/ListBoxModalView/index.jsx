@@ -6,24 +6,24 @@ import style from './style';
 import { VictoryChart, VictoryAxis, VictoryTheme, VictoryLine } from 'victory/dist/victory';
 
 const lowRisk = [
-  {quarter: 1, earnings: 15000},
-  {quarter: 2, earnings: 12500},
-  {quarter: 3, earnings: 19500},
-  {quarter: 4, earnings: 13000}
+  {x: 0, y: 150},
+  {x: 1, y: 125},
+  {x: 3, y: 195},
+  {x: 4, y: 130}
 ];
 
 const mediumRisk = [
-  {quarter: 1, earnings: 11500},
-  {quarter: 2, earnings: 13250},
-  {quarter: 3, earnings: 20000},
-  {quarter: 4, earnings: 15500}
+  {x: 0, y: 115},
+  {x: 2, y: 132},
+  {x: 4, y: 200},
+  {x: 4, y: 155}
 ];
 
 const highRisk = [
-  {quarter: 1, earnings: 18000},
-  {quarter: 2, earnings: 13250},
-  {quarter: 3, earnings: 15000},
-  {quarter: 4, earnings: 12000}
+  {x: 0, y: 180},
+  {x: 1, y: 132},
+  {x: 3, y: 150},
+  {x: 4, y: 120}
 ];
 
 
@@ -53,22 +53,51 @@ export default React.createClass({
                 <FontIcon className={style.subtitleIcon} value="trending_up" />
               </div>
               {/* TODO: replace image tag with graphical component  */}
-              <VictoryChart domainPadding={20} theme={VictoryTheme.material}>
-              <VictoryAxis   />
-              <VictoryAxis dependentAxis tickFormat={(x) => (`$${x / 1000}k`)}        />
-              <VictoryLine
-              data={lowRisk}
-              x={"quarter"}
-              y={"earnings"}    />
-              <VictoryLine
-                data={mediumRisk}
-                x={"quarter"}
-                y={"earnings"}  />
-              <VictoryLine
-                data={highRisk}
-                x={"quarter"}
-                y={"earnings"}  />
-            </VictoryChart> 
+              <div style={{width:'100%'}} >
+                <VictoryChart domainPadding={20} >
+                  <VictoryAxis />
+                  <VictoryAxis dependentAxis />
+                  <VictoryLine
+                    data={lowRisk}
+                    x={"x"}
+                    y={"y"}   
+                    label="Low Risk"
+                    style={{
+                      data: {
+                        stroke: "#111430",
+                        strokeWidth: 3
+                      },
+                      labels: {fontSize: 10}
+                    }} 
+                  />
+                  <VictoryLine
+                    data={mediumRisk}
+                    x={"x"}
+                    y={"y"} 
+                    label="Medium Risk"
+                    style={{
+                      data: {
+                        stroke: "#0AC2EA",
+                        strokeWidth: 3
+                      },
+                      labels: {fontSize: 10}
+                    }} 
+                  />
+                  <VictoryLine
+                    data={highRisk}
+                    x={"x"}
+                    y={"y"}  
+                    label="High Risk"
+                    style={{
+                      data: {
+                        stroke: "#0A4EEA",
+                        strokeWidth: 3
+                      },
+                      labels: {fontSize: 10}
+                    }}
+                  />
+                </VictoryChart> 
+              </div>
             </Row>
             <Row className={style.peerComparisonSection}>
               <div className={style.subtitle}>
