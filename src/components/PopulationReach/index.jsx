@@ -83,7 +83,7 @@ export const PopulationReachSubgroups = React.createClass({
 export const PopulationReach = React.createClass({
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { index: 0 };
+    return { index: -1 };
   },
   handleTabChange(index) {
     this.setState({ index });
@@ -96,10 +96,11 @@ export const PopulationReach = React.createClass({
         </div>
         <div className="PopulationTab">
           <Tabs index={this.state.index} onChange={this.handleTabChange}>
-            <Tab label="28,000 Population"><PopulationReachSubgroups /></Tab>
-            <Tab label="6,000 Eligible" />
-            <Tab label="1,500 Target" />
-            <Tab label="0 Registered" />
+            <Tab label="28,000 Population" disabled> </Tab>
+            <Tab label="6,000 Eligible"><PopulationReachSubgroups /></Tab>
+            <Tab label="1,500 Target" disabled> </Tab>
+            <Tab label="0 Registered"> <PopulationReachSubgroups /></Tab>
+            <Tab label="0 Registered Caregivers" disabled> </Tab>
           </Tabs>
         </div>
       </div>
