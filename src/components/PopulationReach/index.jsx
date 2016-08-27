@@ -100,7 +100,7 @@ export const PopulationReach = React.createClass({
             <Tab label="6,000 Eligible"><PopulationReachSubgroups /></Tab>
             <Tab label="1,500 Target" disabled> </Tab>
             <Tab label="0 Registered"> <PopulationReachSubgroups /></Tab>
-            <Tab label="0 Registered Caregivers" disabled> </Tab>
+            <Tab label="Registered Caregivers" disabled> </Tab>
           </Tabs>
         </div>
       </div>
