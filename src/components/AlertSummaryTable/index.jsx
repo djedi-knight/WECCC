@@ -20,15 +20,16 @@ const data = [
   { CATEGORY: <div style={{ float: 'right' }}><a href="#">DIVERT Scale</a></div>, OUTCOME: '--', NOTES: <div><FontIcon value="person" /> Higher than peers</div> }
 ];
 
+
 export default React.createClass({
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { source: data };
+    return { data };
   },
   render() {
     return (
       <div className={style.alertSummaryTable}>
-        <Table theme={style} selectable={false} model={AlertModel} source={this.state.source} />
+        <Table theme={style} selectable={false} model={AlertModel} source={this.state.data} />
       </div>
     );
   }
