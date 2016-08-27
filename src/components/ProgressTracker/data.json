@@ -1,19 +1,10 @@
 {
-	 "tableData": [
-	  { "INDICATOR": "Income" , "GOAL": "5%", "BASELINE": "A", "CHANGE": "-2%", "TREND":"trending_down", "COLOURCODE":"red"},
-	  { "INDICATOR": "Age", "GOAL": "21%", "BASELINE": "A","CHANGE": "1%", "TREND":"trending_up", "COLOURCODE":"green"},
-	  { "INDICATOR": "Education" , "GOAL": "--", "BASELINE": "--","CHANGE": "5%", "TREND":"trending_up", "COLOURCODE":"green"},
-	  { "INDICATOR": "Air Pollution" , "GOAL": "--", "BASELINE": "--", "CHANGE": "--%", "TREND":"trending_down", "COLOURCODE":"red" },
-	  { "INDICATOR": "Climate" , "GOAL": "--", "BASELINE": "--","CHANGE": "--%", "TREND":"trending_up", "COLOURCODE":"blue"},
-	  { "INDICATOR": "Life Expectancy" , "GOAL": "--", "BASELINE": "--", "CHANGE": "--%", "TREND":"trending_down", "COLOURCODE":"red"}
-  	]
- 	
-	 
-
-	
-
-	
-
+  "tableData": [
+    { "indicator": "Income", "goal": "5%", "baseline": "A", "change": "-2%", "trend": "trending_down", "colourCode": "red" },
+    { "indicator": "Age", "goal": "21%", "baseline": "A","change": "1%", "trend": "trending_up", "colourCode": "green" },
+    { "indicator": "Education" , "goal": "--", "baseline": "--","change": "5%", "trend": "trending_up", "colourCode": "green" },
+    { "indicator": "Air Pollution" , "goal": "--", "baseline": "--", "change": "--%", "trend": "trending_down", "colourCode": "red" },
+    { "indicator": "Climate" , "goal": "--", "baseline": "--","change": "--%", "trend": "trending_up", "colourCode": "blue" },
+    { "indicator": "Life Expectancy" , "goal": "--", "baseline": "--", "change": "--%", "trend": "trending_down", "colourCode": "red" }
+  ]
 }
-
-

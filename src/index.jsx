@@ -8,8 +8,8 @@ import { HomeContainer } from './components/Home';
 import { MyGroupsContainer } from './components/MyGroups';
 import { MyCommunityContainer } from './components/MyCommunity';
 import { PopulationReachContainer } from './components/PopulationReach';
-import { ProgressTrackerContainer} from './components/ProgressTracker';
- 
+import { ProgressTrackerContainer } from './components/ProgressTracker';
+
 // Setup store
 const store = makeStore();
 
@@ -20,7 +20,7 @@ const routes = (
     <Route path="/my-groups" component={MyGroupsContainer} />
     <Route path="/my-community" component={MyCommunityContainer} />
     <Route path="/public/population-reach" component={PopulationReachContainer} />
-    <Route path="/public/progress-tracker" component={ProgressTrackerContainer} />   
+    <Route path="/public/progress-tracker" component={ProgressTrackerContainer} />
   </Route>
 );
 
