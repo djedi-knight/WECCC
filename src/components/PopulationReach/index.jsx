@@ -7,6 +7,8 @@ import { Row, Col } from 'react-flexbox-grid';
 import ScoreBox from '../ScoreBox';
 import style from './style';
 
+const learnMoreContent = 'Please select a tab to learn more';
+
 export const PopulationReachSubgroups = React.createClass({
   mixins: [PureRenderMixin],
   render() {
@@ -92,14 +94,15 @@ export const PopulationReach = React.createClass({
     return (
       <div className={style.populationReach}>
         <div className={style.populationReachHeader}>
-          <h2>Community Outcomes</h2>
+          Community Outcomes
         </div>
         <div className="PopulationTab">
           <Tabs index={this.state.index} onChange={this.handleTabChange}>
-            <Tab label="28,000 Population"><PopulationReachSubgroups /></Tab>
-            <Tab label="6,000 Eligible" />
-            <Tab label="1,500 Target" />
-            <Tab label="0 Registered" />
+            <Tab label="28,000 Population" disabled>{learnMoreContent}</Tab>
+            <Tab label="6,000 Eligible"><PopulationReachSubgroups /></Tab>
+            <Tab label="1,500 Target" disabled>{learnMoreContent}</Tab>
+            <Tab label="0 Registered"><PopulationReachSubgroups /></Tab>
+            <Tab className={style.specialTab} label="0 Registered Caregivers" disabled>{learnMoreContent}</Tab>
           </Tabs>
         </div>
       </div>
