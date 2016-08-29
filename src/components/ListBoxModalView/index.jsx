@@ -7,6 +7,27 @@ import { VictoryChart, VictoryAxis, VictoryTheme, VictoryLine } from 'victory/di
 import data from './highRisk.json';
 import {Button} from 'react-toolbox/lib/button';
 
+export const ChartSubgroups = React.createClass({
+  mixins: [PureRenderMixin],
+  render() {
+    return (
+      <div>
+      <VictoryLine
+        data={data}
+        x={"x"}
+        y={"y"}
+        style={{
+          data: {
+            stroke: "#F00",
+            strokeWidth: 3
+          }
+        }} 
+      />        
+      </div>
+    );
+  }
+});
+
 const lowRisk = [
   {x: 0, y: 150},
   {x: 1, y: 125},
@@ -27,21 +48,19 @@ const highRisk = [
   {x: 3, y: 150},
   {x: 4, y: 120}
 ];
-// const dataSet(){
-//   return {data};
-// };
+
 
 const dummyText = 'Adverse drug effects are defined by Lorem Ipsum Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium';
 
 export default React.createClass({
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { check1: false, check2: false, check3: false, data: 0 };
+    return { check1: false, check2: false, check3: false};
   },
   
-  handleChart(){
-    this.setState({data: lowRisk});
-  },
+  // handleChart(){
+  //   this.setState({data: lowRisk});
+  // },
 
   handleChange(field, value) {
     this.setState({ field, [field]: value});
@@ -94,6 +113,19 @@ export default React.createClass({
                       labels: {fontSize: 10}
                     }}
                   />
+                  <VictoryLine
+                    data={lowRisk}
+                    x={"x"}
+                    y={"y"}  
+                    label="Low Risk"
+                    style={{
+                      data: {
+                        stroke: "#12F5E4",
+                        strokeWidth: 3
+                      },
+                      labels: {fontSize: 10}
+                    }}
+                  />
                 </VictoryChart> 
               </div>
             </Row>
@@ -102,10 +134,11 @@ export default React.createClass({
                 Peer Comparison
                 <FontIcon className={style.subtitleIcon} value="person" />
               </div>
-              <Button label='Peer High Risk' onClick={this.handleChart}  />
-              <Checkbox checked={this.state.check1} label="- - High Risk" onChange={this.handleChange.bind(this, 'check1')} />
+              <Checkbox checked={this.state.check1} name="HighRisk" label="- - High Risk" onChange={this.handleChange.bind(this, 'check1')} />
+              {this.state.value === 'HighRisk' ? <ChartSubgroups /> : null}
               <Checkbox checked={this.state.check2} label="- - Medium Risk" onChange={this.handleChange.bind(this, 'check2')} />
               <Checkbox checked={this.state.check3} label="- - Low Risk" onChange={this.handleChange.bind(this, 'check3')} />
+              */}
               <div style={{ border: '1px solid gray', borderStyle: 'solid hidden hidden hidden' }}>
                 <p style={{ background: '#F2F7FA', color: '#110b31', margin: '0px', padding: '12px' }}>
                   {dummyText}
