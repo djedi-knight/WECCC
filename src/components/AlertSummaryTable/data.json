@@ -1,0 +1,9 @@
+{
+ "tableData": [
+   { "CATEGORY": "Health Outcomes" },
+   { "SUBCATEGORY": "Patient Experience", "OUTCOME": "2/10", "NOTES": "Less than peers" },
+   { "CATEGORY": "Areas of Focus", "OUTCOME": " ", "NOTES": " " },
+   { "SUBCATEGORY": "Safety Events", "OUTCOME": "--", "NOTES": " " },
+   { "SUBCATEGORY": "Readmissions", "OUTCOME": "37", "NOTES": "Trending up" }
+ ]
+}
