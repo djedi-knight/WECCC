@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../actions/action_creators';
 import { RadioButton, RadioGroup } from 'react-toolbox';
 import { Row, Col } from 'react-flexbox-grid';
-import ScoreBox from '../ScoreBox';
+import ScoreBoxSimple from '../ScoreBoxSimple';
 import style from './style';
 
 export const VitalSignsSubgroups = React.createClass({
@@ -15,19 +15,19 @@ export const VitalSignsSubgroups = React.createClass({
         <Row className={style.body}>
           <Col xs={1} />
           <Col xs={2}>
-            <ScoreBox />
+            <ScoreBoxSimple />
           </Col>
           <Col xs={2}>
-            <ScoreBox />
+            <ScoreBoxSimple />
           </Col>
           <Col xs={2}>
-            <ScoreBox />
+            <ScoreBoxSimple />
           </Col>
           <Col xs={2}>
-            <ScoreBox />
+            <ScoreBoxSimple />
           </Col>
           <Col xs={2}>
-            <ScoreBox />
+            <ScoreBoxSimple />
           </Col>
           <Col xs={1} />
         </Row>

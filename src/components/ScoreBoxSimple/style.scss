@@ -1,0 +1,16 @@
+.scoreBoxSimple {
+  padding: 5px;
+
+  .card {
+    font-size: 14px;
+
+    .title {
+      float: right;
+      color: gray;
+    }
+
+    .score {
+      font-size: 30px;
+    }
+  }
+}
