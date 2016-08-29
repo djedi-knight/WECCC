@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../actions/action_creators';
 import { RadioButton, RadioGroup } from 'react-toolbox';
 import { Row, Col } from 'react-flexbox-grid';
-import ScoreBox from '../ScoreBox';
+import ScoreBoxSimple from '../ScoreBoxSimple';
 import style from './style';
 
 export const SharedOutcomesSubgroup = React.createClass({
@@ -14,13 +14,13 @@ export const SharedOutcomesSubgroup = React.createClass({
       <div style={style.sharedOutcomesSubgroups}>
         <Row className={style.body}>
           <Col xs={4}>
-            <ScoreBox />
+            <ScoreBoxSimple />
           </Col>
           <Col xs={4}>
-            <ScoreBox />
+            <ScoreBoxSimple />
           </Col>
           <Col xs={4}>
-            <ScoreBox />
+            <ScoreBoxSimple />
           </Col>
         </Row>
       </div>
