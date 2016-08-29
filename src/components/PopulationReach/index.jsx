@@ -5,6 +5,7 @@ import * as actionCreators from '../../actions/action_creators';
 import { Tab, Tabs } from 'react-toolbox';
 import { Row, Col } from 'react-flexbox-grid';
 import ScoreBoxSimple from '../ScoreBoxSimple';
+import RegisteredCaregiversBox from '../RegisteredCaregiversBox';
 import style from './style';
 
 const learnMoreContent = 'Please select a tab to learn more';
@@ -96,14 +97,14 @@ export const PopulationReach = React.createClass({
         <div className={style.populationReachHeader}>
           Community Outcomes
         </div>
-        <div className="PopulationTab">
+        <div className={style.populationReachTabs}>
           <Tabs index={this.state.index} onChange={this.handleTabChange}>
             <Tab label="28,000 Population" disabled>{learnMoreContent}</Tab>
             <Tab label="6,000 Eligible"><PopulationReachSubgroups /></Tab>
             <Tab label="1,500 Target" disabled>{learnMoreContent}</Tab>
             <Tab label="0 Registered"><PopulationReachSubgroups /></Tab>
-            <Tab className={style.specialTab} label="0 Registered Caregivers" disabled>{learnMoreContent}</Tab>
           </Tabs>
+          <RegisteredCaregiversBox />
         </div>
       </div>
     );
