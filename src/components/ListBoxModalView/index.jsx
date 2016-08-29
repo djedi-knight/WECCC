@@ -5,6 +5,7 @@ import { Row, Col } from 'react-flexbox-grid';
 import style from './style';
 import { VictoryChart, VictoryAxis, VictoryTheme, VictoryLine } from 'victory/dist/victory';
 import data from './highRisk.json';
+import {Button} from 'react-toolbox/lib/button';
 
 const lowRisk = [
   {x: 0, y: 150},
@@ -26,18 +27,26 @@ const highRisk = [
   {x: 3, y: 150},
   {x: 4, y: 120}
 ];
-
+// const dataSet(){
+//   return {data};
+// };
 
 const dummyText = 'Adverse drug effects are defined by Lorem Ipsum Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium';
 
 export default React.createClass({
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { check1: false, check2: false, check3: false };
+    return { check1: false, check2: false, check3: false, data: 0 };
   },
+  
+  handleChart(){
+    this.setState({data: lowRisk});
+  },
+
   handleChange(field, value) {
-    this.setState({ field, [field]: value });
+    this.setState({ field, [field]: value});
   },
+
   render() {
     return (
       <div className={style.listBoxModalView}>
@@ -58,19 +67,7 @@ export default React.createClass({
                 <VictoryChart domainPadding={20} >
                   <VictoryAxis />
                   <VictoryAxis dependentAxis />
-                  <VictoryLine
-                    data={lowRisk}
-                    x={"x"}
-                    y={"y"}   
-                    label="Low Risk"
-                    style={{
-                      data: {
-                        stroke: "#111430",
-                        strokeWidth: 3
-                      },
-                      labels: {fontSize: 10}
-                    }} 
-                  />
+                  
                   <VictoryLine
                     data={mediumRisk}
                     x={"x"}
@@ -105,6 +102,7 @@ export default React.createClass({
                 Peer Comparison
                 <FontIcon className={style.subtitleIcon} value="person" />
               </div>
+              <Button label='Peer High Risk' onClick={this.handleChart}  />
               <Checkbox checked={this.state.check1} label="- - High Risk" onChange={this.handleChange.bind(this, 'check1')} />
               <Checkbox checked={this.state.check2} label="- - Medium Risk" onChange={this.handleChange.bind(this, 'check2')} />
               <Checkbox checked={this.state.check3} label="- - Low Risk" onChange={this.handleChange.bind(this, 'check3')} />
@@ -128,3 +126,47 @@ export default React.createClass({
     );
   }
 });
+
+
+// <VictoryLine
+//    padding={60}
+//    style={{
+//      data: {stroke: "red", strokeWidth: 9},
+//      labels: {fontSize: 15}
+//    }}
+//    interpolation={"linear"}
+//    data={[
+//      {x: 0, y: 1},
+//      {x: 1, y: 3},
+//      {x: 2, y: 2},      
+//      {x: 3, y: 4},
+//      {x: 4, y: 3},
+//      {x: 5, y: 5}
+//    ]}
+//    events={[{
+//     target: "data",
+//     eventHandlers: {
+//       onClick: () => {
+//         return [
+//           {
+//             mutation: (props) => {
+//               const { style } = props;
+//               return  style.stroke === "orange" ?
+//                 null :
+//                 {
+//                   style: merge(
+//                     {}, style, {stroke: "orange"}
+//                   )
+//                 };
+//             }
+//           }, {
+//             target: "labels",
+//             mutation: () => {
+//               return {text: "WOW"};
+//             }
+//           }
+//         ];
+//       }
+//     }
+//   }]}
+//  />
