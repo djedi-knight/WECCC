@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import * as actionCreators from '../../actions/action_creators';
 import { Tab, Tabs } from 'react-toolbox';
 import { Row, Col } from 'react-flexbox-grid';
-import ScoreBox from '../ScoreBox';
+import ScoreBoxSimple from '../ScoreBoxSimple';
 import style from './style';
 
 const learnMoreContent = 'Please select a tab to learn more';
@@ -22,16 +22,16 @@ export const PopulationReachSubgroups = React.createClass({
           </Row>
           <Row className={style.body}>
             <Col xs={3}>
-              <ScoreBox />
+              <ScoreBoxSimple />
             </Col>
             <Col xs={3}>
-              <ScoreBox />
+              <ScoreBoxSimple />
             </Col>
             <Col xs={3}>
-              <ScoreBox />
+              <ScoreBoxSimple />
             </Col>
             <Col xs={3}>
-              <ScoreBox />
+              <ScoreBoxSimple />
             </Col>
           </Row>
         </div>
@@ -43,16 +43,16 @@ export const PopulationReachSubgroups = React.createClass({
           </Row>
           <Row className={style.body}>
             <Col xs={3}>
-              <ScoreBox />
+              <ScoreBoxSimple />
             </Col>
             <Col xs={3}>
-              <ScoreBox />
+              <ScoreBoxSimple />
             </Col>
             <Col xs={3}>
-              <ScoreBox />
+              <ScoreBoxSimple />
             </Col>
             <Col xs={3}>
-              <ScoreBox />
+              <ScoreBoxSimple />
             </Col>
           </Row>
         </div>
@@ -64,16 +64,16 @@ export const PopulationReachSubgroups = React.createClass({
           </Row>
           <Row className={style.body}>
             <Col xs={3}>
-              <ScoreBox />
+              <ScoreBoxSimple />
             </Col>
             <Col xs={3}>
-              <ScoreBox />
+              <ScoreBoxSimple />
             </Col>
             <Col xs={3}>
-              <ScoreBox />
+              <ScoreBoxSimple />
             </Col>
             <Col xs={3}>
-              <ScoreBox />
+              <ScoreBoxSimple />
             </Col>
           </Row>
         </div>
