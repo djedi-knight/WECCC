@@ -11,6 +11,7 @@ import { PopulationReachContainer } from './components/PopulationReach';
 import { CommunityTapestryContainer } from './components/CommunityTapestry';
 import { VitalSignsContainer } from './components/VitalSigns';
 import { ProgressTrackerContainer } from './components/ProgressTracker';
+import { SharedOutcomesContainer } from './components/SharedOutcomes';
 
 // Setup store
 const store = makeStore();
@@ -25,6 +26,7 @@ const routes = (
     <Route path="/public/community-tapestry" component={CommunityTapestryContainer} />
     <Route path="/public/vital-signs" component={VitalSignsContainer} />
     <Route path="/public/progress-tracker" component={ProgressTrackerContainer} />
+    <Route path= "/public/shared-outcomes" component={SharedOutcomesContainer} />
   </Route>
 );
 
