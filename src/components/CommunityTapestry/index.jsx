@@ -3,10 +3,22 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../actions/action_creators';
 import { Row, Col } from 'react-flexbox-grid';
-import { PieChart } from 'react-d3';
 import ScoreBoxSimple from '../ScoreBoxSimple';
 import style from './style';
 import data from './data.json';
+import { VictoryPie } from 'victory/dist/victory';
+
+const colorScale = [
+  '#D85F49',
+  '#F66D3B',
+  '#D92E1D',
+  '#D73C4C',
+  '#FFAF59',
+  '#E28300',
+  '#F6A57F',
+  '#FF0000'
+];
+const labelStyle = { labels: { fill: 'white', fontSize: 9, padding: 50 } };
 
 export const CommunityTapestry = React.createClass({
   mixins: [PureRenderMixin],
@@ -17,11 +29,10 @@ export const CommunityTapestry = React.createClass({
           Community Tapestry
         </div>
         <div className={style.pieChartContainer}>
-          <PieChart
+          <VictoryPie
+            style={labelStyle}
             data={data}
-            width={400}
-            height={400}
-            radius={200}
+            colorScale={colorScale}
           />
         </div>
         <div className={style.subgroup}>
