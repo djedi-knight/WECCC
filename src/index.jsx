@@ -12,6 +12,7 @@ import { CommunityTapestryContainer } from './components/CommunityTapestry';
 import { VitalSignsContainer } from './components/VitalSigns';
 import { ProgressTrackerContainer } from './components/ProgressTracker';
 import { SharedOutcomesContainer } from './components/SharedOutcomes';
+import { Test } from './components/Test';
 
 // Setup store
 const store = makeStore();
@@ -27,6 +28,7 @@ const routes = (
     <Route path="/public/vital-signs" component={VitalSignsContainer} />
     <Route path="/public/progress-tracker" component={ProgressTrackerContainer} />
     <Route path="/public/shared-outcomes" component={SharedOutcomesContainer} />
+    <Route path="/test" component={Test} />
   </Route>
 );
 
