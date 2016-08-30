@@ -4,6 +4,7 @@ import { Router, Route, hashHistory } from 'react-router';
 import { Provider } from 'react-redux';
 import makeStore from './store/store';
 import App from './components/App';
+import { AgencyDashboardContainer, PublicDashboardContainer } from './components/Dashboard';
 import { HomeContainer } from './components/Home';
 import { MyGroupsContainer } from './components/MyGroups';
 import { MyCommunityContainer } from './components/MyCommunity';
@@ -19,14 +20,18 @@ const store = makeStore();
 // Setup routes
 const routes = (
   <Route component={App}>
-    <Route path="/" component={HomeContainer} />
-    <Route path="/my-groups" component={MyGroupsContainer} />
-    <Route path="/my-community" component={MyCommunityContainer} />
-    <Route path="/public/population-reach" component={PopulationReachContainer} />
-    <Route path="/public/community-tapestry" component={CommunityTapestryContainer} />
-    <Route path="/public/vital-signs" component={VitalSignsContainer} />
-    <Route path="/public/progress-tracker" component={ProgressTrackerContainer} />
-    <Route path="/public/shared-outcomes" component={SharedOutcomesContainer} />
+    <Route path="/" component={AgencyDashboardContainer}>
+      <Route path="home" component={HomeContainer} />
+      <Route path="my-groups" component={MyGroupsContainer} />
+      <Route path="my-community" component={MyCommunityContainer} />
+    </Route>
+    <Route path="/public" component={PublicDashboardContainer}>
+      <Route path="population-reach" component={PopulationReachContainer} />
+      <Route path="community-tapestry" component={CommunityTapestryContainer} />
+      <Route path="vital-signs" component={VitalSignsContainer} />
+      <Route path="progress-tracker" component={ProgressTrackerContainer} />
+      <Route path="shared-outcomes" component={SharedOutcomesContainer} />
+    </Route>
   </Route>
 );
 
