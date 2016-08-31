@@ -6,7 +6,8 @@
   "scripts": {
     "lint:js": "eslint -c .eslintrc src",
     "lint:jsx": "eslint -c .eslintrc --ext jsx src",
-    "lint": "npm run lint:js & npm run lint:jsx",
+    "lint:json": "eslint -c .eslintrc --ext json src",
+    "lint": "npm run lint:js & npm run lint:json & npm run lint:jsx",
     "build:dev": "webpack",
     "start:dev": "webpack-dev-server --progress --colors --display-error-details",
     "build:prod": "better-npm-run build",
@@ -54,6 +55,7 @@
     "eslint": "^3.1.1",
     "eslint-config-airbnb": "^9.0.1",
     "eslint-plugin-import": "^1.11.1",
+    "eslint-plugin-json": "^1.2.0",
     "eslint-plugin-jsx-a11y": "^2.0.1",
     "eslint-plugin-react": "^5.2.2",
     "extract-text-webpack-plugin": "^1.0.1",

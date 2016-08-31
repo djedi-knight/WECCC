@@ -21,7 +21,9 @@
     "max-len": ["error", 200]
   },
   "plugins": [
-    "react", "import"
+    "react",
+    "import",
+    "json"
   ],
   "settings": {
     "import/parser": "babel-eslint",
