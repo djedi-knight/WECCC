@@ -4,16 +4,21 @@ import ReactTooltip from 'react-tooltip';
 import { Card, CardText, CardActions, FontIcon, Link, IconButton } from 'react-toolbox';
 import ScoreRiskPopover from '../ScoreRiskPopover';
 import style from './style';
+import data from './data.json';
+
 
 export default React.createClass({
   mixins: [PureRenderMixin],
+  getInitialState() {
+    return { data };
+  },
   render() {
-    return (
+   return (
       <div className={style.scoreBox}>
         <Card theme={style}>
           <CardText>
             <FontIcon className={style.infoIcon} value="info" />
-            <h3>Patient Experience</h3>
+              <h3>{this.state.data.scoreBoxData.title}</h3>
             <div className={style.score}>
               <a data-tip data-for="risk">
                 <IconButton icon="warning" style={{ color: '#FF0000' }} />
@@ -21,7 +26,7 @@ export default React.createClass({
               <ReactTooltip id="risk" type="light" place="right" effect="float">
                 <ScoreRiskPopover />
               </ReactTooltip>
-              3/15
+              {this.state.data.scoreBoxData.score}              
             </div>
             (label/define?)
             <hr />
@@ -29,13 +34,15 @@ export default React.createClass({
           <CardText>
             <FontIcon value="person" />
             Peer Comparison
-            5 / 10
+            {this.state.data.scoreBoxData.pcscore}
             <hr />
           </CardText>
           <CardText>
             <FontIcon value="trending_up" />
-            Change Over Time
-            <FontIcon value="arrow_upward" />
+            Change Over Time 
+            {this.state.data.scoreBoxData.trend === 'up' ? <FontIcon value="arrow_upward" /> :  null }
+            {this.state.data.scoreBoxData.trend === 'down' ? <FontIcon value="arrow_downward"/> : null }
+            {this.state.data.scoreBoxData.trend === 'same' ? <FontIcon value="arrow_forward" /> : null }
             <hr />
           </CardText>
           <CardActions>
