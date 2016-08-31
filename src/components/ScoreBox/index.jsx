@@ -1,15 +1,23 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import ReactTooltip from 'react-tooltip';
-import { Card, CardText, CardActions, FontIcon, Link, IconButton, Dialog, Button  } from 'react-toolbox';
+import {
+  Button,
+  Card,
+  CardActions,
+  CardText,
+  Dialog,
+  FontIcon,
+  IconButton
+} from 'react-toolbox';
 import ScoreRiskPopover from '../ScoreRiskPopover';
+import ScoreBoxModal from '../ScoreBoxModal';
 import style from './style';
-import ScoreBoxModal from '../ScoreBoxModal'; 
 
 export default React.createClass({
   mixins: [PureRenderMixin],
   getInitialState() {
-    return {active: false };
+    return { active: false };
   },
   handleToggle() {
     this.setState({ active: !this.state.active });
@@ -46,16 +54,15 @@ export default React.createClass({
             <hr />
           </CardText>
           <CardActions>
-            {/*<Link href="#" label="Show Detail" onClick={this.handleToggle} />*/}
             <Button label="Show Detail" onClick={this.handleToggle} />
-        <Dialog
-          actions={this.actions}
-          active={this.state.active}
-          onEscKeyDown={this.handleToggle}
-          onOverlayClick={this.handleToggle}
-        >
-          <ScoreBoxModal />
-        </Dialog>
+            <Dialog
+              actions={this.actions}
+              active={this.state.active}
+              onEscKeyDown={this.handleToggle}
+              onOverlayClick={this.handleToggle}
+            >
+              <ScoreBoxModal />
+            </Dialog>
           </CardActions>
         </Card>
       </div>

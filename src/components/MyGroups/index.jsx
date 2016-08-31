@@ -8,12 +8,11 @@ import HealthOutcomesSection from '../HealthOutcomesSection';
 import AreasOfFocusSection from '../AreasOfFocusSection';
 import AlertSummarySection from '../AlertSummarySection';
 
-
 export const MyGroups = React.createClass({
   mixins: [PureRenderMixin],
   render() {
     return (
-      <div className="MyGroups">       
+      <div className="MyGroups">
         <MyGroupsHeader />
         <CareNeedsGroupTabBar />
         <HealthOutcomesSection />

@@ -6,10 +6,9 @@ import style from './style';
 
 export const Home = React.createClass({
   mixins: [PureRenderMixin],
-    
   render() {
     return (
-      <div className={style.home}>       
+      <div className={style.home}>
         <div className={style.header}>
           <h1>
             Improving Value by Exploring Data
