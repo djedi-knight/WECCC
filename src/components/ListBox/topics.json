@@ -1,8 +1,0 @@
-{
- "topics": [
- 	{"title": "Falls", "pos": "1"},
-    {"title": "Social Isolation", "details" : "yes", "pos": "1"},
-    {"title": "Depression", "details" : "yes", "warning": "yes", "pos": "1"},
-    {"title": "Accidents", "pos": "4"}
-]
-}
