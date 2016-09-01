@@ -33,7 +33,7 @@ export default React.createClass({
           {topic.title}
           {topic.warning === 'yes' ? <FontIcon style={{ color: '#FF0000' }} value="warning" /> : null}
           {topic.details === 'yes' ? <Link onClick={this.handleToggle} label="Show details"  /> : null}
-          
+
         </Row>)}
         <Row style={{  backgroundColor: "#fff"}}>
          <small><a href="#"><FontIcon value="person" /> Show peer comparison</a></small>        
@@ -46,18 +46,7 @@ export default React.createClass({
           onOverlayClick={this.handleToggle}
         >
           <ListBoxModalView />
-        </Dialog>
-
-
-
-        <Table
-          theme={style}
-          selectable={false}
-          heading={false}
-          model={ListModel}
-          source={this.state.topic.topics}        />
-          {topic.topics.details === 'yes' ? <Link onClick={this.handleToggle} label="Show details"  /> : null}
-            
+        </Dialog>  
       </div>
     );
   }
