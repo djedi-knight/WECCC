@@ -16,6 +16,15 @@ export const ScoreCard = React.createClass({
   getTitle() {
     return this.props.title || this.state.data.title;
   },
+  getScore(){
+    return this.props.score || this.state.data.score;
+  },
+  getPeerScore(){
+    return this.props.peerScore || this.state.data.peerScore;
+  },
+  getTrend(){
+    return this.props.trend || this.state.data.trend;
+  },
   render() {
     return (
       <div id="scoreCard" className={style.scoreCard}>
@@ -23,7 +32,14 @@ export const ScoreCard = React.createClass({
           {this.getTitle()}
         </div>
         <div id="score" className={style.score}>
-          {this.state.data.score}
+          {this.getScore()}
+          {/*{this.state.data.score}*/}
+        </div>
+        <div id="peerScore" className={style.peerScore}>
+          {this.getPeerScore()}
+        </div>
+        <div id="trend" className={style.trend}>
+          {this.getTrend()}
         </div>
       </div>
     );
