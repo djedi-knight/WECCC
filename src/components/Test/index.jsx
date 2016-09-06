@@ -1,11 +1,11 @@
 import React from 'react';
-import CareNeedsGroupTabBar from '../CareNeedsGroupTabBar';
+import LoginModalView from '../LoginModalView';
 
 export const Test = React.createClass({
   render() {
     return (
       <div>
-        <CareNeedsGroupTabBar />
+        <LoginModalView />
       </div>
     );
   }
