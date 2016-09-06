@@ -6,7 +6,7 @@ import style from './style';
 
 const TooltipLink = new Tooltip(Link);
 const title = 'RESPONDING TO NEED';
-const subtitle = 'Top 3 Clinical Assessment Protocols [CAPS]';
+const subtitle = '(Top 3 Clinical Assessment Protocols [CAPs])';
 const ListModel = {
   title: { type: String }
 };

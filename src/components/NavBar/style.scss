@@ -1,18 +1,42 @@
-.navBar {
-  margin: 110px;
+* {
+  //background: rgba(green, .1);
+}
 
-  .loginButton {
-    float: right;
+.navBar {
+  margin-bottom: 150px;
+  display: flex;
+  align-items: center;
+
+  header {
+    background: $dark;
+    border-bottom: solid 3px $secondary;
+
+      h4 {
+        a {
+          text-decoration: none;
+          font-size: 1.5rem;
+          white-space: no-wrap;
+          font-weight: normal;
+        }
+      }
   }
 
-  .logoutButton {
-    float: right;
+  button {
+    margin-right: auto;
+    background: $info;
+    font-size: 1rem;
   }
 
   .navItems {
+    display: flex;
+    align-items: center;
+    width: 80%;
+    justify-content: flex-end;
+
     ul {
       list-style-type: none;
       overflow: hidden;
+      margin-right: auto;
     }
 
     li {

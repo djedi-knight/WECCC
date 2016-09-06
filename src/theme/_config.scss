@@ -5,3 +5,30 @@ $color-primary-dark: $palette-blue-700;
 
 $progress-height: 2px !default;
 $progress-main-color: $color-primary-dark !default;
+
+$navabr-color: #173a42;
+
+$table-background: #e6ecee;
+
+$primary: #00cbac;
+$secondary: #ffc929;
+$info: #0d86d4;
+$success: #78be3c;
+$warning: #fe8042;
+$danger: #d35657;
+$light: #dfeef0;
+$lighter: #fafafa;
+$dark: #153f4f;
+$darker: #131519;
+
+$link-color: #0098c8;
+
+body {
+  font-family: sans-serif;
+  background: $lighter;
+}
+
+p {
+  color: $dark;
+  line-height: 1.4;
+}

@@ -4,6 +4,20 @@
   .card {
     font-size: 14px;
 
+    div {
+      padding: .5rem 0;
+      position: relative;
+
+      hr {
+        border: none;
+        border-bottom: solid 1px #ccc;
+      }
+
+      h3 {
+        margin: 1rem;
+      }
+    }
+
     .infoIcon {
       float: right;
       color: gray;

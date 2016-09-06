@@ -3,10 +3,32 @@
   margin-bottom: 15px;
 
   .header {
-    background: #4980c7;
+    background: $dark;
     color: #fff;
     padding: 20px;
     margin: 0;
+    border-bottom: solid 3px $info;
+    position: relative;
+
+    &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 25%;
+    background: rgba($info, .2);
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 30%;
+      background: rgba($info, .2);
+    }
 
     .title {
       font-size: 23px;
