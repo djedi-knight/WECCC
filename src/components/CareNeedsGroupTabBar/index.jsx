@@ -5,7 +5,7 @@ import ReactTooltip from 'react-tooltip';
 import CareNeedsGroupPopover from '../CareNeedsGroupPopover';
 import style from './style';
 
-const contentLabel = (
+const contentLabel = ( 
   <a data-tip data-for="global"> Light: 40% </a>
 );
 

@@ -1,11 +1,11 @@
 import React from 'react';
-import CareNeedsGroupPopover from '../CareNeedsGroupPopover';
+import CareNeedsGroupTabBar from '../CareNeedsGroupTabBar';
 
 export const Test = React.createClass({
   render() {
     return (
       <div>
-        <CareNeedsGroupPopover />
+        <CareNeedsGroupTabBar />
       </div>
     );
   }
