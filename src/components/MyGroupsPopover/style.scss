@@ -1,9 +1,18 @@
 .myGroupsPopover {
-  width: 150%;
-  height: 300px;
   background-color: $light;
   border: 1px solid gray;
   color: #fff;
+
+  div[data-react-toolbox="card"] {
+    box-shadow: none;
+    border-radius: 0;
+    border: solid 1px darken($light, 50%) !important;
+    padding: 1rem;
+
+    &:nth-child(2) {
+      border-right: none !important;
+    }
+  }
 
   h3 {
     background: $dark;

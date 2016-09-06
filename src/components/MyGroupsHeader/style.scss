@@ -8,6 +8,7 @@
   flex-direction: row;
 
   div[data-id="tooltip"] {
+    transform: translateY(50px);
     background: none;
     padding: 0;
 
