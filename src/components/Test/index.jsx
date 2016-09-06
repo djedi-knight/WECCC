@@ -1,11 +1,11 @@
 import React from 'react';
-import LoginModalView from '../LoginModalView';
+import MyGroupsHeader from '../MyGroupsHeader';
 
 export const Test = React.createClass({
   render() {
     return (
       <div>
-        <LoginModalView />
+        <MyGroupsHeader />
       </div>
     );
   }
