@@ -1,11 +1,16 @@
 .listBoxModalView {
   width: 100%;
 
+  .flexboxgrid {
+    background: #000;
+  }
+
   .title {
-    background: #110b31;
+    background: $dark;
     color: #fff;
     padding: 12px;
     margin: 0;
+    width: 100%;
   }
 
   .subtitleIcon {
