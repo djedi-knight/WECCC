@@ -7,7 +7,10 @@ import data from './data.json';
 
 export const ScoreCard = React.createClass({
   propTypes: {
-    title: React.PropTypes.string
+    title: React.PropTypes.string,
+    score: React.PropTypes.string,
+    peerScore: React.PropTypes.string,
+    trend: React.PropTypes.string
   },
   mixins: [PureRenderMixin],
   getInitialState() {
@@ -16,14 +19,28 @@ export const ScoreCard = React.createClass({
   getTitle() {
     return this.props.title || this.state.data.title;
   },
-  getScore(){
+  getScore() {
     return this.props.score || this.state.data.score;
   },
-  getPeerScore(){
-    return this.props.peerScore || this.state.data.peerScore;
+  getPeerScore() {
+    if (this.props.peerScore) {
+      return (
+        <div id="peerScore" className={style.peerScore}>
+          {this.props.peerScore}
+        </div>
+      );
+    }
+    return null;
   },
-  getTrend(){
-    return this.props.trend || this.state.data.trend;
+  getTrend() {
+    if (this.props.trend) {
+      return (
+        <div id="trend" className={style.trend}>
+          {this.props.trend}
+        </div>
+      );
+    }
+    return null;
   },
   render() {
     return (
@@ -33,14 +50,9 @@ export const ScoreCard = React.createClass({
         </div>
         <div id="score" className={style.score}>
           {this.getScore()}
-          {/*{this.state.data.score}*/}
         </div>
-        <div id="peerScore" className={style.peerScore}>
-          {this.getPeerScore()}
-        </div>
-        <div id="trend" className={style.trend}>
-          {this.getTrend()}
-        </div>
+        {this.getPeerScore()}
+        {this.getTrend()}
       </div>
     );
   }

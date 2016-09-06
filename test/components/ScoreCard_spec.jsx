@@ -26,11 +26,21 @@ describe('ScoreCard', () => {
     expect(result.find('#score').text()).to.contain('Test Score');
   });
 
+  it('does not render a peer score by default', () => {
+    const result = shallow(<ScoreCard />);
+    expect(result.find('#peerScore')).to.have.length(0);
+  });
+
   it('renders a peer score property correctly', () => {
-    const result = shallow(<ScoreCard peerScore= "Test Peer Score" />);
+    const result = shallow(<ScoreCard peerScore="Test Peer Score" />);
     expect(result.find('#peerScore').text()).to.contain('Test Peer Score');
   });
-  
+
+  it('does not render a trendline by default', () => {
+    const result = shallow(<ScoreCard />);
+    expect(result.find('#trend')).to.have.length(0);
+  });
+
   it('renders a trendline property correctly', () => {
     const result = shallow(<ScoreCard trend="Test Trendline" />);
     expect(result.find('#trend').text()).to.contain('Test Trendline');

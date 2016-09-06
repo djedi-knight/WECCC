@@ -1,6 +1,4 @@
 {
   "title":    "<Title>",
-  "score":    "<Score>",
-  "peerScore":"<peerScore>",
-  "trend":    "<Trend>"
+  "score":    "<Score>"
 }
