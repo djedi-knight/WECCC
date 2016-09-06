@@ -7,8 +7,18 @@
   align-items: center;
   flex-direction: row;
 
-  .tooltip {
+  div[data-id="tooltip"] {
     background: none;
+    padding: 0;
+
+    &:after {
+      border-right-color: $dark !important;
+      border-top: 20px solid transparent !important;
+      border-bottom: 20px solid transparent !important;
+      left: -14px !important;
+      border-right-width: 25px !important;
+      top: 10px !important;
+    }
   }
 
   ul {
@@ -18,7 +28,6 @@
   .dropdown {
     margin-left: auto;
     order: 2;
-    //width: 30%;
 
     div[data-react-toolbox="input"] {
       background: #fff;
