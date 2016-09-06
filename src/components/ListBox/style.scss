@@ -2,13 +2,14 @@
   .table {
     border: solid 1px #ccc;
     border-collapse: collapse;
+    color: $dark;
 
     tr:nth-child(odd) {
       background-color: #fff;
     }
 
     tr:nth-child(even) {
-      background-color: #e8f8f5;
+      background-color: $light;
     }
 
     th {
@@ -18,6 +19,38 @@
 
     td {
       border: solid 1px #ccc;
+
+      div {
+
+        line-height: 1.5;
+        padding: .5rem 0;
+
+        a {
+          font-size: .8rem;
+          color: $link-color;
+          margin-left: auto;
+        }
+
+        a[data-react-toolbox="link"] {
+          margin-top: 1rem;
+          font-size: 1rem;
+          color: #666;
+        }
+      }
+
+      small {
+        a {
+          display: flex;
+          align-items: center;
+          color: $link-color;
+          text-decoration: none;
+
+          span {
+            margin-right: 1rem;
+            display: inline-block;
+          }
+        }
+      }
     }
   }
 }

@@ -1,18 +1,19 @@
 .alertSummaryTable {
   padding: 15px;
-  background: #e5e0e0;
+  background: $table-background;
 
   .table {
     border: solid 2px #ccc;
     border-collapse: collapse;
     border-style: outset #ccc;
+    color: $dark;
 
     tr:nth-child(even) {
       background-color: #fff;
     }
 
     tr:nth-child(odd) {
-      background-color: #e8f8f5;
+      background-color: $light;
     }
 
     th {

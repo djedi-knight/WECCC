@@ -1,11 +1,11 @@
 import React from 'react';
-import ScoreBoxSimple from '../ScoreBoxSimple';
+import AreasOfFocusSection from '../AreasOfFocusSection';
 
 export const Test = React.createClass({
   render() {
     return (
       <div>
-        <ScoreBoxSimple />
+        <AreasOfFocusSection />
       </div>
     );
   }

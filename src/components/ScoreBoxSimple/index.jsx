@@ -22,7 +22,7 @@ export default React.createClass({
             </div>
           </CardText>
           <CardText>
-            <FontIcon value="trending_up" />
+            <FontIcon value="trending_up" className={style.icon}/>
           </CardText>
         </Card>
       </div>
