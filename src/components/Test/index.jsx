@@ -1,11 +1,11 @@
 import React from 'react';
-import MyGroupsHeader from '../MyGroupsHeader';
+import AreasOfFocusSection from '../AreasOfFocusSection';
 
 export const Test = React.createClass({
   render() {
     return (
       <div>
-        <MyGroupsHeader />
+        <AreasOfFocusSection />
       </div>
     );
   }
