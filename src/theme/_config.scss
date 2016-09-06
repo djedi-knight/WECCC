@@ -16,16 +16,26 @@ $info: #0d86d4;
 $success: #78be3c;
 $warning: #fe8042;
 $danger: #d35657;
-$light: #dfeef0;
+$light: #e9f3f5;
 $lighter: #fafafa;
 $dark: #153f4f;
 $darker: #131519;
 
 $link-color: #0098c8;
 
+::selection {
+  background: $primary;
+  color: #fff;
+}
+
 body {
   font-family: sans-serif;
   background: $light;
+}
+
+hr {
+  border: none;
+  border-bottom: solid 2px #ddd;
 }
 
 p {

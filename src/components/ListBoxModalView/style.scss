@@ -1,6 +1,9 @@
 .listBoxModalView {
   width: 100%;
   background: #fff;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
 
   [class*='flexboxgrid__col-xs-3'] {
     padding: 0;
@@ -15,6 +18,8 @@
   }
 
   [class*='flexboxgrid__col-xs-9'] {
+  margin-top: 2rem;
+  border: solid 1px #ddd;
 
   div {
     background: $light;
@@ -33,6 +38,7 @@
       background: none;
       background: #fff;
       padding: 0;
+      align-items: stretch;
     }
   }
 
