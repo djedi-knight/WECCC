@@ -76,7 +76,7 @@ export const peerComp = React.createClass({
               },
               labels: { fontSize: 10 }
             }}
-          />   
+          />
           <VictoryLine
             data={peer}
             x={"x"}
@@ -89,7 +89,7 @@ export const peerComp = React.createClass({
               },
               labels: { fontSize: 10 }
             }}
-          /> 
+          />
         </VictoryChart>
       </div>
     );
@@ -105,16 +105,17 @@ export default React.createClass({
     this.setState({[field]: value });
   },
   getPeerComp(){
-    return <VictoryLine/> 
+    return <VictoryLine/>
   },
-     
+
   render() {
     return (
        <div style={{ width: '50%', margin: 'auto' }}>
         <VictoryChart domainPadding={20} >
           <VictoryAxis />
           <VictoryAxis dependentAxis />
-          <VictoryLine
+          {this.state.check1 ?
+        <VictoryLine
             data={mediumRisk}
             x={"x"}
             y={"y"}
@@ -127,6 +128,7 @@ export default React.createClass({
               labels: { fontSize: 10 }
             }}
           />
+        : null}
           <VictoryLine
             data={lowRisk}
             x={"x"}
@@ -152,7 +154,7 @@ export default React.createClass({
               },
               labels: { fontSize: 10 }
             }}
-          /> 
+          />
         </VictoryChart>
         <Button label='Draw Chart' accent onClick={ this.props.peerComp}/>
 
