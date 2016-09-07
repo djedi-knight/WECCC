@@ -2,7 +2,6 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { Checkbox, Button, FontIcon, RadioButton, RadioGroup } from 'react-toolbox';
 import { VictoryChart, VictoryAxis, VictoryLine } from 'victory/dist/victory';
-import data from './data.json';
 
 const lowRisk = [
   { x: 0, y: 150 },
@@ -100,24 +99,13 @@ export const peerComp = React.createClass({
 export default React.createClass({
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { check1: false, check2: false, check3: false, data };
+    return { check1: false, check2: false, check3: false };
   },
   handleChange(field, value) {
     this.setState({[field]: value });
   },
   getPeerComp(){
-    return <VictoryLine
-            data={peer}
-            x={"x"}
-            y={"y"}
-            label="Peer Risk"
-            style={{
-              data: {
-                stroke: '#FF0000',
-                strokeWidth: 3
-              },
-              labels: { fontSize: 10 }
-            }}/> 
+    return <VictoryLine/> 
   },
      
   render() {
@@ -127,7 +115,7 @@ export default React.createClass({
           <VictoryAxis />
           <VictoryAxis dependentAxis />
           <VictoryLine
-            data={this.data.mediumRisk}
+            data={mediumRisk}
             x={"x"}
             y={"y"}
             label="Medium Risk"
@@ -140,7 +128,7 @@ export default React.createClass({
             }}
           />
           <VictoryLine
-            data={this.data.lowRisk}
+            data={lowRisk}
             x={"x"}
             y={"y"}
             label="Low Risk"
@@ -153,7 +141,7 @@ export default React.createClass({
             }}
           />
           <VictoryLine
-            data={this.data.highRisk}
+            data={highRisk}
             x={"x"}
             y={"y"}
             label="High Risk"
@@ -166,9 +154,8 @@ export default React.createClass({
             }}
           /> 
         </VictoryChart>
-        <Button label='Draw Chart' accent />
-        <label><input type="checkbox" value="peer" />High Risk</label>
-        
+        <Button label='Draw Chart' accent onClick={ this.props.peerComp}/>
+
         <Checkbox checked={this.state.check1} name="HighRisk" label="- - High Risk" onChange={this.handleChange.bind(this, 'check1')} />
         <Checkbox checked={this.state.check2} label="- - Medium Risk" onChange={this.handleChange.bind(this, 'check2')} />
         <Checkbox checked={this.state.check3} label="- - Low Risk" onChange={this.handleChange.bind(this, 'check3')} />
