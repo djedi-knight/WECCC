@@ -29,41 +29,150 @@ const peer =  [
   { x: 2, y: 140 },
   { x: 3, y: 200 },
   { x: 4, y: 150 }
-  ];
+];
 
-export const ListBoxModalChart = React.createClass({
+export const peerComp = React.createClass({
   mixins: [PureRenderMixin],
-   getInitialState() {
-    return { data : lowRisk };
+  render(){
+    return(
+      <div>
+        <VictoryChart domainPadding={20} >
+          <VictoryAxis />
+          <VictoryAxis dependentAxis />
+          <VictoryLine
+            data={mediumRisk}
+            x={"x"}
+            y={"y"}
+            label="Medium Risk"
+            style={{
+              data: {
+                stroke: '#0AC2EA',
+                strokeWidth: 3
+              },
+              labels: { fontSize: 10 }
+            }}
+          />
+          <VictoryLine
+            data={lowRisk}
+            x={"x"}
+            y={"y"}
+            label="Low Risk"
+            style={{
+              data: {
+                stroke: '#0A4EEA',
+                strokeWidth: 3
+              },
+              labels: { fontSize: 10 }
+            }}
+          />
+          <VictoryLine
+            data={highRisk}
+            x={"x"}
+            y={"y"}
+            label="High Risk"
+            style={{
+              data: {
+                stroke: '#12F5E4',
+                strokeWidth: 3
+              },
+              labels: { fontSize: 10 }
+            }}
+          />   
+          <VictoryLine
+            data={peer}
+            x={"x"}
+            y={"y"}
+            label="Peer Risk"
+            style={{
+              data: {
+                stroke: '#FF0000',
+                strokeWidth: 3
+              },
+              labels: { fontSize: 10 }
+            }}
+          /> 
+        </VictoryChart>
+      </div>
+    );
+  }
+});
+
+export default React.createClass({
+  mixins: [PureRenderMixin],
+  getInitialState() {
+    return { check1: false, check2: false, check3: false, data };
   },
-  handleChange() {
-    this.setState({ data: highRisk });
+  handleChange(field, value) {
+    this.setState({[field]: value });
   },
-    
+  getPeerComp(){
+    return <VictoryLine
+            data={peer}
+            x={"x"}
+            y={"y"}
+            label="Peer Risk"
+            style={{
+              data: {
+                stroke: '#FF0000',
+                strokeWidth: 3
+              },
+              labels: { fontSize: 10 }
+            }}/> 
+  },
+     
   render() {
     return (
        <div style={{ width: '50%', margin: 'auto' }}>
-       <VictoryChart domainPadding={20} >
-                  <VictoryAxis />
-                  <VictoryAxis dependentAxis />
-                  <VictoryLine
-                    data={this.getInitialState()}
-                    x={"x"}
-                    y={"y"}
-                    label="Medium Risk"
-                    style={{
-                      data: {
-                        stroke: '#0AC2EA',
-                        strokeWidth: 3
-                      },
-                      labels: { fontSize: 10 }
-                    }}
-                  />
-                  
-                </VictoryChart>
-       <Button label='Draw Chart' accent onClick= {this.handleChange()}/>
-
-       </div>
+        <VictoryChart domainPadding={20} >
+          <VictoryAxis />
+          <VictoryAxis dependentAxis />
+          <VictoryLine
+            data={this.data.mediumRisk}
+            x={"x"}
+            y={"y"}
+            label="Medium Risk"
+            style={{
+              data: {
+                stroke: '#0AC2EA',
+                strokeWidth: 3
+              },
+              labels: { fontSize: 10 }
+            }}
+          />
+          <VictoryLine
+            data={this.data.lowRisk}
+            x={"x"}
+            y={"y"}
+            label="Low Risk"
+            style={{
+              data: {
+                stroke: '#0A4EEA',
+                strokeWidth: 3
+              },
+              labels: { fontSize: 10 }
+            }}
+          />
+          <VictoryLine
+            data={this.data.highRisk}
+            x={"x"}
+            y={"y"}
+            label="High Risk"
+            style={{
+              data: {
+                stroke: '#12F5E4',
+                strokeWidth: 3
+              },
+              labels: { fontSize: 10 }
+            }}
+          /> 
+        </VictoryChart>
+        <Button label='Draw Chart' accent />
+        <label><input type="checkbox" value="peer" />High Risk</label>
+        
+        <Checkbox checked={this.state.check1} name="HighRisk" label="- - High Risk" onChange={this.handleChange.bind(this, 'check1')} />
+        <Checkbox checked={this.state.check2} label="- - Medium Risk" onChange={this.handleChange.bind(this, 'check2')} />
+        <Checkbox checked={this.state.check3} label="- - Low Risk" onChange={this.handleChange.bind(this, 'check3')} />
+      </div>
     );
   }
 });
