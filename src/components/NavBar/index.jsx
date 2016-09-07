@@ -85,7 +85,7 @@ export const NavBar = React.createClass({
     return (
       <div className={style.navBar}>
         <AppBar fixed flat >
-          <h4><a href="#/">Outcome Reports</a></h4>
+          <h4><a href="#/home">Outcome Reports</a></h4>
           {content}
         </AppBar>
       </div>

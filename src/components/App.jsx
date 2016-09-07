@@ -1,6 +1,5 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { NavBarContainer } from './NavBar';
 
 export default React.createClass({
   propTypes: {
@@ -10,7 +9,6 @@ export default React.createClass({
   render() {
     return (
       <div>
-        <NavBarContainer />
         {this.props.children}
       </div>
     );
