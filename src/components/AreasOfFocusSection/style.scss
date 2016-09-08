@@ -37,7 +37,56 @@
   }
 
   [class*='listBox'] {
-    padding: .5rem !important;
+    padding: 1.5rem !important;
+
+    [class*='flexboxgrid__row'] {
+      padding: .5rem;
+      background: #fff !important;
+      border: solid 2px darken($light, 2%) !important;
+      align-items: center;
+      color: $dark;
+      position: relative;
+
+      a {
+        margin-left: auto;
+        padding-right: 1rem;
+      }
+
+      small {
+
+        a {
+          position: relative;
+          color: $link-color;
+
+          span {
+            position: relative;
+            transform: translateY(5px);
+            margin-right: .5rem;
+          }
+        }
+      }
+
+      &:first-of-type {
+        padding: 1.5rem .5rem;
+        
+        [data-react-toolbox="link"] {
+          position: absolute;
+          top: 1rem;
+          right: 0;
+        }
+      }
+
+      &:nth-of-type(even) {
+        background: lighten($light, 2%) !important;
+        border-top: none !important;
+        border-bottom: none !important;
+      }
+
+      &:last-of-type {
+        background: lighten($light, 2%) !important;
+        border-bottom: solid 2px darken($light, 2%) !important;
+      }
+    }
   }
 
   [data-react-toolbox="button"] {
