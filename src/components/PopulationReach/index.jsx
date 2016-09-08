@@ -7,11 +7,15 @@ import { Row, Col } from 'react-flexbox-grid';
 import ScoreBoxSimple from '../ScoreBoxSimple';
 import RegisteredCaregiversBox from '../RegisteredCaregiversBox';
 import style from './style';
+import data from './data.json';
 
 const learnMoreContent = 'Please select a tab to learn more';
 
 export const PopulationReachSubgroups = React.createClass({
   mixins: [PureRenderMixin],
+  getInitialState() {
+    return { data };
+  },
   render() {
     return (
       <div className={style.populationReachSubgroups}>
@@ -22,20 +26,14 @@ export const PopulationReachSubgroups = React.createClass({
             </div>
           </Row>
           <Row className={style.body}>
-            <Col xs={3}>
-              <ScoreBoxSimple />
+          {this.state.data.scores.map((Score, i) =>
+            <Col key={i} xs={3}>
+              <ScoreBoxSimple title={Score.title}
+                score={Score.score}/>
             </Col>
-            <Col xs={3}>
-              <ScoreBoxSimple />
-            </Col>
-            <Col xs={3}>
-              <ScoreBoxSimple />
-            </Col>
-            <Col xs={3}>
-              <ScoreBoxSimple />
-            </Col>
+            )}
           </Row>
-        </div>
+        </div>          
         <div className={style.subgroup}>
           <Row className={style.header}>
             <div className={style.title}>
@@ -43,18 +41,12 @@ export const PopulationReachSubgroups = React.createClass({
             </div>
           </Row>
           <Row className={style.body}>
-            <Col xs={3}>
-              <ScoreBoxSimple />
+          {this.state.data.dependencyScores.map((Score, i) =>
+            <Col key={i} xs={3}>
+              <ScoreBoxSimple title={Score.title}
+                score={Score.score} />
             </Col>
-            <Col xs={3}>
-              <ScoreBoxSimple />
-            </Col>
-            <Col xs={3}>
-              <ScoreBoxSimple />
-            </Col>
-            <Col xs={3}>
-              <ScoreBoxSimple />
-            </Col>
+            )}            
           </Row>
         </div>
         <div className={style.subgroup}>
@@ -64,18 +56,12 @@ export const PopulationReachSubgroups = React.createClass({
             </div>
           </Row>
           <Row className={style.body}>
-            <Col xs={3}>
-              <ScoreBoxSimple />
+          {this.state.data.registeredScores.map((Score, i) =>
+            <Col key={i} xs={3}>
+              <ScoreBoxSimple title={Score.title}
+                score={Score.score} />
             </Col>
-            <Col xs={3}>
-              <ScoreBoxSimple />
-            </Col>
-            <Col xs={3}>
-              <ScoreBoxSimple />
-            </Col>
-            <Col xs={3}>
-              <ScoreBoxSimple />
-            </Col>
+            )}
           </Row>
         </div>
       </div>

@@ -3,6 +3,7 @@
     "title":    "Patient Experience",
     "score":    "2/10",
     "pcscore":  "2/10",
-    "trend":    "down"
+    "trend":    "down",
+    "warning": "true"
   }
 }

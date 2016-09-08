@@ -6,30 +6,25 @@ import { RadioButton, RadioGroup } from 'react-toolbox';
 import { Row, Col } from 'react-flexbox-grid';
 import ScoreBoxSimple from '../ScoreBoxSimple';
 import style from './style';
+import data from './data.json';
 
 export const VitalSignsSubgroups = React.createClass({
   mixins: [PureRenderMixin],
+  getInitialState(){
+    return { data };
+  },
   render() {
     return (
       <div style={style.vitalSignsSubgroups}>
-        <Row className={style.body}>
+        <Row className={style.body}>        
           <Col xs={1} />
-          <Col xs={2}>
-            <ScoreBoxSimple />
-          </Col>
-          <Col xs={2}>
-            <ScoreBoxSimple />
-          </Col>
-          <Col xs={2}>
-            <ScoreBoxSimple />
-          </Col>
-          <Col xs={2}>
-            <ScoreBoxSimple />
-          </Col>
-          <Col xs={2}>
-            <ScoreBoxSimple />
-          </Col>
+          {this.state.data.scores.map((Score, i) =>
+          <Col key={i} xs={2}>
+            <ScoreBoxSimple title={Score.title} score={Score.score} />
+          </Col> 
+          )}         
           <Col xs={1} />
+          
         </Row>
         <div className={style.vitalSignsReportLink}>
           <a href="#">Vital-Signs Report</a>

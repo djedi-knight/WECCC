@@ -37,6 +37,9 @@ export default React.createClass({
   getPeerScore() {
     return this.props.peerScore || this.state.scoreBoxData.peerScore;
   },
+  getWarning() {
+    return this.props.warning || this.state.scoreBoxData.warning;
+  },
   handleToggle() {
     this.setState({ active: !this.state.active });
   },
@@ -48,12 +51,14 @@ export default React.createClass({
             <FontIcon className={style.infoIcon} value="info" />
             <h3>{this.getTitle()}</h3>
             <div className={style.score}>
+            {this.getWarning() === 'true' ?
+            <b>  
               <a data-tip data-for="risk">
-                <IconButton icon="warning" style={{ color: '#FF0000' }} />
-              </a>
-              <ReactTooltip id="risk" type="light" place="right" effect="float">
+                <IconButton icon="warning" style={{ color: '#FF0000', height:'5px'}} />
+              </a><ReactTooltip id="risk" type="light" place="right" effect="float">
                 <ScoreRiskPopover />
-              </ReactTooltip>
+              </ReactTooltip></b>
+              : null}
               {this.getScore()}
             </div>
             <hr />

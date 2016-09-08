@@ -25,6 +25,7 @@ export default React.createClass({
                 title={ScoreCard.title}
                 score={ScoreCard.score}
                 peerScore={ScoreCard.peerScore}
+                warning={ScoreCard.warning}
               />
             </Col>
           )}

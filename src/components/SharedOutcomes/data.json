@@ -1,0 +1,22 @@
+{
+	"scores": [
+		{
+			"title":  "Quality of Life",
+		    "score":  "A"
+		},
+		{
+			"title":  "Experience",
+		    "score":  "B+"
+		},
+		{
+			"title":  "Expected ",
+		    "score":  "C-"
+		},
+		{
+			"title":  "Burden",
+		    "score":  "87.2"
+		}
+	]
+
+  
+}

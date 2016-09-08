@@ -1,0 +1,46 @@
+{
+  "scores": [
+    {
+      "title":      "80+",
+      "score":      "78"
+    },
+    {
+      "title":      "Disabled",
+      "score":      "10"
+    }    
+  ],
+
+  "dependencyScores": [
+    {
+      "title":      "Light",
+      "score":      "111"
+    },
+    {
+      "title":      "Moderate",
+      "score":      "90"
+    },
+    {
+      "title":      "Complex",
+      "score":      "20"
+    },
+    {
+      "title":      "EOL",
+      "score":      "Φ"
+    }
+  ],
+
+  "registeredScores": [
+    {
+      "title":      "Care",
+      "score":      "111"
+    },
+    {
+      "title":      "Outreach",
+      "score":      "90"
+    },
+    {
+      "title":      "Neighbourhood",
+      "score":      "20"
+    }
+  ]
+}

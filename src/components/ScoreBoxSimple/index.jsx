@@ -5,9 +5,19 @@ import style from './style';
 import data from './data.json';
 
 export default React.createClass({
+  propTypes: {
+    title: React.PropTypes.string,
+    score: React.PropTypes.string
+  },
   mixins: [PureRenderMixin],
   getInitialState() {
     return { data };
+  },
+  getTitle() {
+    return this.props.title || this.state.data.title;
+  },
+  getScore() {
+    return this.props.score || this.state.data.score;
   },
   render() {
     return (
@@ -15,10 +25,10 @@ export default React.createClass({
         <Card theme={style}>
           <CardText>
             <div className={style.title}>
-              {this.state.data.title}
+              {this.getTitle()}
             </div>
             <div className={style.score}>
-              {this.state.data.score}
+              {this.getScore()}
             </div>
           </CardText>
           <CardText>

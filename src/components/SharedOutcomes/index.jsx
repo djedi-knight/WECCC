@@ -7,22 +7,22 @@ import { Row, Col } from 'react-flexbox-grid';
 import ScoreBoxSimple from '../ScoreBoxSimple';
 import RegisteredCaregiversBox from '../RegisteredCaregiversBox';
 import style from './style';
+import data from './data.json'
 
 export const SharedOutcomesSubgroup = React.createClass({
   mixins: [PureRenderMixin],
+  getInitialState(){
+    return { data };
+  },
   render() {
     return (
       <div style={style.sharedOutcomesSubgroups}>
         <Row className={style.body}>
-          <Col xs={4}>
-            <ScoreBoxSimple />
+        {this.state.data.scores.map((Score, i) =>
+          <Col key={i} xs={4}>
+            <ScoreBoxSimple title={Score.title} score={Score.score}/>
           </Col>
-          <Col xs={4}>
-            <ScoreBoxSimple />
-          </Col>
-          <Col xs={4}>
-            <ScoreBoxSimple />
-          </Col>
+          )}
         </Row>
       </div>
     );

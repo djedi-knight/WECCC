@@ -1,0 +1,26 @@
+{
+	"scores": [
+		{
+			"title":  "Government",
+		    "score":  "B+"
+		},
+		{
+			"title":  "Safety",
+		    "score":  "D"
+		},
+		{
+			"title":  "Arts & Culture",
+		    "score":  "B"
+		},
+		{
+			"title":  "Transportation",
+		    "score":  "C-"
+		},
+		{
+			"title":  "Food Security",
+		    "score":  "B+"
+		} 
+	]
+
+  
+}
