@@ -16,12 +16,26 @@ import style from './style';
 import data from './data.json';
 
 export default React.createClass({
+  propTypes: {
+    title: React.PropTypes.string,
+    score: React.PropTypes.string,
+    peerScore: React.PropTypes.string
+  },
   mixins: [PureRenderMixin],
   getInitialState() {
     return {
       active: false,
       data
     };
+  },
+  getTitle() {
+    return this.props.title || this.state.scoreBoxData.title;
+  },
+  getScore() {
+    return this.props.score || this.state.scoreBoxData.score;
+  },
+  getPeerScore() {
+    return this.props.peerScore || this.state.scoreBoxData.peerScore;
   },
   handleToggle() {
     this.setState({ active: !this.state.active });
@@ -32,7 +46,7 @@ export default React.createClass({
         <Card theme={style}>
           <CardText>
             <FontIcon className={style.infoIcon} value="info" />
-            <h3>{this.state.data.scoreBoxData.title}</h3>
+            <h3>{this.getTitle()}</h3>
             <div className={style.score}>
               <a data-tip data-for="risk">
                 <IconButton icon="warning" style={{ color: '#FF0000' }} />
@@ -40,14 +54,14 @@ export default React.createClass({
               <ReactTooltip id="risk" type="light" place="right" effect="float">
                 <ScoreRiskPopover />
               </ReactTooltip>
-              {this.state.data.scoreBoxData.score}
+              {this.getScore()}
             </div>
             <hr />
           </CardText>
           <CardText>
             <FontIcon value="person" />
             Peer Comparison
-            {this.state.data.scoreBoxData.pcscore}
+            {this.getPeerScore()}
             <hr />
           </CardText>
           <CardText>
