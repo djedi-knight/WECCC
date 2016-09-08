@@ -27,4 +27,68 @@
       font-size: 30px;
     }
   }
+
+  [class*='cardText'] {
+
+    border-bottom: solid 2px $light;
+
+    hr {
+      display: none;
+    }
+
+    &:first-of-type {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+
+      [class*='infoIcon'] {
+        position: absolute;
+        top: 1rem;
+        right: 1rem;
+        color: #ccc;
+      }
+
+      h3 {
+        font-size: 1.3rem;
+        color: $dark;
+        font-weight: normal;
+      }
+    }
+
+    div[data-id="tooltip"] {
+      position: absolute;
+    }
+
+    div[data-id="tooltip"].show {
+      position: relative;
+    }
+
+    &:nth-of-type(2),
+    &:nth-of-type(3) {
+      display: flex;
+      align-items: center;
+      padding: 1rem;
+
+      span {
+        margin-right: 1rem;
+      }
+    }
+  }
+
+  [class*='cardActions'] {
+    justify-content: center;
+
+    button {
+      margin: 0 auto;
+      background: transparent;
+      font-size: .8rem;
+      color: $link-color !important;
+      text-decoration: underline;
+
+      &:hover {
+        background: transparent !important;
+        color: #666 !important;
+      }
+    }
+  }
 }
