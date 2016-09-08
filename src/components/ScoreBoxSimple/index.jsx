@@ -19,6 +19,9 @@ export default React.createClass({
   getScore() {
     return this.props.score || this.state.data.score;
   },
+  getTrend() {
+    return this.props.trend || this.state.trend;
+  },
   render() {
     return (
       <div className={style.scoreBoxSimple}>
@@ -32,7 +35,9 @@ export default React.createClass({
             </div>
           </CardText>
           <CardText>
-            <FontIcon value="trending_up" />
+            {this.getTrend() === 'up' ? <FontIcon value="arrow_upward" /> : null}
+            {this.getTrend() === 'down' ? <FontIcon value="arrow_downward" /> : null}
+            {this.getTrend() === 'same' ? <FontIcon value="arrow_forward" /> : null}           
           </CardText>
         </Card>
       </div>

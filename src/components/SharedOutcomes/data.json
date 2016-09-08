@@ -2,19 +2,23 @@
   "scoreCards": [
     {
       "title":  "Quality of Life",
-      "score":  "A"
+      "score":  "A",
+      "trend":  "up"
     },
     {
       "title":  "Experience",
-      "score":  "B+"
+      "score":  "B+",
+      "trend":  "same"
     },
     {
       "title":  "Expected",
-      "score":  "C-"
+      "score":  "C-",
+      "trend":  "down"
     },
     {
       "title":  "Burden",
-      "score":  "87.2"
+      "score":  "87.2",
+      "trend":  "up"
     }
   ]
 }
