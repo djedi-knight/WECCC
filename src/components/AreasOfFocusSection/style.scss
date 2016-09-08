@@ -3,6 +3,10 @@
   margin-bottom: 3rem;
   background: lighten($light, 2%);
 
+  [class*='flexboxgrid__col-xs-3'] {
+    background: #fff;
+  }
+
   .header {
     background: $dark;
     color: #fff;
@@ -68,7 +72,7 @@
 
       &:first-of-type {
         padding: 1.5rem .5rem;
-        
+
         [data-react-toolbox="link"] {
           position: absolute;
           top: 1rem;
