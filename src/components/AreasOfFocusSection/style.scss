@@ -1,6 +1,7 @@
 .areasOfFocusSection {
-  border: 2px solid #ebe8e8;
-  margin-bottom: 15px;
+  border: solid 2px darken($light, 2%);
+  margin-bottom: 3rem;
+  background: lighten($light, 2%);
 
   .header {
     background: $dark;
@@ -32,6 +33,34 @@
 
     .title {
       font-size: 23px;
+    }
+  }
+
+  [class*='listBox'] {
+    padding: .5rem !important;
+  }
+
+  [data-react-toolbox="button"] {
+    background: #fff;
+    width: 100%;
+    text-align: left;
+    color: $dark;
+    font-size: 1rem;
+    border-top: solid 2px darken($light, 2%);
+    border-radius: 0;
+  }
+
+  [class*='theme__toggle'] {
+    width: 60px;
+    text-align: center;
+    border: none;
+  }
+
+  [class*='cardActions'] {
+
+    button {
+      text-align: center;
+      border: none;
     }
   }
 }
