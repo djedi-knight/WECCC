@@ -1,5 +1,10 @@
 .alertSummarySection {
   border: 2px solid #ebe8e8;
+  margin-bottom: 3rem;
+
+  [class*='flexboxgrid__col-xs-3'] {
+    background: #fff;
+  }
 
   .header {
     background: $dark;
