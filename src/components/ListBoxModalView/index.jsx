@@ -4,34 +4,14 @@ import { Checkbox, FontIcon } from 'react-toolbox';
 import { Row, Col } from 'react-flexbox-grid';
 import style from './style';
 import { VictoryChart, VictoryAxis, VictoryLine } from 'victory/dist/victory';
-
-const lowRisk = [
-  { x: 0, y: 150 },
-  { x: 1, y: 125 },
-  { x: 3, y: 195 },
-  { x: 4, y: 130 }
-];
-
-const mediumRisk = [
-  { x: 0, y: 115 },
-  { x: 2, y: 132 },
-  { x: 4, y: 200 },
-  { x: 4, y: 155 }
-];
-
-const highRisk = [
-  { x: 0, y: 180 },
-  { x: 1, y: 132 },
-  { x: 3, y: 150 },
-  { x: 4, y: 120 }
-];
+import data from './data.json';
 
 const dummyText = 'Adverse drug effects are defined by Lorem Ipsum Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium';
 
 export default React.createClass({
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { check1: false, check2: false, check3: false };
+    return { check1: false, check2: false, check3: false , data};
   },
   handleChange(field, value) {
     this.setState({ [field]: value });
@@ -53,48 +33,91 @@ export default React.createClass({
               </div>
               <div style={{ width: '100%' }}>
                 <VictoryChart domainPadding={20} >
-                  <VictoryAxis />
-                  <VictoryAxis dependentAxis />
-                  <VictoryLine
-                    data={mediumRisk}
-                    x={"x"}
-                    y={"y"}
-                    label="Medium Risk"
-                    style={{
-                      data: {
-                        stroke: '#0AC2EA',
-                        strokeWidth: 3
-                      },
-                      labels: { fontSize: 10 }
-                    }}
-                  />
-                  <VictoryLine
-                    data={highRisk}
-                    x={"x"}
-                    y={"y"}
-                    label="High Risk"
-                    style={{
-                      data: {
-                        stroke: '#0A4EEA',
-                        strokeWidth: 3
-                      },
-                      labels: { fontSize: 10 }
-                    }}
-                  />
-                  <VictoryLine
-                    data={lowRisk}
-                    x={"x"}
-                    y={"y"}
-                    label="Low Risk"
-                    style={{
-                      data: {
-                        stroke: '#12F5E4',
-                        strokeWidth: 3
-                      },
-                      labels: { fontSize: 10 }
-                    }}
-                  />
-                </VictoryChart>
+          <VictoryAxis />
+          <VictoryAxis dependentAxis />          
+          <VictoryLine
+              data={this.state.data.mediumRisk}
+              x={"x"}
+              y={"y"}
+              label="Medium Risk"
+              style={{
+                data: {
+                  stroke: '#0AC2EA',
+                  strokeWidth: 3
+                },
+                labels: { fontSize: 10 }
+              }}
+          />        
+          <VictoryLine
+            data={this.state.data.lowRisk}
+            x={"x"}
+            y={"y"}
+            label="Low Risk"
+            style={{
+              data: {
+                stroke: '#0A4EEA',
+                strokeWidth: 3
+              },
+              labels: { fontSize: 10 }
+            }}
+          />
+          <VictoryLine
+            data={this.state.data.highRisk}
+            x={"x"}
+            y={"y"}
+            label="High Risk"
+            style={{
+              data: {
+                stroke: '#12F5E4',
+                strokeWidth: 3
+              },
+              labels: { fontSize: 10 }
+            }}
+          />
+          {this.state.check1 ?
+          <VictoryLine
+            data= {this.state.data.peer}
+            x={"x"}
+            y={"y"}
+            label="Peer Risk"
+            style={{
+              data: {
+                stroke: '#FF0000',
+                strokeWidth: 3
+              },
+              labels: { fontSize: 10 }
+            }}        
+          /> 
+          : null}
+          {this.state.check2 ?
+          <VictoryLine
+            data= {this.state.data.PeerMid}
+            x={"x"}
+            y={"y"}
+            label="Peer Risk"
+            style={{
+              data: {
+                stroke: '#00FF00',
+                strokeWidth: 3
+              },
+              labels: { fontSize: 10 }
+            }}        /> 
+          : null}
+          {this.state.check3 ?
+          <VictoryLine
+            data= {this.state.data.PeerLow}
+            x={"x"}
+            y={"y"}
+            label="Peer Risk"
+            style={{
+              data: {
+                stroke: '#FF00CC',
+                strokeWidth: 3
+              },
+              labels: { fontSize: 10 }
+            }}        /> 
+          : null}
+        </VictoryChart>
               </div>
             </Row>
             <Row className={style.peerComparisonSection}>
