@@ -41,6 +41,9 @@ export default React.createClass({
   getWarning() {
     return this.props.warning || this.state.warning;
   },
+  getTrend() {
+    return this.props.trend || this.state.trend;
+  },
   handleToggle() {
     this.setState({ active: !this.state.active });
   },
@@ -75,9 +78,9 @@ export default React.createClass({
           <CardText>
             <FontIcon value="trending_up" />
             Change Over Time
-            {this.state.data.trend === 'up' ? <FontIcon value="arrow_upward" /> : null}
-            {this.state.data.trend === 'down' ? <FontIcon value="arrow_downward" /> : null}
-            {this.state.data.trend === 'same' ? <FontIcon value="arrow_forward" /> : null}
+            {this.getTrend() === 'up' ? <FontIcon value="arrow_upward" /> : null}
+            {this.getTrend() === 'down' ? <FontIcon value="arrow_downward" /> : null}
+            {this.getTrend() === 'same' ? <FontIcon value="arrow_forward" /> : null}
             <hr />
           </CardText>
           <CardActions>

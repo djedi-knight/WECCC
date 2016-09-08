@@ -4,22 +4,26 @@
       "title":      "PATIENT EXPERIENCE",
       "score":      "2/10",
       "peerScore":  "6/10",
-      "warning":    true
+      "warning":    true,
+      "trend":      "up"
     },
     {
       "title":      "QUALITY OF LIFE",
       "score":      "7/10",
-      "peerScore":  "4/10"
+      "peerScore":  "4/10",
+      "trend":      "same"
     },
     {
       "title":      "HOURS OF CARE",
       "score":      "1.1",
-      "peerScore":  "0.9"
+      "peerScore":  "0.9",
+      "trend":      "down"
     },
     {
       "title":      "SELF-RELIANCE",
       "score":      "9/10",
-      "peerScore":  "9/10"
+      "peerScore":  "9/10",
+      "trend":      "same"
     }
   ]
 }

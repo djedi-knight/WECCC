@@ -26,6 +26,7 @@ export default React.createClass({
                 score={scoreCard.score}
                 peerScore={scoreCard.peerScore}
                 warning={scoreCard.warning}
+                trend={scoreCard.trend}
               />
             </Col>
           )}
