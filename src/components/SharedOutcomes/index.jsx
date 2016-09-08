@@ -32,6 +32,7 @@ export const SharedOutcomesSubgroup = React.createClass({
     );
   }
 });
+
 export const SharedOutcomes = React.createClass({
   mixins: [PureRenderMixin],
   getInitialState() {

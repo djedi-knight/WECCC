@@ -2,45 +2,54 @@
   "priorityScoreCards": [
     {
       "title":  "80+",
-      "score":  "78"
+      "score":  "78",
+      "trend":  "up"
     },
     {
       "title":  "Disabled",
-      "score":  "10"
+      "score":  "10",
+      "trend":  "down"
     }
   ],
 
   "dependencyScoreCards": [
     {
       "title":  "Light",
-      "score":  "111"
+      "score":  "111",
+      "trend":  "down"
     },
     {
       "title":  "Moderate",
-      "score":  "90"
+      "score":  "90",
+      "trend":  "up"
     },
     {
       "title":  "Complex",
-      "score":  "20"
+      "score":  "20",
+      "trend":  "same"
     },
     {
       "title":  "EOL",
-      "score":  "0"
+      "score":  "0",
+      "trend":  "same"
     }
   ],
 
   "registeredScoreCards": [
     {
       "title":  "Care",
-      "score":  "111"
+      "score":  "111",
+      "trend":  "up"
     },
     {
       "title":  "Outreach",
-      "score":  "90"
+      "score":  "90",
+      "trend":  "up"
     },
     {
       "title":  "Neighbourhood",
-      "score":  "20"
+      "score":  "20",
+      "trend":  "down"
     }
   ]
 }

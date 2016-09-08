@@ -22,6 +22,7 @@ export const VitalSignsSubgroups = React.createClass({
               <ScoreBoxSimple
                 title={scoreCard.title}
                 score={scoreCard.score}
+                trend={scoreCard.trend}
               />
             </Col>
           )}

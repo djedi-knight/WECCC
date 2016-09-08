@@ -20,7 +20,8 @@ export default React.createClass({
     title: React.PropTypes.string,
     score: React.PropTypes.string,
     peerScore: React.PropTypes.string,
-    warning: React.PropTypes.bool
+    warning: React.PropTypes.bool,
+    trend: React.PropTypes.string,
   },
   mixins: [PureRenderMixin],
   getInitialState() {
