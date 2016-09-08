@@ -19,7 +19,8 @@ export default React.createClass({
   propTypes: {
     title: React.PropTypes.string,
     score: React.PropTypes.string,
-    peerScore: React.PropTypes.string
+    peerScore: React.PropTypes.string,
+    warning: React.PropTypes.bool
   },
   mixins: [PureRenderMixin],
   getInitialState() {
@@ -29,16 +30,16 @@ export default React.createClass({
     };
   },
   getTitle() {
-    return this.props.title || this.state.scoreBoxData.title;
+    return this.props.title || this.state.title;
   },
   getScore() {
-    return this.props.score || this.state.scoreBoxData.score;
+    return this.props.score || this.state.score;
   },
   getPeerScore() {
-    return this.props.peerScore || this.state.scoreBoxData.peerScore;
+    return this.props.peerScore || this.state.peerScore;
   },
   getWarning() {
-    return this.props.warning || this.state.scoreBoxData.warning;
+    return this.props.warning || this.state.warning;
   },
   handleToggle() {
     this.setState({ active: !this.state.active });
@@ -51,14 +52,16 @@ export default React.createClass({
             <FontIcon className={style.infoIcon} value="info" />
             <h3>{this.getTitle()}</h3>
             <div className={style.score}>
-            {this.getWarning() === 'true' ?
-            <b>  
-              <a data-tip data-for="risk">
-                <IconButton icon="warning" style={{ color: '#FF0000', height:'5px'}} />
-              </a><ReactTooltip id="risk" type="light" place="right" effect="float">
-                <ScoreRiskPopover />
-              </ReactTooltip></b>
-              : null}
+            {this.getWarning() ?
+              <div className={style.warningIcon}>
+                <a data-tip data-for="risk">
+                  <IconButton icon="warning" />
+                </a>
+                <ReactTooltip id="risk" type="light" place="right" effect="float">
+                  <ScoreRiskPopover />
+                </ReactTooltip>
+              </div>
+            : null}
               {this.getScore()}
             </div>
             <hr />
@@ -72,9 +75,9 @@ export default React.createClass({
           <CardText>
             <FontIcon value="trending_up" />
             Change Over Time
-            {this.state.data.scoreBoxData.trend === 'up' ? <FontIcon value="arrow_upward" /> : null}
-            {this.state.data.scoreBoxData.trend === 'down' ? <FontIcon value="arrow_downward" /> : null}
-            {this.state.data.scoreBoxData.trend === 'same' ? <FontIcon value="arrow_forward" /> : null}
+            {this.state.data.trend === 'up' ? <FontIcon value="arrow_upward" /> : null}
+            {this.state.data.trend === 'down' ? <FontIcon value="arrow_downward" /> : null}
+            {this.state.data.trend === 'same' ? <FontIcon value="arrow_forward" /> : null}
             <hr />
           </CardText>
           <CardActions>

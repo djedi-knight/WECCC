@@ -10,21 +10,21 @@ import data from './data.json';
 
 export const VitalSignsSubgroups = React.createClass({
   mixins: [PureRenderMixin],
-  getInitialState(){
+  getInitialState() {
     return { data };
   },
   render() {
     return (
       <div style={style.vitalSignsSubgroups}>
-        <Row className={style.body}>        
-          <Col xs={1} />
-          {this.state.data.scores.map((Score, i) =>
-          <Col key={i} xs={2}>
-            <ScoreBoxSimple title={Score.title} score={Score.score} />
-          </Col> 
-          )}         
-          <Col xs={1} />
-          
+        <Row className={style.body}>
+          {this.state.data.scoreCards.map((scoreCard, i) =>
+            <Col key={i} xs={2}>
+              <ScoreBoxSimple
+                title={scoreCard.title}
+                score={scoreCard.score}
+              />
+            </Col>
+          )}
         </Row>
         <div className={style.vitalSignsReportLink}>
           <a href="#">Vital-Signs Report</a>
@@ -37,13 +37,10 @@ export const VitalSignsSubgroups = React.createClass({
 export const VitalSigns = React.createClass({
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { value: 'vitalsigns' };
+    return { value: 'vitalSigns' };
   },
   handleChange(value) {
-    this.setState({ value }
-
-
-      );
+    this.setState({ value });
   },
   render() {
     return (
@@ -52,12 +49,12 @@ export const VitalSigns = React.createClass({
           Community Well-Being (General Population)
         </div>
         <RadioGroup name="comic" value={this.state.value} onChange={this.handleChange}>
-          <RadioButton label="Vital Signs" value="vitalsigns" />
-          <RadioButton label="Self-Reported" value="selfreported" />
+          <RadioButton label="Vital Signs" value="vitalSigns" />
+          <RadioButton label="Self-Reported" value="selfReported" />
           <RadioButton label="Neighbourhoods" value="neighbourhoods" />
         </RadioGroup>
-        {this.state.value === 'vitalsigns' ? <VitalSignsSubgroups /> : null}
-        {this.state.value === 'selfreported' ? <VitalSignsSubgroups /> : null}
+        {this.state.value === 'vitalSigns' ? <VitalSignsSubgroups /> : null}
+        {this.state.value === 'selfReported' ? <VitalSignsSubgroups /> : null}
         {this.state.value === 'neighbourhoods' ? <VitalSignsSubgroups /> : null}
       </div>
     );

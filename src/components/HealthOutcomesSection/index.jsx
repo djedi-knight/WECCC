@@ -19,13 +19,13 @@ export default React.createClass({
           </div>
         </Row>
         <Row className={style.body}>
-          {this.state.data.scoreCards.map((ScoreCard, i) =>
+          {this.state.data.scoreCards.map((scoreCard, i) =>
             <Col key={i} xs={3}>
               <ScoreBox
-                title={ScoreCard.title}
-                score={ScoreCard.score}
-                peerScore={ScoreCard.peerScore}
-                warning={ScoreCard.warning}
+                title={scoreCard.title}
+                score={scoreCard.score}
+                peerScore={scoreCard.peerScore}
+                warning={scoreCard.warning}
               />
             </Col>
           )}

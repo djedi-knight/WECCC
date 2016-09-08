@@ -26,14 +26,16 @@ export const PopulationReachSubgroups = React.createClass({
             </div>
           </Row>
           <Row className={style.body}>
-          {this.state.data.scores.map((Score, i) =>
+          {this.state.data.priorityScoreCards.map((scoreCard, i) =>
             <Col key={i} xs={3}>
-              <ScoreBoxSimple title={Score.title}
-                score={Score.score}/>
+              <ScoreBoxSimple
+                title={scoreCard.title}
+                score={scoreCard.score}
+              />
             </Col>
             )}
           </Row>
-        </div>          
+        </div>
         <div className={style.subgroup}>
           <Row className={style.header}>
             <div className={style.title}>
@@ -41,12 +43,14 @@ export const PopulationReachSubgroups = React.createClass({
             </div>
           </Row>
           <Row className={style.body}>
-          {this.state.data.dependencyScores.map((Score, i) =>
+          {this.state.data.dependencyScoreCards.map((scoreCard, i) =>
             <Col key={i} xs={3}>
-              <ScoreBoxSimple title={Score.title}
-                score={Score.score} />
+              <ScoreBoxSimple
+                title={scoreCard.title}
+                score={scoreCard.score}
+              />
             </Col>
-            )}            
+            )}
           </Row>
         </div>
         <div className={style.subgroup}>
@@ -56,10 +60,12 @@ export const PopulationReachSubgroups = React.createClass({
             </div>
           </Row>
           <Row className={style.body}>
-          {this.state.data.registeredScores.map((Score, i) =>
+          {this.state.data.registeredScoreCards.map((scoreCard, i) =>
             <Col key={i} xs={3}>
-              <ScoreBoxSimple title={Score.title}
-                score={Score.score} />
+              <ScoreBoxSimple
+                title={scoreCard.title}
+                score={scoreCard.score}
+              />
             </Col>
             )}
           </Row>

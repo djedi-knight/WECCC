@@ -1,9 +1,7 @@
 {
-  "scoreBoxData": {
-    "title":    "Patient Experience",
-    "score":    "2/10",
-    "pcscore":  "2/10",
-    "trend":    "down",
-    "warning": "true"
-  }
+  "title":    "Patient Experience",
+  "score":    "2/10",
+  "pcscore":  "2/10",
+  "trend":    "down",
+  "warning":  false
 }
