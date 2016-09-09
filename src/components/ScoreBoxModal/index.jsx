@@ -34,16 +34,16 @@ export default React.createClass({
               <div style={{ width: '100%' }}> 
               <VictoryChart height={150} domain={{x:[0,5]}}> 
                 <VictoryAxis tickValues={[0, 1, 2, 3, 4, 5]} style={{ticks: { stroke: 'red', size: 10 }, tickLabels: { fontSize: 22 },}} />
-                <VictoryGroup horizontal height={100} offset={20} colorScale={"qualitative"} >
-                  <VictoryBar data={this.state.data.score} />
-                  {this.state.check ? <VictoryBar data={this.state.data.peer}/> : null }              
+                <VictoryGroup horizontal height={100} offset={20} >
+                  <VictoryBar data={this.state.data.score} style={{data: {fill: "red"}}} />
+                  {this.state.check ? <VictoryBar data={this.state.data.peer} style={{data: {fill: "blue"}}}/> : null }              
                 </VictoryGroup>
               </VictoryChart>
               </div>
             </Row>
             <Row >
               <div >              
-                <FontIcon value="remove" /> My Outcomes <br />        
+                <h4 style={{ color: "red"}}><FontIcon value="remove" /> My Outcomes</h4> <br />        
                 <Checkbox checked={this.state.check} label="-- Peer Comparison" onChange={this.handleChange.bind(this, 'check')}/>
               </div>
               <div style={{ border: '1px solid gray', borderStyle: 'solid hidden hidden hidden' }}>
