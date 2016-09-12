@@ -8,7 +8,7 @@ import { Row, Col } from 'react-flexbox-grid';
 import style from './style';
 
  const polygon = [{lng: 42.0468, lat: -82.60544}, {lng: 42.0465, lat: -82.60542}, {lng: 42.0568, lat: -82.60524}];
- 
+
 export const GISSubgroups = React.createClass({
   mixins: [PureRenderMixin],
   
@@ -64,7 +64,7 @@ export const GISPage = React.createClass({
               <span>A pretty CSS3 popup. </span>
             </Popup>
           </Marker>
-          <Polygon positions={polygon}/>
+          <Polygon position={polygon}/>
         </Map>
         </Col>
         </Row>
