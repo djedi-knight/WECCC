@@ -43,3 +43,35 @@ p {
   color: $dark;
   line-height: 1.4;
 }
+
+div[data-react-toolbox="dialog"] {
+
+  [class*="body"] {
+    padding: 0;
+
+    [class*="flexboxgrid__col-xs-9"] {
+      border: solid 1px #ddd;
+
+
+      [class*="flexboxgrid__row"] {
+        padding: 1rem;
+
+        &:nth-of-type(2) {
+          padding: 0 !important;
+        }
+      }
+    }
+
+    [class*="flexboxgrid__col-xs-3"] {
+
+      >div {
+        height: 100% !important;
+        border: none !important;
+      }
+
+      p {
+        padding: .5rem;
+      }
+    }
+  }
+}

@@ -1,11 +1,11 @@
 import React from 'react';
-import RegisteredCaregiversBox from '../RegisteredCaregiversBox';
+import ScoreBoxModal from '../ScoreBoxModal';
 
 export const Test = React.createClass({
   render() {
     return (
       <div>
-        <RegisteredCaregiversBox />
+        <ScoreBoxModal />
       </div>
     );
   }
