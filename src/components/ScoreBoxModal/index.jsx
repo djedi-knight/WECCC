@@ -1,40 +1,25 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { FontIcon } from 'react-toolbox';
+import { FontIcon, Checkbox } from 'react-toolbox';
 import { Row, Col } from 'react-flexbox-grid';
-import { VictoryChart, VictoryAxis, VictoryBar } from 'victory/dist/victory';
+import {
+  VictoryAxis,
+  VictoryBar,
+  VictoryChart,
+  VictoryGroup
+} from 'victory/dist/victory';
 import style from './style';
+import data from './data.json';
 
 const dummyText = 'The DIVERT scale shows Lorem Ipsum Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium';
-
-const data = [
-  { x: 0, y: 4 }
-];
-
-export const Score = React.createClass({
-  mixins: [PureRenderMixin],
-  render() {
-    return (
-      <div>
-        <VictoryChart height={100}>
-          <VictoryAxis
-            tickValues={[0, 1, 2, 3, 4, 5]}
-            style={{
-              ticks: { stroke: 'red', size: 10 },
-              tickLabels: { fontSize: 22 },
-            }}
-          />
-          <VictoryBar horizontal data={data} />
-        </VictoryChart>
-      </div>
-    );
-  }
-});
 
 export default React.createClass({
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { check1: false };
+    return {
+      check: false,
+      data
+    };
   },
   handleChange(field, value) {
     this.setState({ [field]: value });
@@ -54,13 +39,26 @@ export default React.createClass({
                 DIVERT
               </div>
               <div style={{ width: '100%' }}>
-                <Score />
+                <VictoryChart height={150} domain={{ x: [0, 5] }}>
+                  <VictoryAxis tickValues={[0, 1, 2, 3, 4, 5]} style={{ ticks: { stroke: 'red', size: 10 }, tickLabels: { fontSize: 22 } }} />
+                  <VictoryGroup horizontal height={100} offset={20}>
+                    <VictoryBar data={this.state.data.score} style={{ data: { fill: 'red' } }} />
+                  {this.state.check ?
+                    <VictoryBar data={this.state.data.peer} style={{ data: { fill: 'blue' } }} />
+                    : null
+                  }
+                  </VictoryGroup>
+                </VictoryChart>
               </div>
             </Row>
             <Row >
-              <div >
-                <FontIcon value="remove" /> My Outcomes <br />
-                <input type="checkbox" /> -- Peer Comparison
+              <div>
+                <h4 style={{ color: 'red' }}><FontIcon value="remove" />My Outcomes</h4>
+                <Checkbox
+                  checked={this.state.check}
+                  label="-- Peer Comparison"
+                  onChange={this.handleChange.bind(this, 'check')}
+                />
               </div>
               <div style={{ border: '1px solid gray', borderStyle: 'solid hidden hidden hidden' }}>
                 <p style={{ background: '#F2F7FA', color: '#110b31', margin: '0px', padding: '12px' }}>
