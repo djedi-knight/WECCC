@@ -4,37 +4,22 @@ import { Checkbox, FontIcon } from 'react-toolbox';
 import { Row, Col } from 'react-flexbox-grid';
 import style from './style';
 import { VictoryChart, VictoryAxis, VictoryLine } from 'victory/dist/victory';
-
-const lowRisk = [
-  { x: 0, y: 150 },
-  { x: 1, y: 125 },
-  { x: 3, y: 195 },
-  { x: 4, y: 130 }
-];
-
-const mediumRisk = [
-  { x: 0, y: 115 },
-  { x: 2, y: 132 },
-  { x: 4, y: 200 },
-  { x: 4, y: 155 }
-];
-
-const highRisk = [
-  { x: 0, y: 180 },
-  { x: 1, y: 132 },
-  { x: 3, y: 150 },
-  { x: 4, y: 120 }
-];
+import data from './data.json';
 
 const dummyText = 'Adverse drug effects are defined by Lorem Ipsum Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium';
 
 export default React.createClass({
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { check1: false, check2: false, check3: false };
+    return {
+      check1: false,
+      check2: false,
+      check3: false,
+      data
+    };
   },
-  handleChange(field, value) {
-    this.setState({ [field]: value });
+  handleChange(value, event) {
+    this.setState({ [event.target.name]: value });
   },
   render() {
     return (
@@ -52,11 +37,24 @@ export default React.createClass({
                 <FontIcon className={style.subtitleIcon} value="trending_up" />
               </div>
               <div style={{ width: '100%' }}>
-                <VictoryChart domainPadding={20} >
+                <VictoryChart domainPadding={20}>
                   <VictoryAxis />
                   <VictoryAxis dependentAxis />
                   <VictoryLine
-                    data={mediumRisk}
+                    data={this.state.data.lowRisk}
+                    x={"x"}
+                    y={"y"}
+                    label="Low Risk"
+                    style={{
+                      data: {
+                        stroke: '#0A4EEA',
+                        strokeWidth: 3
+                      },
+                      labels: { fontSize: 10 }
+                    }}
+                  />
+                  <VictoryLine
+                    data={this.state.data.mediumRisk}
                     x={"x"}
                     y={"y"}
                     label="Medium Risk"
@@ -69,23 +67,10 @@ export default React.createClass({
                     }}
                   />
                   <VictoryLine
-                    data={highRisk}
+                    data={this.state.data.highRisk}
                     x={"x"}
                     y={"y"}
                     label="High Risk"
-                    style={{
-                      data: {
-                        stroke: '#0A4EEA',
-                        strokeWidth: 3
-                      },
-                      labels: { fontSize: 10 }
-                    }}
-                  />
-                  <VictoryLine
-                    data={lowRisk}
-                    x={"x"}
-                    y={"y"}
-                    label="Low Risk"
                     style={{
                       data: {
                         stroke: '#12F5E4',
@@ -94,6 +79,51 @@ export default React.createClass({
                       labels: { fontSize: 10 }
                     }}
                   />
+                  {this.state.check1 ?
+                    <VictoryLine
+                      data={this.state.data.peerHigh}
+                      x={"x"}
+                      y={"y"}
+                      label="Peer (High Risk)"
+                      style={{
+                        data: {
+                          stroke: '#FF0000',
+                          strokeWidth: 3
+                        },
+                        labels: { fontSize: 10 }
+                      }}
+                    />
+                  : null}
+                  {this.state.check2 ?
+                    <VictoryLine
+                      data={this.state.data.peerMedium}
+                      x={"x"}
+                      y={"y"}
+                      label="Peer (Medium Risk)"
+                      style={{
+                        data: {
+                          stroke: '#00FF00',
+                          strokeWidth: 3
+                        },
+                        labels: { fontSize: 10 }
+                      }}
+                    />
+                  : null}
+                  {this.state.check3 ?
+                    <VictoryLine
+                      data={this.state.data.peerLow}
+                      x={"x"}
+                      y={"y"}
+                      label="Peer (Low Risk)"
+                      style={{
+                        data: {
+                          stroke: '#FF00CC',
+                          strokeWidth: 3
+                        },
+                        labels: { fontSize: 10 }
+                      }}
+                    />
+                  : null}
                 </VictoryChart>
               </div>
             </Row>
@@ -102,9 +132,9 @@ export default React.createClass({
                 Peer Comparison
                 <FontIcon className={style.subtitleIcon} value="person" />
               </div>
-              <Checkbox checked={this.state.check1} name="HighRisk" label="- - High Risk" onChange={this.handleChange.bind(this, 'check1')} />
-              <Checkbox checked={this.state.check2} label="- - Medium Risk" onChange={this.handleChange.bind(this, 'check2')} />
-              <Checkbox checked={this.state.check3} label="- - Low Risk" onChange={this.handleChange.bind(this, 'check3')} />
+              <Checkbox checked={this.state.check1} name="check1" label="- - High Risk" onChange={this.handleChange} />
+              <Checkbox checked={this.state.check2} name="check2" label="- - Medium Risk" onChange={this.handleChange} />
+              <Checkbox checked={this.state.check3} name="check3" label="- - Low Risk" onChange={this.handleChange} />
               <div style={{ border: '1px solid gray', borderStyle: 'solid hidden hidden hidden' }}>
                 <p style={{ background: '#F2F7FA', color: '#110b31', margin: '0px', padding: '12px' }}>
                   {dummyText}

@@ -7,27 +7,32 @@ import { Row, Col } from 'react-flexbox-grid';
 import ScoreBoxSimple from '../ScoreBoxSimple';
 import RegisteredCaregiversBox from '../RegisteredCaregiversBox';
 import style from './style';
+import data from './data.json';
 
 export const SharedOutcomesSubgroup = React.createClass({
   mixins: [PureRenderMixin],
+  getInitialState() {
+    return { data };
+  },
   render() {
     return (
       <div style={style.sharedOutcomesSubgroups}>
         <Row className={style.body}>
-          <Col xs={4}>
-            <ScoreBoxSimple />
+        {this.state.data.scoreCards.map((scoreCard, i) =>
+          <Col key={i} xs={4}>
+            <ScoreBoxSimple
+              title={scoreCard.title}
+              score={scoreCard.score}
+              trend={scoreCard.trend}
+            />
           </Col>
-          <Col xs={4}>
-            <ScoreBoxSimple />
-          </Col>
-          <Col xs={4}>
-            <ScoreBoxSimple />
-          </Col>
+          )}
         </Row>
       </div>
     );
   }
 });
+
 export const SharedOutcomes = React.createClass({
   mixins: [PureRenderMixin],
   getInitialState() {
@@ -43,11 +48,11 @@ export const SharedOutcomes = React.createClass({
           Our Shared Outcomes
         </div>
         <RadioGroup name="outcome" value={this.state.value} onChange={this.handleChange}>
-          <RadioButton label="People" value="People" />
+          <RadioButton label="People" value="people" />
           <RadioButton label="Core Partners" value="corePartners" />
         </RadioGroup>
         <RegisteredCaregiversBox />
-        {this.state.value === 'People' ? <SharedOutcomesSubgroup /> : null}
+        {this.state.value === 'people' ? <SharedOutcomesSubgroup /> : null}
         {this.state.value === 'corePartners' ? <SharedOutcomesSubgroup /> : null}
       </div>
     );

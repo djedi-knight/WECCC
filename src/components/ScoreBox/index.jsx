@@ -16,12 +16,34 @@ import style from './style';
 import data from './data.json';
 
 export default React.createClass({
+  propTypes: {
+    title: React.PropTypes.string,
+    score: React.PropTypes.string,
+    peerScore: React.PropTypes.string,
+    warning: React.PropTypes.bool,
+    trend: React.PropTypes.string,
+  },
   mixins: [PureRenderMixin],
   getInitialState() {
     return {
       active: false,
       data
     };
+  },
+  getTitle() {
+    return this.props.title || this.state.title;
+  },
+  getScore() {
+    return this.props.score || this.state.score;
+  },
+  getPeerScore() {
+    return this.props.peerScore || this.state.peerScore;
+  },
+  getWarning() {
+    return this.props.warning || this.state.warning;
+  },
+  getTrend() {
+    return this.props.trend || this.state.trend;
   },
   handleToggle() {
     this.setState({ active: !this.state.active });
@@ -32,30 +54,34 @@ export default React.createClass({
         <Card theme={style}>
           <CardText>
             <FontIcon className={style.infoIcon} value="info" />
-            <h3>{this.state.data.scoreBoxData.title}</h3>
+            <h3>{this.getTitle()}</h3>
             <div className={style.score}>
-              <a data-tip data-for="risk">
-                <IconButton icon="warning" style={{ color: '#FF0000' }} />
-              </a>
-              <ReactTooltip id="risk" type="light" place="right" effect="float">
-                <ScoreRiskPopover />
-              </ReactTooltip>
-              {this.state.data.scoreBoxData.score}
+            {this.getWarning() ?
+              <div className={style.warningIcon}>
+                <a data-tip data-for="risk">
+                  <IconButton icon="warning" />
+                </a>
+                <ReactTooltip id="risk" type="light" place="right" effect="float">
+                  <ScoreRiskPopover />
+                </ReactTooltip>
+              </div>
+            : null}
+              {this.getScore()}
             </div>
             <hr />
           </CardText>
           <CardText>
             <FontIcon value="person" />
             Peer Comparison
-            {this.state.data.scoreBoxData.pcscore}
+            {this.getPeerScore()}
             <hr />
           </CardText>
           <CardText>
             <FontIcon value="trending_up" />
             Change Over Time
-            {this.state.data.scoreBoxData.trend === 'up' ? <FontIcon value="arrow_upward" /> : null}
-            {this.state.data.scoreBoxData.trend === 'down' ? <FontIcon value="arrow_downward" /> : null}
-            {this.state.data.scoreBoxData.trend === 'same' ? <FontIcon value="arrow_forward" /> : null}
+            {this.getTrend() === 'up' ? <FontIcon value="arrow_upward" /> : null}
+            {this.getTrend() === 'down' ? <FontIcon value="arrow_downward" /> : null}
+            {this.getTrend() === 'same' ? <FontIcon value="arrow_forward" /> : null}
             <hr />
           </CardText>
           <CardActions>
