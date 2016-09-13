@@ -35,25 +35,31 @@ export const ProgressTracker = React.createClass({
                 <Col xs={2}>{row.goal}</Col>
                 <Col xs={2}>{row.baseline}</Col>
                 <Col xs={2}>{row.change}</Col>
-                <Col xs={2}><FontIcon value={row.trend} /></Col>                 
-                {row.colourCode === 'red' ?
+                <Col xs={2}><FontIcon value={row.trend} /></Col>
+                {row.colourCode === 'RED' ?
                   <div>
-                    <a data-tip data-for='red'><Col xs={2}><FontIcon style={{ color: row.colourCode }} value="lens" /></Col></a>
-                    <ReactTooltip id='red' type="error" place="right" effect="float">High Risk</ReactTooltip>
+                    <a data-tip data-for="red">
+                      <Col xs={2}><FontIcon style={{ color: row.colourCode }} value="lens" /></Col>
+                    </a>
+                    <ReactTooltip id="red" type="error" place="right" effect="float">High Risk</ReactTooltip>
                   </div>
-                : null } 
-                {row.colourCode === 'green' ?
+                : null}
+                {row.colourCode === 'YELLOW' ?
                   <div>
-                    <a data-tip data-for='green'><Col xs={2}><FontIcon style={{ color: row.colourCode }} value="lens" /></Col></a>
-                    <ReactTooltip id='green' type="success" place="right" effect="float">Low Risk</ReactTooltip>
+                    <a data-tip data-for="yellow">
+                      <Col xs={2}><FontIcon style={{ color: row.colourCode }} value="lens" /></Col>
+                    </a>
+                    <ReactTooltip id="yellow" type="warning" place="right" effect="float">Medium Risk</ReactTooltip>
                   </div>
-                : null }
-                {row.colourCode === 'yellow' ?
+                : null}
+                {row.colourCode === 'GREEN' ?
                   <div>
-                    <a data-tip data-for='yellow'><Col xs={2}><FontIcon style={{ color: row.colourCode }} value="lens" /></Col></a>
-                    <ReactTooltip id='yellow' type="warning" place="right" effect="float">Medium Risk</ReactTooltip>
+                    <a data-tip data-for="green">
+                      <Col xs={2}><FontIcon style={{ color: row.colourCode }} value="lens" /></Col>
+                    </a>
+                    <ReactTooltip id="green" type="success" place="right" effect="float">Low Risk</ReactTooltip>
                   </div>
-                : null }          
+                : null}
               </Row>
             </div>
           )}
