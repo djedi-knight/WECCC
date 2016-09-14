@@ -3,7 +3,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../actions/action_creators';
 import { RadioButton, RadioGroup, FontIcon } from 'react-toolbox';
-import { Map, Marker, Popup, TileLayer, Polygon } from 'react-leaflet';
+import { Map, Popup, TileLayer, Polygon } from 'react-leaflet';
 import { Row, Col } from 'react-flexbox-grid';
 import style from './style';
 import data from './data.json';
@@ -32,7 +32,7 @@ export const GISSubgroups = React.createClass({
 export const GISView = React.createClass({
   mixins: [PureRenderMixin],
   getInitialState() {
-    return {      
+    return {
       zoom: 13,
       value: null,
       data
@@ -92,10 +92,12 @@ export const GISView = React.createClass({
           <Col xs={2}>
             <div>Legend</div>
             {this.state.data.legend.map((legend, i) =>
-            <div key={i}>
-              <FontIcon style={{ color: legend.color }} value="lens"/>
-              {legend.title} <br/> <br/>            
-            </div>
+              <div key={i}>
+                <FontIcon style={{ color: legend.color }} value="lens" />
+                {legend.title}
+                <br />
+                <br />
+              </div>
             )}
           </Col>
         </Row>
