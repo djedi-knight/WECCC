@@ -2,8 +2,8 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../actions/action_creators';
-import { RadioButton, RadioGroup } from 'react-toolbox';
-import { Map, Marker, Popup, TileLayer, Polygon, Circle } from 'react-leaflet';
+import { RadioButton, RadioGroup, FontIcon } from 'react-toolbox';
+import { Map, Marker, Popup, TileLayer, Polygon } from 'react-leaflet';
 import { Row, Col } from 'react-flexbox-grid';
 import style from './style';
 import data from './data.json';
@@ -32,9 +32,7 @@ export const GISSubgroups = React.createClass({
 export const GISView = React.createClass({
   mixins: [PureRenderMixin],
   getInitialState() {
-    return {
-      lng: 42.3149,
-      lat: -83.0364,
+    return {      
       zoom: 13,
       value: null,
       data
@@ -44,8 +42,6 @@ export const GISView = React.createClass({
     this.setState({ value });
   },
   render() {
-    const position = [this.state.lng, this.state.lat];
-
     return (
       <div className={style.gisPage}>
         <div className={style.gisPageHeader}>
@@ -68,7 +64,7 @@ export const GISView = React.createClass({
           </Col>
           <Col xs={8}>
             <div className={style.mapView}>
-              <Map center={position} zoom={this.state.zoom}>
+              <Map center={this.state.data.map} zoom={this.state.zoom}>
                 <TileLayer url={'http://{s}.tile.osm.org/{z}/{x}/{y}.png'} />
                  {/* <Marker position={position}>
                     <Popup>
@@ -95,6 +91,12 @@ export const GISView = React.createClass({
           </Col>
           <Col xs={2}>
             <div>Legend</div>
+            {this.state.data.legend.map((legend, i) =>
+            <div key={i}>
+              <FontIcon style={{ color: legend.color }} value="lens"/>
+              {legend.title} <br/> <br/>            
+            </div>
+            )}
           </Col>
         </Row>
       </div>
