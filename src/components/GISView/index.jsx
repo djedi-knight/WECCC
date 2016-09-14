@@ -12,24 +12,24 @@ export const GISSubgroups = React.createClass({
   mixins: [PureRenderMixin],
   getInitialState(){
     return{ value: null};
-  },  
+  },
   handleChange(value){
     this.setState({ value });
   },
   render() {
     return (
-      <div>        
+      <div>
         <RadioGroup name="layer" value={this.state.value} onChange={this.handleChange}>
           <RadioButton label="School" value="school" />
           <RadioButton label="Faith" value="faith" />
           <RadioButton label="Culture" value="culture" />
-        </RadioGroup>               
+        </RadioGroup>
       </div>
     );
   }
 });
 
-export const GISPage = React.createClass({
+export const GISView = React.createClass({
   mixins: [PureRenderMixin],
   getInitialState() {
     return {
@@ -69,12 +69,12 @@ export const GISPage = React.createClass({
         <Col xs={8}>
         <Map center={position} zoom={this.state.zoom}>
           <TileLayer url={'http://{s}.tile.osm.org/{z}/{x}/{y}.png'}/>
-         {/* <Marker position={position}>          
+         {/* <Marker position={position}>
             <Popup>
               <span>A pretty CSS3 popup. </span>
             </Popup>
           </Marker>*/}
-          
+
           <Polygon positions={this.state.data.west} color ={"red"}>
             <Popup>
               <span>West Region. </span>
@@ -108,7 +108,7 @@ function mapStateToProps(state) {
   };
 }
 
-export const GISPageContainer = connect(
+export const GISViewContainer = connect(
   mapStateToProps,
   actionCreators
-)(GISPage);
+)(GISView);
