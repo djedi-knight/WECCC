@@ -10,11 +10,16 @@ import data from './data.json';
 
 export const GISSubgroups = React.createClass({
   mixins: [PureRenderMixin],
-  
+  getInitialState(){
+    return{ value: null};
+  },  
+  handleChange(value){
+    this.setState({ value });
+  },
   render() {
     return (
       <div>        
-        <RadioGroup name="layer">
+        <RadioGroup name="layer" value={this.state.value} onChange={this.handleChange}>
           <RadioButton label="School" value="school" />
           <RadioButton label="Faith" value="faith" />
           <RadioButton label="Culture" value="culture" />
@@ -54,6 +59,12 @@ export const GISPage = React.createClass({
           <RadioButton label="Social Networks" value="socialNetworks" />
           <RadioButton label="Equity" value="equity" />
         </RadioGroup>
+        <br/>
+        <div>
+        {this.state.value === 'wecccpartners' ? <GISSubgroups /> : null}
+        {this.state.value === 'socialNetworks' ? <GISSubgroups /> : null}
+        {this.state.value === 'equity' ? <GISSubgroups /> : null}
+        </div>
         </Col>
         <Col xs={8}>
         <Map center={position} zoom={this.state.zoom}>
@@ -64,17 +75,17 @@ export const GISPage = React.createClass({
             </Popup>
           </Marker>*/}
           
-          <Polygon positions={this.state.data.polygon} color ={"red"}>
+          <Polygon positions={this.state.data.west} color ={"red"}>
             <Popup>
-              <span>East Region. </span>
-            </Popup>
-            </Polygon>
-          <Polygon positions={this.state.data.polygonn} color ={"green"}>
-          <Popup>
               <span>West Region. </span>
             </Popup>
             </Polygon>
-          <Polygon positions={this.state.data.pollygon} >
+          <Polygon positions={this.state.data.east} color ={"green"}>
+          <Popup>
+              <span>East Region. </span>
+            </Popup>
+            </Polygon>
+          <Polygon positions={this.state.data.north} >
           <Popup>
               <span>North Region. </span>
             </Popup>
@@ -82,15 +93,8 @@ export const GISPage = React.createClass({
         </Map>
         </Col>
         <Col xs={2}>
-        <div style={{border: "1px solid", backgroundColor:"red", width: "20px", height: "20px"}}></div>East Region
-        <div style={{ border: "1px solid", backgroundColor:"blue", width: "20px", height: "20px"}}></div>North Region
-        <div style={{border: "1px solid", backgroundColor:"green", width: "20px", height: "20px"}}></div>West Region
+        <div> Legend</div>
         </Col>
-        </Row>
-        <Row>
-        {this.state.value === 'wecccpartners' ? <GISSubgroups /> : null}
-        {this.state.value === 'socialNetworks' ? <GISSubgroups /> : null}
-        {this.state.value === 'equity' ? <GISSubgroups /> : null}
         </Row>
       </div>
     );
