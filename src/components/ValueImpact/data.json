@@ -1,0 +1,18 @@
+{
+  "PieData": [
+    { "x" : "Self Help", "y" : 50.0 },
+    { "x" : "Social Groups", "y" : 45.0 },
+    { "x" : "Family", "y" : 60.0 },
+    { "x" : "Neighbour", "y" : 30.0 },
+    { "x" : "Friend", "y" : 25.0 }
+  ],
+  "colorScale" :
+  [
+    "#D85F49",
+    "#F66D3B",
+    "#D92E1D",
+    "#D73C4C",
+    "#FFAF59",
+    "#E28300"
+  ]
+}

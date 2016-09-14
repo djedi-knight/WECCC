@@ -13,7 +13,7 @@ import { CommunityTapestryContainer } from './components/CommunityTapestry';
 import { VitalSignsContainer } from './components/VitalSigns';
 import { ProgressTrackerContainer } from './components/ProgressTracker';
 import { SharedOutcomesContainer } from './components/SharedOutcomes';
-import { ValueImpactPageContainer } from './components/ValueImpactPage'
+import { ValueImpactContainer } from './components/ValueImpact';
 
 // Setup store
 const store = makeStore();
@@ -32,7 +32,7 @@ const routes = (
       <Route path="vital-signs" component={VitalSignsContainer} />
       <Route path="progress-tracker" component={ProgressTrackerContainer} />
       <Route path="shared-outcomes" component={SharedOutcomesContainer} />
-      <Route path="value-impact" component={ValueImpactPageContainer} />
+      <Route path="value-impact" component={ValueImpactContainer} />
     </Route>
   </Route>
 );
