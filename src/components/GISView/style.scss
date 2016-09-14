@@ -1,12 +1,10 @@
 .gisPage {
   .gisPageHeader {
-  	background: #e7f6ed;
+    background: #e7f6ed;
     height: 90px;
   }
-  
-}  
-.leafletContainer {
-	height: 400px;
-	width: 100%;
-	margin: 0 auto;
-   }
+
+  .mapView {
+    padding: 10px;
+  }
+}

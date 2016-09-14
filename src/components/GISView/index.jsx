@@ -10,10 +10,10 @@ import data from './data.json';
 
 export const GISSubgroups = React.createClass({
   mixins: [PureRenderMixin],
-  getInitialState(){
-    return{ value: null};
+  getInitialState() {
+    return { value: null };
   },
-  handleChange(value){
+  handleChange(value) {
     this.setState({ value });
   },
   render() {
@@ -50,51 +50,52 @@ export const GISView = React.createClass({
       <div className={style.gisPage}>
         <div className={style.gisPageHeader}>
           Leamington Pilot
-        </div >
-        <br/>
-        <Row>
-        <Col xs={2}>
-        <RadioGroup name="gis" value={this.state.value} onChange={this.handleChange}>
-          <RadioButton label="WECCC Partners" value="wecccpartners" />
-          <RadioButton label="Social Networks" value="socialNetworks" />
-          <RadioButton label="Equity" value="equity" />
-        </RadioGroup>
-        <br/>
-        <div>
-        {this.state.value === 'wecccpartners' ? <GISSubgroups /> : null}
-        {this.state.value === 'socialNetworks' ? <GISSubgroups /> : null}
-        {this.state.value === 'equity' ? <GISSubgroups /> : null}
         </div>
-        </Col>
-        <Col xs={8}>
-        <Map center={position} zoom={this.state.zoom}>
-          <TileLayer url={'http://{s}.tile.osm.org/{z}/{x}/{y}.png'}/>
-         {/* <Marker position={position}>
-            <Popup>
-              <span>A pretty CSS3 popup. </span>
-            </Popup>
-          </Marker>*/}
-
-          <Polygon positions={this.state.data.west} color ={"red"}>
-            <Popup>
-              <span>West Region. </span>
-            </Popup>
-            </Polygon>
-          <Polygon positions={this.state.data.east} color ={"green"}>
-          <Popup>
-              <span>East Region. </span>
-            </Popup>
-            </Polygon>
-          <Polygon positions={this.state.data.north} >
-          <Popup>
-              <span>North Region. </span>
-            </Popup>
-            </Polygon>
-        </Map>
-        </Col>
-        <Col xs={2}>
-        <div> Legend</div>
-        </Col>
+        <br />
+        <Row>
+          <Col xs={2}>
+            <RadioGroup name="gis" value={this.state.value} onChange={this.handleChange}>
+              <RadioButton label="WECCC Partners" value="wecccpartners" />
+              <RadioButton label="Social Networks" value="socialNetworks" />
+              <RadioButton label="Equity" value="equity" />
+            </RadioGroup>
+            <br />
+            <div>
+              {this.state.value === 'wecccpartners' ? <GISSubgroups /> : null}
+              {this.state.value === 'socialNetworks' ? <GISSubgroups /> : null}
+              {this.state.value === 'equity' ? <GISSubgroups /> : null}
+            </div>
+          </Col>
+          <Col xs={8}>
+            <div className={style.mapView}>
+              <Map center={position} zoom={this.state.zoom}>
+                <TileLayer url={'http://{s}.tile.osm.org/{z}/{x}/{y}.png'} />
+                 {/* <Marker position={position}>
+                    <Popup>
+                      <span>A pretty CSS3 popup. </span>
+                    </Popup>
+                  </Marker>*/}
+                <Polygon positions={this.state.data.west} color={"red"}>
+                  <Popup>
+                    <span>West Region. </span>
+                  </Popup>
+                </Polygon>
+                <Polygon positions={this.state.data.east} color={"green"}>
+                  <Popup>
+                    <span>East Region. </span>
+                  </Popup>
+                </Polygon>
+                <Polygon positions={this.state.data.north} >
+                  <Popup>
+                    <span>North Region. </span>
+                  </Popup>
+                </Polygon>
+              </Map>
+            </div>
+          </Col>
+          <Col xs={2}>
+            <div>Legend</div>
+          </Col>
         </Row>
       </div>
     );
