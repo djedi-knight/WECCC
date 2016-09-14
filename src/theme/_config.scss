@@ -5,3 +5,9 @@ $color-primary-dark: $palette-blue-700;
 
 $progress-height: 2px !default;
 $progress-main-color: $color-primary-dark !default;
+
+:global(.leaflet-container) {
+  height: 500px;
+  width: 100%;
+  margin: 0 auto;
+}

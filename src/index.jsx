@@ -13,6 +13,7 @@ import { CommunityTapestryContainer } from './components/CommunityTapestry';
 import { VitalSignsContainer } from './components/VitalSigns';
 import { ProgressTrackerContainer } from './components/ProgressTracker';
 import { SharedOutcomesContainer } from './components/SharedOutcomes';
+import { GISViewContainer } from './components/GISView';
 
 // Setup store
 const store = makeStore();
@@ -31,6 +32,7 @@ const routes = (
       <Route path="vital-signs" component={VitalSignsContainer} />
       <Route path="progress-tracker" component={ProgressTrackerContainer} />
       <Route path="shared-outcomes" component={SharedOutcomesContainer} />
+      <Route path="gis" component={GISViewContainer} />
     </Route>
   </Route>
 );
