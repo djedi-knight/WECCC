@@ -10,7 +10,8 @@ export const ScoreCard = React.createClass({
     title: React.PropTypes.string,
     score: React.PropTypes.string,
     peerScore: React.PropTypes.string,
-    trend: React.PropTypes.string
+    trend: React.PropTypes.string,
+    warning: React.PropTypes.string
   },
   mixins: [PureRenderMixin],
   getInitialState() {
@@ -42,12 +43,23 @@ export const ScoreCard = React.createClass({
     }
     return null;
   },
+  getWarning(){
+    if(this.props.warning){
+      return(
+        <div id="warning" className={style.warning}>
+          {this.props.warning}
+        </div>
+      );
+    }
+    return null;
+  },
   render() {
     return (
       <div id="scoreCard" className={style.scoreCard}>
         <div id="title" className={style.title}>
           {this.getTitle()}
         </div>
+        {this.getWarning()}
         <div id="score" className={style.score}>
           {this.getScore()}
         </div>

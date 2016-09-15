@@ -45,4 +45,14 @@ describe('ScoreCard', () => {
     const result = shallow(<ScoreCard trend="Test Trendline" />);
     expect(result.find('#trend').text()).to.contain('Test Trendline');
   });
+
+  it('does not render a warning by default', () => {
+    const result = shallow(<ScoreCard />);
+    expect(result.find('#warning')).to.have.length(0);
+  });
+
+  it('renders a warning property correctly', () => {
+    const result = shallow(<ScoreCard warning="Test Value"/>);
+    expect(result.find('#warning').text()).to.contain('Test Value');
+  });
 });
