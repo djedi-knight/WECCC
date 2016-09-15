@@ -14,6 +14,7 @@ import { VitalSignsContainer } from './components/VitalSigns';
 import { ProgressTrackerContainer } from './components/ProgressTracker';
 import { SharedOutcomesContainer } from './components/SharedOutcomes';
 import { GISViewContainer } from './components/GISView';
+import { InteractiveSharedOutcomesContainer } from './components/InteractiveSharedOutcomes';
 
 // Setup store
 const store = makeStore();
@@ -33,6 +34,7 @@ const routes = (
       <Route path="progress-tracker" component={ProgressTrackerContainer} />
       <Route path="shared-outcomes" component={SharedOutcomesContainer} />
       <Route path="gis" component={GISViewContainer} />
+      <Route path="interactive-shared-outcomes" component={InteractiveSharedOutcomesContainer} />
     </Route>
   </Route>
 );
