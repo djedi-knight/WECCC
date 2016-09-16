@@ -1,11 +1,12 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { connect } from 'react-redux';
-import * as actionCreators from '../../actions/action_creators';
+// import { connect } from 'react-redux';
+// import * as actionCreators from '../../actions/action_creators';
 import style from './style';
 import data from './data.json';
+import { FontIcon } from 'react-toolbox';
 
-export const ScoreCard = React.createClass({
+export default React.createClass({
   propTypes: {
     title: React.PropTypes.string,
     score: React.PropTypes.string,
@@ -27,7 +28,7 @@ export const ScoreCard = React.createClass({
     if (this.props.peerScore) {
       return (
         <div id="peerScore" className={style.peerScore}>
-          {this.props.peerScore}
+          Peer Comparison Score {this.props.peerScore}
         </div>
       );
     }
@@ -37,7 +38,7 @@ export const ScoreCard = React.createClass({
     if (this.props.trend) {
       return (
         <div id="trend" className={style.trend}>
-          {this.props.trend}
+          <FontIcon value={this.props.trend} />
         </div>
       );
     }
@@ -47,7 +48,7 @@ export const ScoreCard = React.createClass({
     if(this.props.warning){
       return(
         <div id="warning" className={style.warning}>
-          {this.props.warning}
+          <FontIcon value ={this.props.warning}/>
         </div>
       );
     }
@@ -70,14 +71,14 @@ export const ScoreCard = React.createClass({
   }
 });
 
-function mapStateToProps(state) {
-  return {
-    test: 'Works!',
-    state
-  };
-}
+// function mapStateToProps(state) {
+//   return {
+//     test: 'Works!',
+//     state
+//   };
+// }
 
-export const ScoreCardContainer = connect(
-  mapStateToProps,
-  actionCreators
-)(ScoreCard);
+// export const ScoreCardContainer = connect(
+//   mapStateToProps,
+//   actionCreators
+// )(ScoreCard);

@@ -6,6 +6,7 @@ import { RadioButton, RadioGroup } from 'react-toolbox';
 import { Row, Col } from 'react-flexbox-grid';
 import ScoreBoxSimple from '../ScoreBoxSimple';
 import style from './style';
+import ScoreCard from '../ScoreCard';
 
 export const VitalSignsSubgroups = React.createClass({
   mixins: [PureRenderMixin],
@@ -34,6 +35,12 @@ export const VitalSignsSubgroups = React.createClass({
         <div className={style.vitalSignsReportLink}>
           <a href="#">Vital-Signs Report</a>
         </div>
+        <ScoreCard 
+        title={"Hey!"}
+        score={"10"}
+        peerScore={"2/10"}
+        trend={"trending_up"}
+        warning={"warning"}        />
       </div>
     );
   }
