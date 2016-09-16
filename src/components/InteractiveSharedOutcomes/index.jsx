@@ -7,7 +7,6 @@ import { Dropdown, Button, RadioGroup, RadioButton } from 'react-toolbox';
 import ScoreBoxSimple from '../ScoreBoxSimple';
 import data from './data.json';
 import style from './style';
-import AreasOfFocusSidebar from '../AreasOfFocusSidebar';
 
 export const InteractiveSharedOutcomes = React.createClass({
   mixins: [PureRenderMixin],
@@ -97,8 +96,15 @@ export const InteractiveSharedOutcomes = React.createClass({
               <Col xs={6}><ScoreBoxSimple title={"Equity Gap"} score={"-10"} trend={"down"}/></Col>
             </Row>           
           </Col>
-          <Col xs= {3}>
-            <AreasOfFocusSidebar />
+          <Col xs= {3}>  
+          <br/>        
+            {this.state.data.items.map((item, i) =>
+            <div key={i}>
+              {item}
+              <br />
+              <hr />
+            </div>
+            )}
           </Col>
         </Row>         
       </div>

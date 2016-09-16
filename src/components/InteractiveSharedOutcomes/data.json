@@ -27,6 +27,11 @@
   "isolation":[
     { "value": "isolation", "label": "Isolation" },
     { "value": "extreme", "label": "Extreme" }
+  ],  
+  "items": [
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+  "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
   ]
   
 }
