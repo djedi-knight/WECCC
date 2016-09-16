@@ -2,7 +2,7 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../actions/action_creators';
-import { RadioButton, RadioGroup } from 'react-toolbox';
+import { RadioButton, RadioGroup, Card } from 'react-toolbox';
 import { Row, Col } from 'react-flexbox-grid';
 import ScoreBoxSimple from '../ScoreBoxSimple';
 import style from './style';
@@ -35,12 +35,17 @@ export const VitalSignsSubgroups = React.createClass({
         <div className={style.vitalSignsReportLink}>
           <a href="#">Vital-Signs Report</a>
         </div>
-        <ScoreCard 
+        <Card >
+          <ScoreCard 
         title={"Hey!"}
+        warning={"warning"}
         score={"10"}
         peerScore={"2/10"}
-        trend={"trending_up"}
-        warning={"warning"}        />
+        trend={"arrow_upward"}
+        detail={true}
+              />
+        </Card>
+        
       </div>
     );
   }

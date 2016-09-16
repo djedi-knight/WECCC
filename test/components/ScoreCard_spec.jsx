@@ -55,4 +55,14 @@ describe('ScoreCard', () => {
     const result = shallow(<ScoreCard warning="Test Value"/>);
     expect(result.find('#warning').text()).to.contain('Test Value');
   });
+
+  it('does not render a detail by default', () => {
+    const result = shallow(<ScoreCard />);
+    expect(result.find('#detail')).to.have.length(0);
+  });
+
+  it('renders a detail property correctly', () => {
+    const result = shallow(<ScoreCard detail='true'/>);
+    expect(result.find('#detail').text()).to.contain(true);
+  });
 });
