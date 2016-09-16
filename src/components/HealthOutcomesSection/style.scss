@@ -1,9 +1,9 @@
 .healthOutcomesSection {
-  border: 2px solid #ebe8e8;
-  margin-bottom: 15px;
+  border: 2px solid darken($light, 5%);
+  margin-bottom: 3rem;
 
   .header {
-    background: #4980c7;
+    background: $primary;
     color: #fff;
     padding: 20px;
     margin: 0;
@@ -14,7 +14,7 @@
   }
 
   .body {
-    background: #e5e0e0;
+    background: lighten($light, 2%);
     padding: 15px;
     margin: 0;
   }

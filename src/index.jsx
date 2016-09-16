@@ -15,6 +15,7 @@ import { ProgressTrackerContainer } from './components/ProgressTracker';
 import { SharedOutcomesContainer } from './components/SharedOutcomes';
 import { ValueImpactContainer } from './components/ValueImpact';
 import { GISViewContainer } from './components/GISView';
+import { Test } from './components/Test';
 
 // Setup store
 const store = makeStore();
@@ -26,6 +27,7 @@ const routes = (
       <Route path="home" component={HomeContainer} />
       <Route path="my-groups" component={MyGroupsContainer} />
       <Route path="my-community" component={MyCommunityContainer} />
+      <Route path="test" component={Test} />
     </Route>
     <Route path="/public" component={PublicDashboardContainer}>
       <Route path="population-reach" component={PopulationReachContainer} />

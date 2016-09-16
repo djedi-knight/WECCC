@@ -5,7 +5,7 @@ import { Row, Col } from 'react-flexbox-grid';
 import AlertSummarySidebar from '../AlertSummarySidebar';
 import AlertSummaryTable from '../AlertSummaryTable';
 import style from './style';
-
+ 
 export default React.createClass({
   mixins: [PureRenderMixin],
   render() {

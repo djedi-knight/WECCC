@@ -1,15 +1,119 @@
 .areasOfFocusSection {
-  border: 2px solid #ebe8e8;
-  margin-bottom: 15px;
+  border: solid 2px darken($light, 2%);
+  margin-bottom: 3rem;
+  background: lighten($light, 2%);
+
+  [class*='flexboxgrid__col-xs-3'] {
+    background: #fff;
+  }
 
   .header {
-    background: #4980c7;
+    background: $dark;
     color: #fff;
     padding: 20px;
     margin: 0;
+    border-bottom: solid 3px $info;
+    position: relative;
+
+    &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 25%;
+    background: rgba($info, .2);
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 30%;
+      background: rgba($info, .2);
+    }
 
     .title {
       font-size: 23px;
+    }
+  }
+
+  [class*='listBox'] {
+    padding: 1.5rem !important;
+
+    [class*='flexboxgrid__row'] {
+      padding: .5rem;
+      background: #fff !important;
+      border: solid 2px darken($light, 2%) !important;
+      align-items: center;
+      color: $dark;
+      position: relative;
+
+      a {
+        margin-left: auto;
+        padding-right: 1rem;
+      }
+
+      small {
+
+        a {
+          position: relative;
+          color: $link-color;
+
+          span {
+            position: relative;
+            transform: translateY(5px);
+            margin-right: .5rem;
+          }
+        }
+      }
+
+      &:first-of-type {
+        padding: 1.5rem .5rem;
+
+        [data-react-toolbox="link"] {
+          position: absolute;
+          top: 1rem;
+          right: 0;
+        }
+      }
+
+      &:nth-of-type(even) {
+        background: lighten($light, 2%) !important;
+        border-top: none !important;
+        border-bottom: none !important;
+      }
+
+      &:last-of-type {
+        background: lighten($light, 2%) !important;
+        border-bottom: solid 2px darken($light, 2%) !important;
+      }
+    }
+  }
+
+  [data-react-toolbox="button"] {
+    background: #fff;
+    width: 100%;
+    text-align: left;
+    color: $dark;
+    font-size: 1rem;
+    border-top: solid 2px darken($light, 2%);
+    border-radius: 0;
+  }
+
+  [class*='theme__toggle'] {
+    width: 60px;
+    text-align: center;
+    border: none;
+  }
+
+  [class*='cardActions'] {
+
+    button {
+      text-align: center;
+      border: none;
     }
   }
 }

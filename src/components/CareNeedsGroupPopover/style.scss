@@ -1,4 +1,15 @@
 .careNeedsGroupPopover {
-  background: #fff;
+  background: $light;
   height: 350px;
+  box-shadow: 5px 5px 15px 0 rgba(#000, .4);
+
+  div {
+    margin: 0 1rem;
+    background: #fff;
+    padding: 1rem;
+
+    h4 {
+      margin-top: 0;
+    }
+  }
 }

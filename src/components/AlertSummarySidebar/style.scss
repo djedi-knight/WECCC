@@ -1,7 +1,21 @@
 .alertSummarySidebar {
   padding: 10px;
 
+  p {
+    font-style: italic;
+  }
+
+  hr {
+    border: none;
+    border-bottom: solid 2px #ccc;
+    margin-bottom: 1rem;
+  }
+
   .button {
-    background: #aba7a7;
+    display: block;
+    font-size: 1.2rem;
+    color: #fff !important;
+    background: $dark;
+    padding: 0;
   }
 }

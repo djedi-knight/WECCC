@@ -4,7 +4,7 @@ import { Button } from 'react-toolbox';
 import style from './style';
 
 export const LoginForm = React.createClass({
-  propTypes: {
+  propTypes: { 
     login: React.PropTypes.func.isRequired
   },
   mixins: [PureRenderMixin],

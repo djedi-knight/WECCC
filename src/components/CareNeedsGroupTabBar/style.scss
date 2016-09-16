@@ -1,3 +1,50 @@
 .careNeedsGroupTabBar {
-  margin-bottom: 15px;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+
+  span {
+    display: none;
+  }
+
+  nav {
+    display: flex;
+
+    [class*='theme__active'] {
+      background: $primary;
+      color: #fff;
+    }
+
+    label {
+      flex: 1 1 auto;
+      margin: 0 .5rem;
+      border: solid 1px $primary;
+      padding: .8rem;
+      background: lighten($light, 3%);
+      font-size: 1rem;
+      font-weight: bold;
+      box-shadow: 2px 2px 5px rgba(#000, .3);
+      transition: all 300ms ease-in-out;
+
+
+      &:first-of-type {
+        flex-basis: 40%;
+        border-top-left-radius: 4px;
+        border-bottom-left-radius: 4px;
+      }
+
+      &:nth-of-type(2) {
+        flex-basis: 30%;
+      }
+
+      &:nth-of-type(3) {
+        flex-basis: 20%;
+      }
+
+      &:nth-of-type(4) {
+        flex-basis: 10%;
+        border-top-right-radius: 4px;
+        border-bottom-right-radius: 4px;
+      }
+    }
+  }
 }
