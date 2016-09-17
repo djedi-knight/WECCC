@@ -29,7 +29,22 @@ const routes = (
       <Route path="my-community" component={MyCommunityContainer} />
       <Route path="test" component={TestContainer} />
     </Route>
+    <Route path="/test" component={AgencyDashboardContainer}>
+      <Route path="home" component={HomeContainer} />
+      <Route path="my-groups" component={MyGroupsContainer} />
+      <Route path="my-community" component={MyCommunityContainer} />
+      <Route path="test" component={TestContainer} />
+    </Route>
     <Route path="/public" component={PublicDashboardContainer}>
+      <Route path="population-reach" component={PopulationReachContainer} />
+      <Route path="community-tapestry" component={CommunityTapestryContainer} />
+      <Route path="vital-signs" component={VitalSignsContainer} />
+      <Route path="progress-tracker" component={ProgressTrackerContainer} />
+      <Route path="shared-outcomes" component={SharedOutcomesContainer} />
+      <Route path="value-impact" component={ValueImpactContainer} />
+      <Route path="gis-view" component={GISViewContainer} />
+    </Route>
+    <Route path="/public/test" component={PublicDashboardContainer}>
       <Route path="population-reach" component={PopulationReachContainer} />
       <Route path="community-tapestry" component={CommunityTapestryContainer} />
       <Route path="vital-signs" component={VitalSignsContainer} />

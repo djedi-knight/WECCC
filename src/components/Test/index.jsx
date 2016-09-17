@@ -20,7 +20,7 @@ export const TestContainer = React.createClass({
   render() {
     return (
       <div>
-        <Fetch url="http://localhost:8090/api/pages/testPage">
+        <Fetch url="http://localhost:8090/api">
           <Test test="works" />
         </Fetch>
       </div>
