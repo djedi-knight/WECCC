@@ -1,11 +1,38 @@
 .alertSummarySection {
   border: 2px solid #ebe8e8;
+  margin-bottom: 3rem;
+
+  [class*='flexboxgrid__col-xs-3'] {
+    background: #fff;
+  }
 
   .header {
-    background: #4980c7;
+    background: $dark;
+    border-bottom: solid 3px $warning;
     color: #fff;
     padding: 20px;
     margin: 0;
+    position: relative;
+
+    &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+    width: 25%;
+    background: rgba(#fff, .1);
+    }
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+      width: 30%;
+      background: rgba(#fff, .1);
+    }
 
     .title {
       font-size: 23px;

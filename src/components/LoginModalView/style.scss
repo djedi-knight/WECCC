@@ -1,9 +1,60 @@
 .loginModalView {
-  .loginForm {
-    padding: 10px;
+
+  button {
+    border-bottom: solid 2px $primary;
+    border-radius: 0;
+    width: 50%;
+    color: #666 !important;
+    font-size: 1rem;
   }
 
+  p {
+    text-align: center;
+    color: #ddd;
+
+    a {
+      color: #ddd;
+      transition: all 200ms ease-in-out;
+
+      &:hover {
+        color: $primary;
+      }
+    }
+  }
+
+  .loginForm,
   .signupForm {
-    padding: 10px;
+    padding: 1rem;
+    background: #fff;
+    display: flex;
+    flex-direction: column;
+
+    input {
+      border: none;
+      padding: .5rem;
+      outline: none;
+      font-size: 1rem;
+      border-bottom: solid 2px #ddd;
+      margin-bottom: 1rem;
+      transition: all 200ms ease-in-out;
+
+      &:focus {
+        border-bottom-color: $primary;
+      }
+    }
+
+    button {
+      font-size: 1rem;
+      width: 100%;
+      margin-top: 1rem;
+      border-bottom: none;
+      background: $primary;
+      color: #fff !important;
+
+      &:hover {
+        background: lighten($primary, 5%) !important;
+        box-shadow: 0 3px 8px 0 rgba(#000, .5);
+      }
+    }
   }
 }

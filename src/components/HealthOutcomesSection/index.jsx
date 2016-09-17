@@ -3,9 +3,13 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { Row, Col } from 'react-flexbox-grid';
 import ScoreBox from '../ScoreBox';
 import style from './style';
+import data from './data.json';
 
 export default React.createClass({
   mixins: [PureRenderMixin],
+  getInitialState() {
+    return { data };
+  },
   render() {
     return (
       <div className={style.healthOutcomesSection}>
@@ -15,18 +19,17 @@ export default React.createClass({
           </div>
         </Row>
         <Row className={style.body}>
-          <Col xs={3}>
-            <ScoreBox />
-          </Col>
-          <Col xs={3}>
-            <ScoreBox />
-          </Col>
-          <Col xs={3}>
-            <ScoreBox />
-          </Col>
-          <Col xs={3}>
-            <ScoreBox />
-          </Col>
+          {this.state.data.scoreCards.map((scoreCard, i) =>
+            <Col key={i} xs={3}>
+              <ScoreBox
+                title={scoreCard.title}
+                score={scoreCard.score}
+                peerScore={scoreCard.peerScore}
+                warning={scoreCard.warning}
+                trend={scoreCard.trend}
+              />
+            </Col>
+          )}
         </Row>
       </div>
     );

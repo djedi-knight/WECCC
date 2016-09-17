@@ -1,28 +1,20 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { FontIcon, Table, Tooltip, Link, Dialog, Button } from 'react-toolbox';
+import { Dialog, FontIcon, Link, Tooltip } from 'react-toolbox';
+import { Row, Col } from 'react-flexbox-grid';
 import ListBoxModalView from '../ListBoxModalView';
 import style from './style';
+import data from './data.json';
 
 const TooltipLink = new Tooltip(Link);
-const title = 'RESPONDING TO NEED';
-const subtitle = 'Top 3 Clinical Assessment Protocols [CAPS]';
-const ListModel = {
-  title: { type: String }
-};
-const list = [
-  { title: <div>{title} <TooltipLink style={{ float: 'right' }} icon="info_outline" tooltip="info popup" /><br />{subtitle}</div> },
-  { title: '1. Falls' },
-  { title: <div>2. Social Isolation <a href="#" style={{ float: 'right' }}>Show details</a></div> },
-  { title: <div>3. Depression <FontIcon style={{ color: '#FF0000' }} value="warning" /><a href="#" style={{ float: 'right' }}>Show details</a></div> },
-  { title: <small><a href="#"><FontIcon value="person" /> Show peer comparison</a></small> }
-];
 
 export default React.createClass({
   mixins: [PureRenderMixin],
-
   getInitialState() {
-    return { source: list, active: false };
+    return {
+      active: false,
+      data
+    };
   },
   handleToggle() {
     this.setState({ active: !this.state.active });
@@ -30,15 +22,22 @@ export default React.createClass({
   render() {
     return (
       <div className={style.listBox}>
-        <Table
-          theme={style}
-          selectable={false}
-          heading={false}
-          model={ListModel}
-          source={this.state.source}
-        />
+        <Row style={{ backgroundColor: '#fff' }}>
+          {this.state.data.title}<br />
+          {this.state.data.subtitle}
+          <Col><TooltipLink style={{ float: 'right' }} icon="info_outline" tooltip="info popup" /></Col>
+        </Row>
+        {this.state.data.topics.map((topic, i) =>
+          <Row key={i} style={{ border: '0.5px solid gray', backgroundColor: '#e8f8f5' }}>
+            {topic.title}
+            {topic.warning === 'yes' ? <FontIcon style={{ color: '#FF0000' }} value="warning" /> : null}
+            {topic.details === 'yes' ? <Link onClick={this.handleToggle} label="Show details" /> : null}
+          </Row>
+        )}
+        <Row style={{ backgroundColor: '#fff' }}>
+          <small><a href="#"><FontIcon value="person" />Show peer comparison</a></small>
+        </Row>
         <br />
-        <Button label="List Box Modal View" onClick={this.handleToggle} />
         <Dialog
           actions={this.actions}
           active={this.state.active}

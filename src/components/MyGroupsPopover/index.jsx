@@ -5,7 +5,7 @@ import style from './style';
 
 export default React.createClass({
   mixins: [PureRenderMixin],
-  render() {
+  render() { 
     return (
       <Card className={style.myGroupsPopover} >
         <h3>OVERVIEWS</h3>

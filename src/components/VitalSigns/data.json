@@ -1,0 +1,29 @@
+{
+  "scoreCards": [
+    {
+      "title":  "Government",
+      "score":  "B+",
+      "trend":  "up"
+    },
+    {
+      "title":  "Safety",
+      "score":  "D",
+      "trend":  "up"
+    },
+    {
+      "title":  "Arts & Culture",
+      "score":  "B",
+      "trend":  "down"
+    },
+    {
+      "title":  "Transportation",
+      "score":  "C-",
+      "trend":  "same"
+    },
+    {
+      "title":  "Food Security",
+      "score":  "B+",
+      "trend":  "down"
+    }
+  ]
+}

@@ -1,11 +1,53 @@
 .listBoxModalView {
   width: 100%;
+  background: #fff;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+
+  [class*='flexboxgrid__col-xs-3'] {
+    padding: 0;
+    padding-left: 1rem;
+    margin-top: 2rem;
+    border: none;
+
+    div {
+      width: 100% !important;
+      border: none;
+    }
+  }
+
+  [class*='flexboxgrid__col-xs-9'] {
+  margin-top: 2rem;
+  border: solid 1px #ddd;
+
+  div {
+    background: $light;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    padding: .5rem;
+  }
+
+  div[data-react-toolbox="check"] {
+    background: none;
+    padding: 0;
+  }
+
+    [class*='flexboxgrid__row'] {
+      flex-direction: column;
+      background: none;
+      background: #fff;
+      padding: 0;
+      align-items: stretch;
+    }
+  }
 
   .title {
-    background: #110b31;
+    background: $dark;
     color: #fff;
     padding: 12px;
     margin: 0;
+    width: 100%;
   }
 
   .subtitleIcon {

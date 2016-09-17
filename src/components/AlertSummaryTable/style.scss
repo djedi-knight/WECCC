@@ -1,18 +1,20 @@
 .alertSummaryTable {
   padding: 15px;
-  background: #e5e0e0;
+  background: lighten($light, 2%);
 
   .table {
     border: solid 2px #ccc;
     border-collapse: collapse;
     border-style: outset #ccc;
+    color: $dark;
+    padding: .5rem;
 
     tr:nth-child(even) {
       background-color: #fff;
     }
 
     tr:nth-child(odd) {
-      background-color: #e8f8f5;
+      background-color: $light;
     }
 
     th {

@@ -7,7 +7,7 @@ import LoginModalView from '../LoginModalView';
 import style from './style';
 
 export const LoginButton = React.createClass({
-  propTypes: {
+  propTypes: { 
     login: React.PropTypes.func.isRequired
   },
   mixins: [PureRenderMixin],

@@ -78,15 +78,19 @@
     "classnames": "^2.2.5",
     "flexboxgrid": "^6.3.1",
     "immutable": "^3.8.1",
+    "leaflet": "^0.7.7",
     "react": "^15.2.1",
     "react-addons-pure-render-mixin": "^15.2.1",
+    "react-addons-update": "^15.3.1",
     "react-d3": "^0.4.0",
     "react-dom": "^15.2.1",
     "react-flexbox-grid": "^0.10.2",
+    "react-leaflet": "^0.12.2",
     "react-redux": "^4.4.5",
     "react-router": "^2.0.0",
     "react-toolbox": "^1.0.3",
     "react-tooltip": "^3.1.5",
-    "redux": "^3.5.2"
+    "redux": "^3.5.2",
+    "victory": "^0.11.0"
   }
 }

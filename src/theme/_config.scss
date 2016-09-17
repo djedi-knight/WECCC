@@ -5,3 +5,76 @@ $color-primary-dark: $palette-blue-700;
 
 $progress-height: 2px !default;
 $progress-main-color: $color-primary-dark !default;
+
+$navabr-color: #173a42;
+
+$table-background: #e6ecee;
+
+$primary: #019e95;
+$secondary: #ffc929;
+$info: #0d86d4;
+$success: #78be3c;
+$warning: #fe8042;
+$danger: #d35657;
+$light: #e9f3f5;
+$lighter: #fafafa;
+$dark: #153f4f;
+$darker: #131519;
+
+$link-color: #0098c8;
+
+:global(.leaflet-container) {
+  height: 500px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+::selection {
+  background: $primary;
+  color: #fff;
+}
+
+body {
+  font-family: sans-serif;
+  background: $light;
+  margin: 0;
+}
+
+hr {
+  border: none;
+  border-bottom: solid 2px #ddd;
+}
+
+p {
+  color: $dark;
+  line-height: 1.4;
+}
+
+div[data-react-toolbox="dialog"] {
+  [class*="body"] {
+    padding: 0;
+
+    [class*="flexboxgrid__col-xs-9"] {
+      border: solid 1px #ddd;
+
+      [class*="flexboxgrid__row"] {
+        padding: 1rem;
+
+        &:nth-of-type(2) {
+          padding: 0 !important;
+        }
+      }
+    }
+
+    [class*="flexboxgrid__col-xs-3"] {
+      > div {
+        height: 100% !important;
+        border: none !important;
+      }
+
+      p {
+        padding: 0.5rem;
+      }
+    }
+  }
+}
