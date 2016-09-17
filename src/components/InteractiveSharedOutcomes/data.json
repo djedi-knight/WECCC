@@ -1,0 +1,35 @@
+{
+  "disaggregate": [
+    { "value": "disaggregate", "label": "Disaggregate" },
+    { "value": "leamington", "label": "Leamington" },
+    { "value": "windsor", "label": " Windsor"},
+    { "value": "london", "label": "London" },
+    { "value": "amherstburg", "label": "Amherstburg"}
+  ],
+  "dependency": [
+    { "value": "levelOfDependency", "label": "Level of Dependency" },
+    { "value": "light", "label": "Light" },
+    { "value": "moderate", "label": "Moderate"},
+    { "value": "complex", "label": "Complex" },
+    { "value": "eol", "label": "EOL"}
+  ],
+  "gender": [
+    { "value": "male", "label": "Male" },
+    { "value": "female", "label": "Female" },
+    { "value": "gender", "label": "Gender"}
+  ],
+  "orientation": [
+    { "value": "sexualOrientation", "label": "Sexual Orientation" },
+    { "value": "school", "label": "School" },
+    { "value": "culture", "label": "Culture" }
+  ],
+  "isolation": [
+    { "value": "isolation", "label": "Isolation" },
+    { "value": "extreme", "label": "Extreme" }
+  ],
+  "items": [
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+  ]
+}

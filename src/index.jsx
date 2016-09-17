@@ -15,6 +15,7 @@ import { ProgressTrackerContainer } from './components/ProgressTracker';
 import { SharedOutcomesContainer } from './components/SharedOutcomes';
 import { ValueImpactContainer } from './components/ValueImpact';
 import { GISViewContainer } from './components/GISView';
+import { InteractiveSharedOutcomesContainer } from './components/InteractiveSharedOutcomes';
 import { Test } from './components/Test';
 
 // Setup store
@@ -37,6 +38,7 @@ const routes = (
       <Route path="shared-outcomes" component={SharedOutcomesContainer} />
       <Route path="value-impact" component={ValueImpactContainer} />
       <Route path="gis-view" component={GISViewContainer} />
+      <Route path="interactive-shared-outcomes" component={InteractiveSharedOutcomesContainer} />
     </Route>
   </Route>
 );
