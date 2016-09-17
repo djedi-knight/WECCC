@@ -1,12 +1,11 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { connect } from 'react-redux';
-import * as actionCreators from '../../actions/action_creators';
+import ReactTooltip from 'react-tooltip';
+import { Button, Dialog, FontIcon, IconButton } from 'react-toolbox';
+import ScoreBoxModal from '../ScoreBoxModal';
+import ScoreRiskPopover from '../ScoreRiskPopover';
 import style from './style';
 import data from './data.json';
-import { FontIcon, Button, Dialog } from 'react-toolbox';
-import ScoreBoxModal from '../ScoreBoxModal';
-
 
 export default React.createClass({
   propTypes: {
@@ -14,14 +13,14 @@ export default React.createClass({
     score: React.PropTypes.string,
     peerScore: React.PropTypes.string,
     trend: React.PropTypes.string,
-    warning: React.PropTypes.string,
-    detail: React.PropTypes.bool
+    warning: React.PropTypes.bool,
+    showDetails: React.PropTypes.bool
   },
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { 
-      data,
-      active: false 
+    return {
+      active: false,
+      data
     };
   },
   getTitle() {
@@ -34,7 +33,7 @@ export default React.createClass({
     if (this.props.peerScore) {
       return (
         <div id="peerScore" className={style.peerScore}>
-        <FontIcon value="person" /> Peer Comparison Score {this.props.peerScore}
+          <FontIcon value="person" /> Peer Comparison Score {this.props.peerScore}
         </div>
       );
     }
@@ -44,35 +43,40 @@ export default React.createClass({
     if (this.props.trend) {
       return (
         <div id="trend" className={style.trend}>
-          <FontIcon value="trending_up" />Change Over Time<FontIcon value={this.props.trend} />
+          <FontIcon value="trending_up" />Change Over Time <FontIcon value={this.props.trend} />
         </div>
       );
     }
     return null;
   },
-  getWarning(){
-    if(this.props.warning){
-      return(
+  getWarning() {
+    if (this.props.warning) {
+      return (
         <div id="warning" className={style.warning}>
-          <FontIcon value ={this.props.warning}/>
+          <a data-tip data-for="risk">
+            <IconButton icon="warning" />
+          </a>
+          <ReactTooltip id="risk" type="light" place="right" effect="float">
+            <ScoreRiskPopover />
+          </ReactTooltip>
         </div>
       );
     }
     return null;
   },
-  getShowDetail(){
-    if(this.props.detail){
-      return(
-        <div id="detail" className={style.detail}>
+  getShowDetails() {
+    if (this.props.showDetails) {
+      return (
+        <div id="showDetails" className={style.detail}>
           <Button label="Show Detail" onClick={this.handleToggle} />
           <Dialog
-              actions={this.actions}
-              active={this.state.active}
-              onEscKeyDown={this.handleToggle}
-              onOverlayClick={this.handleToggle}
-            >
-              <ScoreBoxModal />
-            </Dialog>
+            actions={this.actions}
+            active={this.state.active}
+            onEscKeyDown={this.handleToggle}
+            onOverlayClick={this.handleToggle}
+          >
+            <ScoreBoxModal />
+          </Dialog>
         </div>
       );
     }
@@ -87,15 +91,14 @@ export default React.createClass({
         <div id="title" className={style.title}>
           {this.getTitle()}
         </div>
-        {this.getWarning()}
+          {this.getWarning()}
         <div id="score" className={style.score}>
           {this.getScore()}
         </div>
         {this.getPeerScore()}
         {this.getTrend()}
-        {this.getShowDetail()}
+        {this.getShowDetails()}
       </div>
     );
   }
 });
-

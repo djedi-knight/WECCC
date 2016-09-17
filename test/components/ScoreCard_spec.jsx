@@ -1,7 +1,7 @@
 import React from 'react';
 import { shallow } from 'enzyme';
 import { expect } from 'chai';
-import { ScoreCard } from '../../src/components/ScoreCard';
+import ScoreCard from '../../src/components/ScoreCard';
 
 describe('ScoreCard', () => {
   it('renders a default title with no input parameters', () => {
@@ -33,7 +33,7 @@ describe('ScoreCard', () => {
 
   it('renders a peer score property correctly', () => {
     const result = shallow(<ScoreCard peerScore="Test Peer Score" />);
-    expect(result.find('#peerScore').text()).to.contain('Test Peer Score');
+    expect(result.find('#peerScore')).to.have.length(1);
   });
 
   it('does not render a trendline by default', () => {
@@ -43,7 +43,7 @@ describe('ScoreCard', () => {
 
   it('renders a trendline property correctly', () => {
     const result = shallow(<ScoreCard trend="Test Trendline" />);
-    expect(result.find('#trend').text()).to.contain('Test Trendline');
+    expect(result.find('#trend')).to.have.length(1);
   });
 
   it('does not render a warning by default', () => {
@@ -52,8 +52,8 @@ describe('ScoreCard', () => {
   });
 
   it('renders a warning property correctly', () => {
-    const result = shallow(<ScoreCard warning="Test Value"/>);
-    expect(result.find('#warning').text()).to.contain('Test Value');
+    const result = shallow(<ScoreCard warning />);
+    expect(result.find('#warning')).to.have.length(1);
   });
 
   it('does not render a detail by default', () => {
@@ -62,7 +62,7 @@ describe('ScoreCard', () => {
   });
 
   it('renders a detail property correctly', () => {
-    const result = shallow(<ScoreCard detail='true'/>);
-    expect(result.find('#detail').text()).to.contain(true);
+    const result = shallow(<ScoreCard showDetails />);
+    expect(result.find('#showDetails')).to.have.length(1);
   });
 });

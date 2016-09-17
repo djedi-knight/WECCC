@@ -33,7 +33,7 @@ export const VitalSignsSubgroups = React.createClass({
         </Row>
         <div className={style.vitalSignsReportLink}>
           <a href="#">Vital-Signs Report</a>
-        </div>        
+        </div>
       </div>
     );
   }
@@ -45,10 +45,7 @@ export const VitalSigns = React.createClass({
     return { value: 'vitalsigns' };
   },
   handleChange(value) {
-    this.setState({ value }
-
-
-      );
+    this.setState({ value });
   },
   render() {
     return (
