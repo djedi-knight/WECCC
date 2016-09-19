@@ -1,4 +1,5 @@
 import React from 'react';
+import Fetch from 'react-fetch';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../actions/action_creators';
@@ -8,8 +9,6 @@ import ScoreBoxSimple from '../ScoreBoxSimple';
 import RegisteredCaregiversBox from '../RegisteredCaregiversBox';
 import style from './style';
 import data from './data.json';
-
-const learnMoreContent = 'Please select a tab to learn more';
 
 export const PopulationReachSubgroups = React.createClass({
   mixins: [PureRenderMixin],
@@ -79,28 +78,57 @@ export const PopulationReachSubgroups = React.createClass({
 });
 
 export const PopulationReach = React.createClass({
+  propTypes: {
+    title: React.PropTypes.string,
+    infoBoxes: React.PropTypes.array
+  },
   mixins: [PureRenderMixin],
   getInitialState() {
     return { index: 0 };
+  },
+  getTabLabelFor(key) {
+    if (this.props.infoBoxes) {
+      const index = this.props.infoBoxes.findIndex(infoBox => infoBox.key === key);
+      const infoBox = this.props.infoBoxes[index];
+
+      return `${infoBox.value} ${infoBox.title}`;
+    }
+
+    return '';
   },
   handleTabChange(index) {
     this.setState({ index });
   },
   render() {
+    const emptyTabContent = 'Please select a tab to learn more';
+
     return (
       <div className={style.populationReach}>
         <div className={style.populationReachHeader}>
-          Community Outcomes
+          {this.props.title}
         </div>
         <div className={style.populationReachTabs}>
           <Tabs index={this.state.index} onChange={this.handleTabChange}>
-            <Tab label="28,000 Population" disabled>{learnMoreContent}</Tab>
-            <Tab label="6,000 Eligible"><PopulationReachSubgroups /></Tab>
-            <Tab label="1,500 Target" disabled>{learnMoreContent}</Tab>
-            <Tab label="0 Registered"><PopulationReachSubgroups /></Tab>
+            <Tab label={this.getTabLabelFor('tab-1')} disabled>{emptyTabContent}</Tab>
+            <Tab label={this.getTabLabelFor('tab-2')}><PopulationReachSubgroups /></Tab>
+            <Tab label={this.getTabLabelFor('tab-3')} disabled>{emptyTabContent}</Tab>
+            <Tab label={this.getTabLabelFor('registered')}><PopulationReachSubgroups /></Tab>
           </Tabs>
           <RegisteredCaregiversBox />
         </div>
+      </div>
+    );
+  }
+});
+
+export const APIContainer = React.createClass({
+  mixins: [PureRenderMixin],
+  render() {
+    return (
+      <div>
+        <Fetch url="http://localhost:8090/api/pages/population-reach-test-page">
+          <PopulationReach />
+        </Fetch>
       </div>
     );
   }
@@ -116,4 +144,4 @@ function mapStateToProps(state) {
 export const PopulationReachContainer = connect(
   mapStateToProps,
   actionCreators
-)(PopulationReach);
+)(APIContainer);
