@@ -72,13 +72,18 @@ export const ValueImpact = React.createClass({
             >
               <VictoryLabel />
             </VictoryPie>
+            
             <div className={style.valueImpactSubheader}>
               Return on Investment
             </div>
-            <div>
+            <Row>
+            <Col xs={6}>            
               <ScoreBoxSimple title={"Social"} score={"15"} trend={"down"} />
+            </Col>
+            <Col xs={6}>
               <ScoreBoxSimple title={"Economic"} score={"27"} trend={"up"} />
-            </div>
+            </Col>
+            </Row>
           </Col>
           <Col xs={3}>
             <div className={style.valueImpactSubheader}>
