@@ -1,7 +1,7 @@
 import React from 'react';
 import Fetch from 'react-fetch';
-import ScoreBoxModal from '../ScoreBoxModal';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
+import ScoreCard from '../ScoreCard';
 
 export const Test = React.createClass({
   mixins: [PureRenderMixin],
@@ -9,7 +9,7 @@ export const Test = React.createClass({
     console.log(this.props);
     return (
       <div>
-        <ScoreBoxModal />
+        <ScoreCard />
       </div>
     );
   }
