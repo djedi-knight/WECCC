@@ -14,5 +14,23 @@
     "#D73C4C",
     "#FFAF59",
     "#E28300"
+  ],
+  "careNeeds" : [
+    { "value": "light", "label": "Light" },
+    { "value": "moderate", "label": "Moderate" },
+    { "value": "complex", "label": "Complex" },
+    { "value": "eol", "label": "EOL"}
+  ],
+
+  "city" : [
+    { "value": "leamington", "label": "Leamington" },
+    { "value": "windsor", "label": "Windsor" },
+    { "value": "london", "label": "London" },
+    { "value": "amherstburg", "label": "Amherstburg" }
+  ],
+  "subgroup" : [
+    { "value": "school", "label": "School" },
+    { "value": "faith", "label": "Faith" },
+    { "value": "culture", "label": "Culture" }
   ]
 }

@@ -11,26 +11,6 @@ import ScoreBoxSimple from '../ScoreBoxSimple';
 
 const labelStyle = { labels: { fill: 'white', fontSize: 9, padding: 50 } };
 
-const careNeeds = [
-  { value: 'light', label: 'Light' },
-  { value: 'moderate', label: 'Moderate' },
-  { value: 'complex', label: 'Complex' },
-  { value: 'eol', label: 'EOL' }
-];
-
-const city = [
-  { value: 'leamington', label: 'Leamington' },
-  { value: 'windsor', label: ' Windsor' },
-  { value: 'london', label: 'London' },
-  { value: 'amherstburg', label: 'Amherstburg' }
-];
-
-const subgroup = [
-  { value: 'school', label: 'School' },
-  { value: 'faith', label: 'Faith' },
-  { value: 'culture', label: 'Culture' }
-];
-
 export const ValueImpact = React.createClass({
   mixins: [PureRenderMixin],
   getInitialState() {
@@ -67,17 +47,17 @@ export const ValueImpact = React.createClass({
             </div>
             <Dropdown
               onChange={this.handleChange}
-              source={careNeeds}
+              source={this.state.data.careNeeds}
               value={this.state.value}
             />
             <Dropdown
               onChange={this.handleChange2}
-              source={city}
+              source={this.state.data.city}
               value={this.state.value2}
             />
             <Dropdown
               onChange={this.handleChange3}
-              source={subgroup}
+              source={this.state.data.subgroup}
               value={this.state.value3}
             />
           </Col>
@@ -92,9 +72,12 @@ export const ValueImpact = React.createClass({
             >
               <VictoryLabel />
             </VictoryPie>
+            <div className={style.valueImpactSubheader}>
+              Return on Investment
+            </div>
             <div>
-              <ScoreBoxSimple title={"S.R.O.I"} score={"15"} trend={"down"} />
-              <ScoreBoxSimple title={"E.R.O.I"} score={"27"} trend={"up"} />
+              <ScoreBoxSimple title={"Social"} score={"15"} trend={"down"} />
+              <ScoreBoxSimple title={"Economic"} score={"27"} trend={"up"} />
             </div>
           </Col>
           <Col xs={3}>
