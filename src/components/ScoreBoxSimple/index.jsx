@@ -36,9 +36,9 @@ export default React.createClass({
             </div>
           </CardText>
           <CardText>
-            {this.getTrend() === 'up' ? <FontIcon value="arrow_upward" /> : null}
-            {this.getTrend() === 'down' ? <FontIcon value="arrow_downward" /> : null}
-            {this.getTrend() === 'same' ? <FontIcon value="arrow_forward" /> : null}
+            {this.getTrend() === 'UP' ? <FontIcon value="arrow_upward" /> : null}
+            {this.getTrend() === 'DOWN' ? <FontIcon value="arrow_downward" /> : null}
+            {this.getTrend() === 'NONE' ? <FontIcon value="arrow_forward" /> : null}
           </CardText>
         </Card>
       </div>
