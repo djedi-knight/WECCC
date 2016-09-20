@@ -10,7 +10,7 @@ import RegisteredCaregiversBox from '../RegisteredCaregiversBox';
 import style from './style';
 import data from './data.json';
 
-export const PopulationReachSubgroups = React.createClass({
+export const PopulationReachSubgroup = React.createClass({
   propTypes: {
     scoreCards: React.PropTypes.array
   },
@@ -123,7 +123,7 @@ export const PopulationReachSubgroups = React.createClass({
               <ScoreBoxSimple
                 title={this.getScoreCardFor('registered-subgroup', 'neighbourhood').title}
                 score={this.getScoreCardFor('registered-subgroup', 'neighbourhood').score}
-                trend={this.getScoreCardFor('registered-subgroup', 'eol').trend}
+                trend={this.getScoreCardFor('registered-subgroup', 'neighbourhood').trend}
               />
             </Col>
           </Row>
@@ -142,6 +142,14 @@ export const PopulationReach = React.createClass({
   mixins: [PureRenderMixin],
   getInitialState() {
     return { index: 0 };
+  },
+  getInfoBoxFor(key) {
+    if (this.props.infoBoxes) {
+      const index = this.props.infoBoxes.findIndex(infoBox => infoBox.key === key);
+
+      return this.props.infoBoxes[index];
+    }
+    return {};
   },
   getLabelFor(key) {
     if (this.props.infoBoxes) {
@@ -167,14 +175,14 @@ export const PopulationReach = React.createClass({
           <Tabs index={this.state.index} onChange={this.handleTabChange}>
             <Tab label={this.getLabelFor('tab-1')} disabled>{emptyTabContent}</Tab>
             <Tab label={this.getLabelFor('tab-2')}>
-              <PopulationReachSubgroups scoreCards={this.props.scoreCards} />
+              <PopulationReachSubgroup scoreCards={this.props.scoreCards} />
             </Tab>
             <Tab label={this.getLabelFor('tab-3')} disabled>{emptyTabContent}</Tab>
-            <Tab label={this.getLabelFor('registered')}>
-              <PopulationReachSubgroups />
+            <Tab label={this.getLabelFor('tab-4')}>
+              <PopulationReachSubgroup />
             </Tab>
           </Tabs>
-          <RegisteredCaregiversBox />
+          <RegisteredCaregiversBox data={this.getInfoBoxFor('registered-caregivers')} />
         </div>
       </div>
     );

@@ -9,7 +9,7 @@ import ScoreBoxSimple from '../ScoreBoxSimple';
 import style from './style';
 import data from './data.json';
 
-export const VitalSignsSubgroups = React.createClass({
+export const VitalSignsSubgroup = React.createClass({
   propTypes: {
     scoreCards: React.PropTypes.array
   },
@@ -106,7 +106,6 @@ export const VitalSigns = React.createClass({
     this.setState({ value });
   },
   render() {
-    console.log(this.props);
     return (
       <div className={style.vitalSigns}>
         <div className={style.vitalSignsHeader}>
@@ -118,14 +117,17 @@ export const VitalSigns = React.createClass({
           <RadioButton label={this.getSubGroupFor('neighbourhood-subgroup').title} value="neighbourhood" />
         </RadioGroup>
         {this.state.value === 'vital-signs' ?
-          <VitalSignsSubgroups scoreCards={this.props.scoreCards} />
-        : null}
+          <VitalSignsSubgroup scoreCards={this.props.scoreCards} />
+          : null
+        }
         {this.state.value === 'self-reported' ?
-          <VitalSignsSubgroups />
-        : null}
+          <VitalSignsSubgroup />
+          : null
+        }
         {this.state.value === 'neighbourhood' ?
-          <VitalSignsSubgroups />
-        : null}
+          <VitalSignsSubgroup />
+          : null
+        }
       </div>
     );
   }
