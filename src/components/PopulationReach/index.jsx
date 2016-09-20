@@ -123,7 +123,7 @@ export const PopulationReachSubgroups = React.createClass({
               <ScoreBoxSimple
                 title={this.getScoreCardFor('registered-subgroup', 'neighbourhood').title}
                 score={this.getScoreCardFor('registered-subgroup', 'neighbourhood').score}
-                trend={this.getScoreCardFor('registered-subgroup', 'neighbourhood').trend}
+                trend={this.getScoreCardFor('registered-subgroup', 'eol').trend}
               />
             </Col>
           </Row>
@@ -170,7 +170,9 @@ export const PopulationReach = React.createClass({
               <PopulationReachSubgroups scoreCards={this.props.scoreCards} />
             </Tab>
             <Tab label={this.getLabelFor('tab-3')} disabled>{emptyTabContent}</Tab>
-            <Tab label={this.getLabelFor('registered')}><PopulationReachSubgroups /></Tab>
+            <Tab label={this.getLabelFor('registered')}>
+              <PopulationReachSubgroups />
+            </Tab>
           </Tabs>
           <RegisteredCaregiversBox />
         </div>
