@@ -52,11 +52,9 @@ export const VitalSigns = React.createClass({
         <RadioGroup name="comic" value={this.state.value} onChange={this.handleChange}>
           <RadioButton label="Vital Signs" value="vitalSigns" />
           <RadioButton label="Self-Reported" value="selfReported" />
-          <RadioButton label="Neighbourhoods" value="neighbourhoods" />
         </RadioGroup>
         {this.state.value === 'vitalSigns' ? <VitalSignsSubgroups /> : null}
         {this.state.value === 'selfReported' ? <VitalSignsSubgroups /> : null}
-        {this.state.value === 'neighbourhoods' ? <VitalSignsSubgroups /> : null}
       </div>
     );
   }
