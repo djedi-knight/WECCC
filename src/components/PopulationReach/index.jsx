@@ -1,8 +1,6 @@
 import React from 'react';
 import Fetch from 'react-fetch';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { connect } from 'react-redux';
-import * as actionCreators from '../../actions/action_creators';
 import { Tab, Tabs } from 'react-toolbox';
 import { Row, Col } from 'react-flexbox-grid';
 import ScoreBoxSimple from '../ScoreBoxSimple';
@@ -24,6 +22,7 @@ export const PopulationReachSubgroup = React.createClass({
 
       return this.props.scoreCards[index];
     }
+
     return {};
   },
   getScoreCardFor(subGroupKey, scoreCardKey) {
@@ -33,6 +32,7 @@ export const PopulationReachSubgroup = React.createClass({
 
       return subGroup.list[index];
     }
+
     return {};
   },
   render() {
@@ -149,6 +149,7 @@ export const PopulationReach = React.createClass({
 
       return this.props.infoBoxes[index];
     }
+
     return {};
   },
   getLabelFor(key) {
@@ -158,6 +159,7 @@ export const PopulationReach = React.createClass({
 
       return `${infoBox.value} ${infoBox.title}`;
     }
+
     return '';
   },
   handleTabChange(index) {
@@ -189,27 +191,25 @@ export const PopulationReach = React.createClass({
   }
 });
 
-export const APIContainer = React.createClass({
+export const PopulationReachContainer = React.createClass({
+  propTypes: {
+    route: React.PropTypes.object
+  },
   mixins: [PureRenderMixin],
+  getURL() {
+    if (this.props.route.testRoute) {
+      return 'http://localhost:8090/api/pages/population-reach-test-page';
+    }
+
+    return 'http://localhost:8090/api/pages/population-reach-page';
+  },
   render() {
     return (
       <div>
-        <Fetch url="http://localhost:8090/api/pages/population-reach-test-page">
+        <Fetch url={this.getURL()}>
           <PopulationReach />
         </Fetch>
       </div>
     );
   }
 });
-
-function mapStateToProps(state) {
-  return {
-    test: 'Works!',
-    state
-  };
-}
-
-export const PopulationReachContainer = connect(
-  mapStateToProps,
-  actionCreators
-)(APIContainer);

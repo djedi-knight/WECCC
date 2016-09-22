@@ -31,10 +31,9 @@ const routes = (
       <Route path="test" component={TestContainer} />
     </Route>
     <Route path="/test" component={AgencyDashboardContainer}>
-      <Route path="home" component={HomeContainer} />
-      <Route path="my-groups" component={MyGroupsContainer} />
-      <Route path="my-community" component={MyCommunityContainer} />
-      <Route path="test" component={TestContainer} />
+      <Route path="home" component={HomeContainer} testRoute />
+      <Route path="my-groups" component={MyGroupsContainer} testRoute />
+      <Route path="my-community" component={MyCommunityContainer} testRoute />
     </Route>
     <Route path="/public" component={PublicDashboardContainer}>
       <Route path="population-reach" component={PopulationReachContainer} />
@@ -47,14 +46,14 @@ const routes = (
       <Route path="interactive-shared-outcomes" component={InteractiveSharedOutcomesContainer} />
     </Route>
     <Route path="/public/test" component={PublicDashboardContainer}>
-      <Route path="population-reach" component={PopulationReachContainer} />
-      <Route path="community-tapestry" component={CommunityTapestryContainer} />
-      <Route path="vital-signs" component={VitalSignsContainer} />
-      <Route path="progress-tracker" component={ProgressTrackerContainer} />
-      <Route path="shared-outcomes" component={SharedOutcomesContainer} />
-      <Route path="value-impact" component={ValueImpactContainer} />
-      <Route path="gis-view" component={GISViewContainer} />
-      <Route path="interactive-shared-outcomes" component={InteractiveSharedOutcomesContainer} />
+      <Route path="population-reach" component={PopulationReachContainer} testRoute />
+      <Route path="community-tapestry" component={CommunityTapestryContainer} testRoute />
+      <Route path="vital-signs" component={VitalSignsContainer} testRoute />
+      <Route path="progress-tracker" component={ProgressTrackerContainer} testRoute />
+      <Route path="shared-outcomes" component={SharedOutcomesContainer} testRoute />
+      <Route path="value-impact" component={ValueImpactContainer} testRoute />
+      <Route path="gis-view" component={GISViewContainer} testRoute />
+      <Route path="interactive-shared-outcomes" component={InteractiveSharedOutcomesContainer} testRoute />
     </Route>
   </Route>
 );
