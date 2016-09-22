@@ -18,23 +18,44 @@ const colorScale = [
   '#F6A57F',
   '#FF0000'
 ];
-const labelStyle = { labels: { fill: 'white', fontSize: 9, padding: 50 } };
+const labelStyle = { labels: { fill: 'white', fontSize: 50, padding: 200 } };
+const dummyText = 'Lorem Ipsum Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium';
+
 
 export const CommunityTapestry = React.createClass({
   mixins: [PureRenderMixin],
   render() {
     return (
       <div className={style.communityTapestry}>
+      <Row>
         <div className={style.communityTapestryHeader}>
           Community Tapestry
         </div>
-        <div className={style.pieChartContainer}>
-          <VictoryPie
-            style={labelStyle}
-            data={data}
-            colorScale={colorScale}
-          />
-        </div>
+        </Row>
+        <Row>
+          <div className={style.pieChartContainer}>          
+            <VictoryPie
+              height={1000}
+              width={1000}
+              style={labelStyle}
+              data={data}
+              colorScale={colorScale}              
+            />
+          </div>
+          </Row> 
+          <div className={style.subgroup}>       
+            <Row className={style.header}>
+              <div className={style.title}>
+                Description Text
+              </div>
+            </Row>
+            <Row className={style.body}>
+              <div className={style.descriptionText}>
+                {dummyText}
+              </div>            
+            </Row>
+          </div>
+        
         <div className={style.subgroup}>
           <Row className={style.header}>
             <div className={style.title}>
