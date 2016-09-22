@@ -1,0 +1,12 @@
+{
+  "liveAPI": "http://localhost:8090/api/reports/progress-tracker-report",
+  "testAPI": "http://localhost:8090/api/reports/progress-tracker-test-report",
+  "tableHeaders": [
+    "INDICATOR",
+    "GOAL",
+    "BASELINE",
+    "CHANGE",
+    "TREND",
+    "COLOURCODE"
+  ]
+}

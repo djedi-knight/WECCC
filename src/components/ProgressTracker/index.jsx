@@ -1,13 +1,11 @@
 import React from 'react';
 import Fetch from 'react-fetch';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { connect } from 'react-redux';
-import * as actionCreators from '../../actions/action_creators';
 import { FontIcon } from 'react-toolbox';
 import { Row, Col } from 'react-flexbox-grid';
 import ReactTooltip from 'react-tooltip';
 import style from './style';
-import data from './data.json';
+import config from './config.json';
 
 export const ProgressTracker = React.createClass({
   propTypes: {
@@ -16,12 +14,13 @@ export const ProgressTracker = React.createClass({
   },
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { data };
+    return { config };
   },
   getRows() {
     if (this.props.data) {
       return this.props.data;
     }
+
     return [];
   },
   getTrend(row) {
@@ -38,6 +37,7 @@ export const ProgressTracker = React.createClass({
         <Col xs={2}><FontIcon value="arrow_forward" /></Col>
       );
     }
+
     return null;
   },
   getColourCode(row) {
@@ -69,6 +69,7 @@ export const ProgressTracker = React.createClass({
         </div>
       );
     }
+
     return null;
   },
   render() {
@@ -79,12 +80,9 @@ export const ProgressTracker = React.createClass({
         </div>
         <div className={style.reportTable}>
           <Row className={style.tableHeader}>
-            <Col xs={2}>INDICATOR</Col>
-            <Col xs={2}>GOAL</Col>
-            <Col xs={2}>BASELINE</Col>
-            <Col xs={2}>CHANGE</Col>
-            <Col xs={2}>TREND</Col>
-            <Col xs={2}>COLOURCODE</Col>
+            {this.state.config.tableHeaders.map((tableHeader, i) =>
+              <Col key={i} xs={2}>{tableHeader}</Col>
+            )}
           </Row>
           {this.getRows().map((row, i) =>
             <div key={i}>
@@ -104,27 +102,28 @@ export const ProgressTracker = React.createClass({
   }
 });
 
-export const APIContainer = React.createClass({
+export const ProgressTrackerContainer = React.createClass({
+  propTypes: {
+    route: React.PropTypes.object
+  },
   mixins: [PureRenderMixin],
+  getInitialState() {
+    return { config };
+  },
+  getURL() {
+    if (this.props.route.testRoute) {
+      return this.state.config.testAPI;
+    }
+
+    return this.state.config.liveAPI;
+  },
   render() {
     return (
       <div>
-        <Fetch url="http://localhost:8090/api/reports/progress-tracker-test-report">
+        <Fetch url={this.getURL()}>
           <ProgressTracker />
         </Fetch>
       </div>
     );
   }
 });
-
-function mapStateToProps(state) {
-  return {
-    test: 'Works!',
-    state
-  };
-}
-
-export const ProgressTrackerContainer = connect(
-  mapStateToProps,
-  actionCreators
-)(APIContainer);
