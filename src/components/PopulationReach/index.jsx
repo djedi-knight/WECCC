@@ -6,15 +6,15 @@ import { Row, Col } from 'react-flexbox-grid';
 import ScoreBoxSimple from '../ScoreBoxSimple';
 import RegisteredCaregiversBox from '../RegisteredCaregiversBox';
 import style from './style';
-import data from './data.json';
+import config from './config.json';
 
-export const PopulationReachSubgroup = React.createClass({
+export const PopulationReachSubgroups = React.createClass({
   propTypes: {
     scoreCards: React.PropTypes.array
   },
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { data };
+    return { config };
   },
   getSubGroupFor(key) {
     if (this.props.scoreCards) {
@@ -38,96 +38,26 @@ export const PopulationReachSubgroup = React.createClass({
   render() {
     return (
       <div className={style.populationReachSubgroups}>
-        <div className={style.subgroup}>
-          <Row className={style.header}>
-            <div className={style.title}>
-              {this.getSubGroupFor('priority-subgroup').title}
-            </div>
-          </Row>
-          <Row className={style.body}>
-            <Col xs={3}>
-              <ScoreBoxSimple
-                title={this.getScoreCardFor('priority-subgroup', 'over-80').title}
-                score={this.getScoreCardFor('priority-subgroup', 'over-80').score}
-                trend={this.getScoreCardFor('priority-subgroup', 'over-80').trend}
-              />
-            </Col>
-            <Col xs={3}>
-              <ScoreBoxSimple
-                title={this.getScoreCardFor('priority-subgroup', 'disabled').title}
-                score={this.getScoreCardFor('priority-subgroup', 'disabled').score}
-                trend={this.getScoreCardFor('priority-subgroup', 'disabled').trend}
-              />
-            </Col>
-          </Row>
-        </div>
-        <div className={style.subgroup}>
-          <Row className={style.header}>
-            <div className={style.title}>
-              {this.getSubGroupFor('dependency-subgroup').title}
-            </div>
-          </Row>
-          <Row className={style.body}>
-            <Col xs={3}>
-              <ScoreBoxSimple
-                title={this.getScoreCardFor('dependency-subgroup', 'light').title}
-                score={this.getScoreCardFor('dependency-subgroup', 'light').score}
-                trend={this.getScoreCardFor('dependency-subgroup', 'light').trend}
-              />
-            </Col>
-            <Col xs={3}>
-              <ScoreBoxSimple
-                title={this.getScoreCardFor('dependency-subgroup', 'moderate').title}
-                score={this.getScoreCardFor('dependency-subgroup', 'moderate').score}
-                trend={this.getScoreCardFor('dependency-subgroup', 'moderate').trend}
-              />
-            </Col>
-            <Col xs={3}>
-              <ScoreBoxSimple
-                title={this.getScoreCardFor('dependency-subgroup', 'complex').title}
-                score={this.getScoreCardFor('dependency-subgroup', 'complex').score}
-                trend={this.getScoreCardFor('dependency-subgroup', 'complex').trend}
-              />
-            </Col>
-            <Col xs={3}>
-              <ScoreBoxSimple
-                title={this.getScoreCardFor('dependency-subgroup', 'eol').title}
-                score={this.getScoreCardFor('dependency-subgroup', 'eol').score}
-                trend={this.getScoreCardFor('dependency-subgroup', 'eol').trend}
-              />
-            </Col>
-          </Row>
-        </div>
-        <div className={style.subgroup}>
-          <Row className={style.header}>
-            <div className={style.title}>
-              {this.getSubGroupFor('registered-subgroup').title}
-            </div>
-          </Row>
-          <Row className={style.body}>
-            <Col xs={3}>
-              <ScoreBoxSimple
-                title={this.getScoreCardFor('registered-subgroup', 'care').title}
-                score={this.getScoreCardFor('registered-subgroup', 'care').score}
-                trend={this.getScoreCardFor('registered-subgroup', 'care').trend}
-              />
-            </Col>
-            <Col xs={3}>
-              <ScoreBoxSimple
-                title={this.getScoreCardFor('registered-subgroup', 'outreach').title}
-                score={this.getScoreCardFor('registered-subgroup', 'outreach').score}
-                trend={this.getScoreCardFor('registered-subgroup', 'outreach').trend}
-              />
-            </Col>
-            <Col xs={3}>
-              <ScoreBoxSimple
-                title={this.getScoreCardFor('registered-subgroup', 'neighbourhood').title}
-                score={this.getScoreCardFor('registered-subgroup', 'neighbourhood').score}
-                trend={this.getScoreCardFor('registered-subgroup', 'neighbourhood').trend}
-              />
-            </Col>
-          </Row>
-        </div>
+        {this.state.config.keys.subGroups.map((subGroup, x) =>
+          <div key={x} className={style.subgroup}>
+            <Row className={style.header}>
+              <div className={style.title}>
+                {this.getSubGroupFor(subGroup.key).title}
+              </div>
+            </Row>
+            <Row className={style.body}>
+              {subGroup.scoreCards.map((scoreCard, y) =>
+                <Col key={y} xs={3}>
+                  <ScoreBoxSimple
+                    title={this.getScoreCardFor(subGroup.key, scoreCard).title}
+                    score={this.getScoreCardFor(subGroup.key, scoreCard).score}
+                    trend={this.getScoreCardFor(subGroup.key, scoreCard).trend}
+                  />
+                </Col>
+              )}
+            </Row>
+          </div>
+        )}
       </div>
     );
   }
@@ -141,7 +71,10 @@ export const PopulationReach = React.createClass({
   },
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { index: 0 };
+    return {
+      index: 0,
+      config
+    };
   },
   getInfoBoxFor(key) {
     if (this.props.infoBoxes) {
@@ -166,8 +99,6 @@ export const PopulationReach = React.createClass({
     this.setState({ index });
   },
   render() {
-    const emptyTabContent = 'Please select a tab to learn more';
-
     return (
       <div className={style.populationReach}>
         <div className={style.populationReachHeader}>
@@ -175,16 +106,20 @@ export const PopulationReach = React.createClass({
         </div>
         <div className={style.populationReachTabs}>
           <Tabs index={this.state.index} onChange={this.handleTabChange}>
-            <Tab label={this.getLabelFor('tab-1')} disabled>{emptyTabContent}</Tab>
-            <Tab label={this.getLabelFor('tab-2')}>
-              <PopulationReachSubgroup scoreCards={this.props.scoreCards} />
+            <Tab label={this.getLabelFor(this.state.config.keys.tabs[0])} disabled>
+              {this.state.config.emptyTabContent}
             </Tab>
-            <Tab label={this.getLabelFor('tab-3')} disabled>{emptyTabContent}</Tab>
-            <Tab label={this.getLabelFor('tab-4')}>
-              <PopulationReachSubgroup />
+            <Tab label={this.getLabelFor(this.state.config.keys.tabs[1])}>
+              <PopulationReachSubgroups scoreCards={this.props.scoreCards} />
+            </Tab>
+            <Tab label={this.getLabelFor(this.state.config.keys.tabs[2])} disabled>
+              {this.state.config.emptyTabContent}
+            </Tab>
+            <Tab label={this.getLabelFor(this.state.config.keys.tabs[3])}>
+              <PopulationReachSubgroups />
             </Tab>
           </Tabs>
-          <RegisteredCaregiversBox data={this.getInfoBoxFor('registered-caregivers')} />
+          <RegisteredCaregiversBox data={this.getInfoBoxFor(this.state.config.keys.registered)} />
         </div>
       </div>
     );
@@ -196,12 +131,15 @@ export const PopulationReachContainer = React.createClass({
     route: React.PropTypes.object
   },
   mixins: [PureRenderMixin],
+  getInitialState() {
+    return { config };
+  },
   getURL() {
     if (this.props.route.testRoute) {
-      return 'http://localhost:8090/api/pages/population-reach-test-page';
+      return this.state.config.testAPI;
     }
 
-    return 'http://localhost:8090/api/pages/population-reach-page';
+    return this.state.config.liveAPI;
   },
   render() {
     return (

@@ -1,0 +1,36 @@
+{
+  "liveAPI": "http://localhost:8090/api/pages/population-reach-page",
+  "testAPI": "http://localhost:8090/api/pages/population-reach-test-page",
+  "emptyTabContent": "Please select a tab to learn more",
+  "keys": {
+    "registered": "registered-caregivers",
+    "tabs": [
+      "tab-1",
+      "tab-2",
+      "tab-3",
+      "tab-4"
+    ],
+    "subGroups": [{
+      "key": "priority-subgroup",
+      "scoreCards": [
+        "over-80",
+        "disabled"
+      ]
+    }, {
+      "key": "dependency-subgroup",
+      "scoreCards": [
+        "light",
+        "moderate",
+        "complex",
+        "eol"
+      ]
+    }, {
+      "key": "registered-subgroup",
+      "scoreCards": [
+        "care",
+        "outreach",
+        "neighbourhood"
+      ]
+    }]
+  }
+}
