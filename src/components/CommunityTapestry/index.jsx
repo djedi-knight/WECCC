@@ -6,7 +6,7 @@ import { Row, Col } from 'react-flexbox-grid';
 import ScoreBoxSimple from '../ScoreBoxSimple';
 import style from './style';
 import data from './data.json';
-import { VictoryPie, VictoryTooltip } from 'victory/dist/victory';
+import { VictoryPie, VictoryTooltip, VictoryChart, VictoryBar } from 'victory/dist/victory';
 
 const colorScale = [
   '#D85F49',
@@ -32,22 +32,69 @@ export const CommunityTapestry = React.createClass({
           Community Tapestry
         </div>
         </Row>
-        <Row>
+        <VictoryChart
+          domain={{x: [0, 10], y: [-10, 10]}}
+        >
+          <VictoryBar
+            labelComponent={
+              <VictoryTooltip
+                cornerRadius={(d) => d.x > 6 ? 0 : 20}
+                pointerLength={(d) => d.y > 0 ? 5 : 20}
+                flyoutStyle={{
+                  stroke:  "black"
+                }}              />
+            }
+            data={[
+              {x: 2, y: 5, label: "right-side-up"},
+              {x: 4, y: -6, label: "upside-down"},
+              {x: 6, y: 4, label: "tiny"},
+              {x: 8, y: -5, label: "or a little \n BIGGER"},
+              {x: 10, y: 7, label: "automatically"}
+            ]}
+            style={{
+              data: {fill: "tomato"}
+            }}
+          /> 
+        </VictoryChart>
+          <VictoryPie
+    padding={150}
+    data={[
+      {x: "Cat", y: 62},
+      {x: "Dog", y: 91},
+      {x: "Fish", y: 55},
+      {x: "Bird", y: 55},
+    ]}
+    events={[{
+      target: "data",
+      eventHandlers: {
+        onClick: () => {
+          return [
+            {
+              mutation: (props) => {
+                return {
+                  style: merge({}, props.style, {fill: "orange"})
+                };
+              }
+            }
+          ];
+        }
+      }
+    }]}  />
+        
           <div className={style.pieChartContainer}>          
             <VictoryPie
+             padding={150}
               labelComponent={<VictoryTooltip
-                cornerRadius={(d) => d.x > 0? 0 : 2}
-                pointerLength={(d) => d.y > 0 ? 0 : 5}
+                height={50}
                 flyoutStyle={{
                   stroke: "tomato" }} />}
-              height={1000}
-              width={1000}
+              
               style={labelStyle}
               data={data}
               colorScale={colorScale}              
             />
           </div>
-          </Row> 
+          
           <div className={style.subgroup}>       
             <Row className={style.header}>
               <div className={style.title}>
