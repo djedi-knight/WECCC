@@ -6,7 +6,7 @@ import { Row, Col } from 'react-flexbox-grid';
 import ScoreBoxSimple from '../ScoreBoxSimple';
 import style from './style';
 import data from './data.json';
-import { VictoryPie } from 'victory/dist/victory';
+import { VictoryPie, VictoryTooltip } from 'victory/dist/victory';
 
 const colorScale = [
   '#D85F49',
@@ -35,6 +35,11 @@ export const CommunityTapestry = React.createClass({
         <Row>
           <div className={style.pieChartContainer}>          
             <VictoryPie
+              labelComponent={<VictoryTooltip
+                cornerRadius={(d) => d.x > 0? 0 : 2}
+                pointerLength={(d) => d.y > 0 ? 0 : 5}
+                flyoutStyle={{
+                  stroke: "tomato" }} />}
               height={1000}
               width={1000}
               style={labelStyle}
