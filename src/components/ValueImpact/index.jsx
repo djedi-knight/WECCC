@@ -5,9 +5,10 @@ import * as actionCreators from '../../actions/action_creators';
 import { Row, Col } from 'react-flexbox-grid';
 import { Dropdown, Tab, Tabs } from 'react-toolbox';
 import { VictoryPie, VictoryLabel } from 'victory/dist/victory';
-import data from './data.json';
-import style from './style';
 import ScoreBoxSimple from '../ScoreBoxSimple';
+import AreasOfFocusSidebar from '../AreasOfFocusSidebar';
+import style from './style';
+import data from './data.json';
 
 const labelStyle = { labels: { fill: 'white', fontSize: 9, padding: 50 } };
 
@@ -37,12 +38,12 @@ export const ValueImpact = React.createClass({
   render() {
     return (
       <div className={style.valueImpact}>
-        <div className={style.valueImpactHeader}>
+        <div className={style.header}>
           Values and Impact
         </div>
         <Row>
           <Col xs={3}>
-            <div className={style.valueImpactSubheader}>
+            <div className={style.subHeader}>
               Population Subgroup
             </div>
             <Dropdown
@@ -62,7 +63,7 @@ export const ValueImpact = React.createClass({
             />
           </Col>
           <Col xs={6}>
-            <div className={style.valueImpactSubheader}>
+            <div className={style.subHeader}>
               Your Community Pattern
             </div>
             <VictoryPie
@@ -72,32 +73,37 @@ export const ValueImpact = React.createClass({
             >
               <VictoryLabel />
             </VictoryPie>
-            
-            <div className={style.valueImpactSubheader}>
-              Return on Investment
+            <div className={style.subgroup}>
+              <Row className={style.header}>
+                <div className={style.title}>
+                  Return on Investment
+                </div>
+              </Row>
+              <Row className={style.body}>
+                <Col xs={2} />
+                <Col xs={4}>
+                  <ScoreBoxSimple title={"Social"} score={"15"} trend={"down"} />
+                </Col>
+                <Col xs={4}>
+                  <ScoreBoxSimple title={"Economic"} score={"27"} trend={"up"} />
+                </Col>
+                <Col xs={2} />
+              </Row>
             </div>
-            <Row>
-            <Col xs={6}>            
-              <ScoreBoxSimple title={"Social"} score={"15"} trend={"down"} />
-            </Col>
-            <Col xs={6}>
-              <ScoreBoxSimple title={"Economic"} score={"27"} trend={"up"} />
-            </Col>
-            </Row>
           </Col>
           <Col xs={3}>
-            <div className={style.valueImpactSubheader}>
+            <div className={style.subHeader}>
               Things To Consider
             </div>
             <Tabs index={this.state.inverseIndex} onChange={this.handleInverseTabChange} inverse>
               <Tab label="First">
-                <small>First Content</small>
+                <AreasOfFocusSidebar />
               </Tab>
               <Tab label="Second">
-                <small>Second Content</small>
+                <AreasOfFocusSidebar />
               </Tab>
               <Tab label="Third">
-                <small>Third Content</small>
+                <AreasOfFocusSidebar />
               </Tab>
             </Tabs>
           </Col>
