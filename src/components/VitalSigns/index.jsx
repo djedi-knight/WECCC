@@ -23,6 +23,7 @@ export const VitalSignsSubgroup = React.createClass({
 
       return this.props.scoreCards[index];
     }
+
     return {};
   },
   getScoreCardFor(subGroupKey, scoreCardKey) {
@@ -32,6 +33,7 @@ export const VitalSignsSubgroup = React.createClass({
 
       return subGroup.list[index];
     }
+
     return {};
   },
   render() {
@@ -100,6 +102,7 @@ export const VitalSigns = React.createClass({
 
       return this.props.scoreCards[index];
     }
+
     return {};
   },
   handleChange(value) {
@@ -114,17 +117,12 @@ export const VitalSigns = React.createClass({
         <RadioGroup name="comic" value={this.state.value} onChange={this.handleChange}>
           <RadioButton label={this.getSubGroupFor('vital-signs-subgroup').title} value="vital-signs" />
           <RadioButton label={this.getSubGroupFor('self-reported-subgroup').title} value="self-reported" />
-          <RadioButton label={this.getSubGroupFor('neighbourhood-subgroup').title} value="neighbourhood" />
         </RadioGroup>
         {this.state.value === 'vital-signs' ?
           <VitalSignsSubgroup scoreCards={this.props.scoreCards} />
           : null
         }
         {this.state.value === 'self-reported' ?
-          <VitalSignsSubgroup />
-          : null
-        }
-        {this.state.value === 'neighbourhood' ?
           <VitalSignsSubgroup />
           : null
         }
