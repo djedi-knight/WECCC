@@ -5,31 +5,12 @@ import * as actionCreators from '../../actions/action_creators';
 import { Row, Col } from 'react-flexbox-grid';
 import { Dropdown, Tab, Tabs } from 'react-toolbox';
 import { VictoryPie, VictoryLabel } from 'victory/dist/victory';
-import data from './data.json';
-import style from './style';
 import ScoreBoxSimple from '../ScoreBoxSimple';
+import AreasOfFocusSidebar from '../AreasOfFocusSidebar';
+import style from './style';
+import data from './data.json';
 
 const labelStyle = { labels: { fill: 'white', fontSize: 9, padding: 50 } };
-
-const careNeeds = [
-  { value: 'light', label: 'Light' },
-  { value: 'moderate', label: 'Moderate' },
-  { value: 'complex', label: 'Complex' },
-  { value: 'eol', label: 'EOL' }
-];
-
-const city = [
-  { value: 'leamington', label: 'Leamington' },
-  { value: 'windsor', label: ' Windsor' },
-  { value: 'london', label: 'London' },
-  { value: 'amherstburg', label: 'Amherstburg' }
-];
-
-const subgroup = [
-  { value: 'school', label: 'School' },
-  { value: 'faith', label: 'Faith' },
-  { value: 'culture', label: 'Culture' }
-];
 
 export const ValueImpact = React.createClass({
   mixins: [PureRenderMixin],
@@ -57,32 +38,32 @@ export const ValueImpact = React.createClass({
   render() {
     return (
       <div className={style.valueImpact}>
-        <div className={style.valueImpactHeader}>
+        <div className={style.header}>
           Values and Impact
         </div>
         <Row>
           <Col xs={3}>
-            <div className={style.valueImpactSubheader}>
+            <div className={style.subHeader}>
               Population Subgroup
             </div>
             <Dropdown
               onChange={this.handleChange}
-              source={careNeeds}
+              source={this.state.data.careNeeds}
               value={this.state.value}
             />
             <Dropdown
               onChange={this.handleChange2}
-              source={city}
+              source={this.state.data.city}
               value={this.state.value2}
             />
             <Dropdown
               onChange={this.handleChange3}
-              source={subgroup}
+              source={this.state.data.subgroup}
               value={this.state.value3}
             />
           </Col>
           <Col xs={6}>
-            <div className={style.valueImpactSubheader}>
+            <div className={style.subHeader}>
               Your Community Pattern
             </div>
             <VictoryPie
@@ -92,24 +73,37 @@ export const ValueImpact = React.createClass({
             >
               <VictoryLabel />
             </VictoryPie>
-            <div>
-              <ScoreBoxSimple title={"S.R.O.I"} score={"15"} trend={"down"} />
-              <ScoreBoxSimple title={"E.R.O.I"} score={"27"} trend={"up"} />
+            <div className={style.subgroup}>
+              <Row className={style.header}>
+                <div className={style.title}>
+                  Return on Investment
+                </div>
+              </Row>
+              <Row className={style.body}>
+                <Col xs={2} />
+                <Col xs={4}>
+                  <ScoreBoxSimple title={"Social"} score={"15"} trend={"down"} />
+                </Col>
+                <Col xs={4}>
+                  <ScoreBoxSimple title={"Economic"} score={"27"} trend={"up"} />
+                </Col>
+                <Col xs={2} />
+              </Row>
             </div>
           </Col>
           <Col xs={3}>
-            <div className={style.valueImpactSubheader}>
+            <div className={style.subHeader}>
               Things To Consider
             </div>
             <Tabs index={this.state.inverseIndex} onChange={this.handleInverseTabChange} inverse>
               <Tab label="First">
-                <small>First Content</small>
+                <AreasOfFocusSidebar />
               </Tab>
               <Tab label="Second">
-                <small>Second Content</small>
+                <AreasOfFocusSidebar />
               </Tab>
               <Tab label="Third">
-                <small>Third Content</small>
+                <AreasOfFocusSidebar />
               </Tab>
             </Tabs>
           </Col>
