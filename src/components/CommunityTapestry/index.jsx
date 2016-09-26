@@ -7,6 +7,8 @@ import ScoreBoxSimple from '../ScoreBoxSimple';
 import style from './style';
 import data from './data.json';
 import { VictoryPie, VictoryTooltip, VictoryChart, VictoryBar } from 'victory/dist/victory';
+import ReactTooltip from 'react-tooltip';
+import { IconButton } from 'react-toolbox';
 
 const colorScale = [
   '#D85F49',
@@ -18,12 +20,30 @@ const colorScale = [
   '#F6A57F',
   '#FF0000'
 ];
-const labelStyle = { labels: { fill: 'white', fontSize: 50, padding: 200 } };
+const labelStyle = { labels: { fill: 'black', fontSize: 20} };
 const dummyText = 'Lorem Ipsum Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium';
+
+export const CommunityTapestrySubgroup = React.createClass({
+  mixins: [PureRenderMixin],
+  getInitialState() {
+    return { data };
+  },
+  render() {
+    return (
+      <div>
+        <a data-tip data-for="slice"></a>
+        <ReactTooltip id="slice" type="light" place="right" effect="float">
+          <VictoryBar />
+        </ReactTooltip>        
+      </div>
+    );
+  }
+});
 
 
 export const CommunityTapestry = React.createClass({
   mixins: [PureRenderMixin],
+  
   render() {
     return (
       <div className={style.communityTapestry}>
@@ -32,82 +52,55 @@ export const CommunityTapestry = React.createClass({
           Community Tapestry
         </div>
         </Row>
-        <VictoryChart
-          domain={{x: [0, 10], y: [-10, 10]}}
-        >
-          <VictoryBar
-            labelComponent={
-              <VictoryTooltip
-                cornerRadius={(d) => d.x > 6 ? 0 : 20}
-                pointerLength={(d) => d.y > 0 ? 5 : 20}
-                flyoutStyle={{
-                  stroke:  "black"
-                }}              />
-            }
-            data={[
-              {x: 2, y: 5, label: "right-side-up"},
-              {x: 4, y: -6, label: "upside-down"},
-              {x: 6, y: 4, label: "tiny"},
-              {x: 8, y: -5, label: "or a little \n BIGGER"},
-              {x: 10, y: 7, label: "automatically"}
-            ]}
-            style={{
-              data: {fill: "tomato"}
-            }}
-          /> 
-        </VictoryChart>
+        <Row>       
+        <div className={style.pieChartContainer}>          
           <VictoryPie
-    padding={150}
-    data={[
-      {x: "Cat", y: 62},
-      {x: "Dog", y: 91},
-      {x: "Fish", y: 55},
-      {x: "Bird", y: 55},
-    ]}
-    events={[{
-      target: "data",
-      eventHandlers: {
-        onClick: () => {
-          return [
-            {
-              mutation: (props) => {
-                return {
-                  style: merge({}, props.style, {fill: "orange"})
-                };
+            labelRadius={100}
+            padding={20}
+            style={labelStyle}
+            data={data}
+            colorScale={colorScale}
+            events={[{
+              target: "data",
+              eventHandlers: {
+                onMouseOver: () => {
+                  return [
+                    {
+                      mutation: (props) => {
+                        return {
+                          style: {fill: "blue"}
+                        };
+                      } 
+                    }
+                  ];
+                },
+                onMouseOut: () => {
+                  return [
+                    {
+                      mutation: (props) => {
+                        return {colorScale};
+                      }
+                    }
+                  ];
+                }
               }
-            }
-          ];
-        }
-      }
-    }]}  />
-        
-          <div className={style.pieChartContainer}>          
-            <VictoryPie
-             padding={150}
-              labelComponent={<VictoryTooltip
-                height={50}
-                flyoutStyle={{
-                  stroke: "tomato" }} />}
-              
-              style={labelStyle}
-              data={data}
-              colorScale={colorScale}              
-            />
-          </div>
-          
-          <div className={style.subgroup}>       
-            <Row className={style.header}>
-              <div className={style.title}>
-                Description Text
-              </div>
-            </Row>
-            <Row className={style.body}>
-              <div className={style.descriptionText}>
-                {dummyText}
-              </div>            
-            </Row>
-          </div>
-        
+            }]} 
+            //labelComponent={<CommunityTapestrySubgroup/>}              
+          />
+        </div> 
+        </Row>         
+        <div className={style.subgroup}>
+          <Row className={style.header}>
+            <div className={style.title}>
+              Description Text
+            </div>
+          </Row>
+          <Row className={style.body}>
+            <div className={style.descriptionText}>
+              {dummyText}
+            </div>            
+          </Row>
+        </div>        
         <div className={style.subgroup}>
           <Row className={style.header}>
             <div className={style.title}>
