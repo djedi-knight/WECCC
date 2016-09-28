@@ -9,6 +9,7 @@ import data from './data.json';
 import { VictoryPie, VictoryTooltip, VictoryChart, VictoryBar } from 'victory/dist/victory';
 import ReactTooltip from 'react-tooltip';
 import { IconButton } from 'react-toolbox';
+import {ScoreBox } from '../ScoreBox';
 
 const colorScale = [
   '#D85F49',
@@ -20,10 +21,13 @@ const colorScale = [
   '#F6A57F',
   '#FF0000'
 ];
-const labelStyle = { labels: { fill: 'black', fontSize: 20} };
+const labelStyle = { labels: { fill: 'white', fontSize: 18} };
 const dummyText = 'Lorem Ipsum Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium';
 
 export const CommunityTapestrySubgroup = React.createClass({
+   propTypes: {
+    active: React.PropTypes.bool
+  },
   mixins: [PureRenderMixin],
   getInitialState() {
     return { data };
@@ -31,10 +35,12 @@ export const CommunityTapestrySubgroup = React.createClass({
   render() {
     return (
       <div>
-        <a data-tip data-for="slice"></a>
-        <ReactTooltip id="slice" type="light" place="right" effect="float">
-          <VictoryBar />
-        </ReactTooltip>        
+        const group = (
+          <g>
+            <VictoryBar />
+          </g>
+        );
+        return this.props.active ? group : null;             
       </div>
     );
   }
@@ -55,7 +61,7 @@ export const CommunityTapestry = React.createClass({
         <Row>       
         <div className={style.pieChartContainer}>          
           <VictoryPie
-            labelRadius={100}
+            labelRadius={120}
             padding={20}
             style={labelStyle}
             data={data}
@@ -63,29 +69,18 @@ export const CommunityTapestry = React.createClass({
             events={[{
               target: "data",
               eventHandlers: {
-                onMouseOver: () => {
+                onClick: () => {
                   return [
                     {
                       mutation: (props) => {
-                        return {
-                          style: {fill: "blue"}
-                        };
+                        return <CommunityTapestrySubgroup/>;
                       } 
-                    }
-                  ];
-                },
-                onMouseOut: () => {
-                  return [
-                    {
-                      mutation: (props) => {
-                        return {colorScale};
-                      }
                     }
                   ];
                 }
               }
             }]} 
-            //labelComponent={<CommunityTapestrySubgroup/>}              
+                          
           />
         </div> 
         </Row>         
