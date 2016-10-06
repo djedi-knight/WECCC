@@ -3,10 +3,20 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { Tab, Tabs } from 'react-toolbox';
 import ReactTooltip from 'react-tooltip';
 import CareNeedsGroupPopover from '../CareNeedsGroupPopover';
+import HealthOutcomesSection from '../HealthOutcomesSection';
 import style from './style';
 
-const contentLabel = ( 
-  <a data-tip data-for="global"> Light: 40% </a>
+const light = ( 
+  <a data-tip data-for="light"> Light: 40% </a>
+);
+const moderate = (
+  <a data-tip data-for="moderate"> Moderate: 30% </a>
+);
+const complex = (
+  <a data-tip data-for="complex"> Complex: 20% </a>
+);
+const eol = (
+  <a data-tip data-for="eol"> EOL: 10% </a>
 );
 
 export default React.createClass({
@@ -21,13 +31,22 @@ export default React.createClass({
     return (
       <div className={style.careNeedsGroupTabBar}>
         <Tabs index={this.state.index} onChange={this.handleTabChange}>
-          <Tab label={contentLabel} />
-          <Tab label="Moderate:30%" />
-          <Tab label="Complex:20%" />
-          <Tab label="EOL:10%" />
+          <Tab label={light}> <HealthOutcomesSection /> </Tab>
+          <Tab label={moderate}> <HealthOutcomesSection />  </Tab>
+          <Tab label={complex}> <HealthOutcomesSection /> </Tab>
+          <Tab label={eol}> <HealthOutcomesSection /> </Tab>
         </Tabs>
-        <ReactTooltip id="global" aria-haspopup="true" place="right" offset={{ bottom: 100, right: 100 }}>
+        <ReactTooltip id="light" aria-haspopup="true" place="right" offset={{ bottom: 100, right: 100 }}>
           <CareNeedsGroupPopover />
+        </ReactTooltip>
+        <ReactTooltip id="moderate" aria-haspopup="true" place="right" offset={{ bottom: 100, right: 100 }}>
+          Moderate
+        </ReactTooltip>
+        <ReactTooltip id="complex" aria-haspopup="true" place="right" offset={{ bottom: 100, right: 100 }}>
+          Complex
+        </ReactTooltip>
+        <ReactTooltip id="eol" aria-haspopup="true" place="right" offset={{ bottom: 100, right: 100 }}>
+          EOL
         </ReactTooltip>
       </div>
     );
