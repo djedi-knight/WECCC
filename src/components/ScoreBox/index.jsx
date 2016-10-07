@@ -53,7 +53,7 @@ export default React.createClass({
       <div className={style.scoreBox}>
         <Card theme={style}>
           <CardText>
-            <FontIcon className={style.infoIcon} value="info" />
+            <IconButton className={style.infoIcon} icon="info" />
             <h3>{this.getTitle()}</h3>
             <div className={style.score}>
             {this.getWarning() ?
@@ -71,17 +71,17 @@ export default React.createClass({
             <hr />
           </CardText>
           <CardText>
-            <FontIcon value="person" />
+            <IconButton icon="person" />
             Peer Comparison
             {this.getPeerScore()}
             <hr />
           </CardText>
           <CardText>
-            <FontIcon value="trending_up" />
+            <IconButton icon="trending_up" />
             Change Over Time
-            {this.getTrend() === 'up' ? <FontIcon value="arrow_upward" /> : null}
-            {this.getTrend() === 'down' ? <FontIcon value="arrow_downward" /> : null}
-            {this.getTrend() === 'same' ? <FontIcon value="arrow_forward" /> : null}
+            {this.getTrend() === 'up' ? <IconButton icon="arrow_upward" /> : null}
+            {this.getTrend() === 'down' ? <IconButton icon="arrow_downward" /> : null}
+            {this.getTrend() === 'same' ? <IconButton icon="arrow_forward" /> : null}
             <hr />
           </CardText>
           <CardActions>
