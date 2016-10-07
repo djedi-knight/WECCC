@@ -40,7 +40,7 @@ export const CommunityTapestrySubgroup = React.createClass({
             <VictoryBar />
           </g>
         );
-        return this.props.active ? group : null;             
+        return this.props.active ? group : null;
       </div>
     );
   }
@@ -49,7 +49,9 @@ export const CommunityTapestrySubgroup = React.createClass({
 
 export const CommunityTapestry = React.createClass({
   mixins: [PureRenderMixin],
-  
+  testFunction() {
+    console.log('test function called!');
+  },
   render() {
     return (
       <div className={style.communityTapestry}>
@@ -58,8 +60,8 @@ export const CommunityTapestry = React.createClass({
           Community Tapestry
         </div>
         </Row>
-        <Row>       
-        <div className={style.pieChartContainer}>          
+        <Row>
+        <div className={style.pieChartContainer}>
           <VictoryPie
             labelRadius={120}
             padding={20}
@@ -67,23 +69,26 @@ export const CommunityTapestry = React.createClass({
             data={data}
             colorScale={colorScale}
             events={[{
-              target: "data",
+              target: 'data',
               eventHandlers: {
                 onClick: () => {
+                  console.log('chart clicked!');
+                  this.testFunction();
                   return [
                     {
                       mutation: (props) => {
-                        return <CommunityTapestrySubgroup/>;
-                      } 
+                        console.log(props);
+                        return <CommunityTapestrySubgroup />;
+                      }
                     }
                   ];
                 }
               }
-            }]} 
-                          
+            }]}
+
           />
-        </div> 
-        </Row>         
+        </div>
+        </Row>
         <div className={style.subgroup}>
           <Row className={style.header}>
             <div className={style.title}>
@@ -93,9 +98,9 @@ export const CommunityTapestry = React.createClass({
           <Row className={style.body}>
             <div className={style.descriptionText}>
               {dummyText}
-            </div>            
+            </div>
           </Row>
-        </div>        
+        </div>
         <div className={style.subgroup}>
           <Row className={style.header}>
             <div className={style.title}>
