@@ -6,6 +6,9 @@ import style from './style';
 import data from './data.json';
 
 export default React.createClass({
+  propTypes: {
+    data: React.PropTypes.array
+  },
   mixins: [PureRenderMixin],
   getInitialState() {
     return { data };
@@ -19,7 +22,7 @@ export default React.createClass({
           </div>
         </Row>
         <Row className={style.body}>
-          {this.state.data.scoreCards.map((scoreCard, i) =>
+          {this.props.data.map((scoreCard, i) =>
             <Col key={i} xs={3}>
               <ScoreBox
                 title={scoreCard.title}

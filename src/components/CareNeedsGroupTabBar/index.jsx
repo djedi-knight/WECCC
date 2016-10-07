@@ -5,6 +5,7 @@ import ReactTooltip from 'react-tooltip';
 import CareNeedsGroupPopover from '../CareNeedsGroupPopover';
 import HealthOutcomesSection from '../HealthOutcomesSection';
 import style from './style';
+import data from './data.json';
 
 const light = ( 
   <a data-tip data-for="light"> Light: 40% </a>
@@ -22,7 +23,7 @@ const eol = (
 export default React.createClass({
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { index: 0 };
+    return { index: 0, data };
   },
   handleTabChange(index) {
     this.setState({ index });
@@ -31,10 +32,10 @@ export default React.createClass({
     return (
       <div className={style.careNeedsGroupTabBar}>
         <Tabs index={this.state.index} onChange={this.handleTabChange}>
-          <Tab label={light}> <HealthOutcomesSection /> </Tab>
-          <Tab label={moderate}> <HealthOutcomesSection />  </Tab>
-          <Tab label={complex}> <HealthOutcomesSection /> </Tab>
-          <Tab label={eol}> <HealthOutcomesSection /> </Tab>
+          <Tab label={light}> <HealthOutcomesSection data={this.state.data.light} /> </Tab>
+          <Tab label={moderate}> <HealthOutcomesSection data={this.state.data.moderate}/>  </Tab>
+          <Tab label={complex}> <HealthOutcomesSection data={this.state.data.complex}/> </Tab>
+          <Tab label={eol}> <HealthOutcomesSection data={this.state.data.eol}/> </Tab>
         </Tabs>
         <ReactTooltip id="light" aria-haspopup="true" place="right" offset={{ bottom: 100, right: 100 }}>
           <CareNeedsGroupPopover />
