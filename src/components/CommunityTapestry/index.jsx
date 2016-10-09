@@ -6,7 +6,7 @@ import { Row, Col } from 'react-flexbox-grid';
 import ScoreBoxSimple from '../ScoreBoxSimple';
 import style from './style';
 import data from './data.json';
-import { VictoryPie, VictoryTooltip, VictoryChart, VictoryBar } from 'victory/dist/victory';
+import { VictoryPie, VictoryTooltip, VictoryChart, VictoryBar, VictoryLine, VictorySharedEvents, VictoryAxis } from 'victory/dist/victory';
 import ReactTooltip from 'react-tooltip';
 import { IconButton } from 'react-toolbox';
 import {ScoreBox } from '../ScoreBox';
@@ -21,30 +21,45 @@ const colorScale = [
   '#F6A57F',
   '#FF0000'
 ];
+const lineData = [
+      {x: 1, y: 39},
+      {x: 2, y: 31},
+      {x: 3, y: 43},
+      {x: 4, y: 54},
+      {x: 5, y: 50}
+    ];
+    const bData = [
+      {x: 1, y: 39},
+      {x: 2, y: 31},
+      {x: 3, y: 43},
+      {x: 4, y: 54},
+      {x: 5, y: 50}
+    ];
+    const barData = [
+      {x: 1, y: 12, label: "Jan 2010"},
+      {x: 2, y: 13, label: "Apr 2010"},
+      {x: 3, y: 81, label: "Jul 2010"},
+      {x: 4, y: 49, label: "Oct 2010"},
+      {x: 5, y: 30, label: "Jan 2011"},
+      {x: 6, y: 29, label: "Apr 2011"},
+      {x: 7, y: 13, label: "Jul 2011"},
+      {x: 8, y: 53, label: "Oct 2011"},
+      {x: 9, y: 24, label: "Jan 2012"},
+      {x: 10, y: 68, label: "Apr 2012"},
+      {x: 11, y: 52, label: "Jul 2012"},
+      {x: 12, y: 29, label: "Oct 2012"},
+      {x: 13, y: 27, label: "Jan 2013"},
+      {x: 14, y: 100, label: "Apr 2013"},
+      {x: 15, y: 10, label: "Jul 2013"},
+      {x: 16, y: 77, label: "Oct 2013"},
+      {x: 17, y: 76, label: "Jan 2014"},
+      {x: 18, y: 61, label: "Apr 2014"},
+      {x: 19, y: 48, label: "Jul 2014"},
+      {x: 20, y: 15, label: "Oct 2014"}
+    ];
 const labelStyle = { labels: { fill: 'white', fontSize: 18} };
 const dummyText = 'Lorem Ipsum Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium';
 
-export const CommunityTapestrySubgroup = React.createClass({
-   propTypes: {
-    active: React.PropTypes.bool
-  },
-  mixins: [PureRenderMixin],
-  getInitialState() {
-    return { data };
-  },
-  render() {
-    return (
-      <div>
-        const group = (
-          <g>
-            <VictoryBar />
-          </g>
-        );
-        return this.props.active ? group : null;
-      </div>
-    );
-  }
-});
 
 
 export const CommunityTapestry = React.createClass({
@@ -62,31 +77,58 @@ export const CommunityTapestry = React.createClass({
         </Row>
         <Row>
         <div className={style.pieChartContainer}>
-          <VictoryPie
-            labelRadius={120}
-            padding={20}
-            style={labelStyle}
-            data={data}
-            colorScale={colorScale}
-            events={[{
-              target: 'data',
-              eventHandlers: {
-                onClick: () => {
-                  console.log('chart clicked!');
-                  this.testFunction();
-                  return [
-                    {
-                      mutation: (props) => {
-                        console.log(props);
-                        return <CommunityTapestrySubgroup />;
-                      }
+        <svg width={700} height={400} >
+          <VictorySharedEvents
+          events={[
+                {
+                  childName: "pie",
+                  target: "data",
+                  eventHandlers: {
+                    onClick: () => {
+                      return [
+                        {
+                          childName: "bar",
+                          mutation: (props) => {
+                            return {style:{data: {fill: "tomato"}}};                           
+                          }
+                        }
+                      ];
                     }
-                  ];
+                  }
                 }
-              }
-            }]}
+              ]}>
+            <VictoryPie
+              name="pie"
+              labelRadius={120}
+              padding={20}
+              style={labelStyle}
+              data={data}
+              standalone={false}
+              colorScale={colorScale}
+            />
+            <VictoryChart>
+            <VictoryBar
+            title="Dummy Title"  
+              name="bar"
+              data={bData}
+              standalone={false}
+              style={{data: {fill: "transparent"}}}
+            />
+            <VictoryAxis
+              name="axis"
+              standalone={false}
+              width={700}
+              height={400}  
+              style={{axis: {stroke: "transparent"}, tickLabels:{fill: "transparent"}}}
+            />
+            <VictoryAxis dependentAxis
+              standalone={false}
+              style={{axis: {stroke: "transparent"}, tickLabels:{fill: "transparent"}}}
+            /> 
+            </VictoryChart>           
 
-          />
+          </VictorySharedEvents>
+          </svg>
         </div>
         </Row>
         <div className={style.subgroup}>
