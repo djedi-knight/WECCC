@@ -1,0 +1,43 @@
+{
+  "pieData": [
+    { "x" : "Self Help", "y" : 50.0 },
+    { "x" : "Social Groups", "y" : 45.0 },
+    { "x" : "Family", "y" : 60.0 },
+    { "x" : "Friend", "y" : 25.0 }
+  ],
+  "colorScale": [
+    "#D85F49",
+    "#F66D3B",
+    "#D92E1D",
+    "#D73C4C",
+    "#FFAF59",
+    "#E28300"
+  ],
+  "dependency": [
+    {"value": "dependency", "label": "Level of Dependency"} ,
+    { "value": "light", "label": "Light" },
+    { "value": "moderate", "label": "Moderate" }
+  ],
+  "gender": [
+    {"value": "gender", "label": "Gender" },
+    { "value": "male", "label": "Male" },
+    { "value": "female", "label": "Female" }
+  ],
+  "orientation": [
+    { "value": "orientation", "label": "Sexual Orientation" },
+    { "value": "sexual", "label": "orientation" }
+  ],
+  "isolation": [
+    { "value": "isolation", "label": "Isolation" }
+  ],
+  "tableData": [
+    {
+      "general": "Directed 32%",
+      "subgroup": "Informal 10%"
+    },
+    {
+      "general": "Directed 30%",
+      "subgroup": "Informal 15%"
+    }
+  ]
+}

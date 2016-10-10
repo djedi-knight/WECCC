@@ -16,6 +16,7 @@ import { SharedOutcomesContainer } from './components/SharedOutcomes';
 import { ValueImpactContainer } from './components/ValueImpact';
 import { GISViewContainer } from './components/GISView';
 import { InteractiveSharedOutcomesContainer } from './components/InteractiveSharedOutcomes';
+import { CommunityPatternContainer } from './components/CommunityPattern';
 import { TestContainer } from './components/Test';
 
 // Setup store
@@ -44,6 +45,7 @@ const routes = (
       <Route path="value-impact" component={ValueImpactContainer} />
       <Route path="gis-view" component={GISViewContainer} />
       <Route path="interactive-shared-outcomes" component={InteractiveSharedOutcomesContainer} />
+      <Route path="community-pattern" component={CommunityPatternContainer} />
     </Route>
     <Route path="/public/test" component={PublicDashboardContainer}>
       <Route path="population-reach" component={PopulationReachContainer} testRoute />
@@ -54,6 +56,7 @@ const routes = (
       <Route path="value-impact" component={ValueImpactContainer} testRoute />
       <Route path="gis-view" component={GISViewContainer} testRoute />
       <Route path="interactive-shared-outcomes" component={InteractiveSharedOutcomesContainer} testRoute />
+      <Route path="community-pattern" component={CommunityPatternContainer} testRoute />
     </Route>
   </Route>
 );
