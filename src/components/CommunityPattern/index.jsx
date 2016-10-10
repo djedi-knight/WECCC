@@ -3,18 +3,19 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../actions/action_creators';
 import { VictoryPie } from 'victory/dist/victory';
-import {Row, Col } from 'react-flexbox-grid';
+import { Row, Col } from 'react-flexbox-grid';
 import { Dropdown } from 'react-toolbox';
 import data from './data.json';
 import ScoreBoxSimple from '../ScoreBoxSimple';
 import style from './style';
 
 const colorScale = [
-  '#D85F49',  
+  '#D85F49',
   '#D73C4C',
   '#FFAF59',
   '#E28300'
 ];
+
 const labelStyle = { labels: { fill: 'white', fontSize: 10, padding: 20 } };
 
 export const CommunityPattern = React.createClass({
@@ -37,7 +38,7 @@ export const CommunityPattern = React.createClass({
   handleChange3(value3) {
     this.setState({ value3 });
   },
-   handleChange4(value4) {
+  handleChange4(value4) {
     this.setState({ value4 });
   },
   render() {
@@ -69,41 +70,26 @@ export const CommunityPattern = React.createClass({
               value={this.state.value4}
             />
           </Col>
-          <Col xs={6}>          
+          <Col xs={6}>
             <div className={style.subHeader}>
               Your Community Pattern
-            </div>           
-            <VictoryPie padding={100}
-            labelRadius={50}
-            data={this.state.data.PieData}
-            colorScale={colorScale}
-            style={labelStyle}
-            // events={[{
-            //   target: "data",
-            //   eventHandlers: {
-            //     onClick: () => {
-            //       return [
-            //         {
-            //           mutation: (props) => {
-            //             return {
-            //               style: {fill: "orange"}
-            //             };
-            //           }
-            //         }
-            //       ];
-            //     }
-            //   }
-            // }]}
+            </div>
+            <VictoryPie
+              padding={100}
+              labelRadius={50}
+              data={this.state.data.pieData}
+              colorScale={colorScale}
+              style={labelStyle}
             />
-          </Col> 
+          </Col>
           <Col xs={3}>
-          <br/>
+            <br />
             <div className={style.reportTable}>
               <Row className={style.tableHeader}>
                 <Col xs={6}>General</Col>
                 <Col xs={6}>Subgroup</Col>
-              </Row>              
-              {this.state.data.TableData.map((row, i) =>
+              </Row>
+              {this.state.data.tableData.map((row, i) =>
                 <div key={i}>
                   <Row className={style.tableRow}>
                     <Col xs={6}>{row.general}</Col>
@@ -112,12 +98,12 @@ export const CommunityPattern = React.createClass({
                 </div>
               )}
             </div>
-          </Col>         
-        </Row>       
+          </Col>
+        </Row>
         <Row>
-          <Col xs={6}> 
-           <div className={style.subHeader}>Quality of Life</div>
-           <Row>       
+          <Col xs={6}>
+            <div className={style.subHeader}>Quality of Life</div>
+            <Row>
               <Col xs={4}>
                 <ScoreBoxSimple title={"Community"} score={"A+"} trend={"up"} />
               </Col>
@@ -141,22 +127,21 @@ export const CommunityPattern = React.createClass({
               <Col xs={4}>
                 <ScoreBoxSimple title={"Equity Gap"} score={"-10"} trend={"down"} />
               </Col>
-              </Row>
+            </Row>
           </Col>
-            </Row>
-            <div className={style.subHeader}>Reported Health</div>
-            <Row>
-              <Col xs={4}>
-                <ScoreBoxSimple title={"Community"} score={"C"} trend={"down"} />
-              </Col>
-              <Col xs={4}>
-                <ScoreBoxSimple title={"Subgroup"} score={"D"} trend={"down"} />
-              </Col>
-               <Col xs={4}>
-                <ScoreBoxSimple title={"Equity Gap"} score={"-20"} trend={"down"} />
-              </Col>
-            </Row>
-        
+        </Row>
+        <div className={style.subHeader}>Reported Health</div>
+        <Row>
+          <Col xs={4}>
+            <ScoreBoxSimple title={"Community"} score={"C"} trend={"down"} />
+          </Col>
+          <Col xs={4}>
+            <ScoreBoxSimple title={"Subgroup"} score={"D"} trend={"down"} />
+          </Col>
+          <Col xs={4}>
+            <ScoreBoxSimple title={"Equity Gap"} score={"-20"} trend={"down"} />
+          </Col>
+        </Row>
       </div>
     );
   }

@@ -16,8 +16,8 @@ import { SharedOutcomesContainer } from './components/SharedOutcomes';
 import { ValueImpactContainer } from './components/ValueImpact';
 import { GISViewContainer } from './components/GISView';
 import { InteractiveSharedOutcomesContainer } from './components/InteractiveSharedOutcomes';
-import { Test } from './components/Test';
 import { CommunityPatternContainer } from './components/CommunityPattern';
+import { Test } from './components/Test';
 
 // Setup store
 const store = makeStore();

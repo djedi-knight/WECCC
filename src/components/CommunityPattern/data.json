@@ -1,5 +1,5 @@
 {
-  "PieData": [
+  "pieData": [
     { "x" : "Self Help", "y" : 50.0 },
     { "x" : "Social Groups", "y" : 45.0 },
     { "x" : "Family", "y" : 60.0 },
@@ -30,7 +30,7 @@
   "isolation": [
     { "value": "isolation", "label": "Isolation" }
   ],
-  "TableData": [    
+  "tableData": [
     {
       "general": "Directed 32%",
       "subgroup": "Informal 10%"
