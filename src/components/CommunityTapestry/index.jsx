@@ -1,13 +1,11 @@
 import React from 'react';
 import Fetch from 'react-fetch';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { connect } from 'react-redux';
-import * as actionCreators from '../../actions/action_creators';
 import { Row, Col } from 'react-flexbox-grid';
+import { VictoryPie } from 'victory/dist/victory';
 import ScoreBoxSimple from '../ScoreBoxSimple';
 import style from './style';
-import data from './data.json';
-import { VictoryPie } from 'victory/dist/victory';
+import config from './config.json';
 
 export const CommunityTapestry = React.createClass({
   propTypes: {
@@ -17,13 +15,15 @@ export const CommunityTapestry = React.createClass({
   },
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { data };
+    return { config };
   },
   getPieChartFor(key) {
     if (this.props.pieCharts) {
       const index = this.props.pieCharts.findIndex(pieChart => pieChart.key === key);
+
       return this.props.pieCharts[index].data;
     }
+
     return [];
   },
   getSubGroupFor(key) {
@@ -32,6 +32,7 @@ export const CommunityTapestry = React.createClass({
 
       return this.props.scoreCards[index];
     }
+
     return {};
   },
   getScoreCardFor(subGroupKey, scoreCardKey) {
@@ -41,21 +42,10 @@ export const CommunityTapestry = React.createClass({
 
       return subGroup.list[index];
     }
+
     return {};
   },
   render() {
-    const labelStyle = { labels: { fill: 'white', fontSize: 9, padding: 50 } };
-    const colorScale = [
-      '#D85F49',
-      '#F66D3B',
-      '#D92E1D',
-      '#D73C4C',
-      '#FFAF59',
-      '#E28300',
-      '#F6A57F',
-      '#FF0000'
-    ];
-
     return (
       <div className={style.communityTapestry}>
         <div className={style.communityTapestryHeader}>
@@ -63,34 +53,27 @@ export const CommunityTapestry = React.createClass({
         </div>
         <div className={style.pieChartContainer}>
           <VictoryPie
-            style={labelStyle}
-            data={this.getPieChartFor('community-tapestry-pie-chart')}
-            colorScale={colorScale}
+            style={this.state.config.labelStyle}
+            data={this.getPieChartFor(this.state.config.keys.pieChart)}
+            colorScale={this.state.config.colourScale}
           />
         </div>
         <div className={style.subgroup}>
           <Row className={style.header}>
             <div className={style.title}>
-              {this.getSubGroupFor('return-on-investment').title}
+              {this.getSubGroupFor(this.state.config.keys.subGroup.key).title}
             </div>
           </Row>
           <Row className={style.body}>
-            <Col xs={3} />
-            <Col xs={3}>
-              <ScoreBoxSimple
-                title={this.getScoreCardFor('return-on-investment', 'social').title}
-                score={this.getScoreCardFor('return-on-investment', 'social').score}
-                trend={this.getScoreCardFor('return-on-investment', 'social').trend}
-              />
-            </Col>
-            <Col xs={3}>
-              <ScoreBoxSimple
-                title={this.getScoreCardFor('return-on-investment', 'economic').title}
-                score={this.getScoreCardFor('return-on-investment', 'economic').score}
-                trend={this.getScoreCardFor('return-on-investment', 'economic').trend}
-              />
-            </Col>
-            <Col xs={3} />
+            {this.state.config.keys.subGroup.scoreCards.map((scoreCard, x) =>
+              <Col key={x} xs={3}>
+                <ScoreBoxSimple
+                  title={this.getScoreCardFor(this.state.config.keys.subGroup.key, scoreCard).title}
+                  score={this.getScoreCardFor(this.state.config.keys.subGroup.key, scoreCard).score}
+                  trend={this.getScoreCardFor(this.state.config.keys.subGroup.key, scoreCard).trend}
+                />
+              </Col>
+            )}
           </Row>
         </div>
       </div>
@@ -98,27 +81,28 @@ export const CommunityTapestry = React.createClass({
   }
 });
 
-export const APIContainer = React.createClass({
+export const CommunityTapestryContainer = React.createClass({
+  propTypes: {
+    route: React.PropTypes.object
+  },
   mixins: [PureRenderMixin],
+  getInitialState() {
+    return { config };
+  },
+  getURL() {
+    if (this.props.route.testRoute) {
+      return this.state.config.testAPI;
+    }
+
+    return this.state.config.prodAPI;
+  },
   render() {
     return (
       <div>
-        <Fetch url="http://localhost:8090/api/pages/community-tapestry-test-page">
+        <Fetch url={this.getURL()}>
           <CommunityTapestry />
         </Fetch>
       </div>
     );
   }
 });
-
-function mapStateToProps(state) {
-  return {
-    test: 'Works!',
-    state
-  };
-}
-
-export const CommunityTapestryContainer = connect(
-  mapStateToProps,
-  actionCreators
-)(APIContainer);

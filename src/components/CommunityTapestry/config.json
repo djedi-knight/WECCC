@@ -1,0 +1,31 @@
+{
+  "prodAPI": "http://localhost:8090/api/pages/community-tapestry-page",
+  "testAPI": "http://localhost:8090/api/pages/community-tapestry-test-page",
+  "labelStyle": {
+    "labels": {
+      "fill": "white",
+      "fontSize": 9,
+      "padding": 50
+    }
+  },
+  "colourScale": [
+    "#D85F49",
+    "#F66D3B",
+    "#D92E1D",
+    "#D73C4C",
+    "#FFAF59",
+    "#E28300",
+    "#F6A57F",
+    "#FF0000"
+  ],
+  "keys": {
+    "pieChart": "community-tapestry-pie-chart",
+    "subGroup": {
+      "key": "return-on-investment",
+      "scoreCards": [
+        "social",
+        "economic"
+      ]
+    }
+  }
+}
