@@ -80,34 +80,63 @@ export const CommunityTapestry = React.createClass({
           {/*Pie Chart Container*/}
           <Col xs={6}>
             <div className={style.pieChartContainer}>
-              
-                  <VictoryPie
-                    labelRadius={120}
-                    padding={20}
-                    style={labelStyle}
-                    data={data}
-                    colorScale={colorScale} 
-                    events={[
+              <svg width={700} height={400} >
+                <VictorySharedEvents
+                events={[
                       {
                         childName: "pie",
                         target: "data",
                         eventHandlers: {
-                          onClick: () => { 
+                          onClick: () => {
                             console.log('chart clicked!');
                             this.testFunction();
                             return [
                               {
+                                childName: "bar",
                                 mutation: (props) => {
                                   console.log(props);
-                                  return this.tFunction();                           
+                                  return {style: {fill: "tomato"}};                           
                                 }
                               }
                             ];
                           }
                         }
                       }
-                    ]}           
+                    ]}>
+                  <VictoryPie
+                    name="pie"
+                    labelRadius={120}
+                    padding={20}
+                    style={labelStyle}
+                    data={data}
+                    standalone={false}
+                    colorScale={colorScale}            
                   />
+                  <VictoryChart 
+                    domainPadding={20} 
+                    name="chart" 
+                    standalone={false} 
+                    style={{stroke: {fill: "transparent"}}}>
+                    <VictoryBar                
+                      name="bar"
+                      data={barData}
+                      standalone={false}
+                      style={{data: {fill: "transparent"}}}
+                    />
+                    <VictoryAxis
+                      name="axis"
+                      standalone={false}
+                      width={700}
+                      height={400}  
+                      style={{axis: {stroke: "transparent"}, tickLabels:{fill: "transparent"}}}
+                    />
+                    <VictoryAxis dependentAxis
+                      standalone={false}
+                      style={{axis: {stroke: "transparent"}, tickLabels:{fill: "transparent"}}}
+                    /> 
+                  </VictoryChart>
+                </VictorySharedEvents>
+              </svg>
             </div>
           </Col>
         {/*Pie Chart Container End*/}
