@@ -37,23 +37,19 @@ const routes = (
     <Route path="/public" component={PublicDashboardContainer}>
       <Route path="population-reach" component={PopulationReachContainer} />
       <Route path="community-tapestry" component={CommunityTapestryContainer} />
-      {/* <Route path="vital-signs" component={VitalSignsContainer} /> */}
       <Route path="progress-tracker" component={ProgressTrackerContainer} />
       <Route path="shared-outcomes" component={SharedOutcomesContainer} />
       <Route path="value-impact" component={ValueImpactContainer} />
       <Route path="gis-view" component={GISViewContainer} />
-      {/* <Route path="interactive-shared-outcomes" component={InteractiveSharedOutcomesContainer} /> */}
       <Route path="community-pattern" component={CommunityPatternContainer} />
     </Route>
     <Route path="/public/test" component={PublicDashboardContainer}>
       <Route path="population-reach" component={PopulationReachContainer} testRoute />
       <Route path="community-tapestry" component={CommunityTapestryContainer} testRoute />
-      {/* <Route path="vital-signs" component={VitalSignsContainer} testRoute /> */}
       <Route path="progress-tracker" component={ProgressTrackerContainer} testRoute />
       <Route path="shared-outcomes" component={SharedOutcomesContainer} testRoute />
       <Route path="value-impact" component={ValueImpactContainer} testRoute />
       <Route path="gis-view" component={GISViewContainer} testRoute />
-      {/* <Route path="interactive-shared-outcomes" component={InteractiveSharedOutcomesContainer} testRoute /> */}
       <Route path="community-pattern" component={CommunityPatternContainer} testRoute />
     </Route>
   </Route>
