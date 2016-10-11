@@ -10,12 +10,10 @@ import { MyGroupsContainer } from './components/MyGroups';
 import { MyCommunityContainer } from './components/MyCommunity';
 import { PopulationReachContainer } from './components/PopulationReach';
 import { CommunityTapestryContainer } from './components/CommunityTapestry';
-import { VitalSignsContainer } from './components/VitalSigns';
 import { ProgressTrackerContainer } from './components/ProgressTracker';
 import { SharedOutcomesContainer } from './components/SharedOutcomes';
 import { ValueImpactContainer } from './components/ValueImpact';
 import { GISViewContainer } from './components/GISView';
-import { InteractiveSharedOutcomesContainer } from './components/InteractiveSharedOutcomes';
 import { CommunityPatternContainer } from './components/CommunityPattern';
 import { TestContainer } from './components/Test';
 
@@ -39,23 +37,23 @@ const routes = (
     <Route path="/public" component={PublicDashboardContainer}>
       <Route path="population-reach" component={PopulationReachContainer} />
       <Route path="community-tapestry" component={CommunityTapestryContainer} />
-      <Route path="vital-signs" component={VitalSignsContainer} />
+      {/* <Route path="vital-signs" component={VitalSignsContainer} /> */}
       <Route path="progress-tracker" component={ProgressTrackerContainer} />
       <Route path="shared-outcomes" component={SharedOutcomesContainer} />
       <Route path="value-impact" component={ValueImpactContainer} />
       <Route path="gis-view" component={GISViewContainer} />
-      <Route path="interactive-shared-outcomes" component={InteractiveSharedOutcomesContainer} />
+      {/* <Route path="interactive-shared-outcomes" component={InteractiveSharedOutcomesContainer} /> */}
       <Route path="community-pattern" component={CommunityPatternContainer} />
     </Route>
     <Route path="/public/test" component={PublicDashboardContainer}>
       <Route path="population-reach" component={PopulationReachContainer} testRoute />
       <Route path="community-tapestry" component={CommunityTapestryContainer} testRoute />
-      <Route path="vital-signs" component={VitalSignsContainer} testRoute />
+      {/* <Route path="vital-signs" component={VitalSignsContainer} testRoute /> */}
       <Route path="progress-tracker" component={ProgressTrackerContainer} testRoute />
       <Route path="shared-outcomes" component={SharedOutcomesContainer} testRoute />
       <Route path="value-impact" component={ValueImpactContainer} testRoute />
       <Route path="gis-view" component={GISViewContainer} testRoute />
-      <Route path="interactive-shared-outcomes" component={InteractiveSharedOutcomesContainer} testRoute />
+      {/* <Route path="interactive-shared-outcomes" component={InteractiveSharedOutcomesContainer} testRoute /> */}
       <Route path="community-pattern" component={CommunityPatternContainer} testRoute />
     </Route>
   </Route>
