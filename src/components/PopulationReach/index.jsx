@@ -10,6 +10,7 @@ import config from './config.json';
 
 export const PopulationReachSubgroups = React.createClass({
   propTypes: {
+    keys: React.PropTypes.array,
     scoreCards: React.PropTypes.array
   },
   mixins: [PureRenderMixin],
@@ -38,7 +39,7 @@ export const PopulationReachSubgroups = React.createClass({
   render() {
     return (
       <div className={style.populationReachSubgroups}>
-        {this.state.config.keys.subGroups.map((subGroup, x) =>
+        {this.props.keys.map((subGroup, x) =>
           <div key={x} className={style.subgroup}>
             <Row className={style.header}>
               <div className={style.title}>
@@ -110,13 +111,19 @@ export const PopulationReach = React.createClass({
               {this.state.config.emptyTabContent}
             </Tab>
             <Tab label={this.getLabelFor(this.state.config.keys.tabs[1])}>
-              <PopulationReachSubgroups scoreCards={this.props.scoreCards} />
+              <PopulationReachSubgroups
+                keys={this.state.config.keys.subGroups1}
+                scoreCards={this.props.scoreCards}
+              />
             </Tab>
             <Tab label={this.getLabelFor(this.state.config.keys.tabs[2])} disabled>
               {this.state.config.emptyTabContent}
             </Tab>
             <Tab label={this.getLabelFor(this.state.config.keys.tabs[3])}>
-              <PopulationReachSubgroups />
+              <PopulationReachSubgroups
+                keys={this.state.config.keys.subGroups2}
+                scoreCards={this.props.scoreCards}
+              />
             </Tab>
           </Tabs>
           <RegisteredCaregiversBox data={this.getInfoBoxFor(this.state.config.keys.registered)} />
@@ -139,7 +146,7 @@ export const PopulationReachContainer = React.createClass({
       return this.state.config.testAPI;
     }
 
-    return this.state.config.liveAPI;
+    return this.state.config.prodAPI;
   },
   render() {
     return (

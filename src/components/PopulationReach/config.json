@@ -1,5 +1,5 @@
 {
-  "liveAPI": "http://localhost:8090/api/pages/population-reach-page",
+  "prodAPI": "http://localhost:8090/api/pages/population-reach-page",
   "testAPI": "http://localhost:8090/api/pages/population-reach-test-page",
   "emptyTabContent": "Please select a tab to learn more",
   "keys": {
@@ -10,14 +10,14 @@
       "tab-3",
       "tab-4"
     ],
-    "subGroups": [{
-      "key": "priority-subgroup",
+    "subGroups1": [{
+      "key": "priority-subgroup-1",
       "scoreCards": [
         "over-80",
         "disabled"
       ]
     }, {
-      "key": "dependency-subgroup",
+      "key": "dependency-subgroup-1",
       "scoreCards": [
         "light",
         "moderate",
@@ -25,7 +25,29 @@
         "eol"
       ]
     }, {
-      "key": "registered-subgroup",
+      "key": "registered-subgroup-1",
+      "scoreCards": [
+        "care",
+        "outreach",
+        "neighbourhood"
+      ]
+    }],
+    "subGroups2": [{
+      "key": "priority-subgroup-2",
+      "scoreCards": [
+        "over-80",
+        "disabled"
+      ]
+    }, {
+      "key": "dependency-subgroup-2",
+      "scoreCards": [
+        "light",
+        "moderate",
+        "complex",
+        "eol"
+      ]
+    }, {
+      "key": "registered-subgroup-2",
       "scoreCards": [
         "care",
         "outreach",
