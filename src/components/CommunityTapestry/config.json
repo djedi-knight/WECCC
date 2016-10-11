@@ -1,6 +1,6 @@
 {
   "prodAPI": "http://localhost:8090/api/pages/community-tapestry-page",
-  "testAPI": "http://localhost:8090/api/pages/community-tapestry-test-page",
+  "demoAPI": "http://localhost:8090/api/pages/community-tapestry-demo-page",
   "labelStyle": {
     "labels": {
       "fill": "white",

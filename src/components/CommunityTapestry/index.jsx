@@ -90,8 +90,8 @@ export const CommunityTapestryContainer = React.createClass({
     return { config };
   },
   getURL() {
-    if (this.props.route.testRoute) {
-      return this.state.config.testAPI;
+    if (this.props.route.demoRoute) {
+      return this.state.config.demoAPI;
     }
 
     return this.state.config.prodAPI;

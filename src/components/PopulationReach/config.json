@@ -1,6 +1,6 @@
 {
   "prodAPI": "http://localhost:8090/api/pages/population-reach-page",
-  "testAPI": "http://localhost:8090/api/pages/population-reach-test-page",
+  "demoAPI": "http://localhost:8090/api/pages/population-reach-demo-page",
   "emptyTabContent": "Please select a tab to learn more",
   "keys": {
     "registered": "registered-caregivers",
