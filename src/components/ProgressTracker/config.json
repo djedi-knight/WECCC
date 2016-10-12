@@ -1,6 +1,6 @@
 {
-  "liveAPI": "http://localhost:8090/api/reports/progress-tracker-report",
-  "testAPI": "http://localhost:8090/api/reports/progress-tracker-test-report",
+  "prodAPI": "http://localhost:8090/api/reports/progress-tracker-report",
+  "demoAPI": "http://localhost:8090/api/reports/progress-tracker-demo-report",
   "tableHeaders": [
     "INDICATOR",
     "GOAL",
@@ -8,5 +8,24 @@
     "CHANGE",
     "TREND",
     "COLOURCODE"
-  ]
+  ],
+  "tooltips": {
+    "RED": {
+      "title": "High Risk",
+      "type": "error"
+    },
+    "YELLOW": {
+      "title": "Medium Risk",
+      "type": "warning"
+    },
+    "GREEN": {
+      "title": "Low Risk",
+      "type": "success"
+    }
+  },
+  "icons": {
+    "UP": "trending_up",
+    "DOWN": "trending_down",
+    "NONE": "arrow_forward"
+  }
 }

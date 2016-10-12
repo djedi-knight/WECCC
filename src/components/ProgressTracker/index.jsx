@@ -24,53 +24,27 @@ export const ProgressTracker = React.createClass({
     return [];
   },
   getTrend(row) {
-    if (row.trend === 'UP') {
-      return (
-        <Col xs={2}><FontIcon value="trending_up" /></Col>
-      );
-    } else if (row.trend === 'DOWN') {
-      return (
-        <Col xs={2}><FontIcon value="trending_down" /></Col>
-      );
-    } else if (row.trend === 'NONE') {
-      return (
-        <Col xs={2}><FontIcon value="arrow_forward" /></Col>
-      );
-    }
-
-    return null;
+    return (
+      <Col xs={2}>
+        <FontIcon value={this.state.config.icons[row.trend]} />
+      </Col>
+    );
   },
   getColourCode(row) {
-    if (row.colourCode === 'RED') {
-      return (
-        <div>
-          <a data-tip data-for="red">
-            <Col xs={2}><FontIcon style={{ color: row.colourCode }} value="lens" /></Col>
-          </a>
-          <ReactTooltip id="red" type="error" place="right" effect="float">High Risk</ReactTooltip>
-        </div>
-      );
-    } else if (row.colourCode === 'YELLOW') {
-      return (
-        <div>
-          <a data-tip data-for="yellow">
-            <Col xs={2}><FontIcon style={{ color: row.colourCode }} value="lens" /></Col>
-          </a>
-          <ReactTooltip id="yellow" type="warning" place="right" effect="float">Medium Risk</ReactTooltip>
-        </div>
-      );
-    } else if (row.colourCode === 'GREEN') {
-      return (
-        <div>
-          <a data-tip data-for="green">
-            <Col xs={2}><FontIcon style={{ color: row.colourCode }} value="lens" /></Col>
-          </a>
-          <ReactTooltip id="green" type="success" place="right" effect="float">Low Risk</ReactTooltip>
-        </div>
-      );
-    }
-
-    return null;
+    return (
+      <div>
+        <a data-tip data-for={row.colourCode}>
+          <Col xs={2}><FontIcon style={{ color: row.colourCode }} value="lens" /></Col>
+        </a>
+        <ReactTooltip
+          id={row.colourCode} type={this.state.config.tooltips[row.colourCode].type}
+          place="right"
+          effect="float"
+        >
+          {this.state.config.tooltips[row.colourCode].title}
+        </ReactTooltip>
+      </div>
+    );
   },
   render() {
     return (
@@ -111,11 +85,11 @@ export const ProgressTrackerContainer = React.createClass({
     return { config };
   },
   getURL() {
-    if (this.props.route.testRoute) {
-      return this.state.config.testAPI;
+    if (this.props.route.demoRoute) {
+      return this.state.config.demoAPI;
     }
 
-    return this.state.config.liveAPI;
+    return this.state.config.prodAPI;
   },
   render() {
     return (
