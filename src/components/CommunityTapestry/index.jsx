@@ -6,10 +6,11 @@ import { Row, Col } from 'react-flexbox-grid';
 import ScoreBoxSimple from '../ScoreBoxSimple';
 import style from './style';
 import data from './data.json';
-import { VictoryPie, VictoryTooltip, VictoryChart, VictoryBar, VictoryLine, VictorySharedEvents, VictoryAxis } from 'victory/dist/victory';
+import { VictoryPie } from 'victory/dist/victory';
 import ReactTooltip from 'react-tooltip';
 import { IconButton } from 'react-toolbox';
-import {ScoreBox } from '../ScoreBox';
+import { ScoreBox } from '../ScoreBox';
+import tableData from './tableData.json';
 
 const colorScale = [
   '#D85F49',
@@ -21,97 +22,90 @@ const colorScale = [
   '#F6A57F',
   '#FF0000'
 ];
-const lineData = [
-      {x: 1, y: 39},
-      {x: 2, y: 31},
-      {x: 3, y: 43},
-      {x: 4, y: 54},
-      {x: 5, y: 50}
-    ];
-    const barData = [
-      {x: 1, y: 39},
-      {x: 2, y: 31},
-      {x: 3, y: 43},
-      {x: 4, y: 54},
-      {x: 5, y: 50}
-    ];
+
 const labelStyle = { labels: { fill: 'white', fontSize: 18} };
 const dummyText = 'Lorem Ipsum Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium';
 
-
-
 export const CommunityTapestry = React.createClass({
   mixins: [PureRenderMixin],
+   getInitialState() {
+    return {
+      active: false,
+      tableData,
+      index: 0 
+    };
+  },
   testFunction() {
     console.log('test function called!');
   },
-  tFunction(){
-    return 
-    <div>
-       {/*Table Container*/}
-          <Col xs={6}>
-            <div>
-              <Row >
-                <Col xs={4}>Heading 1</Col>
-                <Col xs={4}>Heading 2</Col>
-                <Col xs={4}>Heading 3</Col>
-              </Row>
-              <div>
-                <Row>
-                  <Col xs={4}>Row 1.1</Col>
-                  <Col xs={4}>Row 1.2</Col>
-                  <Col xs={4}>Row 1.3</Col>               
-                </Row>
-              </div>  
-            </div>
-          </Col>
-        {/*Table Container End*/}
-    </div>
+  showTable(index) {
+    this.setState({ active: true, index });
   },
+  getTable(){
+    if(this.state.active){
+      return (
+        <div>        
+          {/*Table Container*/}             
+          <Row >
+            <Col xs={4}>Heading 1</Col>
+            <Col xs={4}>Heading 2</Col>
+            <Col xs={4}>Heading 3</Col>
+          </Row>
+          <div>
+            <Row>
+              <Col xs={4}>{this.state.tableData.data[this.state.index].Heading1}</Col>
+              <Col xs={4}>{this.state.tableData.data[this.state.index].Heading2}</Col>
+              <Col xs={4}>{this.state.tableData.data[this.state.index].Heading3}</Col>               
+            </Row>
+          </div>        
+          {/*Table Container End*/}
+        </div>        
+      );
+    }
+    return null;    
+  },
+
   render() {
     return (
       <div className={style.communityTapestry}>
-      <Row>
-        <div className={style.communityTapestryHeader}>
-          Community Tapestry
-        </div>
+        <Row>
+          <div className={style.communityTapestryHeader}>
+            Community Tapestry
+          </div>
         </Row>
         <Row>
           {/*Pie Chart Container*/}
-          <Col xs={6}>
-            <div className={style.pieChartContainer}>
-              
-                  <VictoryPie
-                    labelRadius={120}
-                    padding={20}
-                    style={labelStyle}
-                    data={data}
-                    colorScale={colorScale} 
-                    events={[
-                      {
-                        childName: "pie",
-                        target: "data",
-                        eventHandlers: {
-                          onClick: () => { 
-                            console.log('chart clicked!');
-                            this.testFunction();
-                            return [
-                              {
-                                mutation: (props) => {
-                                  console.log(props);
-                                  return this.tFunction();                           
-                                }
-                              }
-                            ];
+            <div className={style.pieChartContainer}>              
+              <VictoryPie
+                labelRadius={120}
+                padding={20}
+                style={labelStyle}
+                data={data}
+                colorScale={colorScale} 
+                events={[
+                  {
+                    target: "data",
+                    eventHandlers: {
+                      onClick: () => { 
+                        console.log('chart clicked!');
+                        this.testFunction();
+                        return [
+                          {
+                            mutation: (props) => {
+                              console.log(props.index);
+                              this.showTable(props.index);                           
+                            }
                           }
-                        }
+                        ];
                       }
-                    ]}           
-                  />
+                    }
+                  }
+                ]}           
+              />
             </div>
-          </Col>
-        {/*Pie Chart Container End*/}
-          
+          {/*Pie Chart Container End*/}  
+          {this.getTable()}
+
         </Row>
         <div className={style.subgroup}>
           <Row className={style.header}>
