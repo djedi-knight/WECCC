@@ -7,23 +7,29 @@ import { VictoryPie, VictoryLabel } from 'victory/dist/victory';
 import ScoreBoxSimple from '../ScoreBoxSimple';
 import AreasOfFocusSidebar from '../AreasOfFocusSidebar';
 import style from './style';
-import data from './data.json';
 import config from './config.json';
 
 export const ValueImpact = React.createClass({
   propTypes: {
     title: React.PropTypes.string,
+    pieCharts: React.PropTypes.array,
     scoreCards: React.PropTypes.array
   },
   mixins: [PureRenderMixin],
   getInitialState() {
     return {
-      value: 'light',
-      value2: 'london',
-      value3: 'faith',
-      data,
+      currentSelection: config.selectionList[0].value,
       config
     };
+  },
+  getPieChartFor(key) {
+    if (this.props.pieCharts) {
+      const index = this.props.pieCharts.findIndex(pieChart => pieChart.key === key);
+
+      return this.props.pieCharts[index].data;
+    }
+
+    return [];
   },
   getSubGroupFor(key) {
     if (this.props.scoreCards) {
@@ -44,14 +50,8 @@ export const ValueImpact = React.createClass({
 
     return {};
   },
-  handleChange(value) {
-    this.setState({ value });
-  },
-  handleChange2(value2) {
-    this.setState({ value2 });
-  },
-  handleChange3(value3) {
-    this.setState({ value3 });
+  handleSelectionChange(newSelection) {
+    this.setState({ currentSelection: newSelection });
   },
   render() {
     return (
@@ -62,22 +62,12 @@ export const ValueImpact = React.createClass({
         <Row>
           <Col xs={3}>
             <div className={style.subHeader}>
-              {this.state.config.filterSectionTitle}
+              {this.state.config.selectionTitle}
             </div>
             <Dropdown
-              onChange={this.handleChange}
-              source={this.state.data.careNeeds}
-              value={this.state.value}
-            />
-            <Dropdown
-              onChange={this.handleChange2}
-              source={this.state.data.city}
-              value={this.state.value2}
-            />
-            <Dropdown
-              onChange={this.handleChange3}
-              source={this.state.data.subgroup}
-              value={this.state.value3}
+              onChange={this.handleSelectionChange}
+              source={this.state.config.selectionList}
+              value={this.state.currentSelection}
             />
           </Col>
           <Col xs={6}>
@@ -86,7 +76,7 @@ export const ValueImpact = React.createClass({
             </div>
             <VictoryPie
               style={this.state.config.labelStyle}
-              data={this.state.data.PieData}
+              data={this.getPieChartFor(this.state.currentSelection)}
               colorScale={this.state.config.colourScale}
             >
               <VictoryLabel />
