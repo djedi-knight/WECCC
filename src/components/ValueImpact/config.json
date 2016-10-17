@@ -21,14 +21,10 @@
     "#F6A57F",
     "#FF0000"
   ],
-  "selectionList": [
-    { "value": "value-impact-pie-chart-1", "label": "Selection #1" },
-    { "value": "value-impact-pie-chart-2", "label": "Selection #2" }
-  ],
   "keys": {
-    "pieCharts": [
-      "value-impact-pie-chart-1",
-      "value-impact-pie-chart-2"
+    "selections": [
+      { "value": "value-impact-pie-chart-1", "label": "Selection #1" },
+      { "value": "value-impact-pie-chart-2", "label": "Selection #2" }
     ],
     "subGroup": {
       "key": "return-on-investment",

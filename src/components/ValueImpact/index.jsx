@@ -18,7 +18,7 @@ export const ValueImpact = React.createClass({
   mixins: [PureRenderMixin],
   getInitialState() {
     return {
-      currentSelection: config.selectionList[0].value,
+      currentSelection: config.keys.selections[0].value,
       config
     };
   },
@@ -66,7 +66,7 @@ export const ValueImpact = React.createClass({
             </div>
             <Dropdown
               onChange={this.handleSelectionChange}
-              source={this.state.config.selectionList}
+              source={this.state.config.keys.selections}
               value={this.state.currentSelection}
             />
           </Col>
