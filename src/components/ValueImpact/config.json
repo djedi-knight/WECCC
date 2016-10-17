@@ -1,0 +1,37 @@
+{
+  "prodAPI": "http://localhost:8090/api/pages/value-impact-page",
+  "demoAPI": "http://localhost:8090/api/pages/value-impact-demo-page",
+  "filterSectionTitle": "Population Subgroup",
+  "chartSectionTitle": "Your Community Pattern",
+  "sidebarTitle": "Things To Consider",
+  "labelStyle": {
+    "labels": {
+      "fill": "white",
+      "fontSize": 9,
+      "padding": 50
+    }
+  },
+  "colourScale": [
+    "#D85F49",
+    "#F66D3B",
+    "#D92E1D",
+    "#D73C4C",
+    "#FFAF59",
+    "#E28300",
+    "#F6A57F",
+    "#FF0000"
+  ],
+  "keys": {
+    "pieCharts": [
+      "value-impact-pie-chart-1",
+      "value-impact-pie-chart-2"
+    ],
+    "subGroup": {
+      "key": "return-on-investment",
+      "scoreCards": [
+        "social",
+        "economic"
+      ]
+    }
+  }
+}
