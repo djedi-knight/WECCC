@@ -6,8 +6,8 @@ import { Dropdown } from 'react-toolbox';
 import { VictoryPie, VictoryLabel } from 'victory/dist/victory';
 import ScoreBoxSimple from '../ScoreBoxSimple';
 import AreasOfFocusSidebar from '../AreasOfFocusSidebar';
-import style from './style';
 import config from './config.json';
+import style from './style';
 
 export const ValueImpact = React.createClass({
   propTypes: {

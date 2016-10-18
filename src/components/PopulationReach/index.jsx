@@ -5,8 +5,8 @@ import { Tab, Tabs } from 'react-toolbox';
 import { Row, Col } from 'react-flexbox-grid';
 import ScoreBoxSimple from '../ScoreBoxSimple';
 import RegisteredCaregiversBox from '../RegisteredCaregiversBox';
-import style from './style';
 import config from './config.json';
+import style from './style';
 
 export const PopulationReachSubgroups = React.createClass({
   propTypes: {

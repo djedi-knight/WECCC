@@ -4,8 +4,8 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { FontIcon } from 'react-toolbox';
 import { Row, Col } from 'react-flexbox-grid';
 import ReactTooltip from 'react-tooltip';
-import style from './style';
 import config from './config.json';
+import style from './style';
 
 export const ProgressTracker = React.createClass({
   propTypes: {

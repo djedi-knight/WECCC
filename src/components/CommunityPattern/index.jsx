@@ -1,22 +1,13 @@
 import React from 'react';
+import Fetch from 'react-fetch';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { connect } from 'react-redux';
-import * as actionCreators from '../../actions/action_creators';
 import { VictoryPie } from 'victory/dist/victory';
 import { Row, Col } from 'react-flexbox-grid';
 import { Dropdown } from 'react-toolbox';
 import data from './data.json';
 import ScoreBoxSimple from '../ScoreBoxSimple';
+import config from './config.json';
 import style from './style';
-
-const colorScale = [
-  '#D85F49',
-  '#D73C4C',
-  '#FFAF59',
-  '#E28300'
-];
-
-const labelStyle = { labels: { fill: 'white', fontSize: 10, padding: 20 } };
 
 export const CommunityPattern = React.createClass({
   mixins: [PureRenderMixin],
@@ -26,7 +17,8 @@ export const CommunityPattern = React.createClass({
       value2: 'gender',
       value3: 'orientation',
       value4: 'isolation',
-      data
+      data,
+      config
     };
   },
   handleChange(value) {
@@ -78,8 +70,8 @@ export const CommunityPattern = React.createClass({
               padding={100}
               labelRadius={50}
               data={this.state.data.pieData}
-              colorScale={colorScale}
-              style={labelStyle}
+              colorScale={this.state.config.colourScale}
+              style={this.state.config.labelStyle}
             />
           </Col>
           <Col xs={3}>
@@ -147,14 +139,28 @@ export const CommunityPattern = React.createClass({
   }
 });
 
-function mapStateToProps(state) {
-  return {
-    test: 'Works!',
-    state
-  };
-}
+export const CommunityPatternContainer = React.createClass({
+  propTypes: {
+    route: React.PropTypes.object
+  },
+  mixins: [PureRenderMixin],
+  getInitialState() {
+    return { config };
+  },
+  getURL() {
+    if (this.props.route.demoRoute) {
+      return this.state.config.demoAPI;
+    }
 
-export const CommunityPatternContainer = connect(
-  mapStateToProps,
-  actionCreators
-)(CommunityPattern);
+    return this.state.config.prodAPI;
+  },
+  render() {
+    return (
+      <div>
+        <Fetch url={this.getURL()}>
+          <CommunityPattern />
+        </Fetch>
+      </div>
+    );
+  }
+});

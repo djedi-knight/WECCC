@@ -4,8 +4,8 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { Row, Col } from 'react-flexbox-grid';
 import { VictoryPie } from 'victory/dist/victory';
 import ScoreBoxSimple from '../ScoreBoxSimple';
-import style from './style';
 import config from './config.json';
+import style from './style';
 
 export const CommunityTapestry = React.createClass({
   propTypes: {
