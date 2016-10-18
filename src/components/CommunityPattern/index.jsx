@@ -8,13 +8,7 @@ import { Dropdown } from 'react-toolbox';
 import data from './data.json';
 import ScoreBoxSimple from '../ScoreBoxSimple';
 import style from './style';
-
-const colorScale = [
-  '#D85F49',
-  '#D73C4C',
-  '#FFAF59',
-  '#E28300'
-];
+import tableData from './tableData.json';
 
 const labelStyle = { labels: { fill: 'white', fontSize: 10, padding: 20 } };
 
@@ -26,7 +20,9 @@ export const CommunityPattern = React.createClass({
       value2: 'gender',
       value3: 'orientation',
       value4: 'isolation',
-      data
+      data,
+      index: 0,
+      tableData
     };
   },
   handleChange(value) {
@@ -41,12 +37,44 @@ export const CommunityPattern = React.createClass({
   handleChange4(value4) {
     this.setState({ value4 });
   },
+  testFunction() {
+    console.log('test function called!');
+  },
+  showTable(index) {
+    this.setState({ active: true, index });
+  },
+  getTable(){
+    if(this.state.active){
+      return (
+        <div>        
+          {/*Table Container*/}
+          <div className={style.reportTable}>
+            <Row className={style.tableHeader}>
+              <Col xs={6}>General</Col>
+              <Col xs={6}>Subgroup</Col>
+            </Row>
+            <div>
+              <Row className={style.tableRow}>
+                <Col xs={6}>{this.state.tableData.data[this.state.index].general}</Col>
+                <Col xs={6}>{this.state.tableData.data[this.state.index].subgroup}</Col>
+              </Row>
+            </div>
+          </div>
+          {/*Table Container End*/}
+        </div>        
+      );
+    }
+    return null;    
+  },
   render() {
     return (
       <div className={style.communityPattern}>
+        <div className={style.header}>
+          Community Pattern
+        </div>
         <Row>
           <Col xs={3}>
-            <div>
+            <div className={style.subHeader}>
               Population Subgroup
             </div>
             <Dropdown
@@ -78,26 +106,35 @@ export const CommunityPattern = React.createClass({
               padding={100}
               labelRadius={50}
               data={this.state.data.pieData}
-              colorScale={colorScale}
+              colorScale={this.state.data.colorScale}
               style={labelStyle}
+              events={[
+                  {
+                    target: "data",
+                    eventHandlers: {
+                      onClick: () => { 
+                        console.log('chart clicked!');
+                        this.testFunction();
+                        return [
+                          {
+                            mutation: (props) => {
+                              console.log(props.index);
+                              this.showTable(props.index);                           
+                            }
+                          }
+                        ];
+                      }
+                    }
+                  }
+                ]} 
             />
           </Col>
           <Col xs={3}>
-            <br />
-            <div className={style.reportTable}>
-              <Row className={style.tableHeader}>
-                <Col xs={6}>General</Col>
-                <Col xs={6}>Subgroup</Col>
-              </Row>
-              {this.state.data.tableData.map((row, i) =>
-                <div key={i}>
-                  <Row className={style.tableRow}>
-                    <Col xs={6}>{row.general}</Col>
-                    <Col xs={6}>{row.subgroup}</Col>
-                  </Row>
-                </div>
-              )}
+            <div className={style.subHeader}>
+              Section Breakdown
             </div>
+            <br/>
+            {this.getTable()}
           </Col>
         </Row>
         <Row>
