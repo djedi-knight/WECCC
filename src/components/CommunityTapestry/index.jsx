@@ -24,8 +24,7 @@ const colorScale = [
 ];
 
 const labelStyle = { labels: { fill: 'white', fontSize: 18} };
-const dummyText = 'Lorem Ipsum Sed ut perspiciatis, unde omnis iste natus error sit voluptatem accusantium doloremque laudantium';
-
+const dummyText = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere gravida nibh sagittis rutrum. Nam porttitor ante id luctus interdum. Aenean consequat magna eu semper egestas. Sed varius id ex ut gravida. Donec eget eros nec augue luctus luctus. Sed nec elit nibh. Donec ac libero a mauris tempor molestie.'
 export const CommunityTapestry = React.createClass({
   mixins: [PureRenderMixin],
    getInitialState() {
@@ -45,13 +44,10 @@ export const CommunityTapestry = React.createClass({
     if(this.state.active){
       return (
         <div>
-          <div className={style.subgroup}>
-            <Row className={style.header}>
-              <div className={style.title}>
-                Section Breakdown
-              </div>
-            </Row>
+          <div className={style.subHeader}>
+            Section Breakdown
           </div>
+          <br/>
             <div className={style.reportTable}>        
               {/*Table Container*/}             
                 <Row className={style.tableHeader}>
@@ -79,30 +75,23 @@ export const CommunityTapestry = React.createClass({
       <div className={style.communityTapestry}>
         <div className={style.header}>
           Community Tapestry
-        </div>        
+        </div> 
+        <div className={style.subgroup}>
+          <Row className={style.header}>
+            <div className={style.title}>
+              Description Text
+            </div>
+          </Row>
+          <Row >
+            <div className={style.descriptionText}>
+              <br/>
+              {dummyText}                  
+            </div>
+          </Row>
+        </div>
         <Row>
-          <Col xs={4}>
-            <div className={style.subgroup}>
-              <Row className={style.header}>
-                <div className={style.title}>
-                  Description Text
-                </div>
-              </Row>
-              <Row className={style.body}>
-                <div className={style.descriptionText}>
-                  {dummyText}
-                </div>
-              </Row>
-            </div>
-          </Col>
-          <Col xs={4}>
-            <div className={style.subgroup}>
-              <Row className={style.header}>
-                <div className={style.title}>
-                  Your Community Tapestry
-                </div>
-              </Row>
-            </div>
+        <Col xs={2}/> 
+          <Col xs={5}>            
             {/*Pie Chart Container*/}                            
                 <VictoryPie
                   labelRadius={120}
@@ -135,6 +124,7 @@ export const CommunityTapestry = React.createClass({
           <Col xs={4}>          
             {this.getTable()}
           </Col>
+          <Col xs={1}/> 
         </Row>
        
         <div className={style.subgroup}>
