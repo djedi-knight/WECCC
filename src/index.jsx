@@ -15,6 +15,7 @@ import { PopulationReachContainer } from './components/PopulationReach';
 import { ProgressTrackerContainer } from './components/ProgressTracker';
 import { SharedOutcomesContainer } from './components/SharedOutcomes';
 import { ValueImpactContainer } from './components/ValueImpact';
+import { VitalSignsContainer } from './components/VitalSigns';
 
 import { TestContainer } from './components/Test';
 
@@ -43,6 +44,7 @@ const routes = (
       <Route path="progress-tracker" component={ProgressTrackerContainer} />
       <Route path="shared-outcomes" component={SharedOutcomesContainer} />
       <Route path="value-impact" component={ValueImpactContainer} />
+      <Route path="vital-signs" component={VitalSignsContainer} />
     </Route>
     <Route path="/public/demo" component={PublicDashboardContainer}>
       <Route path="community-pattern" component={CommunityPatternContainer} demoRoute />
@@ -52,6 +54,7 @@ const routes = (
       <Route path="progress-tracker" component={ProgressTrackerContainer} demoRoute />
       <Route path="shared-outcomes" component={SharedOutcomesContainer} demoRoute />
       <Route path="value-impact" component={ValueImpactContainer} demoRoute />
+      <Route path="vital-signs" component={VitalSignsContainer} demoRoute />
     </Route>
   </Route>
 );
