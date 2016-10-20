@@ -112,7 +112,7 @@ export const PopulationReach = React.createClass({
             </Tab>
             <Tab label={this.getLabelFor(this.state.config.keys.tabs[1])}>
               <PopulationReachSubgroups
-                keys={this.state.config.keys.subGroups1}
+                keys={this.state.config.keys.subGroups[0]}
                 scoreCards={this.props.scoreCards}
               />
             </Tab>
@@ -121,7 +121,7 @@ export const PopulationReach = React.createClass({
             </Tab>
             <Tab label={this.getLabelFor(this.state.config.keys.tabs[3])}>
               <PopulationReachSubgroups
-                keys={this.state.config.keys.subGroups2}
+                keys={this.state.config.keys.subGroups[1]}
                 scoreCards={this.props.scoreCards}
               />
             </Tab>
