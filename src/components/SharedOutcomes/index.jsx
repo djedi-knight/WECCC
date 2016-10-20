@@ -94,8 +94,8 @@ export const SharedOutcomes = React.createClass({
 
     return {};
   },
-  selectSubgroup(selectedSubgroup) {
-    this.setState({ selectedSubgroup });
+  handleSelectionChange(newSelection) {
+    this.setState({ selectedSubgroup: newSelection });
   },
   render() {
     return (
@@ -103,7 +103,7 @@ export const SharedOutcomes = React.createClass({
         <div className={style.sharedOutcomesHeader}>
           {this.props.title}
         </div>
-        <RadioGroup value={this.state.selectedSubgroup} onChange={this.selectSubgroup}>
+        <RadioGroup value={this.state.selectedSubgroup} onChange={this.handleSelectionChange}>
           {this.state.config.keys.radioButtons.map((radioButton, x) =>
             <RadioButton key={x} label={this.getSubGroupFor(radioButton).title} value={radioButton} />
           )}

@@ -9,9 +9,22 @@ import style from './style';
 
 export const VitalSignsSubgroup = React.createClass({
   propTypes: {
+    subGroup: React.PropTypes.string,
     scoreCards: React.PropTypes.array
   },
   mixins: [PureRenderMixin],
+  getInitialState() {
+    return { config };
+  },
+  getKeysFor(subGroupKey) {
+    if (this.state.config) {
+      const index = this.state.config.keys.subGroups.findIndex(subGroup => subGroup.key === subGroupKey);
+
+      return this.state.config.keys.subGroups[index];
+    }
+
+    return [];
+  },
   getSubGroupFor(key) {
     if (this.props.scoreCards) {
       const index = this.props.scoreCards.findIndex(subGroup => subGroup.key === key);
@@ -35,47 +48,16 @@ export const VitalSignsSubgroup = React.createClass({
     return (
       <div style={style.vitalSignsSubgroups}>
         <Row className={style.body}>
-          <Col xs={2}>
-            <ScoreBoxSimple
-              title={this.getScoreCardFor('vital-signs-subgroup', 'government').title}
-              score={this.getScoreCardFor('vital-signs-subgroup', 'government').score}
-              trend={this.getScoreCardFor('vital-signs-subgroup', 'government').trend}
-            />
-          </Col>
-          <Col xs={2}>
-            <ScoreBoxSimple
-              title={this.getScoreCardFor('vital-signs-subgroup', 'safety').title}
-              score={this.getScoreCardFor('vital-signs-subgroup', 'safety').score}
-              trend={this.getScoreCardFor('vital-signs-subgroup', 'safety').trend}
-            />
-          </Col>
-          <Col xs={2}>
-            <ScoreBoxSimple
-              title={this.getScoreCardFor('vital-signs-subgroup', 'arts-culture').title}
-              score={this.getScoreCardFor('vital-signs-subgroup', 'arts-culture').score}
-              trend={this.getScoreCardFor('vital-signs-subgroup', 'arts-culture').trend}
-            />
-          </Col>
-          <Col xs={2}>
-            <ScoreBoxSimple
-              title={this.getScoreCardFor('vital-signs-subgroup', 'transportation').title}
-              score={this.getScoreCardFor('vital-signs-subgroup', 'transportation').score}
-              trend={this.getScoreCardFor('vital-signs-subgroup', 'transportation').trend}
-            />
-          </Col>
-          <Col xs={2}>
-            <ScoreBoxSimple
-              title={this.getScoreCardFor('vital-signs-subgroup', 'government').title}
-              score={this.getScoreCardFor('vital-signs-subgroup', 'government').score}
-              trend={this.getScoreCardFor('vital-signs-subgroup', 'government').trend}
-            />
-          </Col>
+          {this.getKeysFor(this.props.subGroup).scoreCards.map((scoreCard, x) =>
+            <Col key={x} xs={2}>
+              <ScoreBoxSimple
+                title={this.getScoreCardFor(this.props.subGroup, scoreCard).title}
+                score={this.getScoreCardFor(this.props.subGroup, scoreCard).score}
+                trend={this.getScoreCardFor(this.props.subGroup, scoreCard).trend}
+              />
+            </Col>
+          )}
         </Row>
-        <div className={style.vitalSignsReportLink}>
-          <a href={this.state.config.reportLink.href}>
-            {this.state.config.reportLink.title}
-          </a>
-        </div>
       </div>
     );
   }
@@ -84,12 +66,14 @@ export const VitalSignsSubgroup = React.createClass({
 export const VitalSigns = React.createClass({
   propTypes: {
     title: React.PropTypes.string,
-    pieCharts: React.PropTypes.array,
     scoreCards: React.PropTypes.array
   },
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { value: 'vital-signs' };
+    return {
+      selectedSubgroup: config.keys.radioButtons[0],
+      config
+    };
   },
   getSubGroupFor(key) {
     if (this.props.scoreCards) {
@@ -100,8 +84,8 @@ export const VitalSigns = React.createClass({
 
     return {};
   },
-  handleChange(value) {
-    this.setState({ value });
+  handleSelectionChange(newSelection) {
+    this.setState({ selectedSubgroup: newSelection });
   },
   render() {
     return (
@@ -109,18 +93,25 @@ export const VitalSigns = React.createClass({
         <div className={style.vitalSignsHeader}>
           {this.props.title}
         </div>
-        <RadioGroup name="comic" value={this.state.value} onChange={this.handleChange}>
-          <RadioButton label={this.getSubGroupFor('vital-signs-subgroup').title} value="vital-signs" />
-          <RadioButton label={this.getSubGroupFor('self-reported-subgroup').title} value="self-reported" />
+        <RadioGroup value={this.state.selectedSubgroup} onChange={this.handleSelectionChange}>
+          {this.state.config.keys.radioButtons.map((radioButton, x) =>
+            <RadioButton key={x} label={this.getSubGroupFor(radioButton).title} value={radioButton} />
+          )}
         </RadioGroup>
-        {this.state.value === 'vital-signs' ?
-          <VitalSignsSubgroup scoreCards={this.props.scoreCards} />
-          : null
-        }
-        {this.state.value === 'self-reported' ?
-          <VitalSignsSubgroup />
-          : null
-        }
+        {this.state.config.keys.radioButtons.map((radioButton, x) => (
+          this.state.selectedSubgroup === radioButton ?
+            <VitalSignsSubgroup
+              key={x}
+              subGroup={radioButton}
+              scoreCards={this.props.scoreCards}
+            />
+            : null
+        ))}
+        <div className={style.vitalSignsReportLink}>
+          <a href={this.state.config.reportLink.href}>
+            {this.state.config.reportLink.title}
+          </a>
+        </div>
       </div>
     );
   }
