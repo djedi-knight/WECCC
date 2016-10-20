@@ -1,22 +1,17 @@
 import React from 'react';
 import Fetch from 'react-fetch';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { connect } from 'react-redux';
-import * as actionCreators from '../../actions/action_creators';
 import { RadioButton, RadioGroup } from 'react-toolbox';
 import { Row, Col } from 'react-flexbox-grid';
 import ScoreBoxSimple from '../ScoreBoxSimple';
+import config from './config.json';
 import style from './style';
-import data from './data.json';
 
 export const VitalSignsSubgroup = React.createClass({
   propTypes: {
     scoreCards: React.PropTypes.array
   },
   mixins: [PureRenderMixin],
-  getInitialState() {
-    return { data };
-  },
   getSubGroupFor(key) {
     if (this.props.scoreCards) {
       const index = this.props.scoreCards.findIndex(subGroup => subGroup.key === key);
@@ -37,8 +32,6 @@ export const VitalSignsSubgroup = React.createClass({
     return {};
   },
   render() {
-    const vitalSignsLinkText = 'Vital-Signs Report';
-
     return (
       <div style={style.vitalSignsSubgroups}>
         <Row className={style.body}>
@@ -79,7 +72,9 @@ export const VitalSignsSubgroup = React.createClass({
           </Col>
         </Row>
         <div className={style.vitalSignsReportLink}>
-          <a href="#">{vitalSignsLinkText}</a>
+          <a href={this.state.config.reportLink.href}>
+            {this.state.config.reportLink.title}
+          </a>
         </div>
       </div>
     );
@@ -131,27 +126,28 @@ export const VitalSigns = React.createClass({
   }
 });
 
-export const APIContainer = React.createClass({
+export const VitalSignsContainer = React.createClass({
+  propTypes: {
+    route: React.PropTypes.object
+  },
   mixins: [PureRenderMixin],
+  getInitialState() {
+    return { config };
+  },
+  getURL() {
+    if (this.props.route.demoRoute) {
+      return this.state.config.demoAPI;
+    }
+
+    return this.state.config.prodAPI;
+  },
   render() {
     return (
       <div>
-        <Fetch url="http://localhost:8090/api/pages/vital-signs-test-page">
+        <Fetch url={this.getURL()}>
           <VitalSigns />
         </Fetch>
       </div>
     );
   }
 });
-
-function mapStateToProps(state) {
-  return {
-    test: 'Works!',
-    state
-  };
-}
-
-export const VitalSignsContainer = connect(
-  mapStateToProps,
-  actionCreators
-)(APIContainer);

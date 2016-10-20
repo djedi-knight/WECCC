@@ -1,0 +1,29 @@
+{
+  "prodAPI": "http://localhost:8090/api/pages/vital-signs-page",
+  "demoAPI": "http://localhost:8090/api/pages/vital-signs-demo-page",
+  "reportLink": {
+    "title": "Vital Signs Report",
+    "href": "#"
+  },
+  "keys": {
+    "subGroups": [{
+      "key": "vital-signs-subgroup",
+      "scoreCards": [
+        "government",
+        "safety",
+        "arts-culture",
+        "transportation",
+        "food-security"
+      ]
+    }, {
+      "key": "self-reported-subgroup",
+      "scoreCards": [
+        "government",
+        "safety",
+        "arts-culture",
+        "transportation",
+        "food-security"
+      ]
+    }]
+  }
+}
