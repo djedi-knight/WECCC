@@ -1,7 +1,12 @@
 .gisPage {
-  .gisPageHeader {
-    background: #e7f6ed;
+  .header {
+    background: $light;
     height: 90px;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    color: $dark;
+    border-bottom: solid 2px darken($light, 5%);
   }
 
   .mapView {

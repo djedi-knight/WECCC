@@ -2,11 +2,15 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { connect } from 'react-redux';
 import * as actionCreators from '../../actions/action_creators';
-import { RadioButton, RadioGroup, FontIcon } from 'react-toolbox';
-import { Map, Popup, TileLayer, Polygon } from 'react-leaflet';
+import { RadioButton, RadioGroup, FontIcon, Dropdown } from 'react-toolbox';
+import { Map, TileLayer, GeoJson } from 'react-leaflet';
 import { Row, Col } from 'react-flexbox-grid';
 import style from './style';
 import data from './data.json';
+import PilotData from './PilotData.json';
+import choropleth from './choropleth.jsx';
+
+
 
 export const GISSubgroups = React.createClass({
   mixins: [PureRenderMixin],
@@ -33,59 +37,36 @@ export const GISView = React.createClass({
   mixins: [PureRenderMixin],
   getInitialState() {
     return {
-      zoom: 13,
-      value: null,
+      zoom: 12,
+      value: "religion",
       data
     };
   },
   handleChange(value) {
-    this.setState({ value });
+    this.setState({ value: value });
   },
   render() {
     return (
       <div className={style.gisPage}>
-        <div className={style.gisPageHeader}>
+        <div className={style.header}>
           Leamington Pilot
         </div>
         <br />
         <Row>
           <Col xs={2}>
-            <RadioGroup name="gis" value={this.state.value} onChange={this.handleChange}>
-              <RadioButton label="WECCC Partners" value="wecccpartners" />
-              <RadioButton label="Social Networks" value="socialNetworks" />
-              <RadioButton label="Equity" value="equity" />
-            </RadioGroup>
-            <br />
-            <div>
-              {this.state.value === 'wecccpartners' ? <GISSubgroups /> : null}
-              {this.state.value === 'socialNetworks' ? <GISSubgroups /> : null}
-              {this.state.value === 'equity' ? <GISSubgroups /> : null}
-            </div>
+           <Dropdown
+              auto
+              onChange={this.handleChange}
+              source={this.state.data.dropdown}
+              value={this.state.value}
+            />
           </Col>
           <Col xs={8}>
             <div className={style.mapView}>
-              <Map center={this.state.data.map} zoom={this.state.zoom}>
-                <TileLayer url={'http://{s}.tile.osm.org/{z}/{x}/{y}.png'} />
-                 {/* <Marker position={position}>
-                    <Popup>
-                      <span>A pretty CSS3 popup. </span>
-                    </Popup>
-                  </Marker>*/}
-                <Polygon positions={this.state.data.west} color={"red"}>
-                  <Popup>
-                    <span>West Region. </span>
-                  </Popup>
-                </Polygon>
-                <Polygon positions={this.state.data.east} color={"green"}>
-                  <Popup>
-                    <span>East Region. </span>
-                  </Popup>
-                </Polygon>
-                <Polygon positions={this.state.data.north} >
-                  <Popup>
-                    <span>North Region. </span>
-                  </Popup>
-                </Polygon>
+              <Map center={this.state.data.map} zoom={this.state.zoom} maxBounds={this.state.data.bounds}>
+                <TileLayer url={'http://{s}.tile.osm.org/{z}/{x}/{y}.png'} />  
+                <GeoJson data={PilotData} />   
+                <choropleth/>
               </Map>
             </div>
           </Col>
@@ -99,8 +80,8 @@ export const GISView = React.createClass({
                 <br />
               </div>
             )}
-          </Col>
-        </Row>
+          </Col>          
+        </Row>        
       </div>
     );
   }
