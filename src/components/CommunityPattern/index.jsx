@@ -7,6 +7,7 @@ import { Dropdown } from 'react-toolbox';
 import data from './data.json';
 import ScoreBoxSimple from '../ScoreBoxSimple';
 import config from './config.json';
+import tableData from './tableData.json';
 import style from './style';
 
 export const CommunityPattern = React.createClass({
@@ -17,9 +18,29 @@ export const CommunityPattern = React.createClass({
       value2: 'gender',
       value3: 'orientation',
       value4: 'isolation',
+      index: 0,
+      tableData,
       data,
       config
     };
+  },
+  getTable() {
+    return (
+      <div>
+        <div className={style.reportTable}>
+          <Row className={style.tableHeader}>
+            <Col xs={6}>General</Col>
+            <Col xs={6}>Subgroup</Col>
+          </Row>
+          <div>
+            <Row className={style.tableRow}>
+              <Col xs={6}>{this.state.tableData.data[this.state.index].general}</Col>
+              <Col xs={6}>{this.state.tableData.data[this.state.index].subgroup}</Col>
+            </Row>
+          </div>
+        </div>
+      </div>
+    );
   },
   handleChange(value) {
     this.setState({ value });
@@ -33,12 +54,18 @@ export const CommunityPattern = React.createClass({
   handleChange4(value4) {
     this.setState({ value4 });
   },
+  showTable(index) {
+    this.setState({ index });
+  },
   render() {
     return (
       <div className={style.communityPattern}>
+        <div className={style.header}>
+          Community Pattern
+        </div>
         <Row>
           <Col xs={3}>
-            <div>
+            <div className={style.subHeader}>
               Population Subgroup
             </div>
             <Dropdown
@@ -72,24 +99,29 @@ export const CommunityPattern = React.createClass({
               data={this.state.data.pieData}
               colorScale={this.state.config.colourScale}
               style={this.state.config.labelStyle}
+              events={[
+                {
+                  target: 'data',
+                  eventHandlers: {
+                    onClick: () =>
+                      [
+                        {
+                          mutation: (props) => {
+                            this.showTable(props.index);
+                          }
+                        }
+                      ]
+                  }
+                }
+              ]}
             />
           </Col>
           <Col xs={3}>
-            <br />
-            <div className={style.reportTable}>
-              <Row className={style.tableHeader}>
-                <Col xs={6}>General</Col>
-                <Col xs={6}>Subgroup</Col>
-              </Row>
-              {this.state.data.tableData.map((row, i) =>
-                <div key={i}>
-                  <Row className={style.tableRow}>
-                    <Col xs={6}>{row.general}</Col>
-                    <Col xs={6}>{row.subgroup}</Col>
-                  </Row>
-                </div>
-              )}
+            <div className={style.subHeader}>
+              Section Breakdown
             </div>
+            <br />
+            {this.getTable()}
           </Col>
         </Row>
         <Row>
