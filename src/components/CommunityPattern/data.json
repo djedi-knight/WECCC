@@ -7,9 +7,7 @@
   ],
   "colorScale": [
     "#D85F49",
-    "#F66D3B",
     "#D92E1D",
-    "#D73C4C",
     "#FFAF59",
     "#E28300"
   ],
@@ -29,15 +27,5 @@
   ],
   "isolation": [
     { "value": "isolation", "label": "Isolation" }
-  ],
-  "tableData": [
-    {
-      "general": "Directed 32%",
-      "subgroup": "Informal 10%"
-    },
-    {
-      "general": "Directed 30%",
-      "subgroup": "Informal 15%"
-    }
   ]
 }
