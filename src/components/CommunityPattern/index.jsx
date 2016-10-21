@@ -25,6 +25,24 @@ export const CommunityPattern = React.createClass({
       tableData
     };
   },
+  getTable() {
+    return (
+      <div>
+        <div className={style.reportTable}>
+          <Row className={style.tableHeader}>
+            <Col xs={6}>General</Col>
+            <Col xs={6}>Subgroup</Col>
+          </Row>
+          <div>
+            <Row className={style.tableRow}>
+              <Col xs={6}>{this.state.tableData.data[this.state.index].general}</Col>
+              <Col xs={6}>{this.state.tableData.data[this.state.index].subgroup}</Col>
+            </Row>
+          </div>
+        </div>
+      </div>
+    );
+  },
   handleChange(value) {
     this.setState({ value });
   },
@@ -37,34 +55,8 @@ export const CommunityPattern = React.createClass({
   handleChange4(value4) {
     this.setState({ value4 });
   },
-  testFunction() {
-    console.log('test function called!');
-  },
   showTable(index) {
-    this.setState({ active: true, index });
-  },
-  getTable(){
-    if(this.state.active){
-      return (
-        <div>        
-          {/*Table Container*/}
-          <div className={style.reportTable}>
-            <Row className={style.tableHeader}>
-              <Col xs={6}>General</Col>
-              <Col xs={6}>Subgroup</Col>
-            </Row>
-            <div>
-              <Row className={style.tableRow}>
-                <Col xs={6}>{this.state.tableData.data[this.state.index].general}</Col>
-                <Col xs={6}>{this.state.tableData.data[this.state.index].subgroup}</Col>
-              </Row>
-            </div>
-          </div>
-          {/*Table Container End*/}
-        </div>        
-      );
-    }
-    return null;    
+    this.setState({ index });
   },
   render() {
     return (
@@ -109,24 +101,20 @@ export const CommunityPattern = React.createClass({
               colorScale={this.state.data.colorScale}
               style={labelStyle}
               events={[
-                  {
-                    target: "data",
-                    eventHandlers: {
-                      onClick: () => { 
-                        console.log('chart clicked!');
-                        this.testFunction();
-                        return [
-                          {
-                            mutation: (props) => {
-                              console.log(props.index);
-                              this.showTable(props.index);                           
-                            }
+                {
+                  target: 'data',
+                  eventHandlers: {
+                    onClick: () =>
+                      [
+                        {
+                          mutation: (props) => {
+                            this.showTable(props.index);
                           }
-                        ];
-                      }
-                    }
+                        }
+                      ]
                   }
-                ]} 
+                }
+              ]}
             />
           </Col>
           <Col xs={3}>
