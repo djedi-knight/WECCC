@@ -5,6 +5,7 @@ import { Row, Col } from 'react-flexbox-grid';
 import { VictoryPie } from 'victory/dist/victory';
 import ScoreBoxSimple from '../ScoreBoxSimple';
 import config from './config.json';
+import tableData from './tableData.json';
 import style from './style';
 
 export const CommunityTapestry = React.createClass({
@@ -15,7 +16,11 @@ export const CommunityTapestry = React.createClass({
   },
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { config };
+    return {
+      selectedChartDetails: 0,
+      tableData,
+      config
+    };
   },
   getPieChartFor(key) {
     if (this.props.pieCharts) {
@@ -45,18 +50,74 @@ export const CommunityTapestry = React.createClass({
 
     return {};
   },
+  handleSelectionChange(newSelection) {
+    this.setState({ selectedChartDetails: newSelection });
+  },
   render() {
     return (
       <div className={style.communityTapestry}>
         <div className={style.communityTapestryHeader}>
           {this.props.title}
         </div>
+        <div className={style.subgroup}>
+          <Row className={style.header}>
+            <div className={style.title}>
+              Description Text
+            </div>
+          </Row>
+          <Row >
+            <div className={style.descriptionText}>
+              <br />
+              {this.state.config.descriptionText}
+            </div>
+          </Row>
+        </div>
         <div className={style.pieChartContainer}>
-          <VictoryPie
-            style={this.state.config.labelStyle}
-            data={this.getPieChartFor(this.state.config.keys.pieChart)}
-            colorScale={this.state.config.colourScale}
-          />
+          <Row>
+            <Col xs={2} />
+            <Col xs={5}>
+              <VictoryPie
+                labelRadius={120}
+                padding={20}
+                style={this.state.config.labelStyle}
+                data={this.getPieChartFor(this.state.config.keys.pieChart)}
+                colorScale={this.state.config.colourScale}
+                events={[{
+                  target: 'data',
+                  eventHandlers: {
+                    onClick: () => [{
+                      mutation: (props) => {
+                        this.handleSelectionChange(props.index);
+                      }
+                    }]
+                  }
+                }]}
+              />
+            </Col>
+            <Col xs={4}>
+              <div className={style.detailsTable}>
+                <div className={style.subHeader}>
+                  Section Breakdown
+                </div>
+                <br />
+                <div className={style.reportTable}>
+                  <Row className={style.tableHeader}>
+                    <Col xs={4}>Heading 1</Col>
+                    <Col xs={4}>Heading 2</Col>
+                    <Col xs={4}>Heading 3</Col>
+                  </Row>
+                  <div>
+                    <Row className={style.tableRow}>
+                      <Col xs={4}>{this.state.tableData.data[this.state.selectedChartDetails].Heading1}</Col>
+                      <Col xs={4}>{this.state.tableData.data[this.state.selectedChartDetails].Heading2}</Col>
+                      <Col xs={4}>{this.state.tableData.data[this.state.selectedChartDetails].Heading3}</Col>
+                    </Row>
+                  </div>
+                </div>
+              </div>
+            </Col>
+            <Col xs={1} />
+          </Row>
         </div>
         <div className={style.subgroup}>
           <Row className={style.header}>
