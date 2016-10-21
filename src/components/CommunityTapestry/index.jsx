@@ -88,9 +88,9 @@ export const CommunityTapestry = React.createClass({
                 </Row>
                 <div>
                   <Row className={style.tableRow}>
-                    <Col xs={4}>{this.state.tableData.data[this.state.index].Heading1}</Col>
-                    <Col xs={4}>{this.state.tableData.data[this.state.index].Heading2}</Col>
-                    <Col xs={4}>{this.state.tableData.data[this.state.index].Heading3}</Col>
+                    <Col xs={4}>{this.state.tableData.data[this.state.currentChartDetailsSelection].Heading1}</Col>
+                    <Col xs={4}>{this.state.tableData.data[this.state.currentChartDetailsSelection].Heading2}</Col>
+                    <Col xs={4}>{this.state.tableData.data[this.state.currentChartDetailsSelection].Heading3}</Col>
                   </Row>
                 </div>
               </div>
