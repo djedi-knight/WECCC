@@ -11,87 +11,45 @@ import tableData from './tableData.json';
 import style from './style';
 
 export const CommunityPattern = React.createClass({
+  propTypes: {
+    title: React.PropTypes.string
+  },
   mixins: [PureRenderMixin],
   getInitialState() {
     return {
-      value: 'dependency',
-      value2: 'gender',
-      value3: 'orientation',
-      value4: 'isolation',
-      index: 0,
+      currentSelection: config.keys.selections[0].value,
+      selectedChartDetails: 0,
       tableData,
       data,
       config
     };
   },
-  getTable() {
-    return (
-      <div>
-        <div className={style.reportTable}>
-          <Row className={style.tableHeader}>
-            <Col xs={6}>General</Col>
-            <Col xs={6}>Subgroup</Col>
-          </Row>
-          <div>
-            <Row className={style.tableRow}>
-              <Col xs={6}>{this.state.tableData.data[this.state.index].general}</Col>
-              <Col xs={6}>{this.state.tableData.data[this.state.index].subgroup}</Col>
-            </Row>
-          </div>
-        </div>
-      </div>
-    );
+  handleChartDetailsSelectionChange(newSelection) {
+    this.setState({ selectedChartDetails: newSelection });
   },
-  handleChange(value) {
-    this.setState({ value });
-  },
-  handleChange2(value2) {
-    this.setState({ value2 });
-  },
-  handleChange3(value3) {
-    this.setState({ value3 });
-  },
-  handleChange4(value4) {
-    this.setState({ value4 });
-  },
-  showTable(index) {
-    this.setState({ index });
+  handleSelectionChange(newSelection) {
+    this.setState({ currentSelection: newSelection });
   },
   render() {
     return (
       <div className={style.communityPattern}>
         <div className={style.header}>
-          Community Pattern
+          {this.props.title}
         </div>
         <Row>
           <Col xs={3}>
             <div className={style.subHeader}>
-              Population Subgroup
+              {this.state.config.selectionTitle}
             </div>
             <Dropdown
-              onChange={this.handleChange}
-              source={this.state.data.dependency}
-              value={this.state.value}
-            />
-            <Dropdown
-              onChange={this.handleChange2}
-              source={this.state.data.gender}
-              value={this.state.value2}
-            />
-            <Dropdown
-              onChange={this.handleChange3}
-              source={this.state.data.orientation}
-              value={this.state.value3}
-            />
-            <Dropdown
-              onChange={this.handleChange4}
-              source={this.state.data.isolation}
-              value={this.state.value4}
+              onChange={this.handleSelectionChange}
+              source={this.state.config.keys.selections}
+              value={this.state.currentSelection}
             />
           </Col>
           <Col xs={6}>
             <div className={style.subHeader}>
-              Your Community Pattern
+              {this.state.config.chartTitle}
             </div>
             <VictoryPie
               padding={100}
@@ -99,29 +57,39 @@ export const CommunityPattern = React.createClass({
               data={this.state.data.pieData}
               colorScale={this.state.config.colourScale}
               style={this.state.config.labelStyle}
-              events={[
-                {
-                  target: 'data',
-                  eventHandlers: {
-                    onClick: () =>
-                      [
-                        {
-                          mutation: (props) => {
-                            this.showTable(props.index);
-                          }
-                        }
-                      ]
-                  }
+              events={[{
+                target: 'data',
+                eventHandlers: {
+                  onClick: () => [{
+                    mutation: (props) => {
+                      this.handleChartDetailsSelectionChange(props.index);
+                    }
+                  }]
                 }
-              ]}
+              }]}
             />
           </Col>
           <Col xs={3}>
             <div className={style.subHeader}>
-              Section Breakdown
+              {this.state.config.chartDetails.title}
             </div>
             <br />
-            {this.getTable()}
+            <div>
+              <div className={style.reportTable}>
+                <Row className={style.tableHeader}>
+                  {this.state.config.chartDetails.headers.map((header, x) =>
+                    <Col key={x} xs={4}>{header}</Col>
+                  )}
+                </Row>
+                <div>
+                  <Row className={style.tableRow}>
+                    <Col xs={4}>{this.state.tableData.data[this.state.selectedChartDetails].indicator}</Col>
+                    <Col xs={4}>{this.state.tableData.data[this.state.selectedChartDetails].general}</Col>
+                    <Col xs={4}>{this.state.tableData.data[this.state.selectedChartDetails].subgroup}</Col>
+                  </Row>
+                </div>
+              </div>
+            </div>
           </Col>
         </Row>
         <Row>

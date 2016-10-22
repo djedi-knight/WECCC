@@ -1,9 +1,6 @@
 {
   "prodAPI": "http://localhost:8090/api/pages/community-pattern-page",
   "demoAPI": "http://localhost:8090/api/pages/community-pattern-demo-page",
-  "chartSectionTitle": "Your Community Pattern",
-  "selectionTitle": "Population Subgroup",
-  "sidebarTitle": "Things To Consider",
   "labelStyle": {
     "labels": {
       "fill": "white",
@@ -21,6 +18,17 @@
     "#F6A57F",
     "#FF0000"
   ],
+  "chartTitle": "Chart Title",
+  "selectionTitle": "Population Subgroup",
+  "sidebarTitle": "Sidebar Title",
+  "chartDetails": {
+      "title": "Pie Chart Details",
+      "headers": [
+        "Indicator",
+        "General",
+        "Subgroup"
+      ]
+  },
   "keys": {
     "selections": [
       { "value": "value-impact-pie-chart-1", "label": "Selection #1" },

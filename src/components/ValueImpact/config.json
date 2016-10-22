@@ -1,9 +1,9 @@
 {
   "prodAPI": "http://localhost:8090/api/pages/value-impact-page",
   "demoAPI": "http://localhost:8090/api/pages/value-impact-demo-page",
-  "chartSectionTitle": "Your Community Pattern",
+  "chartSectionTitle": "Chart Title",
   "selectionTitle": "Population Subgroup",
-  "sidebarTitle": "Things To Consider",
+  "sidebarTitle": "Sidebar Title",
   "labelStyle": {
     "labels": {
       "fill": "white",
