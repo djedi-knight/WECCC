@@ -17,6 +17,7 @@
       "title":      "HOURS OF CARE",
       "score":      "1.1",
       "peerScore":  "0.9",
+      "warning":    true,
       "trend":      "down"
     },
     {

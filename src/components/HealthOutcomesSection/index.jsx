@@ -2,10 +2,13 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { Row, Col } from 'react-flexbox-grid';
 import ScoreBox from '../ScoreBox';
-import style from './style';
 import data from './data.json';
+import style from './style';
 
 export default React.createClass({
+  propTypes: {
+    data: React.PropTypes.array
+  },
   mixins: [PureRenderMixin],
   getInitialState() {
     return { data };
@@ -19,7 +22,7 @@ export default React.createClass({
           </div>
         </Row>
         <Row className={style.body}>
-          {this.state.data.scoreCards.map((scoreCard, i) =>
+          {this.props.data.map((scoreCard, i) =>
             <Col key={i} xs={3}>
               <ScoreBox
                 title={scoreCard.title}
