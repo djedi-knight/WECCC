@@ -7,7 +7,6 @@ import {
   CardActions,
   CardText,
   Dialog,
-  FontIcon,
   IconButton
 } from 'react-toolbox';
 import ScoreRiskPopover from '../ScoreRiskPopover';

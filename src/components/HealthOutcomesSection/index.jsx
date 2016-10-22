@@ -2,8 +2,8 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { Row, Col } from 'react-flexbox-grid';
 import ScoreBox from '../ScoreBox';
-import style from './style';
 import data from './data.json';
+import style from './style';
 
 export default React.createClass({
   propTypes: {
