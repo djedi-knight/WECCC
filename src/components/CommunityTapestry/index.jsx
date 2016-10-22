@@ -50,7 +50,7 @@ export const CommunityTapestry = React.createClass({
 
     return {};
   },
-  handleSelectionChange(newSelection) {
+  handleChartDetailsSelectionChange(newSelection) {
     this.setState({ selectedChartDetails: newSelection });
   },
   render() {
@@ -62,13 +62,13 @@ export const CommunityTapestry = React.createClass({
         <div className={style.subgroup}>
           <Row className={style.header}>
             <div className={style.title}>
-              Description Text
+              {this.state.config.chartDescriptionTitle}
             </div>
           </Row>
           <Row >
             <div className={style.descriptionText}>
               <br />
-              {this.state.config.descriptionText}
+              {this.state.config.chartDescriptionText}
             </div>
           </Row>
         </div>
@@ -87,7 +87,7 @@ export const CommunityTapestry = React.createClass({
                   eventHandlers: {
                     onClick: () => [{
                       mutation: (props) => {
-                        this.handleSelectionChange(props.index);
+                        this.handleChartDetailsSelectionChange(props.index);
                       }
                     }]
                   }
@@ -97,14 +97,14 @@ export const CommunityTapestry = React.createClass({
             <Col xs={4}>
               <div className={style.detailsTable}>
                 <div className={style.subHeader}>
-                  Section Breakdown
+                  {this.state.config.chartDetails.title}
                 </div>
                 <br />
                 <div className={style.reportTable}>
                   <Row className={style.tableHeader}>
-                    <Col xs={4}>Heading 1</Col>
-                    <Col xs={4}>Heading 2</Col>
-                    <Col xs={4}>Heading 3</Col>
+                    {this.state.config.chartDetails.headers.map((header, x) =>
+                      <Col key={x} xs={4}>{header}</Col>
+                    )}
                   </Row>
                   <div>
                     <Row className={style.tableRow}>
