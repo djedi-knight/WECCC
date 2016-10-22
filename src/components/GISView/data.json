@@ -15,7 +15,7 @@
 		{"value": "religion", "label": "Religion"} ,
 	    { "value": "ethnicity", "label": "Ethnicity" },
 	    { "value": "population", "label": "Population" }
-	]
+	]		
 }
 
 

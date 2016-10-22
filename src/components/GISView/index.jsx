@@ -8,30 +8,8 @@ import { Row, Col } from 'react-flexbox-grid';
 import style from './style';
 import data from './data.json';
 import PilotData from './PilotData.json';
-import choropleth from './choropleth.jsx';
+import Choropleth from 'react-leaflet-choropleth';
 
-
-
-export const GISSubgroups = React.createClass({
-  mixins: [PureRenderMixin],
-  getInitialState() {
-    return { value: null };
-  },
-  handleChange(value) {
-    this.setState({ value });
-  },
-  render() {
-    return (
-      <div>
-        <RadioGroup name="layer" value={this.state.value} onChange={this.handleChange}>
-          <RadioButton label="School" value="school" />
-          <RadioButton label="Faith" value="faith" />
-          <RadioButton label="Culture" value="culture" />
-        </RadioGroup>
-      </div>
-    );
-  }
-});
 
 export const GISView = React.createClass({
   mixins: [PureRenderMixin],
@@ -44,6 +22,26 @@ export const GISView = React.createClass({
   },
   handleChange(value) {
     this.setState({ value: value });
+  },
+  getColor(d) {
+    return d > 128 ? '#800026' :
+           d > 64  ? '#BD0026' :
+           d > 32  ? '#E31A1C' :
+           d > 16  ? '#FC4E2A' :
+           d > 8   ? '#FD8D3C' :
+           d > 4   ? '#FEB24C' :
+           d > 2   ? '#FED976' :
+                      '#FFEDA0';
+  },
+  Cstyle(feature) {
+    return {
+      fillColor: this.getColor(feature.properties.NoEngFren_pct),
+      weight: 2,
+      opacity: 1,
+      color: 'white',
+      dashArray: '3',
+      fillOpacity: 0.7
+    };
   },
   render() {
     return (
@@ -62,13 +60,31 @@ export const GISView = React.createClass({
             />
           </Col>
           <Col xs={8}>
+          {this.state.value==='religion' ? 
             <div className={style.mapView}>
               <Map center={this.state.data.map} zoom={this.state.zoom} maxBounds={this.state.data.bounds}>
                 <TileLayer url={'http://{s}.tile.osm.org/{z}/{x}/{y}.png'} />  
-                <GeoJson data={PilotData} />   
-                <choropleth/>
+                <GeoJson data={PilotData} style={this.Cstyle}/>                
               </Map>
-            </div>
+            </div> : null 
+          }
+          {this.state.value==='ethnicity' ? 
+            <div className={style.mapView}>
+              <Map center={this.state.data.map} zoom={this.state.zoom} maxBounds={this.state.data.bounds}>
+                <TileLayer url={'http://{s}.tile.osm.org/{z}/{x}/{y}.png'} />  
+                <GeoJson data={PilotData} style={this.Cstyle}/>                
+              </Map>
+            </div> : null 
+          }
+          {this.state.value==='population' ? 
+            <div className={style.mapView}>
+              <Map center={this.state.data.map} zoom={this.state.zoom} maxBounds={this.state.data.bounds}>
+                <TileLayer url={'http://{s}.tile.osm.org/{z}/{x}/{y}.png'} />  
+                <GeoJson data={PilotData} style={this.Cstyle}/>                
+              </Map>
+            </div> : null 
+          }
+            
           </Col>
           <Col xs={2}>
             <div>Legend</div>
