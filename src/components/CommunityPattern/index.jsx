@@ -6,7 +6,6 @@ import { Row, Col } from 'react-flexbox-grid';
 import { Dropdown } from 'react-toolbox';
 import ScoreBoxSimple from '../ScoreBoxSimple';
 import config from './config.json';
-import tableData from './tableData.json';
 import style from './style';
 
 export const CommunityPattern = React.createClass({
@@ -18,8 +17,7 @@ export const CommunityPattern = React.createClass({
   getInitialState() {
     return {
       currentSelection: config.keys.selections[0].value,
-      selectedChartDetails: 0,
-      tableData,
+      currentChartDetailSelection: 0,
       config
     };
   },
@@ -32,8 +30,16 @@ export const CommunityPattern = React.createClass({
 
     return [];
   },
-  handleChartDetailsSelectionChange(newSelection) {
-    this.setState({ selectedChartDetails: newSelection });
+  getPieChartDetailsFor(key) {
+    const pieChartData = this.getPieChartFor(key);
+    if (pieChartData.length > 0) {
+      return pieChartData[this.state.currentChartDetailSelection].details.data;
+    }
+
+    return [];
+  },
+  handleChartDetailSelectionChange(newSelection) {
+    this.setState({ currentChartDetailSelection: newSelection });
   },
   handleSelectionChange(newSelection) {
     this.setState({ currentSelection: newSelection });
@@ -70,7 +76,7 @@ export const CommunityPattern = React.createClass({
                 eventHandlers: {
                   onClick: () => [{
                     mutation: (props) => {
-                      this.handleChartDetailsSelectionChange(props.index);
+                      this.handleChartDetailSelectionChange(props.index);
                     }
                   }]
                 }
@@ -90,11 +96,14 @@ export const CommunityPattern = React.createClass({
                   )}
                 </Row>
                 <div>
-                  <Row className={style.tableRow}>
-                    <Col xs={4}>{this.state.tableData.data[this.state.selectedChartDetails].indicator}</Col>
-                    <Col xs={4}>{this.state.tableData.data[this.state.selectedChartDetails].general}</Col>
-                    <Col xs={4}>{this.state.tableData.data[this.state.selectedChartDetails].subgroup}</Col>
-                  </Row>
+                  {this.getPieChartDetailsFor(this.state.currentSelection).map((row, x) =>
+                    <Row key={x} className={style.tableRow}>
+                      <Col xs={4}>{row.indicator}</Col>
+                      {row.values.map((value, y) =>
+                        <Col key={y} xs={4}>{value}</Col>
+                      )}
+                    </Row>
+                  )}
                 </div>
               </div>
             </div>
