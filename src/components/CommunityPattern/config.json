@@ -31,8 +31,8 @@
   },
   "keys": {
     "selections": [
-      { "value": "value-impact-pie-chart-1", "label": "Selection #1" },
-      { "value": "value-impact-pie-chart-2", "label": "Selection #2" }
+      { "value": "community-pattern-pie-chart-1", "label": "Selection #1" },
+      { "value": "community-pattern-pie-chart-2", "label": "Selection #2" }
     ],
     "subGroup": {
       "key": "return-on-investment",

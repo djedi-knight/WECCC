@@ -4,7 +4,6 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { VictoryPie } from 'victory/dist/victory';
 import { Row, Col } from 'react-flexbox-grid';
 import { Dropdown } from 'react-toolbox';
-import data from './data.json';
 import ScoreBoxSimple from '../ScoreBoxSimple';
 import config from './config.json';
 import tableData from './tableData.json';
@@ -12,7 +11,8 @@ import style from './style';
 
 export const CommunityPattern = React.createClass({
   propTypes: {
-    title: React.PropTypes.string
+    title: React.PropTypes.string,
+    pieCharts: React.PropTypes.array
   },
   mixins: [PureRenderMixin],
   getInitialState() {
@@ -20,9 +20,17 @@ export const CommunityPattern = React.createClass({
       currentSelection: config.keys.selections[0].value,
       selectedChartDetails: 0,
       tableData,
-      data,
       config
     };
+  },
+  getPieChartFor(key) {
+    if (this.props.pieCharts) {
+      const index = this.props.pieCharts.findIndex(pieChart => pieChart.key === key);
+
+      return this.props.pieCharts[index].data;
+    }
+
+    return [];
   },
   handleChartDetailsSelectionChange(newSelection) {
     this.setState({ selectedChartDetails: newSelection });
@@ -54,7 +62,7 @@ export const CommunityPattern = React.createClass({
             <VictoryPie
               padding={100}
               labelRadius={50}
-              data={this.state.data.pieData}
+              data={this.getPieChartFor(this.state.currentSelection)}
               colorScale={this.state.config.colourScale}
               style={this.state.config.labelStyle}
               events={[{
