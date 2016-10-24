@@ -8,7 +8,6 @@ import { Row, Col } from 'react-flexbox-grid';
 import style from './style';
 import data from './data.json';
 import PilotData from './PilotData.json';
-import Choropleth from 'react-leaflet-choropleth';
 
 
 export const GISView = React.createClass({
@@ -16,12 +15,12 @@ export const GISView = React.createClass({
   getInitialState() {
     return {
       zoom: 12,
-      value: "religion",
-      data
+      data,
+      currentSelection: data.options[0].value     
     };
   },
-  handleChange(value) {
-    this.setState({ value: value });
+  handleSelectionChange(newSelection) {
+    this.setState({ currentSelection: newSelection });
   },
   getColor(d) {
     return d > 128 ? '#800026' :
@@ -33,9 +32,10 @@ export const GISView = React.createClass({
            d > 2   ? '#FED976' :
                       '#FFEDA0';
   },
-  Rstyle(feature) {
+
+  getStyle(feature) {
     return {
-      fillColor: this.getColor(feature.properties.United_pct),
+      fillColor: this.getColor(feature.properties[this.state.currentSelection]),
       weight: 2,
       opacity: 1,
       color: 'white',
@@ -43,26 +43,7 @@ export const GISView = React.createClass({
       fillOpacity: 0.7
     };
   },
-   Estyle(feature) {
-    return {
-      fillColor: this.getColor(feature.properties.Western_Asian_pct),
-      weight: 2,
-      opacity: 1,
-      color: 'white',
-      dashArray: '3',
-      fillOpacity: 0.7
-    };
-  }, 
-  Pstyle(feature) {
-    return {
-      fillColor: this.getColor(feature.properties.low_income_seniors_pct),
-      weight: 2,
-      opacity: 1,
-      color: 'white',
-      dashArray: '3',
-      fillOpacity: 0.7
-    };
-  },
+   
   render() {
     return (
       <div className={style.gisPage}>
@@ -71,40 +52,21 @@ export const GISView = React.createClass({
         </div>
         <br />
         <Row>
-          <Col xs={2}>
-           <Dropdown
+          <Col xs={2}>           
+            <Dropdown
               auto
-              onChange={this.handleChange}
-              source={this.state.data.dropdown}
-              value={this.state.value}
+              onChange={this.handleSelectionChange}
+              source={this.state.data.options}
+              value={this.state.currentSelection}
             />
           </Col>
           <Col xs={8}>
-          {this.state.value==='religion' ? 
-            <div className={style.mapView}>
+          <div className={style.mapView}>
               <Map center={this.state.data.map} zoom={this.state.zoom} maxBounds={this.state.data.bounds}>
                 <TileLayer url={'http://{s}.tile.osm.org/{z}/{x}/{y}.png'} />  
-                <GeoJson data={PilotData} style={this.Rstyle}/>                
+                <GeoJson data={PilotData} style={this.getStyle}/>                
               </Map>
-            </div> : null 
-          }
-          {this.state.value==='ethnicity' ? 
-            <div className={style.mapView}>
-              <Map center={this.state.data.map} zoom={this.state.zoom} maxBounds={this.state.data.bounds}>
-                <TileLayer url={'http://{s}.tile.osm.org/{z}/{x}/{y}.png'} />  
-                <GeoJson data={PilotData} style={this.Estyle}/>                
-              </Map>
-            </div> : null 
-          }
-          {this.state.value==='population' ? 
-            <div className={style.mapView}>
-              <Map center={this.state.data.map} zoom={this.state.zoom} maxBounds={this.state.data.bounds}>
-                <TileLayer url={'http://{s}.tile.osm.org/{z}/{x}/{y}.png'} />  
-                <GeoJson data={PilotData} style={this.Pstyle}/>                
-              </Map>
-            </div> : null 
-          }
-            
+            </div>     
           </Col>
           <Col xs={2}>
             <div>Legend</div>
