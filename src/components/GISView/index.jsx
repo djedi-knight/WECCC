@@ -33,9 +33,29 @@ export const GISView = React.createClass({
            d > 2   ? '#FED976' :
                       '#FFEDA0';
   },
-  Cstyle(feature) {
+  Rstyle(feature) {
     return {
-      fillColor: this.getColor(feature.properties.NoEngFren_pct),
+      fillColor: this.getColor(feature.properties.United_pct),
+      weight: 2,
+      opacity: 1,
+      color: 'white',
+      dashArray: '3',
+      fillOpacity: 0.7
+    };
+  },
+   Estyle(feature) {
+    return {
+      fillColor: this.getColor(feature.properties.Western_Asian_pct),
+      weight: 2,
+      opacity: 1,
+      color: 'white',
+      dashArray: '3',
+      fillOpacity: 0.7
+    };
+  }, 
+  Pstyle(feature) {
+    return {
+      fillColor: this.getColor(feature.properties.low_income_seniors_pct),
       weight: 2,
       opacity: 1,
       color: 'white',
@@ -64,7 +84,7 @@ export const GISView = React.createClass({
             <div className={style.mapView}>
               <Map center={this.state.data.map} zoom={this.state.zoom} maxBounds={this.state.data.bounds}>
                 <TileLayer url={'http://{s}.tile.osm.org/{z}/{x}/{y}.png'} />  
-                <GeoJson data={PilotData} style={this.Cstyle}/>                
+                <GeoJson data={PilotData} style={this.Rstyle}/>                
               </Map>
             </div> : null 
           }
@@ -72,7 +92,7 @@ export const GISView = React.createClass({
             <div className={style.mapView}>
               <Map center={this.state.data.map} zoom={this.state.zoom} maxBounds={this.state.data.bounds}>
                 <TileLayer url={'http://{s}.tile.osm.org/{z}/{x}/{y}.png'} />  
-                <GeoJson data={PilotData} style={this.Cstyle}/>                
+                <GeoJson data={PilotData} style={this.Estyle}/>                
               </Map>
             </div> : null 
           }
@@ -80,7 +100,7 @@ export const GISView = React.createClass({
             <div className={style.mapView}>
               <Map center={this.state.data.map} zoom={this.state.zoom} maxBounds={this.state.data.bounds}>
                 <TileLayer url={'http://{s}.tile.osm.org/{z}/{x}/{y}.png'} />  
-                <GeoJson data={PilotData} style={this.Cstyle}/>                
+                <GeoJson data={PilotData} style={this.Pstyle}/>                
               </Map>
             </div> : null 
           }
