@@ -8,10 +8,67 @@ import ScoreBoxSimple from '../ScoreBoxSimple';
 import config from './config.json';
 import style from './style';
 
+export const CommunityPatternSubgroups = React.createClass({
+  propTypes: {
+    keys: React.PropTypes.array,
+    scoreCards: React.PropTypes.array
+  },
+  mixins: [PureRenderMixin],
+  getInitialState() {
+    return { config };
+  },
+  getSubGroupFor(key) {
+    if (this.props.scoreCards) {
+      const index = this.props.scoreCards.findIndex(subGroup => subGroup.key === key);
+
+      return this.props.scoreCards[index];
+    }
+
+    return {};
+  },
+  getScoreCardFor(subGroupKey, scoreCardKey) {
+    const subGroup = this.getSubGroupFor(subGroupKey);
+    if (subGroup.list) {
+      const index = subGroup.list.findIndex(scoreCard => scoreCard.key === scoreCardKey);
+
+      return subGroup.list[index];
+    }
+
+    return {};
+  },
+  render() {
+    return (
+      <div className={style.communityPatternSubgroups}>
+        {this.props.keys.map((subGroup, x) =>
+          <div key={x} className={style.subgroup}>
+            <Row className={style.header}>
+              <div className={style.title}>
+                {this.getSubGroupFor(subGroup.key).title}
+              </div>
+            </Row>
+            <Row className={style.body}>
+              {subGroup.scoreCards.map((scoreCard, y) =>
+                <Col key={y} xs={3}>
+                  <ScoreBoxSimple
+                    title={this.getScoreCardFor(subGroup.key, scoreCard).title}
+                    score={this.getScoreCardFor(subGroup.key, scoreCard).score}
+                    trend={this.getScoreCardFor(subGroup.key, scoreCard).trend}
+                  />
+                </Col>
+              )}
+            </Row>
+          </div>
+        )}
+      </div>
+    );
+  }
+});
+
 export const CommunityPattern = React.createClass({
   propTypes: {
     title: React.PropTypes.string,
-    pieCharts: React.PropTypes.array
+    pieCharts: React.PropTypes.array,
+    scoreCards: React.PropTypes.array
   },
   mixins: [PureRenderMixin],
   getInitialState() {
@@ -37,6 +94,11 @@ export const CommunityPattern = React.createClass({
     }
 
     return [];
+  },
+  getSubGroupKeysFor(value) {
+    const index = this.state.config.keys.selections.findIndex(selection => selection.value === value);
+
+    return this.state.config.keys.subGroups[index];
   },
   handleChartDetailSelectionChange(newSelection) {
     this.setState({ currentChartDetailSelection: newSelection });
@@ -109,48 +171,10 @@ export const CommunityPattern = React.createClass({
             </div>
           </Col>
         </Row>
-        <Row>
-          <Col xs={6}>
-            <div className={style.subHeader}>Quality of Life</div>
-            <Row>
-              <Col xs={4}>
-                <ScoreBoxSimple title={"Community"} score={"A+"} trend={"up"} />
-              </Col>
-              <Col xs={4}>
-                <ScoreBoxSimple title={"Subgroup"} score={"B"} trend={"down"} />
-              </Col>
-              <Col xs={4}>
-                <ScoreBoxSimple title={"Equity Gap"} score={"-25"} trend={"down"} />
-              </Col>
-            </Row>
-          </Col>
-          <Col xs={6}>
-            <div className={style.subHeader}>Caregiver Burden</div>
-            <Row>
-              <Col xs={4}>
-                <ScoreBoxSimple title={"Community"} score={"D"} trend={"down"} />
-              </Col>
-              <Col xs={4}>
-                <ScoreBoxSimple title={"Subgroup"} score={"C"} trend={"down"} />
-              </Col>
-              <Col xs={4}>
-                <ScoreBoxSimple title={"Equity Gap"} score={"-10"} trend={"down"} />
-              </Col>
-            </Row>
-          </Col>
-        </Row>
-        <div className={style.subHeader}>Reported Health</div>
-        <Row>
-          <Col xs={4}>
-            <ScoreBoxSimple title={"Community"} score={"C"} trend={"down"} />
-          </Col>
-          <Col xs={4}>
-            <ScoreBoxSimple title={"Subgroup"} score={"D"} trend={"down"} />
-          </Col>
-          <Col xs={4}>
-            <ScoreBoxSimple title={"Equity Gap"} score={"-20"} trend={"down"} />
-          </Col>
-        </Row>
+        <CommunityPatternSubgroups
+          keys={this.getSubGroupKeysFor(this.state.currentSelection)}
+          scoreCards={this.props.scoreCards}
+        />
       </div>
     );
   }

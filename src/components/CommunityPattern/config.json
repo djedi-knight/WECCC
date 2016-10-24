@@ -34,12 +34,52 @@
       { "value": "community-pattern-pie-chart-1", "label": "Selection #1" },
       { "value": "community-pattern-pie-chart-2", "label": "Selection #2" }
     ],
-    "subGroup": {
-      "key": "return-on-investment",
-      "scoreCards": [
-        "social",
-        "economic"
-      ]
-    }
+    "subGroups": [[
+      {
+        "key": "qol-subgroup-1",
+        "scoreCards": [
+          "community",
+          "subgroup",
+          "equity-gap"
+        ]
+      }, {
+        "key": "caregiver-burden-subgroup-1",
+        "scoreCards": [
+          "community",
+          "subgroup",
+          "equity-gap"
+        ]
+      }, {
+        "key": "reported-health-subgroup-1",
+        "scoreCards": [
+          "community",
+          "subgroup",
+          "equity-gap"
+        ]
+      }
+    ], [
+      {
+        "key": "qol-subgroup-2",
+        "scoreCards": [
+          "community",
+          "subgroup",
+          "equity-gap"
+        ]
+      }, {
+        "key": "caregiver-burden-subgroup-2",
+        "scoreCards": [
+          "community",
+          "subgroup",
+          "equity-gap"
+        ]
+      }, {
+        "key": "reported-health-subgroup-2",
+        "scoreCards": [
+          "community",
+          "subgroup",
+          "equity-gap"
+        ]
+      }
+    ]]
   }
 }
