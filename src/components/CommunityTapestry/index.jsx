@@ -5,7 +5,6 @@ import { Row, Col } from 'react-flexbox-grid';
 import { VictoryPie } from 'victory/dist/victory';
 import ScoreBoxSimple from '../ScoreBoxSimple';
 import config from './config.json';
-import tableData from './tableData.json';
 import style from './style';
 
 export const CommunityTapestry = React.createClass({
@@ -18,7 +17,6 @@ export const CommunityTapestry = React.createClass({
   getInitialState() {
     return {
       currentChartDetailSelection: 0,
-      tableData,
       config
     };
   },
@@ -122,15 +120,6 @@ export const CommunityTapestry = React.createClass({
                       )}
                     </Row>
                   )}
-                  {/*
-                  <div>
-                    <Row className={style.tableRow}>
-                      <Col xs={4}>{this.state.tableData.data[this.state.selectedChartDetails].Heading1}</Col>
-                      <Col xs={4}>{this.state.tableData.data[this.state.selectedChartDetails].Heading2}</Col>
-                      <Col xs={4}>{this.state.tableData.data[this.state.selectedChartDetails].Heading3}</Col>
-                    </Row>
-                  </div>
-                  */}
                 </div>
               </div>
             </Col>
