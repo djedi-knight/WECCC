@@ -17,7 +17,7 @@ export const CommunityTapestry = React.createClass({
   mixins: [PureRenderMixin],
   getInitialState() {
     return {
-      selectedChartDetails: 0,
+      currentChartDetailSelection: 0,
       tableData,
       config
     };
@@ -27,6 +27,14 @@ export const CommunityTapestry = React.createClass({
       const index = this.props.pieCharts.findIndex(pieChart => pieChart.key === key);
 
       return this.props.pieCharts[index].data;
+    }
+
+    return [];
+  },
+  getPieChartDetailsFor(key) {
+    const pieChartData = this.getPieChartFor(key);
+    if (pieChartData.length > 0) {
+      return pieChartData[this.state.currentChartDetailSelection].details.data;
     }
 
     return [];
@@ -50,8 +58,8 @@ export const CommunityTapestry = React.createClass({
 
     return {};
   },
-  handleChartDetailsSelectionChange(newSelection) {
-    this.setState({ selectedChartDetails: newSelection });
+  handleChartDetailSelectionChange(newSelection) {
+    this.setState({ currentChartDetailSelection: newSelection });
   },
   render() {
     return (
@@ -87,7 +95,7 @@ export const CommunityTapestry = React.createClass({
                   eventHandlers: {
                     onClick: () => [{
                       mutation: (props) => {
-                        this.handleChartDetailsSelectionChange(props.index);
+                        this.handleChartDetailSelectionChange(props.index);
                       }
                     }]
                   }
@@ -106,6 +114,15 @@ export const CommunityTapestry = React.createClass({
                       <Col key={x} xs={4}>{header}</Col>
                     )}
                   </Row>
+                  {this.getPieChartDetailsFor(this.state.config.keys.pieChart).map((row, x) =>
+                    <Row key={x} className={style.tableRow}>
+                      <Col xs={4}>{row.indicator}</Col>
+                      {row.values.map((value, y) =>
+                        <Col key={y} xs={4}>{value}</Col>
+                      )}
+                    </Row>
+                  )}
+                  {/*
                   <div>
                     <Row className={style.tableRow}>
                       <Col xs={4}>{this.state.tableData.data[this.state.selectedChartDetails].Heading1}</Col>
@@ -113,6 +130,7 @@ export const CommunityTapestry = React.createClass({
                       <Col xs={4}>{this.state.tableData.data[this.state.selectedChartDetails].Heading3}</Col>
                     </Row>
                   </div>
+                  */}
                 </div>
               </div>
             </Col>

@@ -23,9 +23,9 @@
   "chartDetails": {
       "title": "Pie Chart Details",
       "headers": [
-        "Header 1",
-        "Header 2",
-        "Header 3"
+        "Indicator",
+        "Header #1",
+        "Header #2"
       ]
   },
   "keys": {
