@@ -1,5 +1,5 @@
 {
-  "prodAPI": "http://localhost:8090/api/pages/value-impact-page",
+  "prodAPI": "http://weccc.sartori.ca:8090/api/pages/value-impact-page",
   "demoAPI": "http://localhost:8090/api/pages/value-impact-demo-page",
   "chartSectionTitle": "Chart Title",
   "selectionTitle": "Population Subgroup",

@@ -1,5 +1,5 @@
 {
-  "prodAPI": "http://localhost:8090/api/pages/community-pattern-page",
+  "prodAPI": "http://weccc.sartori.ca:8090/api/pages/community-pattern-page",
   "demoAPI": "http://localhost:8090/api/pages/community-pattern-demo-page",
   "labelStyle": {
     "labels": {
