@@ -46,7 +46,9 @@ module.exports = {
   },
   devServer: {
     contentBase: './dist',
-    hot: true
+    hot: true,
+    inline: true,
+    port: 8080
   },
   plugins: [
     new ExtractTextPlugin('bundle.css', { allChunks: true }),
