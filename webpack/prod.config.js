@@ -19,6 +19,11 @@ module.exports = {
         loader: 'json'
       },
       {
+        test: /\.jsx?$/,
+        exclude: /node_modules/,
+        loader: 'babel'
+      },
+      {
         test: /(\.scss|\.css)$/,
         loader: ExtractTextPlugin.extract('style',
           'css?sourceMap&modules&importLoaders=1'
@@ -28,7 +33,7 @@ module.exports = {
   },
   postcss: [autoprefixer],
   sassLoader: {
-    data: '@import "theme/_config.scss";',
+    data: '@import "./src/theme/_config.scss";',
     includePaths: [path.resolve(__dirname, './src')]
   },
   resolve: {
