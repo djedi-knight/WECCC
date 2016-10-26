@@ -4,22 +4,28 @@ Data reporting and aggregation application for WECCC/ Hospice
 
 ## Installation
 
-The following need to be installed:
+The following needs to first be installed:
 
-- [NodeJS](https://nodejs.org/en/)
+- [Git](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git)
+- [NodeJS](https://nodejs.org/en/download/package-manager/#debian-and-ubuntu-based-linux-distributions)
 
-## Initialization
+Intall the code from GitHub using the following command:
 
-```Shell
-npm install
+```sh
+$ git clone git@github.com:djedi-knight/WECCC.git
 ```
 
-Installs all required node modules
+Once completed, install all required node modules:
+
+```sh
+$ cd WECCC
+$ npm install
+```
 
 ## Development
 
 ```Shell
-npm run start
+npm run start:dev
 ```
 
 Run the development server
