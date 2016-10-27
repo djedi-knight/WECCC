@@ -22,6 +22,12 @@ $ cd WECCC
 $ npm install
 ```
 
+Note: node-sass may also need to be rebuilt:
+
+```sh
+$ npm rebuild node-sass
+```
+
 ## Development
 
 ```Shell
