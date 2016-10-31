@@ -1,12 +1,23 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { PieChart } from 'react-d3';
+import { VictoryPie } from 'victory/dist/victory';
 import style from './style';
 
+const labelStyle = { labels: { fill: 'white', fontSize: 9, padding: 50 } };
+
+const colorScale = [
+  '#D85F49',
+  '#F66D3B',
+  '#D92E1D',
+  '#D73C4C',
+  '#FFAF59',
+  '#E28300'
+];
+
 const pieData = [
-  { label: 'High Risk', value: 50.0 },
-  { label: 'Medium Risk', value: 35.0 },
-  { label: 'Low Risk', value: 20.0 }
+  { x: 'High Risk', y: 50.0 },
+  { x: 'Medium Risk', y: 35.0 },
+  { x: 'Low Risk', y: 20.0 }
 ];
 
 export default React.createClass({
@@ -37,13 +48,10 @@ export default React.createClass({
             </p>
           </div>
           <div style={{ position: 'absolute', top: '0', bottom: '0', right: '0', width: '40%' }}>
-            <PieChart
+            <VictoryPie
+              style={labelStyle}
               data={pieData}
-              width={200}
-              height={200}
-              radius={100}
-              showInnerLabels={false}
-              showOuterLabels={false}
+              colorScale={colorScale}
             />
           </div>
         </div>
