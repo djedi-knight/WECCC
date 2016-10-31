@@ -1,3 +1,61 @@
 .scoreCard {
-  padding: 10px;
+  margin-bottom: 1rem;
+  background: #ffffff;
+  position: relative;
+
+  div {
+    padding: 1rem;
+    border-bottom: solid 2px #E6F2F4;
+  }
+
+  .title {
+    font-size: 1.5rem;
+    color: #001B34;
+  }
+
+  [data-react-toolbox="button"] {
+    color: #0079B8 !important;
+    font-size: 1rem;
+    text-decoration: underline;
+  }
+  [id*="peerScore"] {
+
+    span {
+      &:first-of-type {
+        display: block;
+      }
+    }
+  }
+
+  [id*="trend"] {
+
+    span {
+
+      &:first-of-type {
+        display: block;
+      }
+
+      &:last-of-type {
+        display: inline-block;
+        padding-top: .5rem;
+        height: 100%;
+      }
+    }
+  }
+
+  [id*="warning"] {
+    position: absolute;
+    top: -15px;
+    right: 0;
+    border-bottom: 0;
+  }
+
+  [data-for="risk"] {
+
+    [data-react-toolbox="button"] {
+      background: transparent;
+      color: #e34949 !important;
+    }
+  }
+
 }
