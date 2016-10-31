@@ -2,6 +2,7 @@
   margin-bottom: 1rem;
   background: #ffffff;
   position: relative;
+  border-radius: 5px;
   box-shadow: 0 2px 5px 0 rgba(#000, .3);
 
   div {
@@ -22,6 +23,13 @@
     color: #0079B8 !important;
     font-size: 1rem;
     text-decoration: underline;
+    font-size: 1rem;
+    background: transparent !important;
+
+    &:hover {
+      background: transparent !important;
+      color: #6bbfeb !important;
+    }
   }
   [id*="peerScore"] {
 
@@ -45,7 +53,7 @@
       }
 
       &:last-of-type {
-        position: absolute;
+        position: relative;
         top: 5px;
         font-size: 1rem;
       }
