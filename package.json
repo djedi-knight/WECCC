@@ -11,7 +11,6 @@
     "build:dev": "webpack",
     "start:dev": "webpack-dev-server --progress --colors --display-error-details",
     "build:prod": "better-npm-run build",
-    "start:prod": "webpack-dev-server --host 0.0.0.0 --port 8080 --config webpack/prod.run.config.js",
     "test": "mocha --compilers js:babel-core/register --require node_modules/ignore-styles --require ./test/test_helper.js \"test/**/*@(.js|.jsx)\"",
     "test:watch": "npm run test -- --watch --watch-extensions jsx"
   },
