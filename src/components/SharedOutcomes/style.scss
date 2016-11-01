@@ -4,6 +4,10 @@
     height: 90px;
   }
 
+  [class*="InteractiveSharedOutcomesHeader"] {
+    background: #4C82C5 !important;
+  }
+
   .sharedOutcomesSubgroup {
     border: 2px solid #ebe8e8;
     margin-bottom: 15px;
