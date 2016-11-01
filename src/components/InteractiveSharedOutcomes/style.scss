@@ -19,12 +19,32 @@
 
   [class*="col-xs-3"] {
 
-    &:first-of-type {
+    &:last-of-type {
+      background: #fff;
+      box-shadow: -5px 0 5px 0 rgba(#000, .1);
+      padding: 1rem;
 
+      div {
+        margin-bottom: 1rem;
+      }
     }
   }
 
   [class*="col-xs-6"] {
     padding: 0 2rem;
+    padding-right: 0;
+
+    [class*="flexboxgrid__row"] {
+      margin-right: 2rem;
+    }
+  }
+
+  [data-react-toolbox="input"] {
+    padding: 0;
+    margin-top: 1rem;
+
+    &:last-of-type {
+      margin-bottom: 1rem;
+    }
   }
 }
