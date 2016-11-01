@@ -1,20 +1,57 @@
 .valueImpact {
+
+  section {
+    outline: none !important;
+  }
+
+    [class*="row"] {
+      padding: 0 2rem;
+    }
+
+    input {
+      background: #fff;
+      font-size: 1rem;
+      padding-left: 1rem;
+    }
+
   .header {
-    background: $light;
+    background: $dark;
     height: 90px;
     display: flex;
     align-items: center;
     font-size: 2rem;
-    color: $dark;
-    border-bottom: solid 2px darken($light, 5%);
+    color: $light;
+    border-bottom: solid 2px #FEC83E !important;
+    margin-bottom: 2rem;
+    padding: 0 2rem;
+  }
+
+
+  svg {
+    max-height: 500px;
   }
 
   .subHeader {
     background: #4980c7;
     color: #fff;
-    padding: 20px;
+    padding: 1rem;
     margin: 0;
+    margin-bottom: 1rem;
     font-size: 23px;
+
+    &:nth-of-type(4) {
+      margin-top: 2rem;
+      max-width: calc(100% - 2rem) !important;
+    }
+  }
+
+  [data-react-toolbox="input"] {
+    padding: 0;
+    margin-bottom: 1rem;
+
+    input {
+      max-width: 94%;
+    }
   }
 
   .subgroup {
@@ -38,4 +75,17 @@
       margin: 0;
     }
   }
+
+  [data-react-toolbox="tabs"] {
+    overflow: hidden;
+
+    [class*="theme__pointer"] {
+      background: #FDC74D;
+    }
+
+    [class*="theme__navigation"] {
+      background: $dark;
+    }
+  }
+
 }
