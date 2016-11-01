@@ -1,7 +1,14 @@
 .vitalSigns {
   .vitalSignsHeader {
-    background: #e7f6ed;
+    background: $dark;
     height: 90px;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    color: $light;
+    border-bottom: solid 2px #FEC83E !important;
+    margin-bottom: 2rem;
+    padding: 0 2rem;
   }
 
   .vitalSignsSubgroup {
@@ -17,6 +24,12 @@
 
   .vitalSignsReportLink {
     text-align: center;
-    font-size: 30px;
+    font-size: 1rem;
+    margin-top: 2rem;
+    color: #4980c7 !important;
+  }
+
+  [data-react-toolbox="radio-group"] {
+    float: left;
   }
 }
