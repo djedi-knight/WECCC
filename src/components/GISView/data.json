@@ -70,7 +70,10 @@
       { "value": "senoir_living_alone_pct", "label": "senior_living_alone" },
       { "value": "pop_livingalone_pct", "label": "pop_livingalone" },
       { "value": "Single_pct", "label": "Single" },
-      { "value": "Seniors_pct", "label": "Seniors" }
+      { "value": "Seniors_pct", "label": "Seniors" },
+      { "value": "Older_seniors_pct", "label": "Older_seniors" },
+      { "value": "British_pct", "label": "British" },
+      { "value": "French_pct", "label": "French" }
     ]
 }
 

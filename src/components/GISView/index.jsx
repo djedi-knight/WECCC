@@ -8,6 +8,8 @@ import { Row, Col } from 'react-flexbox-grid';
 import style from './style';
 import data from './data.json';
 import PilotData from './PilotData.json';
+//import Select from 'react-select';
+import Control from './Control.jsx';
 
 
 export const GISView = React.createClass({
@@ -51,14 +53,24 @@ export const GISView = React.createClass({
           Leamington Pilot
         </div>
         <br />
+
         <Row>
-          <Col xs={2}>           
-            <Dropdown
+        {/*<Control />*/}
+          <Col xs={2}>
+          {/*<Select
+            value={this.state.currentSelection}
+            options={this.state.data.test}
+            onChange={this.handleSelectionChange}
+            clearable= {false}/>*/}
+          
+             
+           <Dropdown
               auto
               onChange={this.handleSelectionChange}
-              source={this.state.data.options}
+              source={this.state.data.test}
               value={this.state.currentSelection}
             />
+
           </Col>
           <Col xs={8}>
           <div className={style.mapView}>
