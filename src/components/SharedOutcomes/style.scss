@@ -1,7 +1,14 @@
 .sharedOutcomes {
   .sharedOutcomesHeader {
-    background: #e7f6ed;
+    background: $dark;
     height: 90px;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    color: $light;
+    border-bottom: solid 2px #FEC83E !important;
+    margin-bottom: 2rem;
+    padding: 0 2rem;
   }
 
   [class*="InteractiveSharedOutcomesHeader"] {
@@ -16,6 +23,14 @@
       background: #e5e0e0;
       padding: 15px;
       margin: 0;
+    }
+  }
+
+  [data-react-toolbox="radio-group"] {
+    display: flex;
+
+    div {
+      margin-left: 1rem;
     }
   }
 }
