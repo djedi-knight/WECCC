@@ -1,20 +1,53 @@
 .communityPattern {
+
+  [class*="row"] {
+    padding: 0 2rem;
+  }
+
+  input {
+    background: #fff;
+    font-size: 1rem;
+    padding-left: 1rem;
+  }
+
   .header {
-    background: $light;
+    background: $dark;
     height: 90px;
     display: flex;
     align-items: center;
     font-size: 2rem;
-    color: $dark;
-    border-bottom: solid 2px darken($light, 5%);
+    color: $light;
+    border-bottom: solid 2px #FEC83E;
+    margin-bottom: 2rem;
+    padding: 0 2rem;
+  }
+
+  svg {
+    margin-top: -8rem;
+    max-height: 600px;
   }
 
   .subHeader {
     background: #4980c7;
     color: #fff;
-    padding: 20px;
+    padding: 1rem;
     margin: 0;
+    margin-bottom: 1rem;
     font-size: 23px;
+
+    &:nth-of-type(4) {
+      margin-top: 2rem;
+      max-width: calc(100% - 2rem) !important;
+    }
+  }
+
+  [data-react-toolbox="input"] {
+    padding: 0;
+    margin-bottom: 1rem;
+
+    input {
+      max-width: 94%;
+    }
   }
 
   .subgroup {
@@ -41,23 +74,24 @@
 
   .reportTable {
     .tableHeader {
-      border: 1px solid gray;
+      border-bottom: solid 2px #FEC83E;
       font-size: 20px;
       font-weight: 40px;
-      background: #e7f6ed;
+      background: $dark;
       padding: 10px;
       margin: 0 1px;
       text-align: center;
-      color: #5c5858;
+      color: $light;
     }
 
     .tableRow {
-      border: 1px solid gray;
       text-align: center;
       padding: 10px;
       margin: 0 1px;
       font-size: 20px;
       color: gray;
+      background: #fff;
+      box-shadow: 0 2px 5px 0 rgba(#000, .3);
     }
   }
 }

@@ -78,3 +78,7 @@ div[data-react-toolbox="dialog"] {
     }
   }
 }
+
+[class*="theme__values"] {
+  padding-left: 0 !important;
+}

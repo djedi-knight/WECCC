@@ -1,10 +1,54 @@
 .gisPage {
   .gisPageHeader {
-    background: #e7f6ed;
+    background: $dark;
     height: 90px;
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    color: $light;
+    border-bottom: solid 2px #FEC83E;
+    padding: 0 2rem;
   }
 
-  .mapView {
-    padding: 10px;
+  br {
+    display: none;
+  }
+
+  [class*="leaflet-container"] {
+    height: calc(100vh - 90px);
+  }
+
+  [class*="flexboxgrid__row"] {
+
+  }
+
+  [class*="col-xs-2"] {
+    background: #fff;
+    padding: 1rem;
+    margin: 0 !important;
+    box-shadow: 5px 0 5px 0 rgba(#000, .1);
+    position: relative;
+    z-index: 100;
+
+    &:last-of-type {
+      box-shadow: -5px 0 5px 0 rgba(#000, .1);
+      div {
+        margin-bottom: 1rem;
+      }
+
+      span {
+        position: relative;
+        top: .5rem;
+        margin-right: .5rem;
+      }
+    }
+  }
+
+  [class*="col-xs-8"] {
+    padding: 0;
+  }
+
+  [class*="theme__text"] {
+    font-size: 1rem;
   }
 }
