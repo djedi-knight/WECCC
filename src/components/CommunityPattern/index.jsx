@@ -4,7 +4,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { VictoryPie } from 'victory/dist/victory';
 import { Row, Col } from 'react-flexbox-grid';
 import { Dropdown } from 'react-toolbox';
-import ScoreBoxSimple from '../ScoreBoxSimple';
+import ScoreCard from '../ScoreCard';
 import config from './config.json';
 import style from './style';
 
@@ -49,7 +49,7 @@ export const CommunityPatternSubgroups = React.createClass({
             <Row className={style.body}>
               {subGroup.scoreCards.map((scoreCard, y) =>
                 <Col key={y} xs={3}>
-                  <ScoreBoxSimple
+                  <ScoreCard
                     title={this.getScoreCardFor(subGroup.key, scoreCard).title}
                     score={this.getScoreCardFor(subGroup.key, scoreCard).score}
                     trend={this.getScoreCardFor(subGroup.key, scoreCard).trend}

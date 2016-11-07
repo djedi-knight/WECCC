@@ -3,9 +3,9 @@ import Fetch from 'react-fetch';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { RadioButton, RadioGroup } from 'react-toolbox';
 import { Row, Col } from 'react-flexbox-grid';
-import ScoreBoxSimple from '../ScoreBoxSimple';
 import config from './config.json';
 import style from './style';
+import ScoreCard from '../ScoreCard';
 
 export const VitalSignsSubgroup = React.createClass({
   propTypes: {
@@ -50,7 +50,7 @@ export const VitalSignsSubgroup = React.createClass({
         <Row className={style.body}>
           {this.getKeysFor(this.props.subGroup).scoreCards.map((scoreCard, x) =>
             <Col key={x} xs={2}>
-              <ScoreBoxSimple
+              <ScoreCard
                 title={this.getScoreCardFor(this.props.subGroup, scoreCard).title}
                 score={this.getScoreCardFor(this.props.subGroup, scoreCard).score}
                 trend={this.getScoreCardFor(this.props.subGroup, scoreCard).trend}

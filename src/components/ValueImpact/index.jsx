@@ -4,7 +4,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { Row, Col } from 'react-flexbox-grid';
 import { Dropdown } from 'react-toolbox';
 import { VictoryPie, VictoryLabel } from 'victory/dist/victory';
-import ScoreBoxSimple from '../ScoreBoxSimple';
+import ScoreCard from '../ScoreCard';
 import AreasOfFocusSidebar from '../AreasOfFocusSidebar';
 import config from './config.json';
 import style from './style';
@@ -91,7 +91,7 @@ export const ValueImpact = React.createClass({
               <Row className={style.body}>
                 {this.state.config.keys.subGroup.scoreCards.map((scoreCard, x) =>
                   <Col key={x} xs={3}>
-                    <ScoreBoxSimple
+                    <ScoreCard
                       title={this.getScoreCardFor(this.state.config.keys.subGroup.key, scoreCard).title}
                       score={this.getScoreCardFor(this.state.config.keys.subGroup.key, scoreCard).score}
                       trend={this.getScoreCardFor(this.state.config.keys.subGroup.key, scoreCard).trend}

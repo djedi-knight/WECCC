@@ -5,22 +5,30 @@ import { Button } from 'react-toolbox';
 import ScoreBox from '../ScoreBox';
 import ListBox from '../ListBox';
 import style from './style';
+import ScoreCard from '../ScoreCard';
+import data from './data.json';
 
 export const ShowMoreSection = React.createClass({
   mixins: [PureRenderMixin],
+  getInitialState(){
+    return { data };
+  },
   render() {
     return (
-      <Row>
-        <Col xs={4}>
-          <ScoreBox />
-        </Col>
-        <Col xs={4}>
-          <ScoreBox />
-        </Col>
-        <Col xs={4}>
-          <ScoreBox />
-        </Col>
-      </Row>
+      <div>
+        <Row>
+        {this.state.data.scoreCards.map((scoreCard, i) =>
+          <Col key={i} xs={4}>
+            <ScoreCard 
+              title={scoreCard.title}
+              score={scoreCard.score}
+              peerScore={scoreCard.peerScore}
+              warning={scoreCard.warning}
+              trend={scoreCard.trend}/>
+          </Col>
+          )}
+        </Row>
+      </div>
     );
   }
 });
