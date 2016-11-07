@@ -1,0 +1,13 @@
+{
+  "prodAPI": "http://weccc.sartori.ca:8090/api/pages/gis-view-page",
+  "demoAPI": "http://localhost:8090/api/pages/gis-view-demo-page",
+  "keys": {
+    "maps": [
+      "leamington-map"
+    ],
+    "selections": [
+      { "value": "value-impact-pie-chart-1", "label": "Selection #1" },
+      { "value": "value-impact-pie-chart-2", "label": "Selection #2" }
+    ]
+  }
+}
