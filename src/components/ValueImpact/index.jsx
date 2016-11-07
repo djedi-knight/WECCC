@@ -1,111 +1,111 @@
 import React from 'react';
+import Fetch from 'react-fetch';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { connect } from 'react-redux';
-import * as actionCreators from '../../actions/action_creators';
 import { Row, Col } from 'react-flexbox-grid';
-import { Dropdown, Tab, Tabs } from 'react-toolbox';
+import { Dropdown } from 'react-toolbox';
 import { VictoryPie, VictoryLabel } from 'victory/dist/victory';
 import ScoreBoxSimple from '../ScoreBoxSimple';
 import AreasOfFocusSidebar from '../AreasOfFocusSidebar';
+import config from './config.json';
 import style from './style';
-import data from './data.json';
-
-const labelStyle = { labels: { fill: 'white', fontSize: 9, padding: 50 } };
 
 export const ValueImpact = React.createClass({
+  propTypes: {
+    title: React.PropTypes.string,
+    pieCharts: React.PropTypes.array,
+    scoreCards: React.PropTypes.array
+  },
   mixins: [PureRenderMixin],
   getInitialState() {
     return {
-      value: 'light',
-      value2: 'london',
-      value3: 'faith',
-      inverseIndex: 1,
-      data
+      currentSelection: config.keys.selections[0].value,
+      config
     };
   },
-  handleChange(value) {
-    this.setState({ value });
+  getPieChartFor(key) {
+    if (this.props.pieCharts) {
+      const index = this.props.pieCharts.findIndex(pieChart => pieChart.key === key);
+
+      return this.props.pieCharts[index].data;
+    }
+
+    return [];
   },
-  handleChange2(value2) {
-    this.setState({ value2 });
+  getSubGroupFor(key) {
+    if (this.props.scoreCards) {
+      const index = this.props.scoreCards.findIndex(subGroup => subGroup.key === key);
+
+      return this.props.scoreCards[index];
+    }
+
+    return {};
   },
-  handleChange3(value3) {
-    this.setState({ value3 });
+  getScoreCardFor(subGroupKey, scoreCardKey) {
+    const subGroup = this.getSubGroupFor(subGroupKey);
+    if (subGroup.list) {
+      const index = subGroup.list.findIndex(scoreCard => scoreCard.key === scoreCardKey);
+
+      return subGroup.list[index];
+    }
+
+    return {};
   },
-  handleInverseTabChange(inverseIndex) {
-    this.setState({ inverseIndex });
+  handleSelectionChange(newSelection) {
+    this.setState({ currentSelection: newSelection });
   },
   render() {
     return (
       <div className={style.valueImpact}>
         <div className={style.header}>
-          Values and Impact
+          {this.props.title}
         </div>
         <Row>
           <Col xs={3}>
             <div className={style.subHeader}>
-              Population Subgroup
+              {this.state.config.selectionTitle}
             </div>
             <Dropdown
-              onChange={this.handleChange}
-              source={this.state.data.careNeeds}
-              value={this.state.value}
-            />
-            <Dropdown
-              onChange={this.handleChange2}
-              source={this.state.data.city}
-              value={this.state.value2}
-            />
-            <Dropdown
-              onChange={this.handleChange3}
-              source={this.state.data.subgroup}
-              value={this.state.value3}
+              onChange={this.handleSelectionChange}
+              source={this.state.config.keys.selections}
+              value={this.state.currentSelection}
             />
           </Col>
           <Col xs={6}>
             <div className={style.subHeader}>
-              Your Community Pattern
+              {this.state.config.chartSectionTitle}
             </div>
             <VictoryPie
-              style={labelStyle}
-              data={this.state.data.PieData}
-              colorScale={this.state.data.colorScale}
+              style={this.state.config.labelStyle}
+              data={this.getPieChartFor(this.state.currentSelection)}
+              colorScale={this.state.config.colourScale}
             >
               <VictoryLabel />
             </VictoryPie>
+
             <div className={style.subgroup}>
               <Row className={style.header}>
                 <div className={style.title}>
-                  Return on Investment
+                  {this.getSubGroupFor(this.state.config.keys.subGroup.key).title}
                 </div>
               </Row>
               <Row className={style.body}>
-                <Col xs={2} />
-                <Col xs={4}>
-                  <ScoreBoxSimple title={"Social"} score={"15"} trend={"down"} />
-                </Col>
-                <Col xs={4}>
-                  <ScoreBoxSimple title={"Economic"} score={"27"} trend={"up"} />
-                </Col>
-                <Col xs={2} />
+                {this.state.config.keys.subGroup.scoreCards.map((scoreCard, x) =>
+                  <Col key={x} xs={3}>
+                    <ScoreBoxSimple
+                      title={this.getScoreCardFor(this.state.config.keys.subGroup.key, scoreCard).title}
+                      score={this.getScoreCardFor(this.state.config.keys.subGroup.key, scoreCard).score}
+                      trend={this.getScoreCardFor(this.state.config.keys.subGroup.key, scoreCard).trend}
+                    />
+                  </Col>
+                )}
               </Row>
             </div>
           </Col>
           <Col xs={3}>
             <div className={style.subHeader}>
-              Things To Consider
+              {this.state.config.sidebarTitle}
             </div>
-            <Tabs index={this.state.inverseIndex} onChange={this.handleInverseTabChange} inverse>
-              <Tab label="First">
-                <AreasOfFocusSidebar />
-              </Tab>
-              <Tab label="Second">
-                <AreasOfFocusSidebar />
-              </Tab>
-              <Tab label="Third">
-                <AreasOfFocusSidebar />
-              </Tab>
-            </Tabs>
+            <AreasOfFocusSidebar />
           </Col>
         </Row>
       </div>
@@ -113,14 +113,28 @@ export const ValueImpact = React.createClass({
   }
 });
 
-function mapStateToProps(state) {
-  return {
-    test: 'Works!',
-    state
-  };
-}
+export const ValueImpactContainer = React.createClass({
+  propTypes: {
+    route: React.PropTypes.object
+  },
+  mixins: [PureRenderMixin],
+  getInitialState() {
+    return { config };
+  },
+  getURL() {
+    if (this.props.route.demoRoute) {
+      return this.state.config.demoAPI;
+    }
 
-export const ValueImpactContainer = connect(
-  mapStateToProps,
-  actionCreators
-)(ValueImpact);
+    return this.state.config.prodAPI;
+  },
+  render() {
+    return (
+      <div>
+        <Fetch url={this.getURL()}>
+          <ValueImpact />
+        </Fetch>
+      </div>
+    );
+  }
+});

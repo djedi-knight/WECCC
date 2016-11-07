@@ -1,0 +1,41 @@
+{
+  "prodAPI": "http://weccc.sartori.ca:8090/api/pages/community-tapestry-page",
+  "demoAPI": "http://localhost:8090/api/pages/community-tapestry-demo-page",
+  "labelStyle": {
+    "labels": {
+      "fill": "white",
+      "fontSize": 9,
+      "padding": 50
+    }
+  },
+  "colourScale": [
+    "#D85F49",
+    "#F66D3B",
+    "#D92E1D",
+    "#D73C4C",
+    "#FFAF59",
+    "#E28300",
+    "#F6A57F",
+    "#FF0000"
+  ],
+  "chartDescriptionText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere gravida nibh sagittis rutrum. Nam porttitor ante id luctus interdum. Aenean consequat magna eu semper egestas. Sed varius id ex ut gravida. Donec eget eros nec augue luctus luctus. Sed nec elit nibh. Donec ac libero a mauris tempor molestie.",
+  "chartDescriptionTitle": "Chart Description Title",
+  "chartDetails": {
+      "title": "Pie Chart Details",
+      "headers": [
+        "Indicator",
+        "Header #1",
+        "Header #2"
+      ]
+  },
+  "keys": {
+    "pieChart": "community-tapestry-pie-chart",
+    "subGroup": {
+      "key": "return-on-investment",
+      "scoreCards": [
+        "social",
+        "economic"
+      ]
+    }
+  }
+}

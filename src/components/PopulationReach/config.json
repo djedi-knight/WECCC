@@ -1,0 +1,46 @@
+{
+  "prodAPI": "http://weccc.sartori.ca:8090/api/pages/population-reach-page",
+  "demoAPI": "http://localhost:8090/api/pages/population-reach-demo-page",
+  "emptyTabContent": "Please select a tab to learn more",
+  "keys": {
+    "registered": "registered-caregivers",
+    "tabs": [
+      "tab-1",
+      "tab-2",
+      "tab-3",
+      "tab-4"
+    ],
+    "subGroups": [[
+      {
+        "key": "priority-subgroup-1",
+        "scoreCards": [
+          "over-80",
+          "disabled"
+        ]
+      }
+    ], [
+      {
+        "key": "priority-subgroup-2",
+        "scoreCards": [
+          "over-80",
+          "disabled"
+        ]
+      }, {
+        "key": "dependency-subgroup-2",
+        "scoreCards": [
+          "light",
+          "moderate",
+          "complex",
+          "eol"
+        ]
+      }, {
+        "key": "registered-subgroup-2",
+        "scoreCards": [
+          "care",
+          "outreach",
+          "neighbourhood"
+        ]
+      }
+    ]]
+  }
+}

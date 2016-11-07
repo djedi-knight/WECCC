@@ -13,7 +13,7 @@ export default React.createClass({
       <div className={style.areasOfFocusSidebar} >
         {this.state.data.items.map((item, i) =>
           <div key={i}>
-            <label><input type="checkbox" />{item}</label>
+            <label>{item}</label>
             <br />
             <hr />
           </div>

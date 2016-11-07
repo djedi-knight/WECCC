@@ -1,0 +1,31 @@
+{
+  "prodAPI": "http://weccc.sartori.ca:8090/api/reports/progress-tracker-report",
+  "demoAPI": "http://localhost:8090/api/reports/progress-tracker-demo-report",
+  "tableHeaders": [
+    "INDICATOR",
+    "GOAL",
+    "BASELINE",
+    "CHANGE",
+    "TREND",
+    "COLOURCODE"
+  ],
+  "tooltips": {
+    "RED": {
+      "title": "High Risk",
+      "type": "error"
+    },
+    "YELLOW": {
+      "title": "Medium Risk",
+      "type": "warning"
+    },
+    "GREEN": {
+      "title": "Low Risk",
+      "type": "success"
+    }
+  },
+  "icons": {
+    "UP": "trending_up",
+    "DOWN": "trending_down",
+    "NONE": "arrow_forward"
+  }
+}

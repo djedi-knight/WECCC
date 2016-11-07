@@ -1,0 +1,85 @@
+{
+  "prodAPI": "http://weccc.sartori.ca:8090/api/pages/community-pattern-page",
+  "demoAPI": "http://localhost:8090/api/pages/community-pattern-demo-page",
+  "labelStyle": {
+    "labels": {
+      "fill": "white",
+      "fontSize": 9,
+      "padding": 50
+    }
+  },
+  "colourScale": [
+    "#D85F49",
+    "#F66D3B",
+    "#D92E1D",
+    "#D73C4C",
+    "#FFAF59",
+    "#E28300",
+    "#F6A57F",
+    "#FF0000"
+  ],
+  "chartTitle": "Chart Title",
+  "selectionTitle": "Population Subgroup",
+  "sidebarTitle": "Sidebar Title",
+  "chartDetails": {
+      "title": "Pie Chart Details",
+      "headers": [
+        "Indicator",
+        "General",
+        "Subgroup"
+      ]
+  },
+  "keys": {
+    "selections": [
+      { "value": "community-pattern-pie-chart-1", "label": "Selection #1" },
+      { "value": "community-pattern-pie-chart-2", "label": "Selection #2" }
+    ],
+    "subGroups": [[
+      {
+        "key": "qol-subgroup-1",
+        "scoreCards": [
+          "community",
+          "subgroup",
+          "equity-gap"
+        ]
+      }, {
+        "key": "caregiver-burden-subgroup-1",
+        "scoreCards": [
+          "community",
+          "subgroup",
+          "equity-gap"
+        ]
+      }, {
+        "key": "reported-health-subgroup-1",
+        "scoreCards": [
+          "community",
+          "subgroup",
+          "equity-gap"
+        ]
+      }
+    ], [
+      {
+        "key": "qol-subgroup-2",
+        "scoreCards": [
+          "community",
+          "subgroup",
+          "equity-gap"
+        ]
+      }, {
+        "key": "caregiver-burden-subgroup-2",
+        "scoreCards": [
+          "community",
+          "subgroup",
+          "equity-gap"
+        ]
+      }, {
+        "key": "reported-health-subgroup-2",
+        "scoreCards": [
+          "community",
+          "subgroup",
+          "equity-gap"
+        ]
+      }
+    ]]
+  }
+}

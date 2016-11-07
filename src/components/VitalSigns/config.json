@@ -1,0 +1,33 @@
+{
+  "prodAPI": "http://weccc.sartori.ca:8090/api/pages/vital-signs-page",
+  "demoAPI": "http://localhost:8090/api/pages/vital-signs-demo-page",
+  "reportLink": {
+    "title": "Vital Signs Report",
+    "href": "#"
+  },
+  "keys": {
+    "radioButtons": [
+      "vital-signs-subgroup",
+      "self-reported-subgroup"
+    ],
+    "subGroups": [{
+      "key": "vital-signs-subgroup",
+      "scoreCards": [
+        "government",
+        "safety",
+        "arts-culture",
+        "transportation",
+        "food-security"
+      ]
+    }, {
+      "key": "self-reported-subgroup",
+      "scoreCards": [
+        "government",
+        "safety",
+        "arts-culture",
+        "transportation",
+        "food-security"
+      ]
+    }]
+  }
+}

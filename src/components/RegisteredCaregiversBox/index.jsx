@@ -4,6 +4,9 @@ import { Card, CardText } from 'react-toolbox';
 import style from './style';
 
 export default React.createClass({
+  propTypes: {
+    data: React.PropTypes.object
+  },
   mixins: [PureRenderMixin],
   render() {
     return (
@@ -11,10 +14,10 @@ export default React.createClass({
         <Card theme={style}>
           <CardText>
             <div className={style.title}>
-              Registered Caregivers
+              {this.props.data.title}
             </div>
             <div className={style.score}>
-              0
+              {this.props.data.value}
             </div>
           </CardText>
         </Card>

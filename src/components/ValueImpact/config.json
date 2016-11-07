@@ -1,0 +1,37 @@
+{
+  "prodAPI": "http://weccc.sartori.ca:8090/api/pages/value-impact-page",
+  "demoAPI": "http://localhost:8090/api/pages/value-impact-demo-page",
+  "chartSectionTitle": "Chart Title",
+  "selectionTitle": "Population Subgroup",
+  "sidebarTitle": "Sidebar Title",
+  "labelStyle": {
+    "labels": {
+      "fill": "white",
+      "fontSize": 9,
+      "padding": 50
+    }
+  },
+  "colourScale": [
+    "#D85F49",
+    "#F66D3B",
+    "#D92E1D",
+    "#D73C4C",
+    "#FFAF59",
+    "#E28300",
+    "#F6A57F",
+    "#FF0000"
+  ],
+  "keys": {
+    "selections": [
+      { "value": "value-impact-pie-chart-1", "label": "Selection #1" },
+      { "value": "value-impact-pie-chart-2", "label": "Selection #2" }
+    ],
+    "subGroup": {
+      "key": "return-on-investment",
+      "scoreCards": [
+        "social",
+        "economic"
+      ]
+    }
+  }
+}
