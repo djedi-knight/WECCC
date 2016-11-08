@@ -6,7 +6,6 @@ import { Map, TileLayer, GeoJson } from 'react-leaflet';
 import { Row, Col } from 'react-flexbox-grid';
 import config from './config.json';
 import style from './style';
-import data from './data.json';
 
 export const GISView = React.createClass({
   propTypes: {
@@ -16,10 +15,8 @@ export const GISView = React.createClass({
   mixins: [PureRenderMixin],
   getInitialState() {
     return {
-      config,
-      zoom: 12,
-      data,
-      currentSelection: data.options[0].value
+      currentSelection: config.keys.selections[0].value,
+      config
     };
   },
   getGeoJSONDataFor(key) {
@@ -59,15 +56,22 @@ export const GISView = React.createClass({
     );
   },
   getLegendLabel(range, index) {
-    return `${Number(range[index]).toFixed(2)}`;
+    return Number(range[index]).toFixed(2);
   },
   getMap() {
     return (
       <Col xs={8}>
         <div className={style.mapView}>
-          <Map center={this.state.data.map} zoom={this.state.zoom} maxBounds={this.state.data.bounds}>
-            <TileLayer url={'http://{s}.tile.osm.org/{z}/{x}/{y}.png'} />
-            <GeoJson data={this.getGeoJSONDataFor(this.state.config.keys.maps[0])} style={this.getStyle} />
+          <Map
+            center={this.state.config.map.center}
+            zoom={this.state.config.map.zoom}
+            maxBounds={this.state.config.map.bounds}
+          >
+            <TileLayer url={this.state.config.map.tileLayer} />
+            <GeoJson
+              data={this.getGeoJSONDataFor(this.state.config.keys.maps[0])}
+              style={this.getStyle}
+            />
           </Map>
         </div>
       </Col>
@@ -121,7 +125,7 @@ export const GISView = React.createClass({
       <Col xs={2}>
         <Dropdown
           onChange={this.handleSelectionChange}
-          source={this.state.data.options}
+          source={this.state.config.keys.selections}
           value={this.state.currentSelection}
         />
       </Col>
@@ -130,11 +134,11 @@ export const GISView = React.createClass({
   getStyle(feature) {
     return {
       fillColor: this.getColor(feature.properties[this.state.currentSelection]),
-      weight: 2,
-      opacity: 1,
-      color: 'white',
-      dashArray: '3',
-      fillOpacity: 0.7
+      weight: this.state.config.mapStyle.weight,
+      opacity: this.state.config.mapStyle.opacity,
+      color: this.state.config.mapStyle.colour,
+      dashArray: this.state.config.mapStyle.dashArray,
+      fillOpacity: this.state.config.mapStyle.fillOpacity
     };
   },
   handleSelectionChange(newSelection) {
