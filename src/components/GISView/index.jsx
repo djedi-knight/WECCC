@@ -1,13 +1,12 @@
 import React from 'react';
 import Fetch from 'react-fetch';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { Dropdown } from 'react-toolbox';
+import { Dropdown, FontIcon } from 'react-toolbox';
 import { Map, TileLayer, GeoJson } from 'react-leaflet';
 import { Row, Col } from 'react-flexbox-grid';
 import config from './config.json';
 import style from './style';
 import data from './data.json';
-import PilotData from './PilotData.json';
 
 export const GISView = React.createClass({
   propTypes: {
@@ -20,7 +19,6 @@ export const GISView = React.createClass({
       config,
       zoom: 12,
       data,
-      PilotData,
       currentSelection: data.options[0].value
     };
   },
@@ -47,38 +45,46 @@ export const GISView = React.createClass({
   },
   getLegend() {},
   getMax(key) {
-    console.log('state: ' + this.state.PilotData);
-    var max = this.state.PilotData.features[0].properties[key];
-    for (var i=0 ; i < this.state.PilotData.features.length ; i++){
-      console.log('current percentage: ' + this.state.PilotData.features[i].properties[key]);
-      max = Math.max(parseInt(this.state.PilotData.features[i].properties[key]), max)
+    const mapData = this.getGeoJSONDataFor(this.state.config.keys.maps[0]);
+
+    if (Object.keys(mapData).length) {
+      let max = mapData.features[0].properties[key];
+
+      for (let i = 0; i < mapData.features.length; i++) {
+        max = Math.max(mapData.features[i].properties[key], max);
+      }
+
+      return max;
     }
-    console.log('max: ' + max);
-    return max;
+
+    return 0;
   },
   getMin(key) {
-    var min = this.state.PilotData.features[0].properties[key];
-    for (var i=0; this.state.PilotData.features.length > i; i++){
-      console.log('current percentage: ' + this.state.PilotData.features[i].properties[key]);
-      min = Math.min(parseInt(this.state.PilotData.features[i].properties[key]), min)
+    const mapData = this.getGeoJSONDataFor(this.state.config.keys.maps[0]);
+
+    if (Object.keys(mapData).length) {
+      let min = mapData.features[0].properties[key];
+
+      for (let i = 0; i < mapData.features.length; i++) {
+        min = Math.min(mapData.features[i].properties[key], min);
+      }
+
+      return min;
     }
-    console.log('min: ' + min);
-    //console.log( 'range:' + Math.range(2, 6));
+
+    return 0;
   },
-  getRange(start, stop) {
-    var array = [];
-    start = getMax();
-    stop = getMin();
+  getRange(key) {
+    const min = this.getMin(key);
+    const max = this.getMax(key);
+    const totalRange = max - min;
+    const rangeSet = [min];
 
-    var length = stop - start;
+    for (let i = 1; i <= 7; i++) {
+      rangeSet[i] = rangeSet[i - 1] + totalRange / 8;
+    }
 
-    for (var i = 0; i <= length; i++) {
-        array[i] = start;
-        start++;
-    };
-    console.log('range: ' +array);
-
-    return array;
+    return rangeSet;
   },
   getStyle(feature) {
     return {
@@ -118,13 +124,12 @@ export const GISView = React.createClass({
           </Col>
           <Col xs={2}>
             <div>Legend</div>
-            {/*{this.state.data.legend.map((legend, i) =>
+            {this.state.data.legend.map((legend, i) =>
               <div key={i}>
                 <FontIcon style={{ color: legend.color }} value="lens" />
-
                 <br />
               </div>
-            )}*/}
+            )}
           </Col>
         </Row>
       </div>
