@@ -31,19 +31,48 @@ export const GISView = React.createClass({
 
     return {};
   },
-  getColor(d) {
+  getColor(value) {
+    const rangeSet = this.getRangeSet(this.state.currentSelection);
+
+    for (let i = 0; i < rangeSet.length - 1; i++) {
+      if (value >= rangeSet[i] && value <= rangeSet[i + 1]) {
+        return this.state.config.colourScale[i];
+      }
+    }
+
+    return this.state.config.colourScale[rangeSet.length];
+  },
+  getLegend() {
+    const rangeSet = this.getRangeSet(this.state.currentSelection);
+
     return (
-      d > 128 ? '#800026':
-      d > 64  ? '#BD0026' :
-      d > 32  ? '#E31A1C' :
-      d > 16  ? '#FC4E2A' :
-      d > 8   ? '#FD8D3C' :
-      d > 4   ? '#FEB24C' :
-      d > 2   ? '#FED976' :
-      '#FFEDA0'
+      <Col xs={2}>
+        <div>{this.state.config.legendTitle}</div>
+        {this.state.config.colourScale.map((colour, i) =>
+          <div key={i}>
+            <FontIcon style={{ color: colour }} value="lens" />
+            {this.getLegendLabel(rangeSet, i)}
+            <br />
+          </div>
+        )}
+      </Col>
     );
   },
-  getLegend() {},
+  getLegendLabel(range, index) {
+    return `${Number(range[index]).toFixed(2)}`;
+  },
+  getMap() {
+    return (
+      <Col xs={8}>
+        <div className={style.mapView}>
+          <Map center={this.state.data.map} zoom={this.state.zoom} maxBounds={this.state.data.bounds}>
+            <TileLayer url={'http://{s}.tile.osm.org/{z}/{x}/{y}.png'} />
+            <GeoJson data={this.getGeoJSONDataFor(this.state.config.keys.maps[0])} style={this.getStyle} />
+          </Map>
+        </div>
+      </Col>
+    );
+  },
   getMax(key) {
     const mapData = this.getGeoJSONDataFor(this.state.config.keys.maps[0]);
 
@@ -74,17 +103,29 @@ export const GISView = React.createClass({
 
     return 0;
   },
-  getRange(key) {
+  getRangeSet(key) {
     const min = this.getMin(key);
     const max = this.getMax(key);
     const totalRange = max - min;
     const rangeSet = [min];
+    const rangeSetLength = this.state.config.colourScale.length;
 
-    for (let i = 1; i <= 7; i++) {
-      rangeSet[i] = rangeSet[i - 1] + totalRange / 8;
+    for (let i = 1; i <= rangeSetLength - 1; i++) {
+      rangeSet[i] = rangeSet[i - 1] + totalRange / rangeSetLength;
     }
 
     return rangeSet;
+  },
+  getSelectionSidebar() {
+    return (
+      <Col xs={2}>
+        <Dropdown
+          onChange={this.handleSelectionChange}
+          source={this.state.data.options}
+          value={this.state.currentSelection}
+        />
+      </Col>
+    );
   },
   getStyle(feature) {
     return {
@@ -107,30 +148,9 @@ export const GISView = React.createClass({
         </div>
         <br />
         <Row>
-          <Col xs={2}>
-            <Dropdown
-              onChange={this.handleSelectionChange}
-              source={this.state.data.options}
-              value={this.state.currentSelection}
-            />
-          </Col>
-          <Col xs={8}>
-            <div className={style.mapView}>
-              <Map center={this.state.data.map} zoom={this.state.zoom} maxBounds={this.state.data.bounds}>
-                <TileLayer url={'http://{s}.tile.osm.org/{z}/{x}/{y}.png'} />
-                <GeoJson data={this.getGeoJSONDataFor(this.state.config.keys.maps[0])} style={this.getStyle} />
-              </Map>
-            </div>
-          </Col>
-          <Col xs={2}>
-            <div>Legend</div>
-            {this.state.data.legend.map((legend, i) =>
-              <div key={i}>
-                <FontIcon style={{ color: legend.color }} value="lens" />
-                <br />
-              </div>
-            )}
-          </Col>
+          {this.getSelectionSidebar()}
+          {this.getMap()}
+          {this.getLegend()}
         </Row>
       </div>
     );
