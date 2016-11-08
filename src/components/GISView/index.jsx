@@ -1,142 +1,188 @@
 import React from 'react';
+import Fetch from 'react-fetch';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
-import { connect } from 'react-redux';
-import * as actionCreators from '../../actions/action_creators';
-import { RadioButton, RadioGroup, FontIcon, Dropdown } from 'react-toolbox';
+import { Dropdown, FontIcon } from 'react-toolbox';
 import { Map, TileLayer, GeoJson } from 'react-leaflet';
 import { Row, Col } from 'react-flexbox-grid';
+import config from './config.json';
 import style from './style';
-import data from './data.json';
-import PilotData from './PilotData.json';
 
 export const GISView = React.createClass({
+  propTypes: {
+    title: React.PropTypes.string,
+    maps: React.PropTypes.array
+  },
   mixins: [PureRenderMixin],
   getInitialState() {
     return {
-      zoom: 12,
-      data,
-      PilotData,
-      currentSelection: data.options[0].value
+      currentSelection: config.keys.selections[0].value,
+      config
+    };
+  },
+  getGeoJSONDataFor(key) {
+    if (this.props.maps) {
+      const index = this.props.maps.findIndex(map => map.key === key);
+
+      return this.props.maps[index];
+    }
+
+    return {};
+  },
+  getColor(value) {
+    const rangeSet = this.getRangeSet(this.state.currentSelection);
+
+    for (let i = 0; i < rangeSet.length - 1; i++) {
+      if (value >= rangeSet[i] && value <= rangeSet[i + 1]) {
+        return this.state.config.colourScale[i];
+      }
+    }
+
+    return this.state.config.colourScale[rangeSet.length];
+  },
+  getLegend() {
+    const rangeSet = this.getRangeSet(this.state.currentSelection);
+
+    return (
+      <Col xs={2}>
+        <div>{this.state.config.legendTitle}</div>
+        {this.state.config.colourScale.map((colour, i) =>
+          <div key={i}>
+            <FontIcon style={{ color: colour }} value="lens" />
+            {this.getLegendLabel(rangeSet, i)}
+            <br />
+          </div>
+        )}
+      </Col>
+    );
+  },
+  getLegendLabel(range, index) {
+    return Number(range[index]).toFixed(2);
+  },
+  getMap() {
+    return (
+      <Col xs={8}>
+        <div className={style.mapView}>
+          <Map
+            center={this.state.config.map.center}
+            zoom={this.state.config.map.zoom}
+            maxBounds={this.state.config.map.bounds}
+          >
+            <TileLayer url={this.state.config.map.tileLayer} />
+            <GeoJson
+              data={this.getGeoJSONDataFor(this.state.config.keys.maps[0])}
+              style={this.getStyle}
+            />
+          </Map>
+        </div>
+      </Col>
+    );
+  },
+  getMax(key) {
+    const mapData = this.getGeoJSONDataFor(this.state.config.keys.maps[0]);
+
+    if (Object.keys(mapData).length) {
+      let max = mapData.features[0].properties[key];
+
+      for (let i = 0; i < mapData.features.length; i++) {
+        max = Math.max(mapData.features[i].properties[key], max);
+      }
+
+      return max;
+    }
+
+    return 0;
+  },
+  getMin(key) {
+    const mapData = this.getGeoJSONDataFor(this.state.config.keys.maps[0]);
+
+    if (Object.keys(mapData).length) {
+      let min = mapData.features[0].properties[key];
+
+      for (let i = 0; i < mapData.features.length; i++) {
+        min = Math.min(mapData.features[i].properties[key], min);
+      }
+
+      return min;
+    }
+
+    return 0;
+  },
+  getRangeSet(key) {
+    const min = this.getMin(key);
+    const max = this.getMax(key);
+    const totalRange = max - min;
+    const rangeSet = [min];
+    const rangeSetLength = this.state.config.colourScale.length;
+
+    for (let i = 1; i <= rangeSetLength - 1; i++) {
+      rangeSet[i] = rangeSet[i - 1] + totalRange / rangeSetLength;
+    }
+
+    return rangeSet;
+  },
+  getSelectionSidebar() {
+    return (
+      <Col xs={2}>
+        <Dropdown
+          onChange={this.handleSelectionChange}
+          source={this.state.config.keys.selections}
+          value={this.state.currentSelection}
+        />
+      </Col>
+    );
+  },
+  getStyle(feature) {
+    return {
+      fillColor: this.getColor(feature.properties[this.state.currentSelection]),
+      weight: this.state.config.mapStyle.weight,
+      opacity: this.state.config.mapStyle.opacity,
+      color: this.state.config.mapStyle.colour,
+      dashArray: this.state.config.mapStyle.dashArray,
+      fillOpacity: this.state.config.mapStyle.fillOpacity
     };
   },
   handleSelectionChange(newSelection) {
     this.setState({ currentSelection: newSelection });
   },
-  getColor(d){
-    return (
-      d > 128 ? '#800026':
-      d > 64  ? '#BD0026' :
-      d > 32  ? '#E31A1C' :
-      d > 16  ? '#FC4E2A' :
-      d > 8   ? '#FD8D3C' :
-      d > 4   ? '#FEB24C' :
-      d > 2   ? '#FED976' :
-      '#FFEDA0'
-    );
-  },
-
-  getMax(key) { 
-    console.log('state: ' + this.state.PilotData);
-    var max = this.state.PilotData.features[0].properties[key];
-    for (var i=0 ; i < this.state.PilotData.features.length ; i++){
-      console.log('current percentage: ' + this.state.PilotData.features[i].properties[key]);
-      max = Math.max(parseInt(this.state.PilotData.features[i].properties[key]), max)
-    }
-    console.log('max: ' + max);
-    return max;     
-  },
-
-  getMin(key){
-    var min = this.state.PilotData.features[0].properties[key];
-    for (var i=0; this.state.PilotData.features.length > i; i++){
-      console.log('current percentage: ' + this.state.PilotData.features[i].properties[key]);
-      min = Math.min(parseInt(this.state.PilotData.features[i].properties[key]), min)
-    } 
-    console.log('min: ' + min);
-    //console.log( 'range:' + Math.range(2, 6));  
-     
-  },
-
-  getrange(start, stop)
-  {
-    var array = [];
-    start = getMax();
-    stop = getMin();
-
-    var length = stop - start; 
-
-    for (var i = 0; i <= length; i++) { 
-        array[i] = start;
-        start++;
-    };
-    console.log('range: ' +array);
-
-    return array;
-  },
-
-
-  getStyle(feature) {
-    return {
-      fillColor: this.getColor(feature.properties[this.state.currentSelection]),
-      weight: 2,
-      opacity: 1,
-      color: 'white',
-      dashArray: '3',
-      fillOpacity: 0.7
-    };
-  },
-  getLegend(){
-  },
   render() {
     return (
       <div className={style.gisPage}>
         <div className={style.header}>
-          Leamington Pilot
+          {this.props.title}
         </div>
-        {this.getMin('Pop_2011')}
-       
         <br />
         <Row>
-          <Col xs={2}> 
-            <Dropdown
-              onChange={this.handleSelectionChange}
-              source={this.state.data.options}
-              value={this.state.currentSelection}
-            />
-          </Col>
-          <Col xs={8}>
-            <div className={style.mapView}>
-              <Map center={this.state.data.map} zoom={this.state.zoom} maxBounds={this.state.data.bounds}>
-                <TileLayer url={'http://{s}.tile.osm.org/{z}/{x}/{y}.png'} />  
-                <GeoJson data={PilotData} style={this.getStyle}/>           
-              </Map>
-            </div>     
-          </Col>
-          <Col xs={2}>
-            <div>Legend</div>
-            {/*{this.state.data.legend.map((legend, i) =>
-              <div key={i}>
-                <FontIcon style={{ color: legend.color }} value="lens" /> 
-
-                <br />
-              </div>
-            )}*/}
-          </Col>          
-        </Row>        
+          {this.getSelectionSidebar()}
+          {this.getMap()}
+          {this.getLegend()}
+        </Row>
       </div>
     );
   }
 });
-function mapStateToProps(state) {
-  return {
-    test: 'Works!',
-    state
-  };
-}
-export const GISViewContainer = connect(
-  mapStateToProps,
-  actionCreators
-)(GISView);
 
+export const GISViewContainer = React.createClass({
+  propTypes: {
+    route: React.PropTypes.object
+  },
+  mixins: [PureRenderMixin],
+  getInitialState() {
+    return { config };
+  },
+  getURL() {
+    if (this.props.route.demoRoute) {
+      return this.state.config.demoAPI;
+    }
 
- // <button onClick={this.getMax}>JIll</button>
+    return this.state.config.prodAPI;
+  },
+  render() {
+    return (
+      <div>
+        <Fetch url={this.getURL()}>
+          <GISView />
+        </Fetch>
+      </div>
+    );
+  }
+});

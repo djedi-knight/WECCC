@@ -1,0 +1,88 @@
+{
+  "prodAPI": "http://weccc.sartori.ca:8090/api/pages/gis-view-page",
+  "demoAPI": "http://localhost:8090/api/pages/gis-view-demo-page",
+  "legendTitle": "Legend",
+  "colourScale":[
+    "#FFEDA0",
+    "#FED976",
+    "#FEB24C",
+    "#FD8D3C",
+    "#FC4E2A",
+    "#E31A1C",
+    "#BD0026",
+    "#800026"
+  ],
+  "mapStyle": {
+    "weight": 2,
+    "opacity": 1,
+    "colour": "white",
+    "dashArray": "3",
+    "fillOpacity": 0.7
+  },
+  "map": {
+    "tileLayer": "http://{s}.tile.osm.org/{z}/{x}/{y}.png",
+    "zoom": 12,
+    "center": [42.0532, -82.5999],
+    "bounds":[
+      [42.171655, -82.636742],
+      [42.165039, -82.459588],
+      [41.910562, -82.508340],
+      [42.036653, -82.647729]
+    ]
+  },
+  "keys": {
+    "maps": [
+      "leamington-map"
+    ],
+    "selections": [
+      { "value": "NoEngFren_pct", "label": "NoEngFren_pct" },
+      { "value": "low_income_pop_pct", "label": "low_income_pop_pct" },
+      { "value": "low_income_seniors_pct", "label": "low_income_seniors_pct" },
+      { "value": "senoir_living_alone_pct", "label": "senior_living_alone_pct" },
+      { "value": "pop_livingalone_pct", "label": "pop_livingalone_pct" },
+      { "value": "Single_pct", "label": "Single_pct" },
+      { "value": "Pop_2011", "label": "Pop_2011" },
+      { "value": "Seniors_pct", "label": "Seniors_pct" },
+      { "value": "Older_seniors_pct", "label": "Older_seniors_pct" },
+      { "value": "British_pct", "label": "British_pct" },
+      { "value": "French_pct", "label": "French_pct" },
+      { "value": "Eastern_European_pct", "label": "Eastern_European_pct" },
+      { "value": "Northern_European_pct", "label": "Northern_European_pct" },
+      { "value": "Southern_European_pct", "label": "Southern_European_pct" },
+      { "value": "Western_European_pct", "label": "Western_European_pct" },
+      { "value": "Jewish_pct", "label": "Jewish_pct" },
+      { "value": "South_Asian_pct", "label": "South_Asian_pct" },
+      { "value": "EastSoutheast_Asian_pct", "label": "EastSoutheast_Asian_pct" },
+      { "value": "Western_Asian_pct", "label": "Western_Asian_pct" },
+      { "value": "LatinCentral_American_pct", "label": "LatinCentral_American_pct" },
+      { "value": "Caribbean_pct", "label": "Caribbean_pct" },
+      { "value": "Afrian_pct", "label": "African_pct" },
+      { "value": "Chinese_pct", "label": "Chinese_pct" },
+      { "value": "Filipino_pct", "label": "Filipino_pct" },
+      { "value": "German_pct", "label": "German_pct" },
+      { "value": "Dutch_pct", "label": "Dutch_pct" },
+      { "value": "Russian_pct", "label": "Russian_pct" },
+      { "value": "Ukrainian_pct", "label": "Ukrainian_pct" },
+      { "value": "Italian_pct", "label": "Italian_pct" },
+      { "value": "Portuguese_pct", "label": "Portuguese_pct" },
+      { "value": "Mexican_pct", "label": "Mexican_pct" },
+      { "value": "Black_pct", "label": "Black_pct" },
+      { "value": "Aboriginal_pct", "label": "Aboriginal_pct" },
+      { "value": "Arab_or_pct", "label": "Arab_or_pct" },
+      { "value": "Buddhist_pct", "label": "Buddhist_pct" },
+      { "value": "Muslim_pct", "label": "Muslim_pct" },
+      { "value": "Hindu_pct", "label": "Hindu_pct" },
+      { "value": "Catholic_pct", "label": "Catholic_pct" },
+      { "value": "United_pct", "label": "United_pct" },
+      { "value": "Orthodox_pct", "label": "Orthodox_pct" },
+      { "value": "Anglican_pct", "label": "Anglican_pct" },
+      { "value": "Baptist_pct", "label": "Baptist_pct" },
+      { "value": "Pentecostal_pct", "label": "Pentecostal_pct" },
+      { "value": "Presbyterian_pct", "label": "Presbyterian_pct" },
+      { "value": "OtherChristian_Pct", "label": "OtherChristian_pct" },
+      { "value": "Lutheran_pct", "label": "Lutheran_pct" },
+      { "value": "No_degree_25_64_pct", "label": "No_degree_25_64_pct" },
+      { "value": "FrenchLang_only_pct", "label": "FrenchLang_only_pct" }
+    ]
+  }
+}
