@@ -29,8 +29,8 @@ export default React.createClass({
   getScore() {
     return this.props.score || this.state.data.score;
   },
-  getPeerScore() {
-    if (this.props.peerScore) {
+  getPeerScore(){
+    if (this.props.peerScore){
       return (
         <div id="peerScore" className={style.peerScore}>
           <FontIcon value="person" /> Peer Comparison Score {this.props.peerScore}
@@ -43,7 +43,11 @@ export default React.createClass({
     if (this.props.trend) {
       return (
         <div id="trend" className={style.trend}>
-          <FontIcon value="trending_up" />Change Over Time <FontIcon value={this.props.trend} />
+          Change Over Time   
+          {this.props.trend === "up" ?  <FontIcon value="arrow_upward"/> : null}
+          {this.props.trend === "down" ? <FontIcon value="arrow_downward"/> : null}
+          {this.props.trend === "same" ? <FontIcon value="arrow_forward"/> : null}
+          <FontIcon value={this.props.trend}/> 
         </div>
       );
     }

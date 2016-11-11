@@ -5,20 +5,23 @@
       "score":      "12/21",
       "peerScore":  "6/21",
       "warning":    true,
-      "trend":      "down"
+      "trend":      "down",
+      "showDetails": true
     },
     {
       "title":      "ACTIVE # OF PATIENTS",
       "score":      "20",
       "peerScore":  "18",
-      "trend":      "down"
+      "trend":      "same",
+      "showDetails": true
     },
     {
       "title":      "READMISSIONS",
       "score":      "37",
       "peerScore":  "43",
       "warning":    true,
-      "trend":      "up"
+      "trend":      "up",
+      "showDetails": true
     }
   ]
 }
