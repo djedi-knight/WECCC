@@ -44,10 +44,9 @@ export default React.createClass({
       return (
         <div id="trend" className={style.trend}>
           Change Over Time   
-          {this.props.trend === "up" ?  <FontIcon value="arrow_upward"/> : null}
-          {this.props.trend === "down" ? <FontIcon value="arrow_downward"/> : null}
-          {this.props.trend === "same" ? <FontIcon value="arrow_forward"/> : null}
-          <FontIcon value={this.props.trend}/> 
+          {this.props.trend.toLowerCase() === "up" ?  <FontIcon value="arrow_upward"/> : null}
+          {this.props.trend.toLowerCase() === "down" ? <FontIcon value="arrow_downward"/> : null}
+          {this.props.trend.toLowerCase() === "same" ? <FontIcon value="arrow_forward"/> : null}
         </div>
       );
     }
