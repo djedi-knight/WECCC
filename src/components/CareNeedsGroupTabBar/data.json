@@ -5,26 +5,30 @@
       "score":      "3/10",
       "peerScore":  "6/10",
       "warning":    true,
-      "trend":      "up"
+      "trend":      "up",
+      "showDetails": true
     },
     {
       "title":      "QUALITY OF LIFE",
       "score":      "7/10",
       "peerScore":  "4/10",
-      "trend":      "same"
+      "trend":      "same",
+      "showDetails": true
     },
     {
       "title":      "HOURS OF CARE",
       "score":      "1.1",
       "peerScore":  "0.9",
-      "warning":    true,
-      "trend":      "down"
+      "trend":      "down",
+      "showDetails": true
     },
     {
       "title":      "SELF-RELIANCE",
       "score":      "9/10",
       "peerScore":  "9/10",
-      "trend":      "same"
+      "warning":    true,
+      "trend":      "same",
+      "showDetails": true
     }
   ],
   "moderate": [
@@ -33,26 +37,30 @@
       "score":      "5/10",
       "peerScore":  "6/10",
       "warning":    true,
-      "trend":      "down"
+      "trend":      "down",
+      "showDetails": true
     },
     {
       "title":      "QUALITY OF LIFE",
       "score":      "6/10",
       "peerScore":  "4/10",
-      "trend":      "same"
+      "trend":      "same",
+      "showDetails": true
     },
     {
       "title":      "HOURS OF CARE",
       "score":      "1.2",
       "peerScore":  "0.9",
       "warning":    true,
-      "trend":      "same"
+      "trend":      "same",
+      "showDetails": true
     },
     {
       "title":      "SELF-RELIANCE",
       "score":      "10",
       "peerScore":  "9/10",
-      "trend":      "up"
+      "trend":      "up",
+      "showDetails": true
     }
   ],
   "complex": [
@@ -61,26 +69,30 @@
       "score":      "10",
       "peerScore":  "2/10",
       "warning":    false,
-      "trend":      "up"
+      "trend":      "up",
+      "showDetails": true
     },
     {
       "title":      "QUALITY OF LIFE",
       "score":      "8/10",
       "peerScore":  "1/10",
-      "trend":      "down"
+      "trend":      "down",
+      "showDetails": true
     },
     {
       "title":      "HOURS OF CARE",
       "score":      "1.5",
       "peerScore":  "1.9",
       "warning":    false,
-      "trend":      "same"
+      "trend":      "same",
+      "showDetails": true
     },
     {
       "title":      "SELF-RELIANCE",
       "score":      "10",
       "peerScore":  "10/10",
-      "trend":      "up"
+      "trend":      "up",
+      "showDetails": true
     }
   ],
   "eol": [
@@ -89,26 +101,30 @@
       "score":      "9/10",
       "peerScore":  "0.6",
       "warning":    true,
-      "trend":      "up"
+      "trend":      "up",
+      "showDetails": true
     },
     {
       "title":      "QUALITY OF LIFE",
       "score":      "6/10",
       "peerScore":  "1.0",
-      "trend":      "same"
+      "trend":      "same",
+      "showDetails": true
     },
     {
       "title":      "HOURS OF CARE",
       "score":      "2.2",
       "peerScore":  "1.9",
       "warning":    true,
-      "trend":      "down"
+      "trend":      "down",
+      "showDetails": true
     },
     {
       "title":      "SELF-RELIANCE",
       "score":      "8/10",
       "peerScore":  "1/10",
-      "trend":      "same"
+      "trend":      "same",
+      "showDetails": true
     }
   ]
 }
