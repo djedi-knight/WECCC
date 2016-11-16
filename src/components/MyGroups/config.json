@@ -1,0 +1,43 @@
+{
+  "prodAPI": "http://weccc.sartori.ca:8090/api/pages/population-reach-page",
+  "demoAPI": "http://localhost:8090/api/pages/population-reach-demo-page",
+  "keys": {
+    "header": "my-groups",
+    "tabs": [
+      "tab-1",
+      "tab-2",
+      "tab-3",
+      "tab-4"
+    ],
+    "subGroups": [[
+      {
+        "key": "health-outcomes-subgroup",
+        "scoreCards": [
+          "patient experience",
+          "quality of life",
+          "hours of care",
+          "self-reliance"
+        ]
+      }
+    ], [
+      {
+        "key": "area-of-focus-subgroup",
+        "ListDetails": {
+          "title": "List Box",
+          "headers": [
+            "title",
+            "Subtitle"
+          ]
+        },
+      }, {
+        "key": "alert-summary-subgroup",
+        "table": [
+          "category",
+          "subcategory",
+          "outcomes",
+          "notes"
+        ]
+      }
+    ]]
+  }
+}
