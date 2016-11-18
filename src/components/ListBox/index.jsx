@@ -35,7 +35,7 @@ export default React.createClass({
             <TooltipLink style={{ float: 'right' }} icon="info_outline" tooltip="info popup" />
           </Col>
         </Row>
-        {this.state.data.topics.map((topic, i) =>
+        {this.state.config.listBox.topics.map((topic, i) =>        
           <Row key={i} style={{ border: '0.5px solid gray', backgroundColor: '#e8f8f5' }}>
             {topic.title}
             {topic.warning === 'yes' ? <FontIcon style={{ color: '#FF0000' }} value="warning" /> : null}

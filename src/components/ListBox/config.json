@@ -3,16 +3,11 @@
   "demoAPI": "http://localhost:8090/api/pages/population-reach-demo-page",
   "title":    "RESPONDING TO NEED",
   "subtitle": "Top 3 Clinical Assessment Protocols [CAPS]",  
-  "keys":{
-    "subGroups":[
-      {
-        "key":"listBox",
-        "topics": [
-          "title",
-          "details",
-          "warning"
-        ]
-      }
+  "listBox":{      
+    "topics": [
+      "title",
+      "details",
+      "warning"     
     ]
   }  
 }
