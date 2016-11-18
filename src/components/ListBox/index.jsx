@@ -5,15 +5,21 @@ import { Row, Col } from 'react-flexbox-grid';
 import ListBoxModalView from '../ListBoxModalView';
 import style from './style';
 import data from './data.json';
+import config from './config.json';
 
 const TooltipLink = new Tooltip(Link);
 
 export default React.createClass({
+   propTypes: {
+    keys: React.PropTypes.array,
+    topics: React.PropTypes.array
+  },
   mixins: [PureRenderMixin],
   getInitialState() {
     return {
       active: false,
-      data
+      data,
+      config
     };
   },
   handleToggle() {
@@ -23,9 +29,11 @@ export default React.createClass({
     return (
       <div className={style.listBox}>
         <Row style={{ backgroundColor: '#fff' }}>
-          {this.state.data.title}<br />
-          {this.state.data.subtitle}
-          <Col><TooltipLink style={{ float: 'right' }} icon="info_outline" tooltip="info popup" /></Col>
+          {this.state.config.title}<br />
+          {this.state.config.subtitle}
+          <Col>
+            <TooltipLink style={{ float: 'right' }} icon="info_outline" tooltip="info popup" />
+          </Col>
         </Row>
         {this.state.data.topics.map((topic, i) =>
           <Row key={i} style={{ border: '0.5px solid gray', backgroundColor: '#e8f8f5' }}>

@@ -1,0 +1,14 @@
+{
+  "prodAPI": "http://weccc.sartori.ca:8090/api/pages/population-reach-page",
+  "demoAPI": "http://localhost:8090/api/pages/population-reach-demo-page",
+  "headerTitle": "MyGroups",
+  "dropdownLabel": "Sort by timeframe:",
+  "keys": {
+    "selections": [
+      { "value": "patientExperience", "label": "Patient Experience Score Box" },
+      { "value": "qualityOfLife", "label": "Quality of Life Score Box" },
+      { "value": "hoursOfCare", "label": "Hours of Care Score Box" },
+      { "value": "selfReliance", "label": "Self-Reliance Score Box" }
+    ]    
+  }
+}

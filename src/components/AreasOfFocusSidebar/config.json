@@ -1,0 +1,11 @@
+{
+  "prodAPI": "http://weccc.sartori.ca:8090/api/pages/population-reach-page",
+  "demoAPI": "http://localhost:8090/api/pages/population-reach-demo-page", 
+  "keys": {
+    "items": [
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    ]      
+  }
+}
