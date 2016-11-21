@@ -11,7 +11,6 @@ const TooltipLink = new Tooltip(Link);
 
 export default React.createClass({
    propTypes: {
-    keys: React.PropTypes.array,
     topics: React.PropTypes.array
   },
   mixins: [PureRenderMixin],
