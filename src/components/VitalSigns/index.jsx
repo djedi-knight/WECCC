@@ -18,7 +18,9 @@ export const VitalSignsSubgroup = React.createClass({
   },
   getKeysFor(subGroupKey) {
     if (this.state.config) {
-      const index = this.state.config.keys.subGroups.findIndex(subGroup => subGroup.key === subGroupKey);
+      const index = this.state.config.keys.subGroups.findIndex(subGroup => subGroup.key 
+
+=== subGroupKey);
 
       return this.state.config.keys.subGroups[index];
     }
@@ -49,7 +51,7 @@ export const VitalSignsSubgroup = React.createClass({
       <div style={style.vitalSignsSubgroups}>
         <Row className={style.body}>
           {this.getKeysFor(this.props.subGroup).scoreCards.map((scoreCard, x) =>
-            <Col key={x} xs={2}>
+            <Col key={x} xs={3}>
               <ScoreCard
                 title={this.getScoreCardFor(this.props.subGroup, scoreCard).title}
                 score={this.getScoreCardFor(this.props.subGroup, scoreCard).score}
@@ -57,7 +59,7 @@ export const VitalSignsSubgroup = React.createClass({
               />
             </Col>
           )}
-        </Row>
+        </Row>        
       </div>
     );
   }
@@ -93,6 +95,20 @@ export const VitalSigns = React.createClass({
         <div className={style.vitalSignsHeader}>
           {this.props.title}
         </div>
+        <div className={style.subgroup}>
+          <Row className={style.header}>
+            <div className={style.title}>
+              {this.state.config.descriptionTitle}
+            </div>
+          </Row>
+          <Row >
+            <div className={style.descriptionText}>
+              <br />
+              {this.state.config.descriptionText}
+            </div>
+          </Row>
+        </div>
+        <br/>
         <RadioGroup value={this.state.selectedSubgroup} onChange={this.handleSelectionChange}>
           {this.state.config.keys.radioButtons.map((radioButton, x) =>
             <RadioButton key={x} label={this.getSubGroupFor(radioButton).title} value={radioButton} />
