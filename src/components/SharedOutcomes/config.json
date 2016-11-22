@@ -5,23 +5,31 @@
     "registered": "registered-caregivers",
     "radioButtons": [
       "people-subgroup",
-      "core-partners-subgroup"
+      "care-partners-subgroup",
+      "neighbours-subgroup"
     ],
     "subGroups": [{
       "key": "people-subgroup",
       "scoreCards": [
+        "health",
         "quality-of-life",
         "experience",
-        "expected",
-        "burden"
+        "social-connection"
       ]
     }, {
-      "key": "core-partners-subgroup",
+      "key": "care-partners-subgroup",
+      "scoreCards": [
+        "life",
+        "experience",
+        "social-connection",
+        "burden"
+      ]
+    },
+    {
+      "key": "neighbours-subgroup",
       "scoreCards": [
         "quality-of-life",
-        "experience",
-        "expected",
-        "burden"
+        "social-connection"
       ]
     }]
   }
