@@ -127,7 +127,8 @@ export const PopulationReach = React.createClass({
               />
             </Tab>
           </Tabs>
-          <RegisteredCaregiversBox data={this.getInfoBoxFor(this.state.config.keys.registered)} />
+          <RegisteredCaregiversBox data={this.getInfoBoxFor(this.state.config.keys.registeredCaregivers)} />
+          <RegisteredNeighboursBox data={this.getInfoBoxFor(this.state.config.keys.registeredNeighbours)} />
         </div>
       </div>
     );

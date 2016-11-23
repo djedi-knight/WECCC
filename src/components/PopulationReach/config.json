@@ -3,8 +3,8 @@
   "demoAPI": "http://localhost:8090/api/pages/population-reach-demo-page",
   "emptyTabContent": "Please select a tab to learn more",
   "keys": {
-    "registered": "registered-caregivers",
-    "registered-2": "registered-neighbours",
+    "registeredCaregivers": "registered-caregivers",
+    "registeredNeighbours": "registered-neighbours",
     "tabs": [
       "tab-1",
       "tab-2",
