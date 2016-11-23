@@ -5,6 +5,7 @@ import { Tab, Tabs } from 'react-toolbox';
 import { Row, Col } from 'react-flexbox-grid';
 import ScoreCard from '../ScoreCard';
 import RegisteredCaregiversBox from '../RegisteredCaregiversBox';
+import RegisteredNeighboursBox from '../RegisteredNeighboursBox';
 import config from './config.json';
 import style from './style';
 
