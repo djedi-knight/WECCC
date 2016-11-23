@@ -9,8 +9,6 @@
   },
   "keys": {
     "radioButtons": [
-      "vital-signs-subgroup",
-      "self-reported-subgroup",
       "windsor-subgroup",
       "essex-subgroup",
       "seniors-subgroup",
@@ -20,115 +18,103 @@
       {
         "key": "vital-signs-subgroup",
         "scoreCards": [
-          "government",
+          "belonging-leadership",
+          "health",
+          "wellness-activity",
+          "work",
+          "housing",
           "safety",
           "arts-culture",
-          "transportation",
-          "food-security",
-          "getting-around",
-          "getting-started",
-          "learning",
           "environment",
-          "housing",
-          "work",
-          "wellness-activity",
-          "health",
-          "belonging-leadership"
+          "learning",
+          "getting-started",
+          "food-security",
+          "getting-around"
         ]
       }, 
       {
         "key": "self-reported-subgroup",
         "scoreCards": [
-          "government",
+          "belonging-leadership",
+          "health",
+          "wellness-activity",
+          "work",
+          "housing",
           "safety",
           "arts-culture",
-          "transportation",
-          "food-security",
-          "getting-around",
-          "getting-started",
-          "learning",
           "environment",
-          "housing",
-          "work",
-          "wellness-activity",
-          "health",
-          "belonging-leadership"
+          "learning",
+          "getting-started",
+          "food-security",
+          "getting-around"
         ]
       },
       {
         "key": "windsor-subgroup",
         "scoreCards": [
-          "government",
+          "belonging-leadership",
+          "health",
+          "wellness-activity",
+          "work",
+          "housing",
           "safety",
           "arts-culture",
-          "transportation",
-          "food-security",
-          "getting-around",
-          "getting-started",
-          "learning",
           "environment",
-          "housing",
-          "work",
-          "wellness-activity",
-          "health",
-          "belonging-leadership"
+          "learning",
+          "getting-started",
+          "food-security",
+          "getting-around"
         ]
       },
       {
         "key": "essex-subgroup",
         "scoreCards": [
-          "government",
+          "belonging-leadership",
+          "health",
+          "wellness-activity",
+          "work",
+          "housing",
           "safety",
           "arts-culture",
-          "transportation",
-          "food-security",
-          "getting-around",
-          "getting-started",
-          "learning",
           "environment",
-          "housing",
-          "work",
-          "wellness-activity",
-          "health",
-          "belonging-leadership"
+          "learning",
+          "getting-started",
+          "food-security",
+          "getting-around"
         ]
       },
       {
         "key": "seniors-subgroup",
         "scoreCards": [
-          "government",
+          "belonging-leadership",
+          "health",
+          "wellness-activity",
+          "work",
+          "housing",
           "safety",
           "arts-culture",
-          "transportation",
-          "food-security",
-          "getting-around",
-          "getting-started",
-          "learning",
           "environment",
-          "housing",
-          "work",
-          "wellness-activity",
-          "health",
-          "belonging-leadership"
+          "learning",
+          "getting-started",
+          "food-security",
+          "getting-around"
         ]
       },
       {
         "key": "youth-subgroup",
         "scoreCards": [
-          "government",
+          "belonging-leadership",
+          "health",
+          "wellness-activity",
+          "work",
+          "housing",
           "safety",
           "arts-culture",
-          "transportation",
-          "food-security",
-          "getting-around",
-          "getting-started",
-          "learning",
           "environment",
-          "housing",
-          "work",
-          "wellness-activity",
-          "health",
-          "belonging-leadership"
+          "learning",
+          "getting-started",
+          "food-security",
+          "getting-around"
         ]
       }
     ]

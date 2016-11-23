@@ -51,7 +51,7 @@ export const VitalSignsSubgroup = React.createClass({
       <div style={style.vitalSignsSubgroups}>
         <Row className={style.body}>
           {this.getKeysFor(this.props.subGroup).scoreCards.map((scoreCard, x) =>
-            <Col key={x} xs={3}>
+            <Col key={x} xs={2}>
               <ScoreCard
                 title={this.getScoreCardFor(this.props.subGroup, scoreCard).title}
                 score={this.getScoreCardFor(this.props.subGroup, scoreCard).score}
