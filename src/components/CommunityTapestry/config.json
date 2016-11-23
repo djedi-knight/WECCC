@@ -29,13 +29,6 @@
       ]
   },
   "keys": {
-    "pieChart": "community-tapestry-pie-chart",
-    "subGroup": {
-      "key": "return-on-investment",
-      "scoreCards": [
-        "social",
-        "economic"
-      ]
-    }
+    "pieChart": "community-tapestry-pie-chart"
   }
 }
