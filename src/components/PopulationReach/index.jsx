@@ -5,6 +5,7 @@ import { Tab, Tabs } from 'react-toolbox';
 import { Row, Col } from 'react-flexbox-grid';
 import ScoreCard from '../ScoreCard';
 import RegisteredCaregiversBox from '../RegisteredCaregiversBox';
+import RegisteredNeighboursBox from '../RegisteredNeighboursBox';
 import config from './config.json';
 import style from './style';
 
@@ -126,7 +127,8 @@ export const PopulationReach = React.createClass({
               />
             </Tab>
           </Tabs>
-          <RegisteredCaregiversBox data={this.getInfoBoxFor(this.state.config.keys.registered)} />
+          <RegisteredCaregiversBox data={this.getInfoBoxFor(this.state.config.keys.registeredCaregivers)} />
+          <RegisteredNeighboursBox data={this.getInfoBoxFor(this.state.config.keys.registeredNeighbours)} />
         </div>
       </div>
     );

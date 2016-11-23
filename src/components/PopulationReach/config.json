@@ -3,7 +3,8 @@
   "demoAPI": "http://localhost:8090/api/pages/population-reach-demo-page",
   "emptyTabContent": "Please select a tab to learn more",
   "keys": {
-    "registered": "registered-caregivers",
+    "registeredCaregivers": "registered-caregivers",
+    "registeredNeighbours": "registered-neighbours",
     "tabs": [
       "tab-1",
       "tab-2",
@@ -14,7 +15,7 @@
       {
         "key": "priority-subgroup-1",
         "scoreCards": [
-          "over-80",
+          "senior",
           "disabled"
         ]
       }
@@ -22,16 +23,16 @@
       {
         "key": "priority-subgroup-2",
         "scoreCards": [
-          "over-80",
+          "senior",
           "disabled"
         ]
       }, {
         "key": "dependency-subgroup-2",
         "scoreCards": [
-          "light",
-          "moderate",
-          "complex",
-          "eol"
+          "minimal",
+          "some",
+          "high",
+          "late-stage"
         ]
       }, {
         "key": "registered-subgroup-2",
