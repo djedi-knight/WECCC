@@ -84,6 +84,7 @@
       "score":      "1.5",
       "peerScore":  "1.9",
       "warning":    false,
+      "warning":    true,
       "trend":      "same",
       "showDetails": true
     },
@@ -98,7 +99,7 @@
   "eol": [
     {
       "title":      "PATIENT EXPERIENCE",
-      "score":      "9/10",
+      "score":      "1/10",
       "peerScore":  "0.6",
       "warning":    true,
       "trend":      "up",

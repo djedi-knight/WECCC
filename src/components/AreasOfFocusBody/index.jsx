@@ -2,9 +2,9 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { Row, Col } from 'react-flexbox-grid';
 import { Button } from 'react-toolbox';
+import ScoreCard from '../ScoreCard';
 import ListBox from '../ListBox';
 import style from './style';
-import ScoreCard from '../ScoreCard';
 import data from './data.json';
 
 export const ShowMoreSection = React.createClass({
@@ -24,6 +24,7 @@ export const ShowMoreSection = React.createClass({
               peerScore={scoreCard.peerScore}
               warning={scoreCard.warning}
               trend={scoreCard.trend}
+              showDetails={scoreCard.showDetails}
             />
           </Col>
           )}
