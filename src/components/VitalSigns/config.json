@@ -2,7 +2,7 @@
   "prodAPI": "http://weccc.sartori.ca:8090/api/pages/vital-signs-page",
   "demoAPI": "http://localhost:8090/api/pages/vital-signs-demo-page",
   "descriptionTitle": "Description Title",
-  "descriptionText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere gravida nibh sagittis rutrum. Nam porttitor ante id luctus interdum. Aenean consequat magna eu semper egestas. Sed varius id ex ut gravida. Donec eget eros nec augue luctus luctus. Sed nec elit nibh. Donec ac libero a mauris tempor molestie.",  
+  "descriptionText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere gravida nibh sagittis rutrum. Nam porttitor ante id luctus interdum. Aenean consequat magna eu semper egestas. Sed varius id ex ut gravida. Donec eget eros nec augue luctus luctus. Sed nec elit nibh. Donec ac libero a mauris tempor molestie.",
   "reportLink": {
     "title": "Vital Signs Report",
     "href": "#"
@@ -15,40 +15,6 @@
       "youth-subgroup"
     ],
     "subGroups": [
-      {
-        "key": "vital-signs-subgroup",
-        "scoreCards": [
-          "belonging-leadership",
-          "health",
-          "wellness-activity",
-          "work",
-          "housing",
-          "safety",
-          "arts-culture",
-          "environment",
-          "learning",
-          "getting-started",
-          "food-security",
-          "getting-around"
-        ]
-      }, 
-      {
-        "key": "self-reported-subgroup",
-        "scoreCards": [
-          "belonging-leadership",
-          "health",
-          "wellness-activity",
-          "work",
-          "housing",
-          "safety",
-          "arts-culture",
-          "environment",
-          "learning",
-          "getting-started",
-          "food-security",
-          "getting-around"
-        ]
-      },
       {
         "key": "windsor-subgroup",
         "scoreCards": [
