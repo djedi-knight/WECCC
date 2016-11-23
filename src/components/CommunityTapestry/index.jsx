@@ -3,15 +3,13 @@ import Fetch from 'react-fetch';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { Row, Col } from 'react-flexbox-grid';
 import { VictoryPie } from 'victory/dist/victory';
-import ScoreCard from '../ScoreCard';
 import config from './config.json';
 import style from './style';
 
 export const CommunityTapestry = React.createClass({
   propTypes: {
     title: React.PropTypes.string,
-    pieCharts: React.PropTypes.array,
-    //scoreCards: React.PropTypes.array
+    pieCharts: React.PropTypes.array
   },
   mixins: [PureRenderMixin],
   getInitialState() {
