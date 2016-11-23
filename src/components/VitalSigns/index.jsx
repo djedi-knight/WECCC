@@ -93,6 +93,20 @@ export const VitalSigns = React.createClass({
         <div className={style.vitalSignsHeader}>
           {this.props.title}
         </div>
+        <div className={style.subgroup}>
+          <Row className={style.header}>
+            <div className={style.title}>
+              {this.state.config.descriptionTitle}
+            </div>
+          </Row>
+          <Row >
+            <div className={style.descriptionText}>
+              <br />
+              {this.state.config.descriptionText}
+            </div>
+          </Row>
+        </div>
+        <br />
         <RadioGroup value={this.state.selectedSubgroup} onChange={this.handleSelectionChange}>
           {this.state.config.keys.radioButtons.map((radioButton, x) =>
             <RadioButton key={x} label={this.getSubGroupFor(radioButton).title} value={radioButton} />
