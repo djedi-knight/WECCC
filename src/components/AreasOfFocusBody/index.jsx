@@ -2,15 +2,14 @@ import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { Row, Col } from 'react-flexbox-grid';
 import { Button } from 'react-toolbox';
-import ScoreBox from '../ScoreBox';
+import ScoreCard from '../ScoreCard';
 import ListBox from '../ListBox';
 import style from './style';
-import ScoreCard from '../ScoreCard';
 import data from './data.json';
 
 export const ShowMoreSection = React.createClass({
   mixins: [PureRenderMixin],
-  getInitialState(){
+  getInitialState() {
     return { data };
   },
   render() {
@@ -19,13 +18,13 @@ export const ShowMoreSection = React.createClass({
         <Row>
         {this.state.data.scoreCards.map((scoreCard, i) =>
           <Col key={i} xs={4}>
-            <ScoreCard 
+            <ScoreCard
               title={scoreCard.title}
               score={scoreCard.score}
               peerScore={scoreCard.peerScore}
               warning={scoreCard.warning}
               trend={scoreCard.trend}
-              showDetails={scoreCard.showDetails} 
+              showDetails={scoreCard.showDetails}
             />
           </Col>
           )}
