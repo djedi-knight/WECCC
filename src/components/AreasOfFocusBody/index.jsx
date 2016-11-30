@@ -68,6 +68,9 @@ export const ShowMoreSection = React.createClass({
 });
 
 export default React.createClass({
+  propTypes: {
+    scoreCards: React.PropTypes.array
+  },
   mixins: [PureRenderMixin],
   getInitialState() {
     return { isShowMore: false };
@@ -79,7 +82,7 @@ export default React.createClass({
     return (
       <div className={style.AreasOfFocusBody} >
         <ListBox />
-        {this.state.isShowMore ? <ShowMoreSection /> : null}
+        {this.state.isShowMore ? <ShowMoreSection subGroup="windsor-subgroup" scoreCards={this.props.scoreCards}/> : null}
         <Button label="Show More/Less" onClick={this.handleToggle} />
       </div>
     );

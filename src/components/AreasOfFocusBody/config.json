@@ -1,10 +1,11 @@
 {
-  "prodAPI": "http://weccc.sartori.ca:8090/api/pages/community-tapestry-page",
-  "demoAPI": "http://localhost:8090/api/pages/community-tapestry-demo-page",
- "keys": {    
+  "prodAPI": "http://weccc.sartori.ca:8090/api/pages/vital-signs-page",
+  "demoAPI": "http://localhost:8090/api/pages/vital-signs-demo-page",
+  "title":   "Health Outcomes for this Group",
+  "keys": {    
     "subGroups": [
       {
-        "key": "show-more-subgroup",
+        "key": "windsor-subgroup",
         "scoreCards": [
           "avg. number of CAPs triggered",
           "active number of patients",
