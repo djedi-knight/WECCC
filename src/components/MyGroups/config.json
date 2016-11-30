@@ -1,0 +1,4 @@
+{
+   "prodAPI": "http://weccc.sartori.ca:8090/api/pages/vital-signs-page",
+  "demoAPI": "http://localhost:8090/api/pages/vital-signs-demo-page"
+}

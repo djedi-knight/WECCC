@@ -4,8 +4,10 @@ import { Tab, Tabs } from 'react-toolbox';
 import ReactTooltip from 'react-tooltip';
 import CareNeedsGroupPopover from '../CareNeedsGroupPopover';
 import HealthOutcomesSection from '../HealthOutcomesSection';
+import ScoreCard from '../ScoreCard';
 import data from './data.json';
 import style from './style';
+import config from './config.json';
 
 const light = (
   <a data-tip data-for="light"> Light: 40% </a>
@@ -21,9 +23,12 @@ const eol = (
 );
 
 export default React.createClass({
+   propTypes: {
+    scoreCards: React.PropTypes.array
+  },
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { index: 0, data };
+    return { data, config , index:0};
   },
   handleTabChange(index) {
     this.setState({ index });
@@ -33,16 +38,16 @@ export default React.createClass({
       <div className={style.careNeedsGroupTabBar}>
         <Tabs index={this.state.index} onChange={this.handleTabChange}>
           <Tab label={light}>
-            <HealthOutcomesSection data={this.state.data.light} />
+            <HealthOutcomesSection data={this.state.data.light} subGroup="windsor-subgroup" scoreCards={this.props.scoreCards} />
           </Tab>
           <Tab label={moderate}>
-            <HealthOutcomesSection data={this.state.data.moderate} />
+            <HealthOutcomesSection data={this.state.data.moderate} subGroup="essex-subgroup" scoreCards={this.props.scoreCards} />
           </Tab>
           <Tab label={complex}>
-            <HealthOutcomesSection data={this.state.data.complex} />
+            <HealthOutcomesSection data={this.state.data.complex} subGroup="seniors-subgroup" scoreCards={this.props.scoreCards} />
           </Tab>
           <Tab label={eol}>
-            <HealthOutcomesSection data={this.state.data.eol} />
+            <HealthOutcomesSection data={this.state.data.eol} subGroup="youth-subgroup" scoreCards={this.props.scoreCards} />
           </Tab>
         </Tabs>
         <ReactTooltip id="light" aria-haspopup="true" place="right" offset={{ bottom: 100, right: 100 }}>
@@ -57,6 +62,31 @@ export default React.createClass({
         <ReactTooltip id="eol" aria-haspopup="true" place="right" offset={{ bottom: 100, right: 100 }}>
           EOL
         </ReactTooltip>
+      </div>
+    );
+  }
+});
+export const CareNeedsGroupTabBarContainer = React.createClass({
+  propTypes: {
+    route: React.PropTypes.object
+  },
+  mixins: [PureRenderMixin],
+  getInitialState() {
+    return { config };
+  },
+  getURL() {
+    if (this.props.route.demoRoute) {
+      return this.state.config.demoAPI;
+    }
+
+    return this.state.config.prodAPI;
+  },
+  render() {
+    return (
+      <div>
+        <Fetch url={this.getURL()}>
+          <CareNeedsGroupTabBar />
+        </Fetch>
       </div>
     );
   }

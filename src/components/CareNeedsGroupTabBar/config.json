@@ -1,0 +1,13 @@
+{
+  "prodAPI": "http://weccc.sartori.ca:8090/api/pages/vital-signs-page",
+  "demoAPI": "http://localhost:8090/api/pages/vital-signs-demo-page",
+  "keys": {
+    "tabs": [
+      "tab-1",
+      "tab-2",
+      "tab-3",
+      "tab-4"
+    ]    
+  }
+  
+}
