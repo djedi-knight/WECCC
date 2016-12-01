@@ -60,7 +60,7 @@ export const ValueImpact = React.createClass({
           {this.props.title}
         </div>
         <Row>
-          <Col xs={3}>
+          <Col xs={4}>
             <div className={style.subHeader}>
               {this.state.config.selectionTitle}
             </div>
@@ -70,7 +70,7 @@ export const ValueImpact = React.createClass({
               value={this.state.currentSelection}
             />
           </Col>
-          <Col xs={6}>
+          <Col xs={8}>
             <div className={style.subHeader}>
               {this.state.config.chartSectionTitle}
             </div>
@@ -101,12 +101,7 @@ export const ValueImpact = React.createClass({
               </Row>
             </div>
           </Col>
-          <Col xs={3}>
-            <div className={style.subHeader}>
-              {this.state.config.sidebarTitle}
-            </div>
-            <AreasOfFocusSidebar />
-          </Col>
+          
         </Row>
       </div>
     );
