@@ -64,11 +64,10 @@ export const ProgressTracker = React.createClass({
             {this.state.config.tableHeaders.map((tableHeader, i) =>
               <Col key={i} xs={2}>{tableHeader}</Col>
             )}
-          </Row>
-          
+          </Row>          
             {this.getHeaders().map((Header, i) =>
-              <div >
-                <Row key={i}>{Header.header}</Row>
+              <div>
+                <Row key={i} className={style.tableHeader}>{Header.header}</Row>
                 {Header.rows.map((row, i) =>
                         <div key={i}>
                           <Row className={style.tableRow}>
