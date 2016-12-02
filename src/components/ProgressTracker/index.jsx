@@ -16,6 +16,13 @@ export const ProgressTracker = React.createClass({
   getInitialState() {
     return { config };
   },
+  getHeaders() {
+    if (this.props.data) {
+      return this.props.data;
+    }
+
+    return [];
+  },
   getRows() {
     if (this.props.data) {
       return this.props.data;
@@ -51,25 +58,33 @@ export const ProgressTracker = React.createClass({
       <div className={style.progressTracker}>
         <div className={style.header}>
           {this.props.title}
-        </div>
-        <div className={style.reportTable}>
+        </div>        
+        <div className={style.reportTable}>        
           <Row className={style.tableHeader}>
             {this.state.config.tableHeaders.map((tableHeader, i) =>
               <Col key={i} xs={2}>{tableHeader}</Col>
             )}
           </Row>
-          {this.getRows().map((row, i) =>
-            <div key={i}>
-              <Row className={style.tableRow}>
-                <Col xs={2}>{row.indicator}</Col>
-                <Col xs={2}>{row.goal}</Col>
-                <Col xs={2}>{row.baseline}</Col>
-                <Col xs={2}>{row.change}</Col>
-                {this.getTrend(row)}
-                {this.getColourCode(row)}
-              </Row>
-            </div>
-          )}
+          
+            {this.getHeaders().map((Header, i) =>
+              <div >
+                <Row key={i}>{Header.header}</Row>
+                {Header.rows.map((row, i) =>
+                        <div key={i}>
+                          <Row className={style.tableRow}>
+                              <Col xs={2}>{row.indicator}</Col>
+                              <Col xs={2}>{row.goal}</Col>
+                              <Col xs={2}>{row.baseline}</Col>
+                              <Col xs={2}>{row.change}</Col>
+                              {this.getTrend(row)}
+                              {this.getColourCode(row)}
+                            </Row>
+                        </div>
+                      )}
+              </div>  
+            )}
+          
+
         </div>
       </div>
     );
