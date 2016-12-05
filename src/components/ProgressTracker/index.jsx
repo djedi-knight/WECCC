@@ -16,14 +16,7 @@ export const ProgressTracker = React.createClass({
   getInitialState() {
     return { config };
   },
-  getHeaders() {
-    if (this.props.data) {
-      return this.props.data;
-    }
-
-    return [];
-  },
-  getRows() {
+  getData() {
     if (this.props.data) {
       return this.props.data;
     }
@@ -58,32 +51,30 @@ export const ProgressTracker = React.createClass({
       <div className={style.progressTracker}>
         <div className={style.header}>
           {this.props.title}
-        </div>        
-        <div className={style.reportTable}>        
+        </div>
+        <div className={style.reportTable}>
           <Row className={style.tableHeader}>
-            {this.state.config.tableHeaders.map((tableHeader, i) =>
-              <Col key={i} xs={2}>{tableHeader}</Col>
+            {this.state.config.tableHeaders.map((tableHeader, x) =>
+              <Col key={x} xs={2}>{tableHeader}</Col>
             )}
-          </Row>          
-            {this.getHeaders().map((Header, i) =>
-              <div>
-                <Row key={i} className={style.tableHeader}>{Header.header}</Row>
-                {Header.rows.map((row, i) =>
-                        <div key={i}>
-                          <Row className={style.tableRow}>
-                              <Col xs={2}>{row.indicator}</Col>
-                              <Col xs={2}>{row.goal}</Col>
-                              <Col xs={2}>{row.baseline}</Col>
-                              <Col xs={2}>{row.change}</Col>
-                              {this.getTrend(row)}
-                              {this.getColourCode(row)}
-                            </Row>
-                        </div>
-                      )}
-              </div>  
+          </Row>
+            {this.getData().map((data, x) =>
+              <div key={x}>
+                <Row className={style.tableHeader}>{data.header}</Row>
+                {data.rows.map((row, y) =>
+                  <div key={y}>
+                    <Row className={style.tableRow}>
+                      <Col xs={2}>{row.indicator}</Col>
+                      <Col xs={2}>{row.goal}</Col>
+                      <Col xs={2}>{row.baseline}</Col>
+                      <Col xs={2}>{row.change}</Col>
+                      {this.getTrend(row)}
+                      {this.getColourCode(row)}
+                    </Row>
+                  </div>
+                )}
+              </div>
             )}
-          
-
         </div>
       </div>
     );
