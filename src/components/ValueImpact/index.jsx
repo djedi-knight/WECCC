@@ -5,7 +5,6 @@ import { Row, Col } from 'react-flexbox-grid';
 import { Dropdown } from 'react-toolbox';
 import { VictoryPie, VictoryLabel } from 'victory/dist/victory';
 import ScoreCard from '../ScoreCard';
-import AreasOfFocusSidebar from '../AreasOfFocusSidebar';
 import config from './config.json';
 import style from './style';
 
@@ -81,7 +80,10 @@ export const ValueImpact = React.createClass({
             >
               <VictoryLabel />
             </VictoryPie>
-
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12}>
             <div className={style.subgroup}>
               <Row className={style.header}>
                 <div className={style.title}>
@@ -89,6 +91,7 @@ export const ValueImpact = React.createClass({
                 </div>
               </Row>
               <Row className={style.body}>
+                <Col xs={3} />
                 {this.state.config.keys.subGroup.scoreCards.map((scoreCard, x) =>
                   <Col key={x} xs={3}>
                     <ScoreCard
@@ -98,10 +101,10 @@ export const ValueImpact = React.createClass({
                     />
                   </Col>
                 )}
+                <Col xs={3} />
               </Row>
             </div>
           </Col>
-          
         </Row>
       </div>
     );
