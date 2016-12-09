@@ -25,26 +25,38 @@ export const ProgressTracker = React.createClass({
     return [];
   },
   getTrend(row) {
+    if (row.trend) {
+      return (
+        <Col xs={2}>
+          <FontIcon value={this.state.config.icons[row.trend]} />
+        </Col>
+      );
+    }
+
     return (
-      <Col xs={2}>
-        <FontIcon value={this.state.config.icons[row.trend]} />
-      </Col>
+      <Col xs={2} />
     );
   },
   getColourCode(row) {
+    if (row.colourCode) {
+      return (
+        <div>
+          <a data-tip data-for={row.colourCode}>
+            <Col xs={2}><FontIcon style={{ color: row.colourCode }} value="lens" /></Col>
+          </a>
+          <ReactTooltip
+            id={row.colourCode} type={this.state.config.tooltips[row.colourCode].type}
+            place="right"
+            effect="float"
+          >
+            {this.state.config.tooltips[row.colourCode].title}
+          </ReactTooltip>
+        </div>
+      );
+    }
+
     return (
-      <div>
-        <a data-tip data-for={row.colourCode}>
-          <Col xs={2}><FontIcon style={{ color: row.colourCode }} value="lens" /></Col>
-        </a>
-        <ReactTooltip
-          id={row.colourCode} type={this.state.config.tooltips[row.colourCode].type}
-          place="right"
-          effect="float"
-        >
-          {this.state.config.tooltips[row.colourCode].title}
-        </ReactTooltip>
-      </div>
+      <Col xs={2} />
     );
   },
   render() {
