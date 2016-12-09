@@ -1,6 +1,6 @@
 {
-  "prodAPI": "http://weccc.sartori.ca:8090/api/pages/community-tapestry-page",
-  "demoAPI": "http://localhost:8090/api/pages/community-tapestry-demo-page",
+  "prodAPI": "/api/pages/community-tapestry-page",
+  "demoAPI": "/api/pages/community-tapestry-demo-page",
   "labelStyle": {
     "labels": {
       "fill": "white",

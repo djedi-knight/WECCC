@@ -5,6 +5,7 @@ import { VictoryPie } from 'victory/dist/victory';
 import { Row, Col } from 'react-flexbox-grid';
 import { Dropdown } from 'react-toolbox';
 import ScoreCard from '../ScoreCard';
+import appConfig from '../../../config.json';
 import config from './config.json';
 import style from './style';
 
@@ -186,14 +187,17 @@ export const CommunityPatternContainer = React.createClass({
   },
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { config };
+    return {
+      appConfig,
+      config
+    };
   },
   getURL() {
     if (this.props.route.demoRoute) {
-      return this.state.config.demoAPI;
+      return this.state.appConfig.servers.dev.concat(this.state.config.demoAPI);
     }
 
-    return this.state.config.prodAPI;
+    return this.state.appConfig.servers.prod.concat(this.state.config.prodAPI);
   },
   render() {
     return (

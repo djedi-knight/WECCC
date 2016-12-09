@@ -4,6 +4,7 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { Dropdown, FontIcon } from 'react-toolbox';
 import { Map, TileLayer, GeoJson } from 'react-leaflet';
 import { Row, Col } from 'react-flexbox-grid';
+import appConfig from '../../../config.json';
 import config from './config.json';
 import style from './style';
 
@@ -167,14 +168,17 @@ export const GISViewContainer = React.createClass({
   },
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { config };
+    return {
+      appConfig,
+      config
+    };
   },
   getURL() {
     if (this.props.route.demoRoute) {
-      return this.state.config.demoAPI;
+      return this.state.appConfig.servers.dev.concat(this.state.config.demoAPI);
     }
 
-    return this.state.config.prodAPI;
+    return this.state.appConfig.servers.prod.concat(this.state.config.prodAPI);
   },
   render() {
     return (

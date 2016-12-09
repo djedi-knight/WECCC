@@ -6,6 +6,7 @@ import { Row, Col } from 'react-flexbox-grid';
 import ScoreCard from '../ScoreCard';
 import RegisteredCaregiversBox from '../RegisteredCaregiversBox';
 import RegisteredNeighboursBox from '../RegisteredNeighboursBox';
+import appConfig from '../../../config.json';
 import config from './config.json';
 import style from './style';
 
@@ -141,14 +142,17 @@ export const PopulationReachContainer = React.createClass({
   },
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { config };
+    return {
+      appConfig,
+      config
+    };
   },
   getURL() {
     if (this.props.route.demoRoute) {
-      return this.state.config.demoAPI;
+      return this.state.appConfig.servers.dev.concat(this.state.config.demoAPI);
     }
 
-    return this.state.config.prodAPI;
+    return this.state.appConfig.servers.prod.concat(this.state.config.prodAPI);
   },
   render() {
     return (
