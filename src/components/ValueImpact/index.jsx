@@ -6,6 +6,7 @@ import { Dropdown } from 'react-toolbox';
 import { VictoryPie, VictoryLabel } from 'victory/dist/victory';
 import ScoreCard from '../ScoreCard';
 import config from './config.json';
+import appConfig from '../../../config.json';
 import style from './style';
 
 export const ValueImpact = React.createClass({
@@ -117,14 +118,17 @@ export const ValueImpactContainer = React.createClass({
   },
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { config };
+    return {
+      appConfig,
+      config
+    };
   },
   getURL() {
     if (this.props.route.demoRoute) {
-      return this.state.config.demoAPI;
+      return this.state.appConfig.servers.dev.concat(this.state.config.demoAPI);
     }
 
-    return this.state.config.prodAPI;
+    return this.state.appConfig.servers.prod.concat(this.state.config.prodAPI);
   },
   render() {
     return (

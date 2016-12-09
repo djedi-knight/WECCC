@@ -1,0 +1,8 @@
+// Copy the contents of this file to a new file called 'config.json'
+
+{
+  "servers": {
+    "prod": "http://weccc.sartori.ca:8090",
+    "dev": "http://localhost:8090"
+  }
+}

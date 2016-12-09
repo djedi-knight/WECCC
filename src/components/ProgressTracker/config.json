@@ -1,6 +1,6 @@
 {
-  "prodAPI": "http://weccc.sartori.ca:8090/api/reports/progress-tracker-report",
-  "demoAPI": "http://localhost:8090/api/reports/progress-tracker-demo-report",
+  "prodAPI": "/api/reports/progress-tracker-report",
+  "demoAPI": "/api/reports/progress-tracker-demo-report",
   "tableHeaders": [
     "INDICATOR",
     "GOAL",
