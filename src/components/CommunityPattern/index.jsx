@@ -129,11 +129,11 @@ export const CommunityPattern = React.createClass({
               {this.state.config.chartTitle}
             </div>
             <VictoryPie
-              padding={100}
-              labelRadius={50}
+              labelRadius={100}
+              padding={20}
               data={this.getPieChartFor(this.state.currentSelection)}
               colorScale={this.state.config.colourScale}
-              style={this.state.config.labelStyle}
+              style={this.state.config.pieChartStyle}
               events={[{
                 target: 'data',
                 eventHandlers: {

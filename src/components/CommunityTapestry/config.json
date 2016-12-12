@@ -1,11 +1,10 @@
 {
   "prodAPI": "/api/pages/community-tapestry-page",
   "demoAPI": "/api/pages/community-tapestry-demo-page",
-  "labelStyle": {
+  "pieChartStyle": {
     "labels": {
-      "fill": "white",
-      "fontSize": 9,
-      "padding": 50
+      "fill": "black",
+      "fontSize": 12
     }
   },
   "colourScale": [
@@ -25,8 +24,7 @@
       "title": "Pie Chart Details",
       "headers": [
         "Indicator",
-        "Header #1",
-        "Header #2"
+        "Header #1"
       ]
   },
   "keys": {

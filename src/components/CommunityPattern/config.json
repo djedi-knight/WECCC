@@ -1,11 +1,10 @@
 {
   "prodAPI": "/api/pages/community-pattern-page",
   "demoAPI": "/api/pages/community-pattern-demo-page",
-  "labelStyle": {
+  "pieChartDetails": {
     "labels": {
-      "fill": "white",
-      "fontSize": 9,
-      "padding": 50
+      "fill": "black",
+      "fontSize": 12
     }
   },
   "colourScale": [

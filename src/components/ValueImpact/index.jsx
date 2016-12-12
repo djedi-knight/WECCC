@@ -75,9 +75,11 @@ export const ValueImpact = React.createClass({
               {this.state.config.chartSectionTitle}
             </div>
             <VictoryPie
-              style={this.state.config.labelStyle}
+              labelRadius={130}
+              padding={10}
               data={this.getPieChartFor(this.state.currentSelection)}
               colorScale={this.state.config.colourScale}
+              style={this.state.config.pieChartStyle}
             >
               <VictoryLabel />
             </VictoryPie>

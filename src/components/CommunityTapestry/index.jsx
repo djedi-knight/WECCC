@@ -42,32 +42,35 @@ export const CommunityTapestry = React.createClass({
   render() {
     return (
       <div className={style.communityTapestry}>
-        <div className={style.communityTapestryHeader}>
+        <div className={style.header}>
           {this.props.title}
         </div>
         <div className={style.subgroup}>
-          <Row className={style.header}>
-            <div className={style.title}>
-              {this.state.config.chartDescriptionTitle}
-            </div>
+          <Row>
+            <Col xs={12}>
+              <div className={style.subHeader}>
+                {this.state.config.chartDescriptionTitle}
+              </div>
+            </Col>
           </Row>
-          <Row >
-            <div className={style.descriptionText}>
-              <br />
-              {this.state.config.chartDescriptionText}
-            </div>
+          <Row>
+            <Col xs={12}>
+              <div className={style.descriptionText}>
+                <br />
+                {this.state.config.chartDescriptionText}
+              </div>
+            </Col>
           </Row>
         </div>
         <div className={style.pieChartContainer}>
           <Row>
-            <Col xs={2} />
-            <Col xs={5}>
+            <Col xs={8}>
               <VictoryPie
-                labelRadius={120}
-                padding={20}
-                style={this.state.config.labelStyle}
+                labelRadius={180}
+                padding={10}
                 data={this.getPieChartFor(this.state.config.keys.pieChart)}
                 colorScale={this.state.config.colourScale}
+                style={this.state.config.pieChartStyle}
                 events={[{
                   target: 'data',
                   eventHandlers: {
@@ -89,21 +92,20 @@ export const CommunityTapestry = React.createClass({
                 <div className={style.reportTable}>
                   <Row className={style.tableHeader}>
                     {this.state.config.chartDetails.headers.map((header, x) =>
-                      <Col key={x} xs={4}>{header}</Col>
+                      <Col key={x} xs={6}>{header}</Col>
                     )}
                   </Row>
                   {this.getPieChartDetailsFor(this.state.config.keys.pieChart).map((row, x) =>
                     <Row key={x} className={style.tableRow}>
-                      <Col xs={4}>{row.indicator}</Col>
+                      <Col xs={6}>{row.indicator}</Col>
                       {row.values.map((value, y) =>
-                        <Col key={y} xs={4}>{value}</Col>
+                        <Col key={y} xs={6}>{value}</Col>
                       )}
                     </Row>
                   )}
                 </div>
               </div>
             </Col>
-            <Col xs={1} />
           </Row>
         </div>
       </div>

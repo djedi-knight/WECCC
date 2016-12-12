@@ -4,11 +4,10 @@
   "chartSectionTitle": "Chart Title",
   "selectionTitle": "Population Subgroup",
   "sidebarTitle": "Sidebar Title",
-  "labelStyle": {
+  "pieChartStyle": {
     "labels": {
-      "fill": "white",
-      "fontSize": 9,
-      "padding": 50
+      "fill": "black",
+      "fontSize": 12
     }
   },
   "colourScale": [
