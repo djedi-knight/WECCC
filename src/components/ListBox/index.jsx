@@ -3,21 +3,19 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { Dialog, FontIcon, Link, Tooltip } from 'react-toolbox';
 import { Row, Col } from 'react-flexbox-grid';
 import ListBoxModalView from '../ListBoxModalView';
-import style from './style';
-import data from './data.json';
 import config from './config.json';
+import style from './style';
 
 const TooltipLink = new Tooltip(Link);
 
 export default React.createClass({
-   propTypes: {
+  propTypes: {
     topics: React.PropTypes.array
   },
   mixins: [PureRenderMixin],
   getInitialState() {
     return {
       active: false,
-      data,
       config
     };
   },
@@ -28,13 +26,14 @@ export default React.createClass({
     return (
       <div className={style.listBox}>
         <Row style={{ backgroundColor: '#fff' }}>
-          {this.state.config.title}<br />
+          {this.state.config.title}
+          <br />
           {this.state.config.subtitle}
           <Col>
             <TooltipLink style={{ float: 'right' }} icon="info_outline" tooltip="info popup" />
           </Col>
         </Row>
-        {this.state.config.listBox.topics.map((topic, i) =>        
+        {this.state.config.listBox.topics.map((topic, i) =>
           <Row key={i} style={{ border: '0.5px solid gray', backgroundColor: '#e8f8f5' }}>
             {topic.title}
             {topic.warning === 'yes' ? <FontIcon style={{ color: '#FF0000' }} value="warning" /> : null}
@@ -42,7 +41,9 @@ export default React.createClass({
           </Row>
         )}
         <Row style={{ backgroundColor: '#fff' }}>
-          <small><a href="#"><FontIcon value="person" />Show peer comparison</a></small>
+          <small>
+            <a href="#"><FontIcon value="person" />{this.state.config.peerComparisonLink}</a>
+          </small>
         </Row>
         <br />
         <Dialog

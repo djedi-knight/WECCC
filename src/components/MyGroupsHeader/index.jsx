@@ -6,17 +6,10 @@ import MyGroupsPopover from '../MyGroupsPopover';
 import config from './config.json';
 import style from './style';
 
-// const data = [
-//   { value: 'EN-gb', label: 'Patient Experience Score Box' },
-//   { value: 'ES-es', label: 'Quality of Life Score Box' },
-//   { value: 'TH-th', label: 'Hours of Care Score Box' },
-//   { value: 'EN-en', label: 'Self-Reliance Score Box' },
-// ];
-
 export default React.createClass({
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { 
+    return {
       active: false,
       currentSelection: null,
       config

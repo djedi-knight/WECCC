@@ -1,13 +1,21 @@
 {
-  "prodAPI": "http://weccc.sartori.ca:8090/api/pages/population-reach-page",
-  "demoAPI": "http://localhost:8090/api/pages/population-reach-demo-page",
-  "title":    "RESPONDING TO NEED",
-  "subtitle": "Top 3 Clinical Assessment Protocols [CAPS]",  
-  "listBox":{      
-    "topics": [
-      "title",
-      "details",
-      "warning"     
-    ]
-  }  
+  "prodAPI": "",
+  "demoAPI": "",
+  "title": "RESPONDING TO NEED",
+  "subtitle": "Top 3 Clinical Assessment Protocols [CAPS]",
+  "peerComparisonLink": "Show peer comparison",
+  "listBox": {
+    "topics": [{
+      "title":    "Falls"
+    }, {
+      "title":    "Social Isolation",
+      "details":  "yes"
+    }, {
+      "title":    "Depression",
+      "details":  "yes",
+      "warning":  "yes"
+    }, {
+      "title":    "Accidents"
+    }]
+  }
 }

@@ -13,7 +13,7 @@ export default React.createClass({
     return (
       <div className={style.alertSummarySidebar}>
         <p>
-          {this.state.config.text}
+          {this.state.config.descriptionText}
         </p>
         <hr />
         <Button theme={style} label="DOWNLOAD" href="#/download" />

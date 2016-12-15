@@ -1,5 +1,5 @@
 {
-  "prodAPI": "http://weccc.sartori.ca:8090/api/pages/population-reach-page",
-  "demoAPI": "http://localhost:8090/api/pages/population-reach-demo-page",
-  "text":"This summary provides an overview of key areas of improvement. Explore the information in these sections to discover other potential opportunities for success."
+  "prodAPI": "",
+  "demoAPI": "",
+  "descriptionText": "This summary provides an overview of key areas of improvement. Explore the information in these sections to discover other potential opportunities for success."
 }
