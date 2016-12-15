@@ -4,19 +4,19 @@ import { Row, Col } from 'react-flexbox-grid';
 import { Button } from 'react-toolbox';
 import ScoreCard from '../ScoreCard';
 import ListBox from '../ListBox';
+import config from './config.json';
 import style from './style';
-import data from './data.json';
 
 export const ShowMoreSection = React.createClass({
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { data };
+    return { config };
   },
   render() {
     return (
       <div>
         <Row>
-        {this.state.data.scoreCards.map((scoreCard, i) =>
+        {this.state.config.scoreCards.map((scoreCard, i) =>
           <Col key={i} xs={4}>
             <ScoreCard
               title={scoreCard.title}
@@ -27,7 +27,7 @@ export const ShowMoreSection = React.createClass({
               showDetails={scoreCard.showDetails}
             />
           </Col>
-          )}
+        )}
         </Row>
       </div>
     );
@@ -35,6 +35,9 @@ export const ShowMoreSection = React.createClass({
 });
 
 export default React.createClass({
+  propTypes: {
+    scoreCards: React.PropTypes.array
+  },
   mixins: [PureRenderMixin],
   getInitialState() {
     return { isShowMore: false };
