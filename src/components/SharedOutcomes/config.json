@@ -1,6 +1,6 @@
 {
-  "prodAPI": "http://weccc.sartori.ca:8090/api/pages/shared-outcomes-page",
-  "demoAPI": "http://localhost:8090/api/pages/shared-outcomes-demo-page",
+  "prodAPI": "/api/pages/shared-outcomes-page",
+  "demoAPI": "/api/pages/shared-outcomes-demo-page",
   "keys": {
     "registered": "registered-caregivers",
     "radioButtons": [
@@ -19,7 +19,7 @@
     }, {
       "key": "care-partners-subgroup",
       "scoreCards": [
-        "life",
+        "quality-of-life",
         "experience",
         "social-connection",
         "burden"

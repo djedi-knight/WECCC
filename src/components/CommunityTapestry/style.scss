@@ -1,11 +1,10 @@
 .communityTapestry {
-
   > div {
     border: 0 !important;
   }
 
   svg {
-    max-height: 400px;
+    max-height: 500px;
   }
 
   .header {
@@ -15,7 +14,7 @@
     align-items: center;
     font-size: 2rem;
     color: $light;
-    border-bottom: solid 2px #FEC83E !important;
+    border-bottom: solid 2px #fec83e !important;
     margin-bottom: 2rem;
     padding: 0 2rem;
   }
@@ -44,8 +43,8 @@
   .subgroup {
     border: 2px solid #ebe8e8;
     margin-bottom: 15px;
-    margin: 0 2rem;
-    box-shadow: 0 2px 5px 0 rgba(#000, .3);
+    box-shadow: 0 2px 5px 0 rgba(#000, 0.3);
+
     .header {
       background: #4980c7;
       color: #fff;
@@ -62,16 +61,15 @@
       margin: 0;
     }
 
-  [class*="flexboxgrid__row"] {
-
-    &:last-of-type {
-      padding: 2rem;
-      background: #fff;
-      margin: 0 !important;
-      margin-bottom: 1rem !important;
+    [class*="flexboxgrid__row"] {
+      &:last-of-type {
+        padding: 2rem;
+        background: #fff;
+        margin: 0 !important;
+        margin-bottom: 1rem !important;
+      }
     }
   }
-}
 
   .reportTable {
     .tableHeader {

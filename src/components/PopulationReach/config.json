@@ -1,6 +1,6 @@
 {
-  "prodAPI": "http://weccc.sartori.ca:8090/api/pages/population-reach-page",
-  "demoAPI": "http://localhost:8090/api/pages/population-reach-demo-page",
+  "prodAPI": "/api/pages/population-reach-page",
+  "demoAPI": "/api/pages/population-reach-demo-page",
   "emptyTabContent": "Please select a tab to learn more",
   "keys": {
     "registeredCaregivers": "registered-caregivers",
@@ -15,7 +15,7 @@
       {
         "key": "priority-subgroup-1",
         "scoreCards": [
-          "senior",
+          "seniors",
           "disabled"
         ]
       }
@@ -23,7 +23,7 @@
       {
         "key": "priority-subgroup-2",
         "scoreCards": [
-          "senior",
+          "seniors",
           "disabled"
         ]
       }, {

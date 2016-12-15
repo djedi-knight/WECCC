@@ -1,11 +1,10 @@
 {
-  "prodAPI": "http://weccc.sartori.ca:8090/api/pages/community-tapestry-page",
-  "demoAPI": "http://localhost:8090/api/pages/community-tapestry-demo-page",
-  "labelStyle": {
+  "prodAPI": "/api/pages/community-tapestry-page",
+  "demoAPI": "/api/pages/community-tapestry-demo-page",
+  "pieChartStyle": {
     "labels": {
-      "fill": "white",
-      "fontSize": 9,
-      "padding": 50
+      "fill": "black",
+      "fontSize": 12
     }
   },
   "colourScale": [
@@ -16,16 +15,16 @@
     "#FFAF59",
     "#E28300",
     "#F6A57F",
-    "#FF0000"
+    "#FF0000",
+    "#F4B942"
   ],
-  "chartDescriptionText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere gravida nibh sagittis rutrum. Nam porttitor ante id luctus interdum. Aenean consequat magna eu semper egestas. Sed varius id ex ut gravida. Donec eget eros nec augue luctus luctus. Sed nec elit nibh. Donec ac libero a mauris tempor molestie.",
+  "chartDescriptionText": "A tapestry weaves threads and colours together to create an intricate and unique design.   Community Tapestry intertwines people, technology, families, friends, neighbours, paid help, and publicly funded services to build and sustain community quality of life and protect our most vulnerable. For the populations we serve, our Community Tapestry of time, effort, resources, and the relative balance of types of care, determines both our quality of life and the value of care in this community.",
   "chartDescriptionTitle": "Chart Description Title",
   "chartDetails": {
       "title": "Pie Chart Details",
       "headers": [
         "Indicator",
-        "Header #1",
-        "Header #2"
+        "Header #1"
       ]
   },
   "keys": {

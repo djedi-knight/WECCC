@@ -1,4 +1,4 @@
 {
-  "prodAPI": "http://weccc.sartori.ca:8090/api/pages/population-reach-page",
-  "demoAPI": "http://localhost:8090/api/pages/population-reach-demo-page"
+  "prodAPI": "",
+  "demoAPI": ""
 }

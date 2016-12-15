@@ -3,9 +3,10 @@ import Fetch from 'react-fetch';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { RadioButton, RadioGroup } from 'react-toolbox';
 import { Row, Col } from 'react-flexbox-grid';
+import ScoreCard from '../ScoreCard';
+import appConfig from '../../../config.json';
 import config from './config.json';
 import style from './style';
-import ScoreCard from '../ScoreCard';
 
 export const VitalSignsSubgroup = React.createClass({
   propTypes: {
@@ -137,14 +138,17 @@ export const VitalSignsContainer = React.createClass({
   },
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { config };
+    return {
+      appConfig,
+      config
+    };
   },
   getURL() {
     if (this.props.route.demoRoute) {
-      return this.state.config.demoAPI;
+      return this.state.appConfig.servers.dev.concat(this.state.config.demoAPI);
     }
 
-    return this.state.config.prodAPI;
+    return this.state.appConfig.servers.prod.concat(this.state.config.prodAPI);
   },
   render() {
     return (

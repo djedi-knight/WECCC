@@ -1,8 +1,8 @@
 {
-  "prodAPI": "http://weccc.sartori.ca:8090/api/pages/vital-signs-page",
-  "demoAPI": "http://localhost:8090/api/pages/vital-signs-demo-page",
+  "prodAPI": "/api/pages/vital-signs-page",
+  "demoAPI": "/api/pages/vital-signs-demo-page",
   "descriptionTitle": "Description Title",
-  "descriptionText": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere gravida nibh sagittis rutrum. Nam porttitor ante id luctus interdum. Aenean consequat magna eu semper egestas. Sed varius id ex ut gravida. Donec eget eros nec augue luctus luctus. Sed nec elit nibh. Donec ac libero a mauris tempor molestie.",
+  "descriptionText": "Vital Signs® is a community check-up conducted by the Windsor-Essex Community Foundation that measures the vitality of our communities and identifies significant trends in a range of areas critical to quality of life.  It supports action towards improving our collective quality of life.  In 2016, Windsor-Essex makes the grade as follows",
   "reportLink": {
     "title": "Vital Signs Report",
     "href": "#"
@@ -21,7 +21,6 @@
           "belonging-leadership",
           "health",
           "wellness-activity",
-          "work",
           "housing",
           "safety",
           "arts-culture",
@@ -38,7 +37,6 @@
           "belonging-leadership",
           "health",
           "wellness-activity",
-          "work",
           "housing",
           "safety",
           "arts-culture",
@@ -55,7 +53,6 @@
           "belonging-leadership",
           "health",
           "wellness-activity",
-          "work",
           "housing",
           "safety",
           "arts-culture",
@@ -72,7 +69,6 @@
           "belonging-leadership",
           "health",
           "wellness-activity",
-          "work",
           "housing",
           "safety",
           "arts-culture",

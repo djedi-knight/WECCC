@@ -1,25 +1,30 @@
 import React from 'react';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { Table } from 'react-toolbox';
+import config from './config.json';
 import style from './style';
-import data from './data.json';
 
 const AlertModel = {
-  CATEGORY: { type: String },
-  SUBCATEGORY: { type: String },
-  OUTCOME: { type: String },
-  NOTES: { type: String },
+  category: { type: String },
+  subCategory: { type: String },
+  outcome: { type: String },
+  notes: { type: String }
 };
 
 export default React.createClass({
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { data };
+    return { config };
   },
   render() {
     return (
       <div className={style.alertSummaryTable}>
-        <Table theme={style} selectable={false} model={AlertModel} source={this.state.data.tableData} />
+        <Table
+          theme={style}
+          selectable={false}
+          model={AlertModel}
+          source={this.state.config.tableData}
+        />
       </div>
     );
   }

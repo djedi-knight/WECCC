@@ -1,11 +1,10 @@
 {
-  "prodAPI": "http://weccc.sartori.ca:8090/api/pages/community-pattern-page",
-  "demoAPI": "http://localhost:8090/api/pages/community-pattern-demo-page",
-  "labelStyle": {
+  "prodAPI": "/api/pages/community-pattern-page",
+  "demoAPI": "/api/pages/community-pattern-demo-page",
+  "pieChartDetails": {
     "labels": {
-      "fill": "white",
-      "fontSize": 9,
-      "padding": 50
+      "fill": "black",
+      "fontSize": 12
     }
   },
   "colourScale": [
@@ -43,7 +42,7 @@
           "equity-gap"
         ]
       }, {
-        "key": "caregiver-burden-subgroup-1",
+        "key": "social-connection-subgroup-1",
         "scoreCards": [
           "community",
           "subgroup",
@@ -66,7 +65,7 @@
           "equity-gap"
         ]
       }, {
-        "key": "caregiver-burden-subgroup-2",
+        "key": "social-connection-subgroup-2",
         "scoreCards": [
           "community",
           "subgroup",

@@ -5,6 +5,7 @@ import { FontIcon } from 'react-toolbox';
 import { Row, Col } from 'react-flexbox-grid';
 import ReactTooltip from 'react-tooltip';
 import config from './config.json';
+import appConfig from '../../../config.json';
 import style from './style';
 
 export const ProgressTracker = React.createClass({
@@ -16,7 +17,7 @@ export const ProgressTracker = React.createClass({
   getInitialState() {
     return { config };
   },
-  getRows() {
+  getData() {
     if (this.props.data) {
       return this.props.data;
     }
@@ -24,26 +25,38 @@ export const ProgressTracker = React.createClass({
     return [];
   },
   getTrend(row) {
+    if (row.trend) {
+      return (
+        <Col xs={2}>
+          <FontIcon value={this.state.config.icons[row.trend]} />
+        </Col>
+      );
+    }
+
     return (
-      <Col xs={2}>
-        <FontIcon value={this.state.config.icons[row.trend]} />
-      </Col>
+      <Col xs={2} />
     );
   },
   getColourCode(row) {
+    if (row.colourCode) {
+      return (
+        <div>
+          <a data-tip data-for={row.colourCode}>
+            <Col xs={2}><FontIcon style={{ color: row.colourCode }} value="lens" /></Col>
+          </a>
+          <ReactTooltip
+            id={row.colourCode} type={this.state.config.tooltips[row.colourCode].type}
+            place="right"
+            effect="float"
+          >
+            {this.state.config.tooltips[row.colourCode].title}
+          </ReactTooltip>
+        </div>
+      );
+    }
+
     return (
-      <div>
-        <a data-tip data-for={row.colourCode}>
-          <Col xs={2}><FontIcon style={{ color: row.colourCode }} value="lens" /></Col>
-        </a>
-        <ReactTooltip
-          id={row.colourCode} type={this.state.config.tooltips[row.colourCode].type}
-          place="right"
-          effect="float"
-        >
-          {this.state.config.tooltips[row.colourCode].title}
-        </ReactTooltip>
-      </div>
+      <Col xs={2} />
     );
   },
   render() {
@@ -54,22 +67,27 @@ export const ProgressTracker = React.createClass({
         </div>
         <div className={style.reportTable}>
           <Row className={style.tableHeader}>
-            {this.state.config.tableHeaders.map((tableHeader, i) =>
-              <Col key={i} xs={2}>{tableHeader}</Col>
+            {this.state.config.tableHeaders.map((tableHeader, x) =>
+              <Col key={x} xs={2}>{tableHeader}</Col>
             )}
           </Row>
-          {this.getRows().map((row, i) =>
-            <div key={i}>
-              <Row className={style.tableRow}>
-                <Col xs={2}>{row.indicator}</Col>
-                <Col xs={2}>{row.goal}</Col>
-                <Col xs={2}>{row.baseline}</Col>
-                <Col xs={2}>{row.change}</Col>
-                {this.getTrend(row)}
-                {this.getColourCode(row)}
-              </Row>
-            </div>
-          )}
+            {this.getData().map((data, x) =>
+              <div key={x}>
+                <Row className={style.tableHeader}>{data.header}</Row>
+                {data.rows.map((row, y) =>
+                  <div key={y}>
+                    <Row className={style.tableRow}>
+                      <Col xs={2}>{row.indicator}</Col>
+                      <Col xs={2}>{row.goal}</Col>
+                      <Col xs={2}>{row.baseline}</Col>
+                      <Col xs={2}>{row.change}</Col>
+                      {this.getTrend(row)}
+                      {this.getColourCode(row)}
+                    </Row>
+                  </div>
+                )}
+              </div>
+            )}
         </div>
       </div>
     );
@@ -82,14 +100,17 @@ export const ProgressTrackerContainer = React.createClass({
   },
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { config };
+    return {
+      appConfig,
+      config
+    };
   },
   getURL() {
     if (this.props.route.demoRoute) {
-      return this.state.config.demoAPI;
+      return this.state.appConfig.servers.dev.concat(this.state.config.demoAPI);
     }
 
-    return this.state.config.prodAPI;
+    return this.state.appConfig.servers.prod.concat(this.state.config.prodAPI);
   },
   render() {
     return (

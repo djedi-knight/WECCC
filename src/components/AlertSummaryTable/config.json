@@ -1,0 +1,27 @@
+{
+  "prodAPI": "",
+  "demoAPI": "",
+  "tableData": [{
+    "category": "Health Outcomes"
+  }, {
+    "subCategory": "Patient Experience",
+    "outcome": "2/10",
+    "notes": "Less than peers"
+  }, {
+    "category": "Areas of Focus",
+    "outcome": " ",
+    "notes": " "
+  }, {
+    "subCategory": "Safety Events",
+    "outcome": "--",
+    "notes": " "
+  }, {
+    "subCategory": "Readmissions",
+    "outcome": "37",
+    "notes": "Trending up"
+  }],
+  "tableRowStyle": {
+    "border": "0.5px solid gray",
+    "backgroundColor": "#e8f8f5"
+  }
+}

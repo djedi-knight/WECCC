@@ -52,3 +52,7 @@ bundle.js.map
 # Custom CSS bundle files #
 ##########################
 bundle.css
+
+# config files #
+################
+/config.json
