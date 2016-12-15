@@ -1,21 +1,21 @@
 {
-  "title":    "RESPONDING TO NEED",
+  "prodAPI": "",
+  "demoAPI": "",
+  "title": "RESPONDING TO NEED",
   "subtitle": "Top 3 Clinical Assessment Protocols [CAPS]",
-  "topics": [
-    {
+  "peerComparisonLink": "Show peer comparison",
+  "listBox": {
+    "topics": [{
       "title":    "Falls"
-    },
-    {
+    }, {
       "title":    "Social Isolation",
       "details":  "yes"
-    },
-    {
+    }, {
       "title":    "Depression",
       "details":  "yes",
       "warning":  "yes"
-    },
-    {
+    }, {
       "title":    "Accidents"
-    }
-  ]
+    }]
+  }
 }
