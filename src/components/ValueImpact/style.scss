@@ -1,18 +1,17 @@
 .valueImpact {
-
   section {
     outline: none !important;
   }
 
-    [class*="row"] {
-      padding: 0 2rem;
-    }
+  [class*="row"] {
+    padding: 0 2rem;
+  }
 
-    input {
-      background: #fff;
-      font-size: 1rem;
-      padding-left: 1rem;
-    }
+  input {
+    background: #fff;
+    font-size: 1rem;
+    padding-left: 1rem;
+  }
 
   .header {
     background: $dark;
@@ -21,11 +20,10 @@
     align-items: center;
     font-size: 2rem;
     color: $light;
-    border-bottom: solid 2px #FEC83E !important;
+    border-bottom: solid 2px #fec83e !important;
     margin-bottom: 2rem;
     padding: 0 2rem;
   }
-
 
   svg {
     max-height: 500px;
@@ -80,12 +78,11 @@
     overflow: hidden;
 
     [class*="theme__pointer"] {
-      background: #FDC74D;
+      background: #fdc74d;
     }
 
     [class*="theme__navigation"] {
       background: $dark;
     }
   }
-
 }

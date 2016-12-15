@@ -1,5 +1,4 @@
 .communityPattern {
-
   [class*="row"] {
     padding: 0 2rem;
   }
@@ -17,14 +16,13 @@
     align-items: center;
     font-size: 2rem;
     color: $light;
-    border-bottom: solid 2px #FEC83E;
+    border-bottom: solid 2px #fec83e;
     margin-bottom: 2rem;
     padding: 0 2rem;
   }
 
   svg {
-    margin-top: -8rem;
-    max-height: 600px;
+    max-height: 500px;
   }
 
   .subHeader {
