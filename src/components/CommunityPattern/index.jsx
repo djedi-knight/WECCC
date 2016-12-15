@@ -4,7 +4,8 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { VictoryPie } from 'victory/dist/victory';
 import { Row, Col } from 'react-flexbox-grid';
 import { Dropdown } from 'react-toolbox';
-import ScoreBoxSimple from '../ScoreBoxSimple';
+import ScoreCard from '../ScoreCard';
+import appConfig from '../../../config.json';
 import config from './config.json';
 import style from './style';
 
@@ -49,7 +50,7 @@ export const CommunityPatternSubgroups = React.createClass({
             <Row className={style.body}>
               {subGroup.scoreCards.map((scoreCard, y) =>
                 <Col key={y} xs={3}>
-                  <ScoreBoxSimple
+                  <ScoreCard
                     title={this.getScoreCardFor(subGroup.key, scoreCard).title}
                     score={this.getScoreCardFor(subGroup.key, scoreCard).score}
                     trend={this.getScoreCardFor(subGroup.key, scoreCard).trend}
@@ -128,11 +129,11 @@ export const CommunityPattern = React.createClass({
               {this.state.config.chartTitle}
             </div>
             <VictoryPie
-              padding={100}
-              labelRadius={50}
+              labelRadius={100}
+              padding={20}
               data={this.getPieChartFor(this.state.currentSelection)}
               colorScale={this.state.config.colourScale}
-              style={this.state.config.labelStyle}
+              style={this.state.config.pieChartStyle}
               events={[{
                 target: 'data',
                 eventHandlers: {
@@ -186,14 +187,17 @@ export const CommunityPatternContainer = React.createClass({
   },
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { config };
+    return {
+      appConfig,
+      config
+    };
   },
   getURL() {
     if (this.props.route.demoRoute) {
-      return this.state.config.demoAPI;
+      return this.state.appConfig.servers.dev.concat(this.state.config.demoAPI);
     }
 
-    return this.state.config.prodAPI;
+    return this.state.appConfig.servers.prod.concat(this.state.config.prodAPI);
   },
   render() {
     return (

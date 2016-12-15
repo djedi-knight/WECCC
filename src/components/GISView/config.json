@@ -1,6 +1,6 @@
 {
-  "prodAPI": "http://weccc.sartori.ca:8090/api/pages/gis-view-page",
-  "demoAPI": "http://localhost:8090/api/pages/gis-view-demo-page",
+  "prodAPI": "/api/pages/gis-view-page",
+  "demoAPI": "/api/pages/gis-view-demo-page",
   "legendTitle": "Legend",
   "colourScale":[
     "#FFEDA0",

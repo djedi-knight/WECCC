@@ -3,7 +3,8 @@ import Fetch from 'react-fetch';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { RadioButton, RadioGroup } from 'react-toolbox';
 import { Row, Col } from 'react-flexbox-grid';
-import ScoreBoxSimple from '../ScoreBoxSimple';
+import ScoreCard from '../ScoreCard';
+import appConfig from '../../../config.json';
 import config from './config.json';
 import style from './style';
 
@@ -50,7 +51,7 @@ export const VitalSignsSubgroup = React.createClass({
         <Row className={style.body}>
           {this.getKeysFor(this.props.subGroup).scoreCards.map((scoreCard, x) =>
             <Col key={x} xs={2}>
-              <ScoreBoxSimple
+              <ScoreCard
                 title={this.getScoreCardFor(this.props.subGroup, scoreCard).title}
                 score={this.getScoreCardFor(this.props.subGroup, scoreCard).score}
                 trend={this.getScoreCardFor(this.props.subGroup, scoreCard).trend}
@@ -93,6 +94,20 @@ export const VitalSigns = React.createClass({
         <div className={style.vitalSignsHeader}>
           {this.props.title}
         </div>
+        <div className={style.subgroup}>
+          <Row className={style.header}>
+            <div className={style.title}>
+              {this.state.config.descriptionTitle}
+            </div>
+          </Row>
+          <Row >
+            <div className={style.descriptionText}>
+              <br />
+              {this.state.config.descriptionText}
+            </div>
+          </Row>
+        </div>
+        <br />
         <RadioGroup value={this.state.selectedSubgroup} onChange={this.handleSelectionChange}>
           {this.state.config.keys.radioButtons.map((radioButton, x) =>
             <RadioButton key={x} label={this.getSubGroupFor(radioButton).title} value={radioButton} />
@@ -123,14 +138,17 @@ export const VitalSignsContainer = React.createClass({
   },
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { config };
+    return {
+      appConfig,
+      config
+    };
   },
   getURL() {
     if (this.props.route.demoRoute) {
-      return this.state.config.demoAPI;
+      return this.state.appConfig.servers.dev.concat(this.state.config.demoAPI);
     }
 
-    return this.state.config.prodAPI;
+    return this.state.appConfig.servers.prod.concat(this.state.config.prodAPI);
   },
   render() {
     return (

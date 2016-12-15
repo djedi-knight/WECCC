@@ -3,8 +3,10 @@ import Fetch from 'react-fetch';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { Tab, Tabs } from 'react-toolbox';
 import { Row, Col } from 'react-flexbox-grid';
-import ScoreBoxSimple from '../ScoreBoxSimple';
+import ScoreCard from '../ScoreCard';
 import RegisteredCaregiversBox from '../RegisteredCaregiversBox';
+import RegisteredNeighboursBox from '../RegisteredNeighboursBox';
+import appConfig from '../../../config.json';
 import config from './config.json';
 import style from './style';
 
@@ -49,7 +51,7 @@ export const PopulationReachSubgroups = React.createClass({
             <Row className={style.body}>
               {subGroup.scoreCards.map((scoreCard, y) =>
                 <Col key={y} xs={3}>
-                  <ScoreBoxSimple
+                  <ScoreCard
                     title={this.getScoreCardFor(subGroup.key, scoreCard).title}
                     score={this.getScoreCardFor(subGroup.key, scoreCard).score}
                     trend={this.getScoreCardFor(subGroup.key, scoreCard).trend}
@@ -126,7 +128,8 @@ export const PopulationReach = React.createClass({
               />
             </Tab>
           </Tabs>
-          <RegisteredCaregiversBox data={this.getInfoBoxFor(this.state.config.keys.registered)} />
+          <RegisteredCaregiversBox data={this.getInfoBoxFor(this.state.config.keys.registeredCaregivers)} />
+          <RegisteredNeighboursBox data={this.getInfoBoxFor(this.state.config.keys.registeredNeighbours)} />
         </div>
       </div>
     );
@@ -139,14 +142,17 @@ export const PopulationReachContainer = React.createClass({
   },
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { config };
+    return {
+      appConfig,
+      config
+    };
   },
   getURL() {
     if (this.props.route.demoRoute) {
-      return this.state.config.demoAPI;
+      return this.state.appConfig.servers.dev.concat(this.state.config.demoAPI);
     }
 
-    return this.state.config.prodAPI;
+    return this.state.appConfig.servers.prod.concat(this.state.config.prodAPI);
   },
   render() {
     return (

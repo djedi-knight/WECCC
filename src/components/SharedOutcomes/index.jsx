@@ -3,8 +3,9 @@ import Fetch from 'react-fetch';
 import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { RadioButton, RadioGroup } from 'react-toolbox';
 import { Row, Col } from 'react-flexbox-grid';
-import ScoreBoxSimple from '../ScoreBoxSimple';
+import ScoreCard from '../ScoreCard';
 import RegisteredCaregiversBox from '../RegisteredCaregiversBox';
+import appConfig from '../../../config.json';
 import config from './config.json';
 import style from './style';
 
@@ -51,7 +52,7 @@ export const SharedOutcomesSubgroup = React.createClass({
         <Row className={style.body}>
           {this.getKeysFor(this.props.subGroup).scoreCards.map((scoreCard, x) =>
             <Col key={x} xs={4}>
-              <ScoreBoxSimple
+              <ScoreCard
                 title={this.getScoreCardFor(this.props.subGroup, scoreCard).title}
                 score={this.getScoreCardFor(this.props.subGroup, scoreCard).score}
               />
@@ -129,14 +130,17 @@ export const SharedOutcomesContainer = React.createClass({
   },
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { config };
+    return {
+      appConfig,
+      config
+    };
   },
   getURL() {
     if (this.props.route.demoRoute) {
-      return this.state.config.demoAPI;
+      return this.state.appConfig.servers.dev.concat(this.state.config.demoAPI);
     }
 
-    return this.state.config.prodAPI;
+    return this.state.appConfig.servers.prod.concat(this.state.config.prodAPI);
   },
   render() {
     return (

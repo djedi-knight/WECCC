@@ -1,33 +1,84 @@
 {
-  "prodAPI": "http://weccc.sartori.ca:8090/api/pages/vital-signs-page",
-  "demoAPI": "http://localhost:8090/api/pages/vital-signs-demo-page",
+  "prodAPI": "/api/pages/vital-signs-page",
+  "demoAPI": "/api/pages/vital-signs-demo-page",
+  "descriptionTitle": "Description Title",
+  "descriptionText": "Vital Signs® is a community check-up conducted by the Windsor-Essex Community Foundation that measures the vitality of our communities and identifies significant trends in a range of areas critical to quality of life.  It supports action towards improving our collective quality of life.  In 2016, Windsor-Essex makes the grade as follows",
   "reportLink": {
     "title": "Vital Signs Report",
     "href": "#"
   },
   "keys": {
     "radioButtons": [
-      "vital-signs-subgroup",
-      "self-reported-subgroup"
+      "windsor-subgroup",
+      "essex-subgroup",
+      "seniors-subgroup",
+      "youth-subgroup"
     ],
-    "subGroups": [{
-      "key": "vital-signs-subgroup",
-      "scoreCards": [
-        "government",
-        "safety",
-        "arts-culture",
-        "transportation",
-        "food-security"
-      ]
-    }, {
-      "key": "self-reported-subgroup",
-      "scoreCards": [
-        "government",
-        "safety",
-        "arts-culture",
-        "transportation",
-        "food-security"
-      ]
-    }]
+    "subGroups": [
+      {
+        "key": "windsor-subgroup",
+        "scoreCards": [
+          "belonging-leadership",
+          "health",
+          "wellness-activity",
+          "housing",
+          "safety",
+          "arts-culture",
+          "environment",
+          "learning",
+          "getting-started",
+          "food-security",
+          "getting-around"
+        ]
+      },
+      {
+        "key": "essex-subgroup",
+        "scoreCards": [
+          "belonging-leadership",
+          "health",
+          "wellness-activity",
+          "housing",
+          "safety",
+          "arts-culture",
+          "environment",
+          "learning",
+          "getting-started",
+          "food-security",
+          "getting-around"
+        ]
+      },
+      {
+        "key": "seniors-subgroup",
+        "scoreCards": [
+          "belonging-leadership",
+          "health",
+          "wellness-activity",
+          "housing",
+          "safety",
+          "arts-culture",
+          "environment",
+          "learning",
+          "getting-started",
+          "food-security",
+          "getting-around"
+        ]
+      },
+      {
+        "key": "youth-subgroup",
+        "scoreCards": [
+          "belonging-leadership",
+          "health",
+          "wellness-activity",
+          "housing",
+          "safety",
+          "arts-culture",
+          "environment",
+          "learning",
+          "getting-started",
+          "food-security",
+          "getting-around"
+        ]
+      }
+    ]
   }
 }

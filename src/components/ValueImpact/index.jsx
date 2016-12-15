@@ -4,9 +4,9 @@ import PureRenderMixin from 'react-addons-pure-render-mixin';
 import { Row, Col } from 'react-flexbox-grid';
 import { Dropdown } from 'react-toolbox';
 import { VictoryPie, VictoryLabel } from 'victory/dist/victory';
-import ScoreBoxSimple from '../ScoreBoxSimple';
-import AreasOfFocusSidebar from '../AreasOfFocusSidebar';
+import ScoreCard from '../ScoreCard';
 import config from './config.json';
+import appConfig from '../../../config.json';
 import style from './style';
 
 export const ValueImpact = React.createClass({
@@ -60,7 +60,7 @@ export const ValueImpact = React.createClass({
           {this.props.title}
         </div>
         <Row>
-          <Col xs={3}>
+          <Col xs={4}>
             <div className={style.subHeader}>
               {this.state.config.selectionTitle}
             </div>
@@ -70,18 +70,23 @@ export const ValueImpact = React.createClass({
               value={this.state.currentSelection}
             />
           </Col>
-          <Col xs={6}>
+          <Col xs={8}>
             <div className={style.subHeader}>
               {this.state.config.chartSectionTitle}
             </div>
             <VictoryPie
-              style={this.state.config.labelStyle}
+              labelRadius={130}
+              padding={10}
               data={this.getPieChartFor(this.state.currentSelection)}
               colorScale={this.state.config.colourScale}
+              style={this.state.config.pieChartStyle}
             >
               <VictoryLabel />
             </VictoryPie>
-
+          </Col>
+        </Row>
+        <Row>
+          <Col xs={12}>
             <div className={style.subgroup}>
               <Row className={style.header}>
                 <div className={style.title}>
@@ -89,23 +94,19 @@ export const ValueImpact = React.createClass({
                 </div>
               </Row>
               <Row className={style.body}>
+                <Col xs={3} />
                 {this.state.config.keys.subGroup.scoreCards.map((scoreCard, x) =>
                   <Col key={x} xs={3}>
-                    <ScoreBoxSimple
+                    <ScoreCard
                       title={this.getScoreCardFor(this.state.config.keys.subGroup.key, scoreCard).title}
                       score={this.getScoreCardFor(this.state.config.keys.subGroup.key, scoreCard).score}
                       trend={this.getScoreCardFor(this.state.config.keys.subGroup.key, scoreCard).trend}
                     />
                   </Col>
                 )}
+                <Col xs={3} />
               </Row>
             </div>
-          </Col>
-          <Col xs={3}>
-            <div className={style.subHeader}>
-              {this.state.config.sidebarTitle}
-            </div>
-            <AreasOfFocusSidebar />
           </Col>
         </Row>
       </div>
@@ -119,14 +120,17 @@ export const ValueImpactContainer = React.createClass({
   },
   mixins: [PureRenderMixin],
   getInitialState() {
-    return { config };
+    return {
+      appConfig,
+      config
+    };
   },
   getURL() {
     if (this.props.route.demoRoute) {
-      return this.state.config.demoAPI;
+      return this.state.appConfig.servers.dev.concat(this.state.config.demoAPI);
     }
 
-    return this.state.config.prodAPI;
+    return this.state.appConfig.servers.prod.concat(this.state.config.prodAPI);
   },
   render() {
     return (

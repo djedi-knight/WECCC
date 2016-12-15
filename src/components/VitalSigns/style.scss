@@ -1,12 +1,12 @@
 .vitalSigns {
-  .vitalSignsHeader { 
+  .vitalSignsHeader {
     background: $dark;
     height: 90px;
     display: flex;
     align-items: center;
     font-size: 2rem;
     color: $light;
-    border-bottom: solid 2px #FEC83E !important;
+    border-bottom: solid 2px #fec83e !important;
     margin-bottom: 2rem;
     padding: 0 2rem;
   }
@@ -31,5 +31,36 @@
 
   [data-react-toolbox="radio-group"] {
     float: left;
+  }
+
+  .subgroup {
+    border: 2px solid #ebe8e8;
+    margin-bottom: 15px;
+    box-shadow: 0 2px 5px 0 rgba(#000, 0.3);
+
+    .header {
+      background: #4980c7;
+      color: #fff;
+      margin: 0;
+
+      .title {
+        font-size: 23px;
+      }
+    }
+
+    .body {
+      background: #e5e0e0;
+      padding: 15px;
+      margin: 0;
+    }
+
+    [class*="flexboxgrid__row"] {
+      &:last-of-type {
+        padding: 2rem;
+        background: #fff;
+        margin: 0 !important;
+        margin-bottom: 1rem !important;
+      }
+    }
   }
 }
