@@ -1,52 +1,5 @@
 {
-  "prodAPI": "http://weccc.sartori.ca:8090/api/pages/vital-signs-page",
-  "demoAPI": "http://localhost:8090/api/pages/vital-signs-demo-page",
-  "title":   "Health Outcomes for this Group",
-  "keys": {    
-    "subGroups": [
-      {
-        "key": "windsor-subgroup",
-        "scoreCards": [
-          "patient experience",
-          "quality of life",
-          "hours of care",
-          "self-reliance"
-        ]
-      }, {
-        "key": "essex-subgroup",
-        "scoreCards": [
-          "patient experience",
-          "quality of life",
-          "hours of care",
-          "self-reliance"
-        ]
-      },
-      {
-        "key": "seniors-subgroup",
-        "scoreCards": [
-          "patient experience",
-          "quality of life",
-          "hours of care",
-          "self-reliance" ]
-      },
-      {
-        "key": "youth-subgroup",
-        "scoreCards": [
-          "patient experience",
-          "quality of life",
-          "hours of care",
-          "self-reliance"
-        ]
-      },
-      {
-        "key": "health-outcomes",
-        "scoreCards": [
-          "patient experience",
-          "quality of life",
-          "hours of care",
-          "self-reliance"
-        ]
-      }
-    ]
-  }
+  "prodAPI": "",
+  "demoAPI": "",
+  "title":   "Health Outcomes for this Group"
 }
