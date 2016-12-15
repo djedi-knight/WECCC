@@ -1,17 +1,26 @@
 {
-  "prodAPI": "http://weccc.sartori.ca:8090/api/pages/vital-signs-page",
-  "demoAPI": "http://localhost:8090/api/pages/vital-signs-demo-page",
-  "title":   "Health Outcomes for this Group",
-  "keys": {    
-    "subGroups": [
-      {
-        "key": "windsor-subgroup",
-        "scoreCards": [
-          "avg. number of CAPs triggered",
-          "active number of patients",
-          "readmissions"
-        ]
-      }
-    ]
-  }
+  "prodAPI": "",
+  "demoAPI": "",
+  "title":   "Areas of Focus",
+  "scoreCards": [{
+    "title":      "AVG. NUMBER OF CAPs TRIGGERED",
+    "score":      "12/21",
+    "peerScore":  "6/21",
+    "warning":    true,
+    "trend":      "down",
+    "showDetails": true
+  }, {
+    "title":      "ACTIVE # OF PATIENTS",
+    "score":      "20",
+    "peerScore":  "18",
+    "trend":      "same",
+    "showDetails": true
+  }, {
+    "title":      "READMISSIONS",
+    "score":      "37",
+    "peerScore":  "43",
+    "warning":    true,
+    "trend":      "up",
+    "showDetails": true
+  }]
 }
