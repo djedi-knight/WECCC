@@ -56,8 +56,10 @@ export const CommunityTapestry = React.createClass({
           <Row>
             <Col xs={12}>
               <div className={style.descriptionText}>
-                <br />
-                {this.state.config.chartDescriptionText}
+                {this.state.config.chartDescription1Text}
+              </div>
+              <div className={style.descriptionText}>
+                {this.state.config.chartDescription2Text}
               </div>
             </Col>
           </Row>

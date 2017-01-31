@@ -109,7 +109,7 @@ export const SharedOutcomes = React.createClass({
             <RadioButton key={x} label={this.getSubGroupFor(radioButton).title} value={radioButton} />
           )}
         </RadioGroup>
-        <RegisteredCaregiversBox data={this.getInfoBoxFor(this.state.config.keys.registered)} />
+        <RegisteredCaregiversBox data={this.getInfoBoxFor(this.state.config.keys[this.state.selectedSubgroup])} />
         {this.state.config.keys.radioButtons.map((radioButton, x) => (
           this.state.selectedSubgroup === radioButton ?
             <SharedOutcomesSubgroup

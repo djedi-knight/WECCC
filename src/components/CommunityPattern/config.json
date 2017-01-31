@@ -17,21 +17,19 @@
     "#F6A57F",
     "#FF0000"
   ],
-  "chartTitle": "Chart Title",
+  "chartTitle": "Type of Care",
   "selectionTitle": "Population Subgroup",
-  "sidebarTitle": "Sidebar Title",
   "chartDetails": {
-      "title": "Pie Chart Details",
+      "title": "Detailed Breakdown",
       "headers": [
-        "Indicator",
-        "General",
-        "Subgroup"
+        "Care Provider",
+        "Percentage"
       ]
   },
   "keys": {
     "selections": [
-      { "value": "community-pattern-pie-chart-1", "label": "Selection #1" },
-      { "value": "community-pattern-pie-chart-2", "label": "Selection #2" }
+      { "value": "community-pattern-pie-chart-1", "label": "Seniors" },
+      { "value": "community-pattern-pie-chart-2", "label": "Disabled" }
     ],
     "subGroups": [[
       {
@@ -42,7 +40,7 @@
           "equity-gap"
         ]
       }, {
-        "key": "social-connection-subgroup-1",
+        "key": "caregiver-burden-subgroup-1",
         "scoreCards": [
           "community",
           "subgroup",
@@ -65,7 +63,7 @@
           "equity-gap"
         ]
       }, {
-        "key": "social-connection-subgroup-2",
+        "key": "caregiver-burden-subgroup-2",
         "scoreCards": [
           "community",
           "subgroup",

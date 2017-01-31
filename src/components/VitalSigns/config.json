@@ -1,7 +1,6 @@
 {
   "prodAPI": "/api/pages/vital-signs-page",
   "demoAPI": "/api/pages/vital-signs-demo-page",
-  "descriptionTitle": "Description Title",
   "descriptionText": "Vital Signs® is a community check-up conducted by the Windsor-Essex Community Foundation that measures the vitality of our communities and identifies significant trends in a range of areas critical to quality of life.  It supports action towards improving our collective quality of life.  In 2016, Windsor-Essex makes the grade as follows",
   "reportLink": {
     "title": "Vital Signs Report",
