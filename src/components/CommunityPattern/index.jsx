@@ -155,15 +155,15 @@ export const CommunityPattern = React.createClass({
               <div className={style.reportTable}>
                 <Row className={style.tableHeader}>
                   {this.state.config.chartDetails.headers.map((header, x) =>
-                    <Col key={x} xs={4}>{header}</Col>
+                    <Col key={x} xs={6}>{header}</Col>
                   )}
                 </Row>
                 <div>
                   {this.getPieChartDetailsFor(this.state.currentSelection).map((row, x) =>
                     <Row key={x} className={style.tableRow}>
-                      <Col xs={4}>{row.indicator}</Col>
+                      <Col xs={6}>{row.indicator}</Col>
                       {row.values.map((value, y) =>
-                        <Col key={y} xs={4}>{value}</Col>
+                        <Col key={y} xs={6}>{value}</Col>
                       )}
                     </Row>
                   )}

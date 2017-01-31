@@ -1,9 +1,8 @@
 {
   "prodAPI": "/api/pages/value-impact-page",
   "demoAPI": "/api/pages/value-impact-demo-page",
-  "chartSectionTitle": "Chart Title",
+  "chartSectionTitle": "Type of Care",
   "selectionTitle": "Population Subgroup",
-  "sidebarTitle": "Sidebar Title",
   "pieChartStyle": {
     "labels": {
       "fill": "black",
@@ -22,8 +21,8 @@
   ],
   "keys": {
     "selections": [
-      { "value": "value-impact-pie-chart-1", "label": "Selection #1" },
-      { "value": "value-impact-pie-chart-2", "label": "Selection #2" }
+      { "value": "value-impact-pie-chart-1", "label": "Seniors" },
+      { "value": "value-impact-pie-chart-2", "label": "Disabled" }
     ],
     "subGroup": {
       "key": "return-on-investment",

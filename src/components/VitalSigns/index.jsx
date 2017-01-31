@@ -95,11 +95,6 @@ export const VitalSigns = React.createClass({
           {this.props.title}
         </div>
         <div className={style.subgroup}>
-          <Row className={style.header}>
-            <div className={style.title}>
-              {this.state.config.descriptionTitle}
-            </div>
-          </Row>
           <Row >
             <div className={style.descriptionText}>
               <br />

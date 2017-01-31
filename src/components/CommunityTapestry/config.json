@@ -18,13 +18,14 @@
     "#FF0000",
     "#F4B942"
   ],
-  "chartDescriptionText": "A tapestry weaves threads and colours together to create an intricate and unique design.   Community Tapestry intertwines people, technology, families, friends, neighbours, paid help, and publicly funded services to build and sustain community quality of life and protect our most vulnerable. For the populations we serve, our Community Tapestry of time, effort, resources, and the relative balance of types of care, determines both our quality of life and the value of care in this community.",
-  "chartDescriptionTitle": "Chart Description Title",
+  "chartDescription1Text": "This chart shows the level, type and frequency of care that people who are part of the Compassion Care Community now receive in the community and at home.  The hours and type of care that each person receives now and expects to receive over the next year is shown at a population level and displayed as a daily average (based on a 16 hour day - waking hours only).",
+  "chartDescription2Text": "A tapestry weaves threads and colours together to create an intricate and unique design.   Community Tapestry intertwines people, technology, families, friends, neighbours, paid help, and publicly funded services to build and sustain community quality of life and protect our most vulnerable. For the populations we serve, our Community Tapestry of time, effort, resources, and the relative balance of types of care, determines both our quality of life and the value of care in this community.",
+  "chartDescriptionTitle": "Hours and Type of Care",
   "chartDetails": {
-      "title": "Pie Chart Details",
+      "title": "Detailed Breakdown",
       "headers": [
-        "Indicator",
-        "Header #1"
+        "Care Provider",
+        "Percentage"
       ]
   },
   "keys": {

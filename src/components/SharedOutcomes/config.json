@@ -2,7 +2,9 @@
   "prodAPI": "/api/pages/shared-outcomes-page",
   "demoAPI": "/api/pages/shared-outcomes-demo-page",
   "keys": {
-    "registered": "registered-caregivers",
+    "people-subgroup": "people-registered",
+    "care-partners-subgroup": "care-partners-registered",
+    "neighbours-subgroup": "neighbours-registered",
     "radioButtons": [
       "people-subgroup",
       "care-partners-subgroup",
